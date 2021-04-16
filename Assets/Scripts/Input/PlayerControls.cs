@@ -132,7 +132,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""WASD"",
                     ""id"": ""6b496679-380f-46e7-bde9-fe7e9ba67d43"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -254,11 +254,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""87d8264f-7e2f-4863-8915-effa96a74d88"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM;Xbox"",
+                    ""action"": ""Quick Psynergy #1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b64b9672-5e9a-4e0a-a087-224dc202b72e"",
                     ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
+                    ""action"": ""Quick Psynergy #2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4da50c2-537a-4ee1-b3db-7b245885e0f2"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Quick Psynergy #2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -287,6 +309,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""385385f2-fded-44bb-a115-f4fb674f2a87"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Open General Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e5d60b6f-62bd-4123-a63f-f28f504b2bfa"",
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
@@ -298,11 +331,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ea762568-a2b7-43d0-b4a7-51c8e1dfb957"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""80ef741d-dacf-413a-8f46-940f228d09ca"",
                     ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
+                    ""action"": ""Start Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b59389a2-1887-4c96-9bc1-59bc63a40328"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
                     ""action"": ""Start Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -892,7 +947,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             ""name"": ""KBM"",
             ""bindingGroup"": ""KBM"",
-            ""devices"": []
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");

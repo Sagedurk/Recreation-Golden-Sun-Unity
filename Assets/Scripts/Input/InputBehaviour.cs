@@ -51,11 +51,11 @@ public class InputBehaviour : MonoBehaviour
     public void Move(InputAction.CallbackContext ctx)
     {
         movementVector = ctx.ReadValue<Vector2>();
+        Debug.Log(movementVector);
         if (movementVector == Vector2.zero)
         {
             return;
         }
-        Debug.Log(movementVector);
         float rotationDegrees = (Mathf.Atan2(movementVector.x, movementVector.y) / 3.142f);
         this.transform.eulerAngles = new Vector3(0, rotationDegrees * 180, 0);
     }
@@ -93,6 +93,6 @@ public class InputBehaviour : MonoBehaviour
     private void Update()
     {
         if(movementVector != Vector2.zero)
-            this.transform.position += this.transform.forward * movementSpeed * Time.deltaTime;        
+            transform.position += transform.forward * movementSpeed * Time.deltaTime;        
     }
 }

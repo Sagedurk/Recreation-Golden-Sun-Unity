@@ -298,17 +298,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5701a4c0-7c3b-45c3-9377-49c41f07bca8"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Open General Menu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""385385f2-fded-44bb-a115-f4fb674f2a87"",
                     ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",

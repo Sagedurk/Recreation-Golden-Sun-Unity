@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InputBehaviour : MonoBehaviour
 {
     public GameObject inGameMenu;
+    public PlayerInteraction interactionManager;
 
     Vector2 movementVector;
     float movementSpeed = 10.0f;
@@ -50,8 +51,7 @@ public class InputBehaviour : MonoBehaviour
 
     public void Move(InputAction.CallbackContext ctx)
     {
-        movementVector = ctx.ReadValue<Vector2>();
-        Debug.Log(movementVector);
+        movementVector = ctx.ReadValue<Vector2>(); 
         if (movementVector == Vector2.zero)
         {
             return;
@@ -88,6 +88,31 @@ public class InputBehaviour : MonoBehaviour
         {
             movementSpeed = 10.0f;
         }
+    }
+
+    public void Interact(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            Interactable interactable = interactionManager.CheckInteraction();
+
+            if (interactable != null)
+                interactable.Interact();
+            else
+                OpenInGameMenu();
+
+        }
+        else if (ctx.canceled)
+        {
+           
+        }
+    }
+
+    
+    void OpenInGameMenu()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap("Testing");
+        inGameMenu.SetActive(true);
     }
 
     private void Update()

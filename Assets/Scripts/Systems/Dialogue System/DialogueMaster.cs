@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class DialogueMaster : MonoBehaviour
 {
 
+    
     Text textToShow;
 
+
     [System.Serializable]
-    public struct DialogueInstance{
+    public class DialogueInstance{
 
         //dialogue box
-        public DialogueBox dialogue;
+        public DialogueBox dialogueBox;
         
         //portrait
         public CharacterPortrait portrait;
@@ -97,7 +99,7 @@ public class DialogueMaster : MonoBehaviour
         {
             DialogueInstance currentInstance = instanceList[i];
 
-            Debug.Log(currentInstance.dialogue.dialogueText.dialogueString);
+            Debug.Log(currentInstance.dialogueBox.dialogueText.dialogueString);
         }
     }
 

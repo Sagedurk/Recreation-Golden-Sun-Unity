@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 [CustomEditor(typeof(Interactable))]
 public class InteractableEditor : Editor 
@@ -26,7 +27,26 @@ public class InteractableEditor : Editor
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("listOfDialogueBoxes"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("eventDialogue"));
 
+                List<DialogueMaster.DialogueInstance> dialogueInstanceList = interactable.listOfDialogueBoxes;
+
+
+
+                for (int i = 0; i < interactable.listOfDialogueBoxes.Count; i++)
+                {
+                    DialogueMaster.DialogueInstance dialogueInstance = interactable.listOfDialogueBoxes[i];
+
+
+                    if (dialogueInstance.dialogueChoice == DialogueMaster.dialogueChoices.ACTIVE)
+                    {
+
+                    }
+
+                }
+
+
                     serializedObject.ApplyModifiedProperties();
+
+
                     break;
 
                 case Interactable.InteractionType.CHEST:

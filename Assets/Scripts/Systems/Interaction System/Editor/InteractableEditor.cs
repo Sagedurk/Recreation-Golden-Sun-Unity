@@ -5,7 +5,6 @@ using System.Collections.Generic;
 [CustomEditor(typeof(Interactable))]
 public class InteractableEditor : Editor 
 {
-
     public override void OnInspectorGUI()
     {
         //base.OnInspectorGUI();
@@ -24,26 +23,40 @@ public class InteractableEditor : Editor
             switch (interactable.interactionType)
             {
                 case Interactable.InteractionType.DIALOGUE:
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("listOfDialogueBoxes"));
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("eventDialogue"));
 
-                List<DialogueMaster.DialogueInstance> dialogueInstanceList = interactable.listOfDialogueBoxes;
+                    SerializedProperty dialogueList = serializedObject.FindProperty("listOfDialogueBoxes");
 
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("List Of Dialogue Boxes", GUILayout.MinWidth(150));
+                    int listCount = EditorGUILayout.IntField(interactable.listOfDialogueBoxes.Count, GUILayout.Width(50));
+                    EditorGUILayout.EndHorizontal();
 
-
-                for (int i = 0; i < interactable.listOfDialogueBoxes.Count; i++)
-                {
-                    DialogueMaster.DialogueInstance dialogueInstance = interactable.listOfDialogueBoxes[i];
-
-
-                    if (dialogueInstance.dialogueChoice == DialogueMaster.dialogueChoices.ACTIVE)
+                    for (int i = 0; i < interactable.listOfDialogueBoxes.Count; i++)
                     {
+                        SerializedProperty dialogueInstance = dialogueList.GetArrayElementAtIndex(i);
+                        
+                        //Create Property Drawer and add dialogueInstance variables inside
+                        
+                        EditorGUILayout.PropertyField(dialogueInstance);
 
                     }
 
+                EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button("Add"))
+                {
+                    interactable.listOfDialogueBoxes.Add(new DialogueMaster.DialogueInstance());
                 }
+                if (GUILayout.Button("Remove"))
+                {
+                    //Remove Last Element
+                    interactable.listOfDialogueBoxes.RemoveAt(interactable.listOfDialogueBoxes.Count - 1);
+                }
+                EditorGUILayout.EndHorizontal();
 
 
+                EditorGUILayout.Space();
+                    EditorGUILayout.Space();
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("eventDialogue"));
                     serializedObject.ApplyModifiedProperties();
 
 

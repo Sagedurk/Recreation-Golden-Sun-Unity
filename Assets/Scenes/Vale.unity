@@ -2245,7 +2245,6 @@ GameObject:
   - component: {fileID: 1738471181}
   - component: {fileID: 1738471180}
   - component: {fileID: 1738471185}
-  - component: {fileID: 1738471186}
   m_Layer: 0
   m_Name: Inter #1
   m_TagString: Untagged
@@ -2267,31 +2266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableTest: Interacting with Inter #1
   listOfDialogueBoxes:
-  - dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
-      dialogueText:
-        dialogueString: 
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
-    portrait:
-      portraitImage: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
-    dialogueChoice: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
@@ -2485,44 +2459,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1738471186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738471179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea95d80b7b066a6419b344ab5bc913b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueInstance:
-    dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
-      dialogueText:
-        dialogueString: 
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
-    portrait:
-      portraitImage: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
-    dialogueChoice: 0
 --- !u!224 &2064513525 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3200013986122597199, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
@@ -2691,6 +2627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea95d80b7b066a6419b344ab5bc913b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueInt: 0
   dialogueInstance:
     dialogueBox:
       boxPosition: {x: 0, y: 0}

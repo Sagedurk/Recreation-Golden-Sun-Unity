@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276889, g: 0.21589258, b: 0.29782584, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2052,36 +2052,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableTest: Chest has already been opened
   listOfDialogueBoxes:
-  - dialogue:
+  - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: IT'S TIME TO D-D-D-D-D-D-D-D-DUEL
-        dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+        dialogueString: 
+        dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 14
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
+        dialogueFontSize: 0
+        dialogueLineSpacing: 0
+        dialogueRichText: 0
         dialogueAlignment: 0
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
         dialogueBestFit: 0
-        dialogueColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
         dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
+        dialogueRaycastTarget: 0
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
+        dialogueMaskable: 0
     portrait:
       portraitImage: {fileID: 0}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 0
-  - dialogue:
+  - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: BELIEVE IN THE HEART OF THE CARDS!
+        dialogueString: 
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 0
@@ -2225,7 +2225,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
   m_PrefabInstance: {fileID: 3897456527495582822}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3897456527495582823}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f10fb4a9e0bed7499489b10cf1c47f7, type: 3}
@@ -2245,6 +2245,7 @@ GameObject:
   - component: {fileID: 1738471181}
   - component: {fileID: 1738471180}
   - component: {fileID: 1738471185}
+  - component: {fileID: 1738471186}
   m_Layer: 0
   m_Name: Inter #1
   m_TagString: Untagged
@@ -2266,36 +2267,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableTest: Interacting with Inter #1
   listOfDialogueBoxes:
-  - dialogue:
+  - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: I've got a jar of dirt
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 14
-        dialogueLineSpacing: 1
-        dialogueRichText: 0
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
-    portrait:
-      portraitImage: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
-    dialogueChoice: 0
-  - dialogue:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
-      dialogueText:
-        dialogueString: You shall not pass!
+        dialogueString: 
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 0
@@ -2316,11 +2292,61 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 0
-  - dialogue:
+  - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: DiD yOu pUt yOuR nAMe iNto tHE gOblEt Of fIrE hARry?
+        dialogueString: 
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 0
+        dialogueLineSpacing: 0
+        dialogueRichText: 0
+        dialogueAlignment: 0
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 0
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 0
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialogueChoice: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 0
+        dialogueLineSpacing: 0
+        dialogueRichText: 0
+        dialogueAlignment: 0
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 0
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 0
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialogueChoice: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 0
@@ -2459,6 +2485,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1738471186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738471179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea95d80b7b066a6419b344ab5bc913b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueInstance:
+    dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 0
+        dialogueLineSpacing: 0
+        dialogueRichText: 0
+        dialogueAlignment: 0
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 0
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 0
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialogueChoice: 0
 --- !u!224 &2064513525 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3200013986122597199, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
@@ -2556,6 +2620,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+      propertyPath: testDialogue.dialogueChoice
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3897456525924597587, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2606,3 +2674,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+--- !u!1 &3897456527495582823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3897456525924597589, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+  m_PrefabInstance: {fileID: 3897456527495582822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3897456527495582824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897456527495582823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea95d80b7b066a6419b344ab5bc913b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueInstance:
+    dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 0
+        dialogueLineSpacing: 0
+        dialogueRichText: 0
+        dialogueAlignment: 0
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 0
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 0
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialogueChoice: 0

@@ -21,7 +21,27 @@ public class DialogueMaster : MonoBehaviour
 
         //dialogue options
         public dialogueChoices dialogueChoice;
+
+        public List<choice> subInstances = new List<choice>();
     }
+
+    [System.Serializable]
+    public class choice
+    {
+        public List<SubInstance> dialogueChoiceSubInstances = new List<SubInstance>();
+    }
+
+    [System.Serializable]
+    public struct SubInstance
+    {
+        //dialogue box
+        public DialogueBox dialogueBox;
+
+        //portrait
+        public CharacterPortrait portrait;
+    }
+
+
 
     [System.Serializable]
     public struct DialogueBox

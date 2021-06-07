@@ -46,10 +46,21 @@ public class InteractableEditor : Editor
                         SerializedProperty dialogueBox = dialogueInstance.FindPropertyRelative("dialogueBox");    
                         SerializedProperty portrait = dialogueInstance.FindPropertyRelative("portrait");
                         SerializedProperty dialogueChoice = dialogueInstance.FindPropertyRelative("dialogueChoice");
+                        SerializedProperty dialogueSubInstance = dialogueInstance.FindPropertyRelative("subInstances");
 
-                    
-                    listFoldouts[i] = EditorGUILayout.Foldout(listFoldouts[i], "Element" + i.ToString());
+
+
+
+                        List<DialogueMaster.choice> listOfSubInstances = interactable.listOfDialogueBoxes[i].subInstances;
+
+
+
+
+                        listFoldouts[i] = EditorGUILayout.Foldout(listFoldouts[i], "Element" + i.ToString());
                        
+
+
+                    //If instance is shown 
                         if(listFoldouts[i])
                         {
                             EditorGUI.indentLevel = 1;
@@ -59,9 +70,16 @@ public class InteractableEditor : Editor
 
                             if (dialogueChoice.enumValueIndex == (int)DialogueMaster.dialogueChoices.ACTIVE)
                             {
-                                //add code here for showing dialogue option list
 
-                                
+                                EditorGUILayout.PropertyField(dialogueSubInstance);
+                            //add code here for showing dialogue option list
+                                for (int j = 0; j < listOfSubInstances.Count; j++)
+                                {
+                                    
+
+                                }
+                                    
+
                                 Debug.Log("DIALOGUE CHOICE #" + i.ToString() + " IS ACTIVE!");
                             }
                             

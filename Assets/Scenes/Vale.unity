@@ -2077,7 +2077,8 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 0
-    subInstances: []
+    listOfOptionNames: []
+    listOfOptions: []
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
@@ -2103,7 +2104,8 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 0
-    subInstances: []
+    listOfOptionNames: []
+    listOfOptions: []
   eventDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -2293,7 +2295,10 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 1
-    subInstances:
+    listOfOptionNames:
+    - Yes
+    - No
+    listOfOptions:
     - dialogueChoiceSubInstances:
       - dialogueBox:
           boxPosition: {x: 0, y: 0}
@@ -2343,55 +2348,34 @@ MonoBehaviour:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
           isPortraitShown: 0
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: 
-            dialogueFont: {fileID: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
-            dialogueAlignment: 0
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
-        portrait:
-          portraitImage: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: 
-            dialogueFont: {fileID: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
-            dialogueAlignment: 0
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
-        portrait:
-          portraitImage: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
+    - dialogueChoiceSubInstances: []
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 0
+        dialogueLineSpacing: 0
+        dialogueRichText: 0
+        dialogueAlignment: 0
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 0
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 0
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialogueChoice: 1
+    listOfOptionNames: []
+    listOfOptions: []
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
@@ -2417,33 +2401,8 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 0
-    subInstances: []
-  - dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
-      dialogueText:
-        dialogueString: 
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
-    portrait:
-      portraitImage: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
-    dialogueChoice: 0
-    subInstances: []
+    listOfOptionNames: []
+    listOfOptions: []
   eventDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -2757,4 +2716,5 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
     dialogueChoice: 0
-    subInstances: []
+    listOfOptionNames: []
+    listOfOptions: []

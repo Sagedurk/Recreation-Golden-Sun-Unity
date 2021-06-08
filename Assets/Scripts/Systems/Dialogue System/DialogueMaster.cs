@@ -22,7 +22,8 @@ public class DialogueMaster : MonoBehaviour
         //dialogue options
         public dialogueChoices dialogueChoice;
 
-        public List<choice> subInstances = new List<choice>();
+        public List<string> listOfOptionNames = new List<string>();
+        public List<choice> listOfOptions = new List<choice>();
     }
 
     [System.Serializable]

@@ -7,6 +7,8 @@ public class InteractableEditor : Editor
 {
 
     List<bool> listFoldouts = new List<bool>();
+    List<int> selectedOption = new List<int>();
+
 
     public override void OnInspectorGUI()
     {
@@ -40,27 +42,33 @@ public class InteractableEditor : Editor
                         {
                             listFoldouts.Add(false);
                         }
+                        while(selectedOption.Count < i + 1)
+                        {
+                        selectedOption.Add(0);
+                        }
+
 
                         SerializedProperty dialogueInstance = dialogueList.GetArrayElementAtIndex(i);
 
                         SerializedProperty dialogueBox = dialogueInstance.FindPropertyRelative("dialogueBox");    
                         SerializedProperty portrait = dialogueInstance.FindPropertyRelative("portrait");
                         SerializedProperty dialogueChoice = dialogueInstance.FindPropertyRelative("dialogueChoice");
-                        SerializedProperty dialogueSubInstance = dialogueInstance.FindPropertyRelative("subInstances");
+                        SerializedProperty dialogueOptionList = dialogueInstance.FindPropertyRelative("listOfOptions");
+                        SerializedProperty dialogueOptionNames = dialogueInstance.FindPropertyRelative("listOfOptionNames");
+
+
+
+                        List<string> listOfOptionNames = interactable.listOfDialogueBoxes[i].listOfOptionNames;
+                        List<DialogueMaster.choice> listOfOptions = interactable.listOfDialogueBoxes[i].listOfOptions;
 
 
 
 
-                        List<DialogueMaster.choice> listOfSubInstances = interactable.listOfDialogueBoxes[i].subInstances;
-
-
-
-
-                        listFoldouts[i] = EditorGUILayout.Foldout(listFoldouts[i], "Element" + i.ToString());
+                        listFoldouts[i] = EditorGUILayout.Foldout(listFoldouts[i], "Dialogue #" + (i + 1).ToString());
                        
 
 
-                    //If instance is shown 
+                        //If instance is shown 
                         if(listFoldouts[i])
                         {
                             EditorGUI.indentLevel = 1;
@@ -70,17 +78,29 @@ public class InteractableEditor : Editor
 
                             if (dialogueChoice.enumValueIndex == (int)DialogueMaster.dialogueChoices.ACTIVE)
                             {
+                                EditorGUI.indentLevel = 2;
+                                EditorGUILayout.PropertyField(dialogueOptionNames);
 
-                                EditorGUILayout.PropertyField(dialogueSubInstance);
-                            //add code here for showing dialogue option list
-                                for (int j = 0; j < listOfSubInstances.Count; j++)
+                                EditorGUILayout.PropertyField(dialogueOptionList);  //This is temporary, remove when debugging is done
+
+
+                                if(listOfOptionNames.Count > 0)
                                 {
-                                    
+                                    GUIContent[] contents = new GUIContent[listOfOptionNames.Count];
+                                    for (int j = 0; j < contents.Length; j++)
+                                    {
+                                        contents[j] = new GUIContent();
+                                        contents[j].text = listOfOptionNames[j];
+                                    }
+
+                                    selectedOption[i] = EditorGUILayout.Popup(selectedOption[i], contents);
+
+                                //Evolve This 
+                                    SerializedProperty subInstances = dialogueOptionList.GetArrayElementAtIndex(selectedOption[i]);
+                                    EditorGUILayout.PropertyField(subInstances);
+
 
                                 }
-                                    
-
-                                Debug.Log("DIALOGUE CHOICE #" + i.ToString() + " IS ACTIVE!");
                             }
                             
                             EditorGUI.indentLevel = 0;

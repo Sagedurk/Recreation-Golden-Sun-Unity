@@ -78,10 +78,10 @@ public class InteractableEditor : Editor
 
                             if (dialogueChoice.enumValueIndex == (int)DialogueMaster.dialogueChoices.ACTIVE)
                             {
-                                EditorGUI.indentLevel = 2;
-                                EditorGUILayout.PropertyField(dialogueOptionNames);
+                                EditorGUI.indentLevel = 3;
+                                EditorGUILayout.PropertyField(dialogueOptionNames); //Make an option with images
 
-                                EditorGUILayout.PropertyField(dialogueOptionList);  //This is temporary, remove when debugging is done
+                                //EditorGUILayout.PropertyField(dialogueOptionList);  //This is temporary, remove when debugging is done
 
 
                                 if(listOfOptionNames.Count > 0)
@@ -95,9 +95,21 @@ public class InteractableEditor : Editor
 
                                     selectedOption[i] = EditorGUILayout.Popup(selectedOption[i], contents);
 
-                                //Evolve This 
                                     SerializedProperty subInstances = dialogueOptionList.GetArrayElementAtIndex(selectedOption[i]);
-                                    EditorGUILayout.PropertyField(subInstances);
+                                    SerializedProperty subInstanceList = subInstances.FindPropertyRelative("dialogueChoiceSubInstances");
+
+                                    for (int j = 0; j < listOfOptions[selectedOption[i]].dialogueChoiceSubInstances.Count; j++)
+                                    {
+                                        
+                                        //Evolve This 
+
+                                        SerializedProperty subInstance = subInstanceList.GetArrayElementAtIndex(j);
+                                        SerializedProperty subBox = subInstance.FindPropertyRelative("dialogueBox");
+                                        SerializedProperty subPortrait = subInstance.FindPropertyRelative("portrait");
+                                        
+                                        EditorGUILayout.PropertyField(subBox);
+                                        EditorGUILayout.PropertyField(subPortrait);
+                                    }
 
 
                                 }

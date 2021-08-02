@@ -1647,7 +1647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1408993231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2079,6 +2079,7 @@ MonoBehaviour:
     dialogueChoice: 0
     listOfOptionNames: []
     listOfOptions: []
+    optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
@@ -2106,6 +2107,7 @@ MonoBehaviour:
     dialogueChoice: 0
     listOfOptionNames: []
     listOfOptions: []
+    optionListIndex: 0
   eventDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -2274,7 +2276,7 @@ MonoBehaviour:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: 
+        dialogueString: This is dialogue for debugging the dialogue system
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 0
@@ -2304,7 +2306,7 @@ MonoBehaviour:
           boxPosition: {x: 0, y: 0}
           boxSize: {x: 0, y: 0}
           dialogueText:
-            dialogueString: 
+            dialogueString: 1st sub-dialogue
             dialogueFont: {fileID: 0}
             dialogueFontStyle: 0
             dialogueFontSize: 0
@@ -2328,7 +2330,7 @@ MonoBehaviour:
           boxPosition: {x: 0, y: 0}
           boxSize: {x: 0, y: 0}
           dialogueText:
-            dialogueString: 
+            dialogueString: The other sub-dialogue
             dialogueFont: {fileID: 0}
             dialogueFontStyle: 0
             dialogueFontSize: 0
@@ -2348,12 +2350,86 @@ MonoBehaviour:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
           isPortraitShown: 0
-    - dialogueChoiceSubInstances: []
+    - dialogueChoiceSubInstances:
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: This should loop back to the master when this sub is
+              done.
+            dialogueFont: {fileID: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 0
+            dialogueLineSpacing: 0
+            dialogueRichText: 0
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 0
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 0
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: Second instance of no.
+            dialogueFont: {fileID: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 0
+            dialogueLineSpacing: 0
+            dialogueRichText: 0
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 0
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 0
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: Loop happens after this one
+            dialogueFont: {fileID: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 0
+            dialogueLineSpacing: 0
+            dialogueRichText: 0
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 0
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 0
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+    optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: 
+        dialogueString: The second debugging dialogue
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 0
@@ -2373,14 +2449,17 @@ MonoBehaviour:
       portraitImage: {fileID: 0}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 0
-    dialogueChoice: 1
-    listOfOptionNames: []
+    dialogueChoice: 0
+    listOfOptionNames:
+    - Yes
+    - No
     listOfOptions: []
+    optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: 
+        dialogueString: The 3rd main debugging dialogue
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 0
@@ -2403,6 +2482,7 @@ MonoBehaviour:
     dialogueChoice: 0
     listOfOptionNames: []
     listOfOptions: []
+    optionListIndex: 0
   eventDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -2718,3 +2798,4 @@ MonoBehaviour:
     dialogueChoice: 0
     listOfOptionNames: []
     listOfOptions: []
+    optionListIndex: 0

@@ -24,6 +24,7 @@ public class DialogueMaster : MonoBehaviour
 
         public List<string> listOfOptionNames = new List<string>();
         public List<choice> listOfOptions = new List<choice>();
+        public int optionListIndex = 0; 
     }
 
     [System.Serializable]
@@ -121,6 +122,21 @@ public class DialogueMaster : MonoBehaviour
             DialogueInstance currentInstance = instanceList[i];
 
             Debug.Log(currentInstance.dialogueBox.dialogueText.dialogueString);
+
+
+            if(currentInstance.dialogueChoice == dialogueChoices.ACTIVE)
+            {
+                for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
+                {
+                    Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k].dialogueBox.dialogueText.dialogueString);
+                }
+
+
+                //if yes, just keep going
+                //if no, check if there's any sub-branches, otherwise loop until yes is pressed
+
+            }
+
         }
     }
 

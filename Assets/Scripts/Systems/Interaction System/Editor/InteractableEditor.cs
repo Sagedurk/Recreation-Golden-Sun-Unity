@@ -44,7 +44,7 @@ public class InteractableEditor : Editor
                         }
                         while(selectedOption.Count < i + 1)
                         {
-                        selectedOption.Add(0);
+                            selectedOption.Add(0);
                         }
 
 
@@ -55,6 +55,7 @@ public class InteractableEditor : Editor
                         SerializedProperty dialogueChoice = dialogueInstance.FindPropertyRelative("dialogueChoice");
                         SerializedProperty dialogueOptionList = dialogueInstance.FindPropertyRelative("listOfOptions");
                         SerializedProperty dialogueOptionNames = dialogueInstance.FindPropertyRelative("listOfOptionNames");
+                        SerializedProperty dialogueOptionIndex = dialogueInstance.FindPropertyRelative("optionListIndex");
 
 
 
@@ -81,7 +82,7 @@ public class InteractableEditor : Editor
                                 EditorGUI.indentLevel = 3;
                                 EditorGUILayout.PropertyField(dialogueOptionNames); //Make an option with images
 
-                                //EditorGUILayout.PropertyField(dialogueOptionList);  //This is temporary, remove when debugging is done
+                                EditorGUILayout.PropertyField(dialogueOptionList);  //Make this into a custom ListOfOptions drawer??
 
 
                                 if(listOfOptionNames.Count > 0)
@@ -95,6 +96,9 @@ public class InteractableEditor : Editor
 
                                     selectedOption[i] = EditorGUILayout.Popup(selectedOption[i], contents);
 
+                                    dialogueOptionIndex.intValue = selectedOption[i];
+                                    serializedObject.ApplyModifiedProperties();
+                                    
                                     SerializedProperty subInstances = dialogueOptionList.GetArrayElementAtIndex(selectedOption[i]);
                                     SerializedProperty subInstanceList = subInstances.FindPropertyRelative("dialogueChoiceSubInstances");
 

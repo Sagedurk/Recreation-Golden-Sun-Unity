@@ -2350,6 +2350,7 @@ MonoBehaviour:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
           isPortraitShown: 0
+      isLoopingLastSubInstance: 0
     - dialogueChoiceSubInstances:
       - dialogueBox:
           boxPosition: {x: 0, y: 0}
@@ -2424,6 +2425,7 @@ MonoBehaviour:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
           isPortraitShown: 0
+      isLoopingLastSubInstance: 0
     optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}

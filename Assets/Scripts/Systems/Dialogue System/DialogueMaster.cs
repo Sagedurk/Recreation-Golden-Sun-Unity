@@ -8,7 +8,7 @@ public class DialogueMaster : MonoBehaviour
 
     
     Text textToShow;
-
+    int lastSubIndex;
 
     [System.Serializable]
     public class DialogueInstance{
@@ -31,6 +31,8 @@ public class DialogueMaster : MonoBehaviour
     public class choice
     {
         public List<SubInstance> dialogueChoiceSubInstances = new List<SubInstance>();
+        public bool isLoopingLastSubInstance = false;
+        
     }
 
     [System.Serializable]
@@ -126,14 +128,22 @@ public class DialogueMaster : MonoBehaviour
 
             if(currentInstance.dialogueChoice == dialogueChoices.ACTIVE)
             {
+                lastSubIndex = -1;
+
                 for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
                 {
                     Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k].dialogueBox.dialogueText.dialogueString);
+                    lastSubIndex++;
                 }
 
+                //check if the last subInstance is looping.
+                if (currentInstance.listOfOptions[currentInstance.optionListIndex].isLoopingLastSubInstance)
+                {
+                    Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex].dialogueBox.dialogueText.dialogueString);
+                }
 
-                //if yes, just keep going
-                //if no, check if there's any sub-branches, otherwise loop until yes is pressed
+                //if yes, just keep going   (essentially, do nothing)
+                //if no/isLoopingThisBranch, check if there's any sub-branches, otherwise loop until yes is pressed
 
             }
 

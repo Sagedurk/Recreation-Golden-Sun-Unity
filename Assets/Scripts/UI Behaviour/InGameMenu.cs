@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InGameMenu : MonoBehaviour
 {
     public Text selectedButtonLabel;
     public Text selectedButtonLabelShadow;
+    public Button selectedButton;
 
     public void Psynergy()
     {
@@ -31,11 +33,13 @@ public class InGameMenu : MonoBehaviour
         for (int i = 0; i < buttonsParent.childCount; i++)
         {
             Transform button = buttonsParent.GetChild(i);
-            Debug.Log(button.name + "onEnable");
+            Debug.Log(button.name + " enabled");
             button.localScale = Vector3.one;
  
         }
-        buttonsParent.GetChild(0).GetComponent<Button>().Select();
+
+        //The button animation gets reset after this
+        selectedButton = buttonsParent.GetChild(0).GetComponent<Button>();
     }
 
 }

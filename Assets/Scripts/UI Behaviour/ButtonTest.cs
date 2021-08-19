@@ -12,8 +12,6 @@ public class ButtonTest : MonoBehaviour, ISelectHandler, IDeselectHandler
         GetComponent<Canvas>().sortingOrder = 1;
         menuHandler.selectedButtonLabel.text = name;
         menuHandler.selectedButtonLabelShadow.text = name;
-
-        GetComponent<Animator>().SetTrigger("Selected");
     }    
     public void OnDeselect(BaseEventData eventData)
     {
@@ -27,16 +25,31 @@ public class ButtonTest : MonoBehaviour, ISelectHandler, IDeselectHandler
         if (thisButton == menuHandler.selectedButton)
         {
             EventSystem.current.SetSelectedGameObject(gameObject);
-            thisButton.Select();
-            StartCoroutine(delayedAnimationTrigger(0.0001f, thisButton.animationTriggers.selectedTrigger));
+            //thisButton.Select();
+            StartCoroutine(delayedAnimationTrigger(thisButton.animationTriggers.selectedTrigger));
         }
     }
 
-    IEnumerator delayedAnimationTrigger(float timeDelayed, string animTrigger)
+    IEnumerator delayedAnimationTrigger(string animTrigger)
     {
         //yield return new WaitForSeconds(timeDelayed);
         yield return new WaitForEndOfFrame();
 
+
+        //DOES NOT WORK
+        Transform buttonParent = menuHandler.transform.GetChild(0);
+        for (int i = 0; i < buttonParent.childCount; i++)
+        {
+            if (buttonParent.GetChild(i).gameObject == gameObject)
+                continue;
+            
+            
+            if(buttonParent.GetChild(i).GetComponent<Canvas>().sortingOrder > 0)
+            {
+                EventSystem.current.SetSelectedGameObject(buttonParent.GetChild(i).gameObject);
+                GetComponent<Canvas>().sortingOrder = 0;
+            }
+        }
         //Add a check to see if any other button is already selected. If it is, change this animation trigger to normal
 
         GetComponent<Animator>().SetTrigger(animTrigger);

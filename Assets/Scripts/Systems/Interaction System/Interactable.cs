@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
 {
     public string interactableTest;
     public List<DialogueMaster.DialogueInstance> listOfDialogueBoxes = new List<DialogueMaster.DialogueInstance>();
+    public ChestMaster chestMaster;
     public DialogueEvent eventDialogue;
     public ChestEvent eventChest;
     public ShopEvent eventShop;
@@ -33,7 +34,7 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractionType.CHEST:
-
+                eventChest.Invoke(chestMaster);
                 break;
 
             case InteractionType.SHOP:
@@ -63,7 +64,7 @@ public class Interactable : MonoBehaviour
  public class DialogueEvent : UnityEvent< List<DialogueMaster.DialogueInstance> > { }
 
 [System.Serializable]
- public class ChestEvent : UnityEvent { }
+ public class ChestEvent : UnityEvent<ChestMaster> { }
 
 [System.Serializable]
  public class ShopEvent : UnityEvent { }

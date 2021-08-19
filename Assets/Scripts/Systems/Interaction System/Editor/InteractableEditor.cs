@@ -153,8 +153,12 @@ public class InteractableEditor : Editor
                 break;
 
                 case Interactable.InteractionType.CHEST:
-                    Debug.Log("Chest");
-                    break;
+
+                    SerializedProperty chestMaster = serializedObject.FindProperty("chestMaster");
+                    EditorGUILayout.PropertyField(chestMaster);
+                    serializedObject.ApplyModifiedProperties();
+
+                break;
 
                 case Interactable.InteractionType.SHOP:
                     Debug.Log("Shop");

@@ -22,12 +22,24 @@ public class ButtonTest : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     private void OnEnable()
     {
+        GetComponent<Canvas>().sortingOrder = 0;
         Button thisButton = GetComponent<Button>();
         if (thisButton == menuHandler.selectedButton)
         {
             EventSystem.current.SetSelectedGameObject(gameObject);
             thisButton.Select();
-            GetComponent<Animator>().SetTrigger("Selected");
+            StartCoroutine(delayedAnimationTrigger(0.0001f, thisButton.animationTriggers.selectedTrigger));
         }
     }
+
+    IEnumerator delayedAnimationTrigger(float timeDelayed, string animTrigger)
+    {
+        //yield return new WaitForSeconds(timeDelayed);
+        yield return new WaitForEndOfFrame();
+
+        //Add a check to see if any other button is already selected. If it is, change this animation trigger to normal
+
+        GetComponent<Animator>().SetTrigger(animTrigger);
+    }
+
 }

@@ -388,7 +388,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Quick Psynergy #1"",
+                    ""name"": ""Zoom Out"",
                     ""type"": ""Button"",
                     ""id"": ""fac0907a-75f0-47f7-985b-d15f03577fe0"",
                     ""expectedControlType"": ""Button"",
@@ -396,7 +396,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Quick Psynergy #2"",
+                    ""name"": ""Map"",
                     ""type"": ""Button"",
                     ""id"": ""7860d836-96c8-41aa-9fb8-cb4b860f548d"",
                     ""expectedControlType"": ""Button"",
@@ -609,7 +609,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
-                    ""action"": ""Quick Psynergy #1"",
+                    ""action"": ""Zoom Out"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -620,7 +620,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM;Xbox"",
-                    ""action"": ""Quick Psynergy #1"",
+                    ""action"": ""Zoom Out"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -631,7 +631,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
-                    ""action"": ""Quick Psynergy #2"",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -642,7 +642,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM"",
-                    ""action"": ""Quick Psynergy #2"",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1150,8 +1150,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Overworld
         m_Overworld = asset.FindActionMap("Overworld", throwIfNotFound: true);
         m_Overworld_Move = m_Overworld.FindAction("Move", throwIfNotFound: true);
-        m_Overworld_QuickPsynergy1 = m_Overworld.FindAction("Quick Psynergy #1", throwIfNotFound: true);
-        m_Overworld_QuickPsynergy2 = m_Overworld.FindAction("Quick Psynergy #2", throwIfNotFound: true);
+        m_Overworld_ZoomOut = m_Overworld.FindAction("Zoom Out", throwIfNotFound: true);
+        m_Overworld_Map = m_Overworld.FindAction("Map", throwIfNotFound: true);
         m_Overworld_OpenGeneralMenu = m_Overworld.FindAction("Open General Menu", throwIfNotFound: true);
         m_Overworld_Sprint = m_Overworld.FindAction("Sprint", throwIfNotFound: true);
         m_Overworld_StartMenu = m_Overworld.FindAction("Start Menu", throwIfNotFound: true);
@@ -1302,8 +1302,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Overworld;
     private IOverworldActions m_OverworldActionsCallbackInterface;
     private readonly InputAction m_Overworld_Move;
-    private readonly InputAction m_Overworld_QuickPsynergy1;
-    private readonly InputAction m_Overworld_QuickPsynergy2;
+    private readonly InputAction m_Overworld_ZoomOut;
+    private readonly InputAction m_Overworld_Map;
     private readonly InputAction m_Overworld_OpenGeneralMenu;
     private readonly InputAction m_Overworld_Sprint;
     private readonly InputAction m_Overworld_StartMenu;
@@ -1313,8 +1313,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         private @PlayerControls m_Wrapper;
         public OverworldActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Overworld_Move;
-        public InputAction @QuickPsynergy1 => m_Wrapper.m_Overworld_QuickPsynergy1;
-        public InputAction @QuickPsynergy2 => m_Wrapper.m_Overworld_QuickPsynergy2;
+        public InputAction @ZoomOut => m_Wrapper.m_Overworld_ZoomOut;
+        public InputAction @Map => m_Wrapper.m_Overworld_Map;
         public InputAction @OpenGeneralMenu => m_Wrapper.m_Overworld_OpenGeneralMenu;
         public InputAction @Sprint => m_Wrapper.m_Overworld_Sprint;
         public InputAction @StartMenu => m_Wrapper.m_Overworld_StartMenu;
@@ -1331,12 +1331,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_OverworldActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_OverworldActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_OverworldActionsCallbackInterface.OnMove;
-                @QuickPsynergy1.started -= m_Wrapper.m_OverworldActionsCallbackInterface.OnQuickPsynergy1;
-                @QuickPsynergy1.performed -= m_Wrapper.m_OverworldActionsCallbackInterface.OnQuickPsynergy1;
-                @QuickPsynergy1.canceled -= m_Wrapper.m_OverworldActionsCallbackInterface.OnQuickPsynergy1;
-                @QuickPsynergy2.started -= m_Wrapper.m_OverworldActionsCallbackInterface.OnQuickPsynergy2;
-                @QuickPsynergy2.performed -= m_Wrapper.m_OverworldActionsCallbackInterface.OnQuickPsynergy2;
-                @QuickPsynergy2.canceled -= m_Wrapper.m_OverworldActionsCallbackInterface.OnQuickPsynergy2;
+                @ZoomOut.started -= m_Wrapper.m_OverworldActionsCallbackInterface.OnZoomOut;
+                @ZoomOut.performed -= m_Wrapper.m_OverworldActionsCallbackInterface.OnZoomOut;
+                @ZoomOut.canceled -= m_Wrapper.m_OverworldActionsCallbackInterface.OnZoomOut;
+                @Map.started -= m_Wrapper.m_OverworldActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_OverworldActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_OverworldActionsCallbackInterface.OnMap;
                 @OpenGeneralMenu.started -= m_Wrapper.m_OverworldActionsCallbackInterface.OnOpenGeneralMenu;
                 @OpenGeneralMenu.performed -= m_Wrapper.m_OverworldActionsCallbackInterface.OnOpenGeneralMenu;
                 @OpenGeneralMenu.canceled -= m_Wrapper.m_OverworldActionsCallbackInterface.OnOpenGeneralMenu;
@@ -1356,12 +1356,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @QuickPsynergy1.started += instance.OnQuickPsynergy1;
-                @QuickPsynergy1.performed += instance.OnQuickPsynergy1;
-                @QuickPsynergy1.canceled += instance.OnQuickPsynergy1;
-                @QuickPsynergy2.started += instance.OnQuickPsynergy2;
-                @QuickPsynergy2.performed += instance.OnQuickPsynergy2;
-                @QuickPsynergy2.canceled += instance.OnQuickPsynergy2;
+                @ZoomOut.started += instance.OnZoomOut;
+                @ZoomOut.performed += instance.OnZoomOut;
+                @ZoomOut.canceled += instance.OnZoomOut;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
                 @OpenGeneralMenu.started += instance.OnOpenGeneralMenu;
                 @OpenGeneralMenu.performed += instance.OnOpenGeneralMenu;
                 @OpenGeneralMenu.canceled += instance.OnOpenGeneralMenu;
@@ -1556,8 +1556,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IOverworldActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnQuickPsynergy1(InputAction.CallbackContext context);
-        void OnQuickPsynergy2(InputAction.CallbackContext context);
+        void OnZoomOut(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
         void OnOpenGeneralMenu(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnStartMenu(InputAction.CallbackContext context);

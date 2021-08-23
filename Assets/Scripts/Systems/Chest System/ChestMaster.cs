@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class ChestMaster : MonoBehaviour
 {
-    public enum ChestState
+    public enum ChestStates
     {
         UNOPENED,
         OPENED
     }
-    public ChestState chestState = ChestState.UNOPENED;
+    
+    //MAKE AN ITEM DATABASE TO CHECK AGAINST!
+
+    [System.Serializable]
+    public class ChestInstance{
+
+        public ChestStates chestState = ChestStates.UNOPENED;
+
+        public string characterName;
+        public string itemName;
+        public string containerName;
+    }
 
 
     // Start is called before the first frame update
@@ -24,22 +35,24 @@ public class ChestMaster : MonoBehaviour
         
     }
 
-    public void DebugChest()
+    public void DebugChest(ChestInstance instance)
     {
 
-        switch (chestState)
+        switch (instance.chestState)
         {
-            case ChestState.UNOPENED:
+            case ChestStates.UNOPENED:
 
                 //Make this into dialogue
-                Debug.Log("Isaac found Sol Blade!");
+                Debug.Log(instance.characterName + " found " + instance.itemName + "!");
+                instance.chestState = ChestStates.OPENED;
 
-                break;
-            case ChestState.OPENED:
+            break;
+
+            case ChestStates.OPENED:
 
                 //Make this into dialogue
-                Debug.Log("Isaac checked the jar...");
-                Debug.Log("but didn't find anything.");
+                Debug.Log(instance.characterName + " checked the " + instance.containerName + "...");  //Format: "[NAME OF CHAR] checked the [NAME OF CONTAINER]..."
+                Debug.Log("but didn't find anything."); //If not found: "but didn't find anything." //If found: "[NAME OF CHAR] found [NAME OF ITEM]!"
 
                 break;
 

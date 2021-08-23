@@ -1441,19 +1441,7 @@ MonoBehaviour:
     m_ActionId: 577251e0-4032-4d1f-bae5-9e3ddbc54f73
     m_ActionName: Overworld/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1131439253}
-        m_TargetAssemblyTypeName: InputBehaviour, Assembly-CSharp
-        m_MethodName: Psynergy1
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: fac0907a-75f0-47f7-985b-d15f03577fe0
     m_ActionName: Overworld/Quick Psynergy #1[/Keyboard/z]
   - m_PersistentCalls:
@@ -1473,19 +1461,7 @@ MonoBehaviour:
     m_ActionId: 7860d836-96c8-41aa-9fb8-cb4b860f548d
     m_ActionName: Overworld/Quick Psynergy #2[/Keyboard/x]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1131439253}
-        m_TargetAssemblyTypeName: InputBehaviour, Assembly-CSharp
-        m_MethodName: OpenInGameMenu
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: afd485ab-45e3-4eb0-b551-6daff3042763
     m_ActionName: Overworld/Open General Menu[/Keyboard/v]
   - m_PersistentCalls:
@@ -2120,7 +2096,7 @@ GameObject:
   - component: {fileID: 1610469380}
   - component: {fileID: 1610469385}
   m_Layer: 0
-  m_Name: Inter #2
+  m_Name: NPC #2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2196,7 +2172,11 @@ MonoBehaviour:
     listOfOptionNames: []
     listOfOptions: []
     optionListIndex: 0
-  chestMaster: {fileID: 0}
+  chestInstance:
+    chestState: 0
+    characterName: 
+    itemName: 
+    containerName: 
   eventDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -2341,7 +2321,7 @@ GameObject:
   - component: {fileID: 1738471180}
   - component: {fileID: 1738471185}
   m_Layer: 0
-  m_Name: Inter #1
+  m_Name: NPC #1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2574,7 +2554,11 @@ MonoBehaviour:
     listOfOptionNames: []
     listOfOptions: []
     optionListIndex: 0
-  chestMaster: {fileID: 0}
+  chestInstance:
+    chestState: 0
+    characterName: 
+    itemName: 
+    containerName: 
   eventDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -2707,20 +2691,60 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3590196663874784012, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: m_Name
-      value: Default Dialogue Interactable
+      value: Chest #1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: interactionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: chestInstance.itemName
+      value: Sol Blade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: chestInstance.chestState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: chestInstance.characterName
+      value: Isaac
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: chestInstance.containerName
+      value: jar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: eventDialogue.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6477060356037095819}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: eventDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: eventDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1671801652}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DebugChest
+      objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: eventDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2730,8 +2754,16 @@ PrefabInstance:
       value: DebugAllDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChestMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: eventDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DialogueMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: eventChest.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: eventDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2783,6 +2815,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a220344199865544a2f5703fe812987, type: 3}
+--- !u!1001 &2239021054294661037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112075798584600103, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+      propertyPath: m_Name
+      value: Chest Master
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
 --- !u!1001 &3897456527495582822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2891,3 +2980,14 @@ MonoBehaviour:
     listOfOptionNames: []
     listOfOptions: []
     optionListIndex: 0
+--- !u!114 &6477060356037095819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3493763946571949194, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
+  m_PrefabInstance: {fileID: 2239021054294661037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05ca98d0e7b1841981ba44cd3ae5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -375,7 +375,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Quick Psynergy #1",
+                    "name": "Zoom Out",
                     "type": "Button",
                     "id": "fac0907a-75f0-47f7-985b-d15f03577fe0",
                     "expectedControlType": "Button",
@@ -383,7 +383,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Quick Psynergy #2",
+                    "name": "Map",
                     "type": "Button",
                     "id": "7860d836-96c8-41aa-9fb8-cb4b860f548d",
                     "expectedControlType": "Button",
@@ -596,7 +596,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Quick Psynergy #1",
+                    "action": "Zoom Out",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -607,7 +607,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM;Xbox",
-                    "action": "Quick Psynergy #1",
+                    "action": "Zoom Out",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -618,7 +618,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Quick Psynergy #2",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -629,7 +629,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
-                    "action": "Quick Psynergy #2",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

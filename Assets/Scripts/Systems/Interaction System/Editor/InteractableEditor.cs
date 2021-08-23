@@ -154,8 +154,11 @@ public class InteractableEditor : Editor
 
                 case Interactable.InteractionType.CHEST:
 
-                    SerializedProperty chestMaster = serializedObject.FindProperty("chestMaster");
-                    EditorGUILayout.PropertyField(chestMaster);
+                    SerializedProperty chestInstance = serializedObject.FindProperty("chestInstance");
+                    SerializedProperty chestState = chestInstance.FindPropertyRelative("chestState");
+                    EditorGUILayout.PropertyField(chestInstance);
+
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("eventChest"));
                     serializedObject.ApplyModifiedProperties();
 
                 break;

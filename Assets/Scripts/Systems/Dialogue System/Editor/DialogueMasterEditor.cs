@@ -9,7 +9,7 @@ public class DialogueMasterEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
+        base.OnInspectorGUI();
 
 
 

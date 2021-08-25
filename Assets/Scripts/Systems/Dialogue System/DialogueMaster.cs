@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialogueMaster : MonoBehaviour
 {
 
-    
+    public GameObject choicePromptContainer;
     Text textToShow;
     int lastSubIndex;
 
@@ -20,7 +20,7 @@ public class DialogueMaster : MonoBehaviour
         public CharacterPortrait portrait;
 
         //dialogue options
-        public dialogueChoices dialogueChoice;
+        public Prompt dialoguePrompt;
 
         public List<string> listOfOptionNames = new List<string>();
         public List<choice> listOfOptions = new List<choice>();
@@ -33,6 +33,12 @@ public class DialogueMaster : MonoBehaviour
         public List<SubInstance> dialogueChoiceSubInstances = new List<SubInstance>();
         public bool isLoopingLastSubInstance = false;
         
+    }
+    [System.Serializable]
+    public class Prompt
+    {
+        public Vector3 position = new Vector3(768, 888, 0);
+        public dialogueChoices dialogueChoice;
     }
 
     [System.Serializable]
@@ -126,8 +132,11 @@ public class DialogueMaster : MonoBehaviour
             Debug.Log(currentInstance.dialogueBox.dialogueText.dialogueString);
 
 
-            if(currentInstance.dialogueChoice == dialogueChoices.ACTIVE)
+            if(currentInstance.dialoguePrompt.dialogueChoice == dialogueChoices.ACTIVE)
             {
+                CreateChoicePromt(currentInstance.dialoguePrompt.position);
+                //Wait for input
+
                 lastSubIndex = -1;
 
                 for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
@@ -148,7 +157,18 @@ public class DialogueMaster : MonoBehaviour
             }
 
         }
+
+
     }
+
+    void CreateChoicePromt(Vector3 position)
+    {
+        choicePromptContainer.SetActive(true);
+        choicePromptContainer.transform.localPosition = position;
+    }
+
+
+
 
 
     void ConvertDialogueTextToTextUI(DialogueText dialogueText)

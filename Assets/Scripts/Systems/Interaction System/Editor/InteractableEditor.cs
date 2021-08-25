@@ -52,7 +52,8 @@ public class InteractableEditor : Editor
 
                         SerializedProperty dialogueBox = dialogueInstance.FindPropertyRelative("dialogueBox");    
                         SerializedProperty portrait = dialogueInstance.FindPropertyRelative("portrait");
-                        SerializedProperty dialogueChoice = dialogueInstance.FindPropertyRelative("dialogueChoice");
+                        SerializedProperty dialoguePrompt = dialogueInstance.FindPropertyRelative("dialoguePrompt");
+                        SerializedProperty dialogueChoice = dialoguePrompt.FindPropertyRelative("dialogueChoice");
                         SerializedProperty dialogueOptionList = dialogueInstance.FindPropertyRelative("listOfOptions");
                         SerializedProperty dialogueOptionNames = dialogueInstance.FindPropertyRelative("listOfOptionNames");
                         SerializedProperty dialogueOptionIndex = dialogueInstance.FindPropertyRelative("optionListIndex");
@@ -75,7 +76,7 @@ public class InteractableEditor : Editor
                             EditorGUI.indentLevel = 1;
                             EditorGUILayout.PropertyField(dialogueBox);
                             EditorGUILayout.PropertyField(portrait);
-                            EditorGUILayout.PropertyField(dialogueChoice);
+                            EditorGUILayout.PropertyField(dialoguePrompt);
 
                             if (dialogueChoice.enumValueIndex == (int)DialogueMaster.dialogueChoices.ACTIVE)
                             {

@@ -625,7 +625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &856321446
 PrefabInstance:
@@ -1397,7 +1397,7 @@ RectTransform:
   - {fileID: 1534559686}
   - {fileID: 2064513525}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2860,7 +2860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1610469385
 Rigidbody:
@@ -2929,21 +2929,21 @@ MonoBehaviour:
       boxSize: {x: 0, y: 0}
       dialogueText:
         dialogueString: This is dialogue for debugging the dialogue system
-        dialogueFont: {fileID: 0}
+        dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
+        dialogueFontSize: 30
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
         dialogueAlignment: 0
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
         dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueColor: {r: 1, g: 0, b: 0, a: 1}
         dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
+        dialogueRaycastTarget: 1
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
+        dialogueMaskable: 1
     portrait:
       portraitImage: {fileID: 0}
       portraitBoxPosition: {x: 0, y: 0}
@@ -2954,6 +2954,7 @@ MonoBehaviour:
     listOfOptionNames:
     - Yes
     - No
+    - Perhaps
     listOfOptions:
     - dialogueChoiceSubInstances:
       - dialogueBox:
@@ -2961,21 +2962,21 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: 1st sub-dialogue
-            dialogueFont: {fileID: 0}
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
+            dialogueFontSize: 30
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
             dialogueAlignment: 0
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 0, g: 1, b: 0.2473979, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
         portrait:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
@@ -2985,21 +2986,21 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: The other sub-dialogue
-            dialogueFont: {fileID: 0}
+            dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
+            dialogueFontSize: 30
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
             dialogueAlignment: 0
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 0, g: 0.8249755, b: 1, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
         portrait:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
@@ -3012,21 +3013,21 @@ MonoBehaviour:
           dialogueText:
             dialogueString: This should loop back to the master when this sub is
               done.
-            dialogueFont: {fileID: 0}
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
+            dialogueFontSize: 14
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
             dialogueAlignment: 0
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
         portrait:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
@@ -3036,21 +3037,21 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: Second instance of no.
-            dialogueFont: {fileID: 0}
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
+            dialogueFontSize: 14
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
             dialogueAlignment: 0
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
         portrait:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
@@ -3060,21 +3061,96 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: Loop happens after this one
-            dialogueFont: {fileID: 0}
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
+            dialogueFontSize: 14
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
             dialogueAlignment: 0
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      isLoopingLastSubInstance: 1
+    - dialogueChoiceSubInstances:
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: This should loop back to the master when this sub is
+              done.
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 14
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 1
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 1
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: Second instance of no.
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 14
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 1
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 1
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: Loop happens after this one
+            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 14
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 1
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 1
         portrait:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
@@ -3086,21 +3162,21 @@ MonoBehaviour:
       boxSize: {x: 0, y: 0}
       dialogueText:
         dialogueString: The second debugging dialogue
-        dialogueFont: {fileID: 0}
+        dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
+        dialogueFontSize: 30
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
         dialogueAlignment: 0
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
         dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueColor: {r: 1, g: 0.837667, b: 0, a: 1}
         dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
+        dialogueRaycastTarget: 1
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
+        dialogueMaskable: 1
     portrait:
       portraitImage: {fileID: 0}
       portraitBoxPosition: {x: 0, y: 0}
@@ -3118,21 +3194,21 @@ MonoBehaviour:
       boxSize: {x: 0, y: 0}
       dialogueText:
         dialogueString: The 3rd main debugging dialogue
-        dialogueFont: {fileID: 0}
+        dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
+        dialogueFontSize: 30
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
         dialogueAlignment: 0
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
         dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+        dialogueColor: {r: 1, g: 0, b: 0.99997807, a: 1}
         dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
+        dialogueRaycastTarget: 1
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
+        dialogueMaskable: 1
     portrait:
       portraitImage: {fileID: 0}
       portraitBoxPosition: {x: 0, y: 0}
@@ -3248,7 +3324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1738471185
 Rigidbody:
@@ -3687,7 +3763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8783308372845489527, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8783308372845489527, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3740,7 +3816,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5112075798584600097, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3796,20 +3872,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1408993232}
+    - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: inputBehaviour
       value: 
       objectReference: {fileID: 1131439253}
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+      propertyPath: dialoguePortrait
+      value: 
+      objectReference: {fileID: 1851520862}
+    - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+      propertyPath: dialogueBackground
+      value: 
+      objectReference: {fileID: 1823900859}
+    - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: choicePromptContainer
       value: 
       objectReference: {fileID: 4700080040183966147}
+    - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+      propertyPath: dialoguePortraitFrame
+      value: 
+      objectReference: {fileID: 891132405}
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: testDialogue.dialogueChoice
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3897456525924597587, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3897456525924597587, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: m_LocalPosition.x

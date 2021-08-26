@@ -8,6 +8,7 @@ public class InputBehaviour : MonoBehaviour
 {
     public GameObject inGameMenu;
     public PlayerInteraction interactionManager;
+    public bool isInteracted;
 
     Vector2 movementVector;
     float movementSpeed = 10.0f;
@@ -95,6 +96,7 @@ public class InputBehaviour : MonoBehaviour
         if (ctx.started)
         {
             Interactable interactable = interactionManager.CheckInteraction();
+            //isInteracted = true;
 
             if (interactable != null)
                 interactable.Interact();
@@ -104,7 +106,20 @@ public class InputBehaviour : MonoBehaviour
         }
         else if (ctx.canceled)
         {
-           
+            //isInteracted = false;
+        }
+    }
+
+    public void Dialogue(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            isInteracted = true;
+
+        }
+        else if (ctx.canceled)
+        {
+            isInteracted = false;
         }
     }
 

@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class DialogueMaster : MonoBehaviour
 {
 
     public GameObject choicePromptContainer;
-    Text textToShow;
+    public InputBehaviour inputBehaviour;
+    public Image dialogueBackground;
+    public Image dialoguePortraitFrame;
+
+    public Image dialoguePortrait;
+    public Text dialogueText;
+
     int lastSubIndex;
 
     [System.Serializable]
@@ -37,7 +44,7 @@ public class DialogueMaster : MonoBehaviour
     [System.Serializable]
     public class Prompt
     {
-        public Vector3 position = new Vector3(768, 888, 0);
+        public Vector3 position = new Vector3(0, 0, 0);
         public dialogueChoices dialogueChoice;
     }
 
@@ -79,24 +86,24 @@ public class DialogueMaster : MonoBehaviour
 
         [Header("Character")]
         public Font dialogueFont;
-        public FontStyle dialogueFontStyle;
-        public int dialogueFontSize;
-        public float dialogueLineSpacing;
-        public bool dialogueRichText;
+        public FontStyle dialogueFontStyle = FontStyle.Normal;
+        public int dialogueFontSize = 14;
+        public float dialogueLineSpacing = 1;
+        public bool dialogueRichText = true;
 
         [Header("Paragraph")]
-        public TextAnchor dialogueAlignment;
-        public bool dialogueAlignByGeometry;
-        public HorizontalWrapMode dialogueHorizontalOverflow;
-        public VerticalWrapMode dialogueVerticalOverflow;
-        public bool dialogueBestFit;
+        public TextAnchor dialogueAlignment = TextAnchor.UpperLeft;
+        public bool dialogueAlignByGeometry = false;
+        public HorizontalWrapMode dialogueHorizontalOverflow = HorizontalWrapMode.Wrap;
+        public VerticalWrapMode dialogueVerticalOverflow = VerticalWrapMode.Truncate;
+        public bool dialogueBestFit = false;
 
         [Header("")]
-        public Color dialogueColor;
-        public Material dialogueMaterial;
-        public bool dialogueRaycastTarget;
-        public Vector4 dialogueRaycastPadding;
-        public bool dialogueMaskable;
+        public Color dialogueColor = Color.white;
+        public Material dialogueMaterial = null;
+        public bool dialogueRaycastTarget = true;
+        public Vector4 dialogueRaycastPadding = Vector4.zero;
+        public bool dialogueMaskable = true;
 
     }
 
@@ -125,41 +132,100 @@ public class DialogueMaster : MonoBehaviour
 
     public void DebugAllDialogue(List<DialogueInstance> instanceList)
     {
+        StartCoroutine(Dialogue(instanceList));
+    }
+
+    private IEnumerator Dialogue(List<DialogueInstance> instanceList)
+    {
         for (int i = 0; i < instanceList.Count; i++)
         {
             DialogueInstance currentInstance = instanceList[i];
 
+
+            //Call 
+            ShowDialogueInstance(currentInstance);
             Debug.Log(currentInstance.dialogueBox.dialogueText.dialogueString);
 
-
-            if(currentInstance.dialoguePrompt.dialogueChoice == dialogueChoices.ACTIVE)
+            if (currentInstance.dialoguePrompt.dialogueChoice == dialogueChoices.ACTIVE)
             {
                 CreateChoicePromt(currentInstance.dialoguePrompt.position);
                 //Wait for input
+
+                while (!inputBehaviour.isInteracted)
+                {
+
+                    yield return null;
+                }
+
+                inputBehaviour.isInteracted = false;
+
 
                 lastSubIndex = -1;
 
                 for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
                 {
                     Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k].dialogueBox.dialogueText.dialogueString);
+
+                    ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k]);
                     lastSubIndex++;
+
+                    while (!inputBehaviour.isInteracted)
+                    {
+
+                        yield return null;
+                    }
+
+                    inputBehaviour.isInteracted = false;
                 }
 
                 //check if the last subInstance is looping.
                 if (currentInstance.listOfOptions[currentInstance.optionListIndex].isLoopingLastSubInstance)
                 {
+                    //Needs to process button input
+
                     Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex].dialogueBox.dialogueText.dialogueString);
+                    ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
+
+                    while (!inputBehaviour.isInteracted)
+                    {
+
+                        yield return null;
+                    }
+
+                    inputBehaviour.isInteracted = false;
                 }
 
                 //if yes, just keep going   (essentially, do nothing)
                 //if no/isLoopingThisBranch, check if there's any sub-branches, otherwise loop until yes is pressed
 
             }
+            else
+            {
+                while (!inputBehaviour.isInteracted)
+                {
 
+                    yield return null;
+                }
+
+                inputBehaviour.isInteracted = false;
+            }
         }
+    }
+
+    private void ShowDialogueInstance(DialogueInstance instanceToShow)
+    {
+        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
 
 
     }
+
+    private void ShowDialogueSubInstance(SubInstance instanceToShow)
+    {
+        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
+
+
+    }
+
 
     void CreateChoicePromt(Vector3 position)
     {
@@ -171,30 +237,33 @@ public class DialogueMaster : MonoBehaviour
 
 
 
-    void ConvertDialogueTextToTextUI(DialogueText dialogueText)
+    void ConvertDialogueTextToTextUI(DialogueText dialogueTextToConvert)
     {
-        textToShow.text = dialogueText.dialogueString;
+        
+        dialogueText.text = dialogueTextToConvert.dialogueString;
 
         //character
-        textToShow.font = dialogueText.dialogueFont;
-        textToShow.fontStyle = dialogueText.dialogueFontStyle;
-        textToShow.fontSize = dialogueText.dialogueFontSize;
-        textToShow.lineSpacing = dialogueText.dialogueLineSpacing;
-        textToShow.supportRichText = dialogueText.dialogueRichText;
+        if(dialogueTextToConvert.dialogueFont != null)
+            dialogueText.font = dialogueTextToConvert.dialogueFont;
+        dialogueText.fontStyle = dialogueTextToConvert.dialogueFontStyle;
+        if(dialogueTextToConvert.dialogueFontSize > 0)
+            dialogueText.fontSize = dialogueTextToConvert.dialogueFontSize;
+        dialogueText.lineSpacing = dialogueTextToConvert.dialogueLineSpacing;
+        dialogueText.supportRichText = dialogueTextToConvert.dialogueRichText;
 
         //paragraph
-        textToShow.alignment = dialogueText.dialogueAlignment;
-        textToShow.alignByGeometry = dialogueText.dialogueAlignByGeometry;
-        textToShow.horizontalOverflow = dialogueText.dialogueHorizontalOverflow;
-        textToShow.verticalOverflow = dialogueText.dialogueVerticalOverflow;
-        textToShow.resizeTextForBestFit = dialogueText.dialogueBestFit;
+        dialogueText.alignment = dialogueTextToConvert.dialogueAlignment;
+        dialogueText.alignByGeometry = dialogueTextToConvert.dialogueAlignByGeometry;
+        dialogueText.horizontalOverflow = dialogueTextToConvert.dialogueHorizontalOverflow;
+        dialogueText.verticalOverflow = dialogueTextToConvert.dialogueVerticalOverflow;
+        dialogueText.resizeTextForBestFit = dialogueTextToConvert.dialogueBestFit;
 
         //Standalone
-        textToShow.color = dialogueText.dialogueColor;
-        textToShow.material = dialogueText.dialogueMaterial;
-        textToShow.raycastTarget = dialogueText.dialogueRaycastTarget;
-        textToShow.raycastPadding = dialogueText.dialogueRaycastPadding;
-        textToShow.maskable = dialogueText.dialogueMaskable;
+        dialogueText.color = dialogueTextToConvert.dialogueColor;
+        dialogueText.material = dialogueTextToConvert.dialogueMaterial;
+        dialogueText.raycastTarget = dialogueTextToConvert.dialogueRaycastTarget;
+        dialogueText.raycastPadding = dialogueTextToConvert.dialogueRaycastPadding;
+        dialogueText.maskable = dialogueTextToConvert.dialogueMaskable;
     }
 
 }

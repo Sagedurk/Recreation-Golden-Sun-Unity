@@ -73,6 +73,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""187cd666-4271-4869-99f3-44221739838b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -370,6 +378,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce6c2c2d-8bfc-4802-8dc6-ad9b5a4e7736"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1147,6 +1166,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Town_Sprint = m_Town.FindAction("Sprint", throwIfNotFound: true);
         m_Town_StartMenu = m_Town.FindAction("Start Menu", throwIfNotFound: true);
         m_Town_Interact = m_Town.FindAction("Interact", throwIfNotFound: true);
+        m_Town_Dialogue = m_Town.FindAction("Dialogue", throwIfNotFound: true);
         // Overworld
         m_Overworld = asset.FindActionMap("Overworld", throwIfNotFound: true);
         m_Overworld_Move = m_Overworld.FindAction("Move", throwIfNotFound: true);
@@ -1227,6 +1247,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Town_Sprint;
     private readonly InputAction m_Town_StartMenu;
     private readonly InputAction m_Town_Interact;
+    private readonly InputAction m_Town_Dialogue;
     public struct TownActions
     {
         private @PlayerControls m_Wrapper;
@@ -1238,6 +1259,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Town_Sprint;
         public InputAction @StartMenu => m_Wrapper.m_Town_StartMenu;
         public InputAction @Interact => m_Wrapper.m_Town_Interact;
+        public InputAction @Dialogue => m_Wrapper.m_Town_Dialogue;
         public InputActionMap Get() { return m_Wrapper.m_Town; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1268,6 +1290,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_TownActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_TownActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_TownActionsCallbackInterface.OnInteract;
+                @Dialogue.started -= m_Wrapper.m_TownActionsCallbackInterface.OnDialogue;
+                @Dialogue.performed -= m_Wrapper.m_TownActionsCallbackInterface.OnDialogue;
+                @Dialogue.canceled -= m_Wrapper.m_TownActionsCallbackInterface.OnDialogue;
             }
             m_Wrapper.m_TownActionsCallbackInterface = instance;
             if (instance != null)
@@ -1293,6 +1318,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Dialogue.started += instance.OnDialogue;
+                @Dialogue.performed += instance.OnDialogue;
+                @Dialogue.canceled += instance.OnDialogue;
             }
         }
     }
@@ -1552,6 +1580,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnStartMenu(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnDialogue(InputAction.CallbackContext context);
     }
     public interface IOverworldActions
     {

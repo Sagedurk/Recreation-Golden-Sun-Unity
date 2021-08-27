@@ -96,7 +96,6 @@ public class InputBehaviour : MonoBehaviour
         if (ctx.started)
         {
             Interactable interactable = interactionManager.CheckInteraction();
-            //isInteracted = true;
 
             if (interactable != null)
                 interactable.Interact();
@@ -106,7 +105,7 @@ public class InputBehaviour : MonoBehaviour
         }
         else if (ctx.canceled)
         {
-            //isInteracted = false;
+
         }
     }
 

@@ -72,7 +72,7 @@ public class DialogueMaster : MonoBehaviour
     [System.Serializable]
     public struct CharacterPortrait
     {
-        public Image portraitImage;
+        public Sprite portraitImage;
         public Vector2 portraitBoxPosition;
         public bool isPortraitShown;
     }
@@ -148,7 +148,7 @@ public class DialogueMaster : MonoBehaviour
 
             if (currentInstance.dialoguePrompt.dialogueChoice == dialogueChoices.ACTIVE)
             {
-                CreateChoicePromt(currentInstance.dialoguePrompt.position);
+                //CreateChoicePromt(currentInstance.dialoguePrompt.position);
                 //Wait for input
 
                 while (!inputBehaviour.isInteracted)
@@ -215,14 +215,22 @@ public class DialogueMaster : MonoBehaviour
     private void ShowDialogueInstance(DialogueInstance instanceToShow)
     {
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
-
+        if (instanceToShow.portrait.isPortraitShown)
+        {
+            ShowPortrait();
+            dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
+        }
 
     }
 
     private void ShowDialogueSubInstance(SubInstance instanceToShow)
     {
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
-
+        if (instanceToShow.portrait.isPortraitShown)
+        {
+            ShowPortrait();
+            dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
+        }
 
     }
 
@@ -233,7 +241,10 @@ public class DialogueMaster : MonoBehaviour
         choicePromptContainer.transform.localPosition = position;
     }
 
+    void ShowPortrait()
+    {
 
+    }
 
 
 

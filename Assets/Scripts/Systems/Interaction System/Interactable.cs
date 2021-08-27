@@ -20,7 +20,7 @@ public class Interactable : MonoBehaviour
         CHEST,
         SHOP,
         DJINN,
-
+        PSYNERGY_STONE
 
     }
 

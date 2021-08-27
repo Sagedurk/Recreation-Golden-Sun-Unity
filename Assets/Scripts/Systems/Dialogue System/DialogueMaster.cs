@@ -10,11 +10,12 @@ public class DialogueMaster : MonoBehaviour
     public GameObject choicePromptContainer;
     public InputBehaviour inputBehaviour;
     public Image dialogueBackground;
-    public Image dialoguePortraitFrame;
+    public GameObject dialoguePortraitFrame;
 
     public Image dialoguePortrait;
     public Text dialogueText;
 
+    int promptIndex;
     int lastSubIndex;
 
     [System.Serializable]
@@ -137,19 +138,17 @@ public class DialogueMaster : MonoBehaviour
 
     private IEnumerator Dialogue(List<DialogueInstance> instanceList)
     {
+        ShowDialogueBackground();
         for (int i = 0; i < instanceList.Count; i++)
         {
             DialogueInstance currentInstance = instanceList[i];
 
-
-            //Call 
             ShowDialogueInstance(currentInstance);
-            Debug.Log(currentInstance.dialogueBox.dialogueText.dialogueString);
 
             if (currentInstance.dialoguePrompt.dialogueChoice == dialogueChoices.ACTIVE)
             {
-                //CreateChoicePromt(currentInstance.dialoguePrompt.position);
-                //Wait for input
+                ShowChoicePromt(currentInstance.dialoguePrompt.position);
+
 
                 while (!inputBehaviour.isInteracted)
                 {
@@ -157,15 +156,16 @@ public class DialogueMaster : MonoBehaviour
                     yield return null;
                 }
 
+                HideChoicePromt();
                 inputBehaviour.isInteracted = false;
 
 
                 lastSubIndex = -1;
+                currentInstance.optionListIndex = promptIndex;
+
 
                 for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
                 {
-                    Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k].dialogueBox.dialogueText.dialogueString);
-
                     ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k]);
                     lastSubIndex++;
 
@@ -181,18 +181,29 @@ public class DialogueMaster : MonoBehaviour
                 //check if the last subInstance is looping.
                 if (currentInstance.listOfOptions[currentInstance.optionListIndex].isLoopingLastSubInstance)
                 {
+                    //Loop indefinitely if the prompt chosen equals the prompt that caused the looping
                     //Needs to process button input
 
-                    Debug.Log(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex].dialogueBox.dialogueText.dialogueString);
-                    ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
-
-                    while (!inputBehaviour.isInteracted)
+                    while (promptIndex == currentInstance.optionListIndex)
                     {
+                        ShowChoicePromt(currentInstance.dialoguePrompt.position);
+                        
+                        while (!inputBehaviour.isInteracted)
+                        {
 
-                        yield return null;
-                    }
+                            yield return null;
+                        }
 
-                    inputBehaviour.isInteracted = false;
+                        HideChoicePromt();
+
+
+                        inputBehaviour.isInteracted = false;
+                        //currentInstance.optionListIndex = promptIndex;
+
+                        ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
+                    
+
+                    }   
                 }
 
                 //if yes, just keep going   (essentially, do nothing)
@@ -210,15 +221,22 @@ public class DialogueMaster : MonoBehaviour
                 inputBehaviour.isInteracted = false;
             }
         }
+
+        HideDialogue();
     }
 
     private void ShowDialogueInstance(DialogueInstance instanceToShow)
     {
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
-        if (instanceToShow.portrait.isPortraitShown)
+
+        if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
         {
             ShowPortrait();
             dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
+        }
+        else
+        {
+            HidePortrait();
         }
 
     }
@@ -226,24 +244,51 @@ public class DialogueMaster : MonoBehaviour
     private void ShowDialogueSubInstance(SubInstance instanceToShow)
     {
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
-        if (instanceToShow.portrait.isPortraitShown)
+        if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
         {
             ShowPortrait();
             dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
         }
+        else
+        {
+            HidePortrait();
+        }
 
     }
 
+    private void HideDialogue()
+    {
+        dialogueText.text = "";
+        dialogueBackground.gameObject.SetActive(false);
+        HidePortrait();
+    }
+    private void ShowDialogueBackground()
+    {
+        dialogueBackground.gameObject.SetActive(true);
+    }
 
-    void CreateChoicePromt(Vector3 position)
+
+    void ShowChoicePromt(Vector3 position)
     {
         choicePromptContainer.SetActive(true);
         choicePromptContainer.transform.localPosition = position;
     }
+    
+    void HideChoicePromt()
+    {
+
+        inputBehaviour.isInteracted = false;
+        choicePromptContainer.SetActive(false);
+    }
 
     void ShowPortrait()
     {
-
+        dialoguePortraitFrame.SetActive(true);
+    }
+    
+    void HidePortrait()
+    {
+        dialoguePortraitFrame.SetActive(false);
     }
 
 
@@ -276,5 +321,14 @@ public class DialogueMaster : MonoBehaviour
         dialogueText.raycastPadding = dialogueTextToConvert.dialogueRaycastPadding;
         dialogueText.maskable = dialogueTextToConvert.dialogueMaskable;
     }
+
+    public void ChoosePrompt(int returnIndex)
+    {
+        inputBehaviour.isInteracted = true;
+        promptIndex = returnIndex;
+    }
+
+
+
 
 }

@@ -12,7 +12,7 @@ public class ChestMaster : MonoBehaviour
         UNOPENED,
         OPENED
     }
-    
+
     //MAKE AN ITEM DATABASE TO CHECK AGAINST!
     //Equipment - Weapons, Body Armor, Hand Armor, Head Armor, Supplemental                 gender-specific equipment
     //Misc. - Consumables, Stat-boosting items, Lucky Medals, Utility Psynergy items
@@ -28,10 +28,15 @@ public class ChestMaster : MonoBehaviour
     //Barrel
     //
 
-    //Isaac got a Small Jewel. [NAME] got a [ITEM]
+    //Isaac got a Small Jewel.          [NAME] got a [ITEM]
+    //Isaac got a Potion.               [NAME] got a [ITEM]
+    //Isaac got the Cell Key.           [NAME] got the [ITEM]
+    //Isaac got some Power Bread.       [NAME] got some [ITEM]
+    //Isaac found an Apple.             [NAME] found an [ITEM]
+    //Isaac got 35 coins.               [NAME] got [AMOUNT] [CURRENCY NAME]
     //Isaac got a Psynergy Stone.   The party's PP is fully restored!       The Psynergy Stone disappeared...
 
-    
+    //But Isaac's party can't carry any more, so they left it behind.   
 
 
 

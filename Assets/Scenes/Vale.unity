@@ -2728,9 +2728,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 0
     portrait:
-      portraitImage: {fileID: 0}
+      portraitImage: {fileID: 21300000, guid: 6978bae67946fda41aa76a8c1bec1d31, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -2758,9 +2758,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 0
     portrait:
-      portraitImage: {fileID: 0}
+      portraitImage: {fileID: 21300000, guid: b97b51c570e94ae42838e4401b4a68ac, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -2957,7 +2957,7 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 21300000, guid: c53f234544342264ea172ca2c220377d, type: 3}
+      portraitImage: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
     dialoguePrompt:
@@ -3093,81 +3093,8 @@ MonoBehaviour:
           portraitBoxPosition: {x: 0, y: 0}
           isPortraitShown: 0
       isLoopingLastSubInstance: 1
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: This should loop back to the master when this sub is
-              done.
-            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 14
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 0
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: Second instance of no.
-            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 14
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 0
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: Loop happens after this one
-            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 14
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 0
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
-      isLoopingLastSubInstance: 1
+    - dialogueChoiceSubInstances: []
+      isLoopingLastSubInstance: 0
     optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
@@ -3190,9 +3117,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 21300000, guid: c53f234544342264ea172ca2c220377d, type: 3}
+      portraitImage: {fileID: 21300000, guid: 4be714b4dcc037a44867db4db7ff427b, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0

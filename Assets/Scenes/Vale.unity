@@ -311,6 +311,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuHandler: {fileID: 4700080040183966145}
+--- !u!1 &101027433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101027436}
+  - component: {fileID: 101027435}
+  - component: {fileID: 101027434}
+  m_Layer: 5
+  m_Name: Text Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &101027434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101027433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
+    m_FontSize: 200
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 300
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Avast!
+--- !u!222 &101027435
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101027433}
+  m_CullTransparentMesh: 1
+--- !u!224 &101027436
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101027433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1823900858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 23.78, y: -22.29}
+  m_SizeDelta: {x: -120, y: -65.1193}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &414123739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3200013986122597196, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
@@ -2198,11 +2277,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1823900858}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 10.4800415, y: -10.174545}
   m_SizeDelta: {x: -120, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408993232
@@ -2226,8 +2305,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
-    m_FontSize: 132
+    m_Font: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
+    m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2238,7 +2317,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Avast!
 --- !u!222 &1408993233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2940,13 +3019,13 @@ MonoBehaviour:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: This is dialogue for debugging the dialogue system
-        dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
+        dialogueString: Avast!
+        dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 30
+        dialogueFontSize: 200
         dialogueLineSpacing: 1
         dialogueRichText: 1
-        dialogueAlignment: 0
+        dialogueAlignment: 3
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
@@ -2961,7 +3040,7 @@ MonoBehaviour:
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
     dialoguePrompt:
-      position: {x: 768, y: 0, z: 0}
+      position: {x: 384, y: 0, z: 0}
       dialogueChoice: 1
     listOfOptionNames:
     - Yes
@@ -2974,12 +3053,12 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: 1st sub-dialogue
-            dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
+            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
             dialogueFontStyle: 0
-            dialogueFontSize: 30
+            dialogueFontSize: 200
             dialogueLineSpacing: 1
             dialogueRichText: 1
-            dialogueAlignment: 0
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
@@ -2998,12 +3077,12 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: The other sub-dialogue
-            dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
+            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
             dialogueFontStyle: 0
-            dialogueFontSize: 30
+            dialogueFontSize: 200
             dialogueLineSpacing: 1
             dialogueRichText: 1
-            dialogueAlignment: 0
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
@@ -3025,12 +3104,12 @@ MonoBehaviour:
           dialogueText:
             dialogueString: This should loop back to the master when this sub is
               done.
-            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
             dialogueFontStyle: 0
-            dialogueFontSize: 14
+            dialogueFontSize: 200
             dialogueLineSpacing: 1
             dialogueRichText: 1
-            dialogueAlignment: 0
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
@@ -3049,12 +3128,12 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: Second instance of no.
-            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
             dialogueFontStyle: 0
-            dialogueFontSize: 14
+            dialogueFontSize: 200
             dialogueLineSpacing: 1
             dialogueRichText: 1
-            dialogueAlignment: 0
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
@@ -3073,12 +3152,12 @@ MonoBehaviour:
           boxSize: {x: 0, y: 0}
           dialogueText:
             dialogueString: Loop happens after this one
-            dialogueFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
             dialogueFontStyle: 0
-            dialogueFontSize: 14
+            dialogueFontSize: 200
             dialogueLineSpacing: 1
             dialogueRichText: 1
-            dialogueAlignment: 0
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
@@ -3101,12 +3180,12 @@ MonoBehaviour:
       boxSize: {x: 0, y: 0}
       dialogueText:
         dialogueString: The second <i>debugging</i> dialogue
-        dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
+        dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 30
+        dialogueFontSize: 200
         dialogueLineSpacing: 1
         dialogueRichText: 1
-        dialogueAlignment: 0
+        dialogueAlignment: 3
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
@@ -3133,12 +3212,12 @@ MonoBehaviour:
       boxSize: {x: 0, y: 0}
       dialogueText:
         dialogueString: The <b>3rd</b> main debugging dialogue
-        dialogueFont: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
+        dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 30
+        dialogueFontSize: 200
         dialogueLineSpacing: 1
         dialogueRichText: 1
-        dialogueAlignment: 0
+        dialogueAlignment: 3
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
@@ -3310,6 +3389,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 101027436}
   - {fileID: 1408993231}
   m_Father: {fileID: 1534559686}
   m_RootOrder: 0
@@ -3339,7 +3419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec54b1d7d5d1dc74bbc137aa6b772f36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d1e48b3945c88241a96845b0fdc753f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3842,6 +3922,10 @@ PrefabInstance:
       propertyPath: dialogueBackground
       value: 
       objectReference: {fileID: 1823900859}
+    - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
+      propertyPath: dialogueTextShadow
+      value: 
+      objectReference: {fileID: 101027434}
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: choicePromptContainer
       value: 

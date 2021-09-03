@@ -14,6 +14,7 @@ public class DialogueMaster : MonoBehaviour
 
     public Image dialoguePortrait;
     public Text dialogueText;
+    public Text dialogueTextShadow;
 
     int promptIndex;
     int lastSubIndex;
@@ -86,14 +87,14 @@ public class DialogueMaster : MonoBehaviour
         public string dialogueString;
 
         [Header("Character")]
-        public Font dialogueFont;
+        public Font dialogueFont ;
         public FontStyle dialogueFontStyle = FontStyle.Normal;
-        public int dialogueFontSize = 14;
+        public int dialogueFontSize = 200;
         public float dialogueLineSpacing = 1;
         public bool dialogueRichText = true;
 
         [Header("Paragraph")]
-        public TextAnchor dialogueAlignment = TextAnchor.UpperLeft;
+        public TextAnchor dialogueAlignment = TextAnchor.MiddleLeft;
         public bool dialogueAlignByGeometry = false;
         public HorizontalWrapMode dialogueHorizontalOverflow = HorizontalWrapMode.Wrap;
         public VerticalWrapMode dialogueVerticalOverflow = VerticalWrapMode.Truncate;
@@ -227,7 +228,8 @@ public class DialogueMaster : MonoBehaviour
 
     private void ShowDialogueInstance(DialogueInstance instanceToShow)
     {
-        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
+        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueText);
+        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueTextShadow, false);
 
         if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
         {
@@ -243,7 +245,8 @@ public class DialogueMaster : MonoBehaviour
 
     private void ShowDialogueSubInstance(SubInstance instanceToShow)
     {
-        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText);
+        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueText);
+        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueTextShadow, false);
         if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
         {
             ShowPortrait();
@@ -259,6 +262,7 @@ public class DialogueMaster : MonoBehaviour
     private void HideDialogue()
     {
         dialogueText.text = "";
+        dialogueTextShadow.text = "";
         dialogueBackground.gameObject.SetActive(false);
         HidePortrait();
     }
@@ -293,33 +297,34 @@ public class DialogueMaster : MonoBehaviour
 
 
 
-    void ConvertDialogueTextToTextUI(DialogueText dialogueTextToConvert)
+    void ConvertDialogueTextToTextUI(DialogueText dialogueTextToConvert, Text textComponent, bool changeFontColor = true)
     {
         
-        dialogueText.text = dialogueTextToConvert.dialogueString;
+        textComponent.text = dialogueTextToConvert.dialogueString;
 
         //character
         if(dialogueTextToConvert.dialogueFont != null)
-            dialogueText.font = dialogueTextToConvert.dialogueFont;
-        dialogueText.fontStyle = dialogueTextToConvert.dialogueFontStyle;
+            textComponent.font = dialogueTextToConvert.dialogueFont;
+        textComponent.fontStyle = dialogueTextToConvert.dialogueFontStyle;
         if(dialogueTextToConvert.dialogueFontSize > 0)
-            dialogueText.fontSize = dialogueTextToConvert.dialogueFontSize;
-        dialogueText.lineSpacing = dialogueTextToConvert.dialogueLineSpacing;
-        dialogueText.supportRichText = dialogueTextToConvert.dialogueRichText;
+            textComponent.fontSize = dialogueTextToConvert.dialogueFontSize;
+        textComponent.lineSpacing = dialogueTextToConvert.dialogueLineSpacing;
+        textComponent.supportRichText = dialogueTextToConvert.dialogueRichText;
 
         //paragraph
-        dialogueText.alignment = dialogueTextToConvert.dialogueAlignment;
-        dialogueText.alignByGeometry = dialogueTextToConvert.dialogueAlignByGeometry;
-        dialogueText.horizontalOverflow = dialogueTextToConvert.dialogueHorizontalOverflow;
-        dialogueText.verticalOverflow = dialogueTextToConvert.dialogueVerticalOverflow;
-        dialogueText.resizeTextForBestFit = dialogueTextToConvert.dialogueBestFit;
+        textComponent.alignment = dialogueTextToConvert.dialogueAlignment;
+        textComponent.alignByGeometry = dialogueTextToConvert.dialogueAlignByGeometry;
+        textComponent.horizontalOverflow = dialogueTextToConvert.dialogueHorizontalOverflow;
+        textComponent.verticalOverflow = dialogueTextToConvert.dialogueVerticalOverflow;
+        textComponent.resizeTextForBestFit = dialogueTextToConvert.dialogueBestFit;
 
         //Standalone
-        dialogueText.color = dialogueTextToConvert.dialogueColor;
-        dialogueText.material = dialogueTextToConvert.dialogueMaterial;
-        dialogueText.raycastTarget = dialogueTextToConvert.dialogueRaycastTarget;
-        dialogueText.raycastPadding = dialogueTextToConvert.dialogueRaycastPadding;
-        dialogueText.maskable = dialogueTextToConvert.dialogueMaskable;
+        if(changeFontColor)
+            textComponent.color = dialogueTextToConvert.dialogueColor;
+        textComponent.material = dialogueTextToConvert.dialogueMaterial;
+        textComponent.raycastTarget = dialogueTextToConvert.dialogueRaycastTarget;
+        textComponent.raycastPadding = dialogueTextToConvert.dialogueRaycastPadding;
+        textComponent.maskable = dialogueTextToConvert.dialogueMaskable;
     }
 
     public void ChoosePrompt(int returnIndex)

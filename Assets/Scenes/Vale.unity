@@ -2807,7 +2807,7 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 0
     portrait:
-      portraitImage: {fileID: 21300000, guid: 6978bae67946fda41aa76a8c1bec1d31, type: 3}
+      portraitImage: {fileID: 21300000, guid: 9d8bd4e0bff9359499f5034724f140d4, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
     dialoguePrompt:
@@ -2837,7 +2837,7 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 0
     portrait:
-      portraitImage: {fileID: 21300000, guid: b97b51c570e94ae42838e4401b4a68ac, type: 3}
+      portraitImage: {fileID: 21300000, guid: 6978bae67946fda41aa76a8c1bec1d31, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
     dialoguePrompt:
@@ -3036,7 +3036,7 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      portraitImage: {fileID: 21300000, guid: c68823e73ee950742894df67da9e24dc, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
     dialoguePrompt:
@@ -3045,7 +3045,6 @@ MonoBehaviour:
     listOfOptionNames:
     - Yes
     - No
-    - Perhaps
     listOfOptions:
     - dialogueChoiceSubInstances:
       - dialogueBox:
@@ -3069,7 +3068,7 @@ MonoBehaviour:
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
             dialogueMaskable: 1
         portrait:
-          portraitImage: {fileID: 0}
+          portraitImage: {fileID: 21300000, guid: e9149596859e4344f9349e2adc150630, type: 3}
           portraitBoxPosition: {x: 0, y: 0}
           isPortraitShown: 1
       - dialogueBox:
@@ -3120,9 +3119,9 @@ MonoBehaviour:
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
             dialogueMaskable: 1
         portrait:
-          portraitImage: {fileID: 0}
+          portraitImage: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
           portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
+          isPortraitShown: 1
       - dialogueBox:
           boxPosition: {x: 0, y: 0}
           boxSize: {x: 0, y: 0}
@@ -3144,9 +3143,9 @@ MonoBehaviour:
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
             dialogueMaskable: 1
         portrait:
-          portraitImage: {fileID: 0}
+          portraitImage: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
           portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
+          isPortraitShown: 1
       - dialogueBox:
           boxPosition: {x: 0, y: 0}
           boxSize: {x: 0, y: 0}
@@ -3168,12 +3167,10 @@ MonoBehaviour:
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
             dialogueMaskable: 1
         portrait:
-          portraitImage: {fileID: 0}
+          portraitImage: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
           portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
+          isPortraitShown: 1
       isLoopingLastSubInstance: 1
-    - dialogueChoiceSubInstances: []
-      isLoopingLastSubInstance: 0
     optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
@@ -3196,9 +3193,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 21300000, guid: 4be714b4dcc037a44867db4db7ff427b, type: 3}
+      portraitImage: {fileID: 0}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 1
+      isPortraitShown: 0
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -3228,7 +3225,7 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 21300000, guid: c53f234544342264ea172ca2c220377d, type: 3}
+      portraitImage: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
     dialoguePrompt:

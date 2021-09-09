@@ -44,12 +44,10 @@ public class ChestMaster : MonoBehaviour
     public class ChestInstance{
 
         public ChestStates chestState = ChestStates.UNOPENED;
-
         public string characterName;
         public string itemName;
         public string containerName;
     }
-
 
     // Start is called before the first frame update
     void Start()

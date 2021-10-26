@@ -31,5 +31,8 @@ When running it inside the Unity editor, go to Assets/Scenes and open the *Vale*
 
 ## Credits
 I am in no way affiliated with Camelot Software Planning or Nintendo. This project is strictly for educational purposes
-</br></br>
+</br>
+</br>
+</br>
+
 **No license provided**

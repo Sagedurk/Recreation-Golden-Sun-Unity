@@ -10,9 +10,8 @@ The most important scripts can be found in Assets/Scripts/Systems
 which is where you'll find *DialogueMaster*, *Interactable*, *InteractableEditor*, and *ChestMaster*
 
 ### Challenges
-* Perfectly replicating the UI animation
+* Replicating the UI animation in the in-game menu
 * Understanding how to write a custom editor
-* Making sense of the logic to the dialogue system
 * Not relying on any external sources other than for documentation
 
 ### Future plans

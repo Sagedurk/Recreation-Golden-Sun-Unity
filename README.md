@@ -12,7 +12,7 @@ which is where you'll find *DialogueMaster*, *Interactable*, *InteractableEditor
 ### Challenges
 * Replicating the UI animation in the in-game menu
 * Understanding how to write a custom editor
-* Not relying on any external sources other than for documentation
+* Not relying on any external sources other than documentation
 
 ### Future plans
 * Creating all interactable systems

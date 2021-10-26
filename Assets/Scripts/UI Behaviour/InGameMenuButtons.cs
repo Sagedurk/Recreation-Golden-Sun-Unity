@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonTest : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class InGameMenuButtons : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public InGameMenu menuHandler;
     public void OnSelect(BaseEventData eventData)

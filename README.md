@@ -16,18 +16,21 @@ which is where you'll find *DialogueMaster*, *Interactable*, *InteractableEditor
 * 
 
 ### Future plans
-* 
-* 
-* 
-* 
+* Creating all interactable systems
+* Starting on overworld Psynergy use, such as puzzles 
+* Replicate the different minigames found in one of the towns
+* Undertaking the combat system and all that it entails (skill system, class system, etc.)
 * Including more
 
 ## INSTALLATION INSTRUCTIONS
 Download Unity **2020.2.7f1** and open the project's root folder in Unity.
+</br>
 When running it inside the Unity editor, go to Assets/Scenes and open the *Vale* scene.
 
 ## USAGE INSTRUCTIONS
-
+**_UNDER CONSTRUCTION_**
+</br>
+Dialogue System
 
 </br>
 </br>

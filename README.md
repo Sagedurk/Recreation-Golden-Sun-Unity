@@ -1,5 +1,5 @@
 # Recreation Golden Sun
-Recreating mechanics from Golden Sun for educational purposes
+Recreating mechanics from Golden Sun for educational purposes, to improve my problem solving skills
 </br>
 Developed primarily for PC with controller support, in **Unity 2020.2.7f1**
 
@@ -12,8 +12,8 @@ which is where you'll find *DialogueMaster*, *Interactable*, *InteractableEditor
 ### Challenges
 * Perfectly replicating the UI animation
 * Understanding how to write a custom editor
+* Making sense of the logic to the dialogue system
 * Not relying on any external sources other than for documentation
-* 
 
 ### Future plans
 * Creating all interactable systems
@@ -36,6 +36,8 @@ Dialogue System
 </br>
 
 ### CREDITS
+**_UNDER CONSTRUCTION_**
+</br>
 I am in no way affiliated with Camelot Software Planning or Nintendo. This project is strictly for educational purposes
 
 </br>

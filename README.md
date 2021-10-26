@@ -1,4 +1,4 @@
-# Recreation-Golden-Sun
+# Recreation Golden Sun
 Recreating mechanics from Golden Sun for educational purposes
 </br>
 Developed primarily for PC with controller support, in **Unity 2020.2.7f1**

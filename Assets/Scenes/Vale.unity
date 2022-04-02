@@ -351,7 +351,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-    m_FontSize: 200
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -362,7 +362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Avast!
+  m_Text: The Mt. Aleph Boulder is going to fall!
 --- !u!222 &101027435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -387,8 +387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23.78, y: -22.29}
-  m_SizeDelta: {x: -120, y: -65.1193}
+  m_AnchoredPosition: {x: 4.91, y: -6.11}
+  m_SizeDelta: {x: -57.42099, y: -53.091698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &414123739 stripped
 GameObject:
@@ -1336,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &891132404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1346,7 +1346,7 @@ RectTransform:
   m_GameObject: {fileID: 891132403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1851520861}
   m_Father: {fileID: 1534559686}
@@ -1354,8 +1354,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1436, y: 374}
-  m_SizeDelta: {x: 320, y: 320}
+  m_AnchoredPosition: {x: 681.9301, y: 460}
+  m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &891132405
 MonoBehaviour:
@@ -2281,8 +2281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10.4800415, y: -10.174545}
-  m_SizeDelta: {x: -120, y: -120}
+  m_AnchoredPosition: {x: -0.3435974, y: -1.9094009}
+  m_SizeDelta: {x: -57.421, y: -53.0917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408993232
 MonoBehaviour:
@@ -2306,18 +2306,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-    m_FontSize: 200
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Avast!
+  m_Text: The Mt. Aleph Boulder is going to fall!
 --- !u!222 &1408993233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3019,13 +3019,13 @@ MonoBehaviour:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: Avast!
+        dialogueString: Isaac, wake up!
         dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 100
         dialogueLineSpacing: 1
         dialogueRichText: 1
-        dialogueAlignment: 3
+        dialogueAlignment: 0
         dialogueAlignByGeometry: 0
         dialogueHorizontalOverflow: 0
         dialogueVerticalOverflow: 0
@@ -3038,10 +3038,10 @@ MonoBehaviour:
     portrait:
       portraitImage: {fileID: 21300000, guid: c68823e73ee950742894df67da9e24dc, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 1
+      isPortraitShown: 0
     dialoguePrompt:
       position: {x: 384, y: 0, z: 0}
-      dialogueChoice: 1
+      dialogueChoice: 0
     listOfOptionNames:
     - Yes
     - No
@@ -3176,7 +3176,7 @@ MonoBehaviour:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: The second <i>debugging</i> dialogue
+        dialogueString: Please, dear, wake up!
         dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
         dialogueFontSize: 200
@@ -3208,7 +3208,7 @@ MonoBehaviour:
       boxPosition: {x: 0, y: 0}
       boxSize: {x: 0, y: 0}
       dialogueText:
-        dialogueString: The <b>3rd</b> main debugging dialogue
+        dialogueString: The Mt. Aleph Boulder is going to fall!
         dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
         dialogueFontSize: 200
@@ -3228,6 +3228,559 @@ MonoBehaviour:
       portraitImage: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
       isPortraitShown: 1
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 'Come on, Isaac.
+
+          We have to go---now!'
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: Isaac! You forgot something!
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 1
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 'It''s pouring outside!
+
+          Don''t go out without
+          your tunic!'
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: Have you got everything you need?
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 1
+    listOfOptionNames:
+    - Yes
+    - No
+    listOfOptions:
+    - dialogueChoiceSubInstances:
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: 'Good for you, Isaac.
+
+              A lost possession
+              can be replaced; a lost life can''t.'
+            dialogueFont: {fileID: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 0
+            dialogueLineSpacing: 0
+            dialogueRichText: 0
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 0
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 0
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 1
+      isLoopingLastSubInstance: 0
+    - dialogueChoiceSubInstances:
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: I'm sorry, but we don't have time... You'll have to leave
+              it behind.
+            dialogueFont: {fileID: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 0
+            dialogueLineSpacing: 0
+            dialogueRichText: 0
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 0
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 0
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      isLoopingLastSubInstance: 0
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 'Isaac, Dora, hurry!
+
+          The Boulder could fall at
+          any second!'
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: Kyle... Will they be able to stop the Boulder?
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 'I don''t think so...
+
+          Not for long, anyway...'
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: You two go on ahead and take refuge in the plaza.
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: Aren't you coming?
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: I need to help evacuate the other villagers.
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: Let me help you, Kyle!
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: 'It''s too dangerous, Dora.
+
+          Please, just take
+          good care of Isaac!'
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: Isaac is old enough to get to the plaza on his own.
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 0
+    listOfOptionNames: []
+    listOfOptions: []
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: You can find your way, can't you, Isaac?
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 1
+    dialoguePrompt:
+      position: {x: 0, y: 0, z: 0}
+      dialogueChoice: 1
+    listOfOptionNames:
+    - Yes
+    - No
+    listOfOptions:
+    - dialogueChoiceSubInstances: []
+      isLoopingLastSubInstance: 0
+    - dialogueChoiceSubInstances:
+      - dialogueBox:
+          boxPosition: {x: 0, y: 0}
+          boxSize: {x: 0, y: 0}
+          dialogueText:
+            dialogueString: You're a big boy now, Isaac. Why don't you go on your
+              own?
+            dialogueFont: {fileID: 0}
+            dialogueFontStyle: 0
+            dialogueFontSize: 0
+            dialogueLineSpacing: 0
+            dialogueRichText: 0
+            dialogueAlignment: 0
+            dialogueAlignByGeometry: 0
+            dialogueHorizontalOverflow: 0
+            dialogueVerticalOverflow: 0
+            dialogueBestFit: 0
+            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueMaterial: {fileID: 0}
+            dialogueRaycastTarget: 0
+            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+            dialogueMaskable: 0
+        portrait:
+          portraitImage: {fileID: 0}
+          portraitBoxPosition: {x: 0, y: 0}
+          isPortraitShown: 0
+      isLoopingLastSubInstance: 1
+    optionListIndex: 0
+  - dialogueBox:
+      boxPosition: {x: 0, y: 0}
+      boxSize: {x: 0, y: 0}
+      dialogueText:
+        dialogueString: You know the way---just go south to get to the plaza. Be
+          careful!
+        dialogueFont: {fileID: 0}
+        dialogueFontStyle: 0
+        dialogueFontSize: 200
+        dialogueLineSpacing: 1
+        dialogueRichText: 1
+        dialogueAlignment: 3
+        dialogueAlignByGeometry: 0
+        dialogueHorizontalOverflow: 0
+        dialogueVerticalOverflow: 0
+        dialogueBestFit: 0
+        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+        dialogueMaterial: {fileID: 0}
+        dialogueRaycastTarget: 1
+        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+        dialogueMaskable: 1
+    portrait:
+      portraitImage: {fileID: 0}
+      portraitBoxPosition: {x: 0, y: 0}
+      isPortraitShown: 0
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -3374,7 +3927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1823900858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3384,7 +3937,7 @@ RectTransform:
   m_GameObject: {fileID: 1823900857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 101027436}
   - {fileID: 1408993231}
@@ -3393,8 +3946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1062, y: 95}
-  m_SizeDelta: {x: 756, y: 276}
+  m_AnchoredPosition: {x: 415, y: 143.7302}
+  m_SizeDelta: {x: 693.8602, y: 156.6349}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1823900859
 MonoBehaviour:
@@ -3416,16 +3969,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d1e48b3945c88241a96845b0fdc753f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: ec54b1d7d5d1dc74bbc137aa6b772f36, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.8
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 0.01
 --- !u!222 &1823900860
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3469,7 +4022,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 256, y: 256}
+  m_SizeDelta: {x: 129, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851520862
 MonoBehaviour:
@@ -3491,7 +4044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

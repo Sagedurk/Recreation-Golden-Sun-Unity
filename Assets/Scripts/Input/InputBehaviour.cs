@@ -8,10 +8,13 @@ public class InputBehaviour : MonoBehaviour
 {
     public GameObject inGameMenu;
     public PlayerInteraction interactionManager;
+    public PlayerInput playerInput;
     public bool isInteracted;
 
     Vector2 movementVector;
     float movementSpeed = 10.0f;
+    string previousActionMap;
+
     public void Psynergy1(InputAction.CallbackContext ctx)
     {   
         Debug.Log("Psy #1 called");
@@ -111,6 +114,11 @@ public class InputBehaviour : MonoBehaviour
 
     public void Dialogue(InputAction.CallbackContext ctx)
     {
+        //If in dialogue, swap to an action map that can only call this, on confirm
+        //To check
+        //Do we already swap action map? Or do we need to do that?
+
+
         if (ctx.started)
         {
             isInteracted = true;
@@ -134,4 +142,17 @@ public class InputBehaviour : MonoBehaviour
         if(movementVector != Vector2.zero)
             transform.position += transform.forward * movementSpeed * Time.deltaTime;        
     }
+
+    public void SwitchActionMap(string nextActionMap)
+    {
+        previousActionMap = playerInput.currentActionMap.name;
+        playerInput.SwitchCurrentActionMap(nextActionMap);
+
+    }
+
+    public void SwitchToPreviousActionMap()
+    {
+        playerInput.SwitchCurrentActionMap(previousActionMap);
+    }
+
 }

@@ -231,10 +231,13 @@ public class DialogueMaster : MonoBehaviour
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueText);
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueTextShadow, false);
 
+        dialogueBackground.rectTransform.position = instanceToShow.dialogueBox.boxPosition;
+        dialogueBackground.rectTransform.sizeDelta = instanceToShow.dialogueBox.boxSize;
+
+
         if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
         {
-            ShowPortrait();
-            dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
+            ShowPortrait(instanceToShow);
         }
         else
         {
@@ -249,7 +252,7 @@ public class DialogueMaster : MonoBehaviour
         ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueTextShadow, false);
         if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
         {
-            ShowPortrait();
+            ShowPortrait(instanceToShow);
             dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
         }
         else
@@ -265,10 +268,14 @@ public class DialogueMaster : MonoBehaviour
         dialogueTextShadow.text = "";
         dialogueBackground.gameObject.SetActive(false);
         HidePortrait();
+        inputBehaviour.SwitchToPreviousActionMap();
     }
     private void ShowDialogueBackground()
     {
         dialogueBackground.gameObject.SetActive(true);
+
+
+        inputBehaviour.SwitchActionMap("Dialogue");
     }
 
 
@@ -285,9 +292,22 @@ public class DialogueMaster : MonoBehaviour
         choicePromptContainer.SetActive(false);
     }
 
-    void ShowPortrait()
+    void ShowPortrait(DialogueInstance instanceToShow)
     {
         dialoguePortraitFrame.SetActive(true);
+        dialoguePortraitFrame.transform.position = instanceToShow.portrait.portraitBoxPosition;
+
+        dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
+    }
+
+    //Next Step, fix position and size of dialogue box & portrait
+
+    void ShowPortrait(SubInstance instanceToShow)
+    {
+        dialoguePortraitFrame.SetActive(true);
+        dialoguePortraitFrame.transform.position = instanceToShow.portrait.portraitBoxPosition;
+
+        dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
     }
     
     void HidePortrait()

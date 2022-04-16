@@ -387,7 +387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.9099426, y: -6.1100006}
+  m_AnchoredPosition: {x: 4.909912, y: -6.1099854}
   m_SizeDelta: {x: -57.42099, y: -53.091698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &414123739 stripped
@@ -2298,7 +2298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.3435974, y: -1.9094009}
+  m_AnchoredPosition: {x: -0.34362793, y: -1.9093933}
   m_SizeDelta: {x: -57.421, y: -53.0917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408993232
@@ -3039,7 +3039,7 @@ MonoBehaviour:
         dialogueString: Isaac, wake up!
         dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 100
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 0
@@ -3196,7 +3196,7 @@ MonoBehaviour:
         dialogueString: Please, dear, wake up!
         dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3228,7 +3228,7 @@ MonoBehaviour:
         dialogueString: The Mt. Aleph Boulder is going to fall!
         dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3257,10 +3257,10 @@ MonoBehaviour:
       dialogueText:
         dialogueString: 'Come on, Isaac.
 
-          We have to go---now!'
+          We have to go__now!'
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3290,7 +3290,7 @@ MonoBehaviour:
         dialogueString: Isaac! You forgot something!
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3323,7 +3323,7 @@ MonoBehaviour:
           your tunic!'
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3353,7 +3353,7 @@ MonoBehaviour:
         dialogueString: Have you got everything you need?
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3444,7 +3444,7 @@ MonoBehaviour:
           any second!'
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3474,7 +3474,7 @@ MonoBehaviour:
         dialogueString: Kyle... Will they be able to stop the Boulder?
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3506,7 +3506,7 @@ MonoBehaviour:
           Not for long, anyway...'
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3536,7 +3536,7 @@ MonoBehaviour:
         dialogueString: You two go on ahead and take refuge in the plaza.
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3566,7 +3566,7 @@ MonoBehaviour:
         dialogueString: Aren't you coming?
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3596,7 +3596,7 @@ MonoBehaviour:
         dialogueString: I need to help evacuate the other villagers.
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3626,7 +3626,7 @@ MonoBehaviour:
         dialogueString: Let me help you, Kyle!
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3659,7 +3659,7 @@ MonoBehaviour:
           good care of Isaac!'
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3689,7 +3689,7 @@ MonoBehaviour:
         dialogueString: Isaac is old enough to get to the plaza on his own.
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3719,7 +3719,7 @@ MonoBehaviour:
         dialogueString: You can find your way, can't you, Isaac?
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3
@@ -3781,7 +3781,7 @@ MonoBehaviour:
           careful!
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
-        dialogueFontSize: 200
+        dialogueFontSize: 75
         dialogueLineSpacing: 1
         dialogueRichText: 1
         dialogueAlignment: 3

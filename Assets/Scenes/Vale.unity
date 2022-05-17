@@ -362,7 +362,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Have  you  got everything you need?
+  m_Text: 'I    don''t    think    so...
+
+    Not for long, anyway...'
 --- !u!222 &101027435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -387,7 +389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.909912, y: -6.1099854}
+  m_AnchoredPosition: {x: 4.9101562, y: -6.1099854}
   m_SizeDelta: {x: -57.42099, y: -53.091698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &414123739 stripped
@@ -2298,7 +2300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.34362793, y: -1.9093933}
+  m_AnchoredPosition: {x: -0.34375, y: -1.9094238}
   m_SizeDelta: {x: -57.421, y: -53.0917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408993232
@@ -2334,7 +2336,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Have  you  got everything you need?
+  m_Text: 'I    don''t    think    so...
+
+    Not for long, anyway...'
 --- !u!222 &1408993233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3326,7 +3330,7 @@ MonoBehaviour:
     portrait:
       portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
       portraitBoxPosition: {x: 682, y: 460}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -3368,8 +3372,8 @@ MonoBehaviour:
     listOfOptions: []
     optionListIndex: 0
   - dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
+      boxPosition: {x: 568, y: 42}
+      boxSize: {x: 645, y: 209}
       dialogueText:
         dialogueString: 'It''s pouring outside!
 
@@ -3391,9 +3395,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      portraitBoxPosition: {x: 682, y: 460}
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -3403,8 +3407,8 @@ MonoBehaviour:
     listOfOptions: []
     optionListIndex: 0
   - dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
+      boxPosition: {x: 0, y: 300}
+      boxSize: {x: 700, y: 157}
       dialogueText:
         dialogueString: Have you got everything you need?
         dialogueFont: {fileID: 0}
@@ -3438,27 +3442,25 @@ MonoBehaviour:
     - dialogueChoiceSubInstances:
       - dialogueBox:
           boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
+          boxSize: {x: 790, y: 209}
           dialogueText:
-            dialogueString: 'Good for you, Isaac.
-
-              A lost possession
-              can be replaced; a lost life can''t.'
+            dialogueString: "Good     for     you,     Isaac.\nA lost possession
+              can be \nreplaced; a lost life can't."
             dialogueFont: {fileID: 0}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
-            dialogueAlignment: 0
+            dialogueFontSize: 75
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
         portrait:
           portraitImage: {fileID: 0}
           portraitBoxPosition: {x: 0, y: 0}
@@ -3474,30 +3476,30 @@ MonoBehaviour:
       isLoopingLastSubInstance: 0
     - dialogueChoiceSubInstances:
       - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
+          boxPosition: {x: 0, y: 300}
+          boxSize: {x: 715, y: 209}
           dialogueText:
-            dialogueString: I'm sorry, but we don't have time... You'll have to leave
-              it behind.
+            dialogueString: "I'm    sorry,     but     we \ndon't have time... You'll
+              have to leave it behind."
             dialogueFont: {fileID: 0}
             dialogueFontStyle: 0
-            dialogueFontSize: 0
-            dialogueLineSpacing: 0
-            dialogueRichText: 0
-            dialogueAlignment: 0
+            dialogueFontSize: 75
+            dialogueLineSpacing: 1
+            dialogueRichText: 1
+            dialogueAlignment: 3
             dialogueAlignByGeometry: 0
             dialogueHorizontalOverflow: 0
             dialogueVerticalOverflow: 0
             dialogueBestFit: 0
-            dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
             dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 0
+            dialogueRaycastTarget: 1
             dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 0
+            dialogueMaskable: 1
         portrait:
-          portraitImage: {fileID: 0}
+          portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
           portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 0
+          isPortraitShown: 1
         dialoguePrompt:
           position: {x: 0, y: 0, z: 0}
           dialogueChoice: 0
@@ -3510,12 +3512,12 @@ MonoBehaviour:
     optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
+      boxSize: {x: 615, y: 209}
       dialogueText:
         dialogueString: 'Isaac, Dora, hurry!
 
-          The Boulder could fall at
-          any second!'
+          The  Boulder  could fall
+          at any second!'
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 75
@@ -3532,9 +3534,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 0}
+      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -3545,9 +3547,9 @@ MonoBehaviour:
     optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
+      boxSize: {x: 712, y: 157}
       dialogueText:
-        dialogueString: Kyle... Will they be able to stop the Boulder?
+        dialogueString: Kyle... Will they be able to  stop  the  Boulder?
         dialogueFont: {fileID: 0}
         dialogueFontStyle: 0
         dialogueFontSize: 75
@@ -3564,9 +3566,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 0}
+      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -3577,9 +3579,9 @@ MonoBehaviour:
     optionListIndex: 0
   - dialogueBox:
       boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
+      boxSize: {x: 678, y: 157}
       dialogueText:
-        dialogueString: 'I don''t think so...
+        dialogueString: 'I    don''t    think    so...
 
           Not for long, anyway...'
         dialogueFont: {fileID: 0}
@@ -3598,9 +3600,9 @@ MonoBehaviour:
         dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
         dialogueMaskable: 1
     portrait:
-      portraitImage: {fileID: 0}
+      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
       portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
+      isPortraitShown: 1
     dialoguePrompt:
       position: {x: 0, y: 0, z: 0}
       dialogueChoice: 0
@@ -4067,8 +4069,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 300}
-  m_SizeDelta: {x: 671, y: 157}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: 678, y: 157}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1823900859
 MonoBehaviour:

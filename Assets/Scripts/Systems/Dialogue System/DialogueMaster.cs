@@ -159,24 +159,17 @@ public class DialogueMaster : MonoBehaviour
             //If action should happen before the dialogue instance
             if (currentInstance.dialogueAction == DialogueAction.BEFORE_DIALOGUE)
             {
-                Coroutine action = null;
                 HideDialogue();
                 if (!dialogueActions.isRunning)
                 {
-
-                    action = dialogueActions.StartCoroutine(currentInstance.actionName);
+                    dialogueActions.StartCoroutine(currentInstance.actionName);
                 }
 
-                    yield return action;
+                while (dialogueActions.isRunning)
 
+                    yield return null;
 
-                ////If action is running, pause dialogue continuation
-                //while (dialogueActions.isRunning)
-                //{
-
-                //    yield return null;
-                //}
-                ShowDialogueBackground();
+                ShowDialogueBackground(false);
             }
 
 
@@ -265,31 +258,20 @@ public class DialogueMaster : MonoBehaviour
             //If action should happen after the dialogue instance
             if (currentInstance.dialogueAction == DialogueAction.AFTER_DIALOGUE)
             {
-
-                //TODO: Figure out why it's not firing off as intended
-                Coroutine action = null;
                 HideDialogue();
                 if (!dialogueActions.isRunning)
-                {
+                    dialogueActions.StartCoroutine(currentInstance.actionName);
 
-                    action = dialogueActions.StartCoroutine(currentInstance.actionName);
-                }
+                while (dialogueActions.isRunning)
+                    yield return null;
 
-                yield return action;
-
-                //If action is running, pause dialogue continuation
-                //while (dialogueActions.isRunning)
-                //{
-
-                //    yield return null;
-                //}
-                ShowDialogueBackground();
+                ShowDialogueBackground(false);
             }
 
 
         }
 
-        HideDialogue();
+        EndDialogue();
     }
 
     private void ShowDialogueInstance(DialogueInstance instanceToShow)
@@ -334,14 +316,22 @@ public class DialogueMaster : MonoBehaviour
         dialogueTextShadow.text = "";
         dialogueBackground.gameObject.SetActive(false);
         HidePortrait();
+    }
+    private void EndDialogue()
+    {
+        Debug.Log("Dialogue Ended!");
+        dialogueText.text = "";
+        dialogueTextShadow.text = "";
+        dialogueBackground.gameObject.SetActive(false);
+        HidePortrait();
         inputBehaviour.SwitchToPreviousActionMap();
     }
-    private void ShowDialogueBackground()
+    private void ShowDialogueBackground(bool switchActionMap = true)
     {
         dialogueBackground.gameObject.SetActive(true);
 
-
-        inputBehaviour.SwitchActionMap("Dialogue");
+        if(switchActionMap)
+            inputBehaviour.SwitchActionMap("Dialogue");
     }
 
 

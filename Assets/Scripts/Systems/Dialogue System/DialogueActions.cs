@@ -14,6 +14,8 @@ public class DialogueActions : MonoBehaviour
         Debug.Log("Lesgo");
 
         yield return new WaitForSeconds(3);
+        Debug.Log("We done");
+
 
 
         isRunning = false;

@@ -16,6 +16,8 @@ public class DialogueMaster : MonoBehaviour
     public Text dialogueText;
     public Text dialogueTextShadow;
 
+    public DialogueActions dialogueActions;
+
     int promptIndex;
     int lastSubIndex;
 
@@ -31,15 +33,20 @@ public class DialogueMaster : MonoBehaviour
         //dialogue options
         public Prompt dialoguePrompt;
 
+        public DialogueAction dialogueAction;
+        public string actionName;
+
         public List<string> listOfOptionNames = new List<string>();
         public List<choice> listOfOptions = new List<choice>();
         public int optionListIndex = 0; 
+
+        
     }
 
     [System.Serializable]
     public class choice
     {
-        public List<SubInstance> dialogueChoiceSubInstances = new List<SubInstance>();
+        public List<DialogueInstance> dialogueChoiceSubInstances = new List<DialogueInstance>();
         public bool isLoopingLastSubInstance = false;
         
     }
@@ -47,7 +54,7 @@ public class DialogueMaster : MonoBehaviour
     public class Prompt
     {
         public Vector3 position = new Vector3(0, 0, 0);
-        public dialogueChoices dialogueChoice;
+        public DialogueChoices dialogueChoice;
     }
 
     [System.Serializable]
@@ -110,13 +117,18 @@ public class DialogueMaster : MonoBehaviour
     }
 
 
-    public enum dialogueChoices
+    public enum DialogueChoices
     {
         INACTIVE,
         ACTIVE,
     }
 
-
+    public enum DialogueAction
+    {
+        NONE,
+        BEFORE_DIALOGUE,
+        AFTER_DIALOGUE
+    }
 
 
     // Start is called before the first frame update
@@ -144,18 +156,46 @@ public class DialogueMaster : MonoBehaviour
         {
             DialogueInstance currentInstance = instanceList[i];
 
+            //If action should happen before the dialogue instance
+            if (currentInstance.dialogueAction == DialogueAction.BEFORE_DIALOGUE)
+            {
+                Coroutine action = null;
+                HideDialogue();
+                if (!dialogueActions.isRunning)
+                {
+
+                    action = dialogueActions.StartCoroutine(currentInstance.actionName);
+                }
+
+                    yield return action;
+
+
+                ////If action is running, pause dialogue continuation
+                //while (dialogueActions.isRunning)
+                //{
+
+                //    yield return null;
+                //}
+                ShowDialogueBackground();
+            }
+
+
+
+            //Show next dialogue
             ShowDialogueInstance(currentInstance);
 
-            if (currentInstance.dialoguePrompt.dialogueChoice == dialogueChoices.ACTIVE)
+            //If yes/no prompt
+            if (currentInstance.dialoguePrompt.dialogueChoice == DialogueChoices.ACTIVE)
             {
                 ShowChoicePromt(currentInstance.dialoguePrompt.position);
 
-
+                //Wait for input
                 while (!inputBehaviour.isInteracted)
-                {
-
                     yield return null;
-                }
+                
+
+
+                //if input is given this frame
 
                 HideChoicePromt();
                 inputBehaviour.isInteracted = false;
@@ -165,16 +205,16 @@ public class DialogueMaster : MonoBehaviour
                 currentInstance.optionListIndex = promptIndex;
 
 
+                //Loop through the sub instances
                 for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
                 {
-                    ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k]);
+                    ShowDialogueInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k]);
                     lastSubIndex++;
 
+                    //Wait for input
                     while (!inputBehaviour.isInteracted)
-                    {
-
                         yield return null;
-                    }
+
 
                     inputBehaviour.isInteracted = false;
                 }
@@ -201,7 +241,7 @@ public class DialogueMaster : MonoBehaviour
                         inputBehaviour.isInteracted = false;
                         //currentInstance.optionListIndex = promptIndex;
 
-                        ShowDialogueSubInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
+                        ShowDialogueInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
                     
 
                     }   
@@ -213,14 +253,40 @@ public class DialogueMaster : MonoBehaviour
             }
             else
             {
+                //Wait for input
                 while (!inputBehaviour.isInteracted)
-                {
-
                     yield return null;
-                }
+                
 
                 inputBehaviour.isInteracted = false;
             }
+
+
+            //If action should happen after the dialogue instance
+            if (currentInstance.dialogueAction == DialogueAction.AFTER_DIALOGUE)
+            {
+
+                //TODO: Figure out why it's not firing off as intended
+                Coroutine action = null;
+                HideDialogue();
+                if (!dialogueActions.isRunning)
+                {
+
+                    action = dialogueActions.StartCoroutine(currentInstance.actionName);
+                }
+
+                yield return action;
+
+                //If action is running, pause dialogue continuation
+                //while (dialogueActions.isRunning)
+                //{
+
+                //    yield return null;
+                //}
+                ShowDialogueBackground();
+            }
+
+
         }
 
         HideDialogue();

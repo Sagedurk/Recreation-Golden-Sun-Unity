@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3897456525924597587}
   - component: {fileID: 3897456525924597586}
+  - component: {fileID: 4994644518155264903}
   m_Layer: 0
   m_Name: Dialogue Master
   m_TagString: Untagged
@@ -41,5 +42,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f10fb4a9e0bed7499489b10cf1c47f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choicePromptContainer: {fileID: 0}
+  inputBehaviour: {fileID: 0}
+  dialogueBackground: {fileID: 0}
+  dialoguePortraitFrame: {fileID: 0}
+  dialoguePortrait: {fileID: 0}
+  dialogueText: {fileID: 0}
+  dialogueTextShadow: {fileID: 0}
+  dialogueActions: {fileID: 4994644518155264903}
+--- !u!114 &4994644518155264903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897456525924597589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a704003c72c17c4e9d9389a8f616521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

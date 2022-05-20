@@ -1,20 +1,50 @@
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
 using System.Collections;
 
 public class DialogueMasterWindow : EditorWindow
 {
-        [MenuItem("Window/SageSys/Dialogue Master")]
+    public static Interactable dialogueInstance;
+   
 
-        public static void ShowWindow()
+
+    [MenuItem("Window/SageSys/Dialogue Master")]
+    public static void ShowWindow()
+    {
+        GetWindow<DialogueMasterWindow>("Dialogue Master");
+    }
+
+    private void CreateGUI()
+    {
+
+        AddGraphView();
+    }
+
+    private void OnGUI()
+    {
+        if(dialogueInstance != null)
+            GUILayout.Label("Name of instance: " + dialogueInstance.name);
+
+
+        if (GUILayout.Button("Clear Instance"))
         {
-            EditorWindow.GetWindow<DialogueMasterWindow>("Dialogue Master");
+            dialogueInstance = null;
         }
-
-        private void OnGUI()
-        {
 
 
             
-        }
+    }
+
+
+    private void AddGraphView()
+    {
+        DialogueMasterGraphView graphView = new DialogueMasterGraphView();
+        graphView.StretchToParentSize();
+
+        rootVisualElement.Add(graphView);
+
+    }
+
 }

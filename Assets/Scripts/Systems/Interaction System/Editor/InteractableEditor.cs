@@ -60,6 +60,12 @@ public class InteractableEditor : Editor
 
     void OnDialogue(Interactable interactable)
     {
+        if (GUILayout.Button("Open Dialogue Editor"))
+        {
+            DialogueMasterWindow.dialogueInstance = interactable;
+            DialogueMasterWindow.ShowWindow();
+        }
+
         SerializedProperty dialogueList = serializedObject.FindProperty("listOfDialogueBoxes");
 
         EditorGUILayout.BeginHorizontal();

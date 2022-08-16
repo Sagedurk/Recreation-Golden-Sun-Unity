@@ -8,7 +8,7 @@ using UnityEngine;
 public class DialogueMasterNode : Node
 {
     public string DialogueName { get; set; }
-    public List<string> Choices { get; set; }
+    public List<DialogueChoiceSaveData> Choices { get; set; }
     public string Text { get; set; }
     public DialogueSystemGroup Group { get; set; }
     public int nodeID { get; set; }
@@ -24,15 +24,20 @@ public class DialogueMasterNode : Node
         DialogueName = nodeID.ToString();
         
 
-        Choices = new List<string>();
+        Choices = new List<DialogueChoiceSaveData>();
         Text = "Dialogue text.";
 
         SetPosition(new Rect(position, Vector2.zero));
 
         mainContainer.AddToClassList("dialogue-node__main-container");
         extensionContainer.AddToClassList("dialogue-node__extension-container");
-        
-        Choices.Add("New Choice");
+
+        DialogueChoiceSaveData choiceData = new DialogueChoiceSaveData()
+        {
+            Text = "New Choice"
+        };
+
+        Choices.Add(choiceData);
     }
 
     #region Overrided Methods
@@ -50,8 +55,14 @@ public class DialogueMasterNode : Node
         /* MAIN CONTAINER */
         Button addChoiceButton = DialogueElementUtility.CreateButton("Add Choice", () =>
         {
-            Port choicePort = CreateChoicePort("New Choice");
-            Choices.Add("New Choice");
+            DialogueChoiceSaveData choiceData = new DialogueChoiceSaveData()
+            {
+                Text = "New Choice"
+            };
+
+            Choices.Add(choiceData);
+
+            Port choicePort = CreateChoicePort(choiceData);
 
             outputContainer.Add(choicePort);
         });
@@ -61,13 +72,17 @@ public class DialogueMasterNode : Node
         mainContainer.Insert(1, addChoiceButton);
 
         /* TITLE CONTAINER */
-        TextField dialogueNameTextField = DialogueElementUtility.CreateTextField(DialogueName, callback => 
+        TextField dialogueNameTextField = DialogueElementUtility.CreateTextField(DialogueName, null, callback => 
         {
+            TextField target = (TextField)callback.target;
+
+            target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
+
             if(Group == null)
             {
                 graphView.RemoveUngroupedNode(this);
 
-                DialogueName = callback.newValue;
+                DialogueName = target.value;
 
                 graphView.AddUngroupedNode(this);
                 return;
@@ -117,7 +132,7 @@ public class DialogueMasterNode : Node
         
         /* OUTPUT CONTAINER */
 
-        foreach (string choice in Choices)
+        foreach (DialogueChoiceSaveData choice in Choices)
         {
             Port choicePort = CreateChoicePort(choice);
             outputContainer.Add(choicePort);
@@ -128,15 +143,35 @@ public class DialogueMasterNode : Node
     }
 
     #region Elements Creation
-    private Port CreateChoicePort(string choice)
+    private Port CreateChoicePort(object userData)
     {
         Port choicePort = DialogueElementUtility.CreatePort(this);
 
-        Button deleteChoiceButton = DialogueElementUtility.CreateButton("X");
+        choicePort.userData = userData;
+
+        DialogueChoiceSaveData choiceData = (DialogueChoiceSaveData) userData;
+
+        Button deleteChoiceButton = DialogueElementUtility.CreateButton("X", () =>
+        {
+            if (Choices.Count == 1)
+                return;
+
+            if (choicePort.connected)
+            {
+                graphView.DeleteElements(choicePort.connections);
+            }
+
+            Choices.Remove(choiceData);
+            graphView.RemoveElement(choicePort);
+
+        });
 
         deleteChoiceButton.AddToClassList("dialogue-node__button");
 
-        TextField choiceTextField = DialogueElementUtility.CreateTextField(choice);
+        TextField choiceTextField = DialogueElementUtility.CreateTextField(choiceData.Text, null, callback => 
+        {
+            choiceData.Text = callback.newValue;
+        });
 
         choiceTextField.AddClasses(
             "dialogue-node__textfield",

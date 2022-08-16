@@ -1,0 +1,58 @@
+/* VISUAL ELEMENTS */
+
+Toolbar
+{
+	background-color: #1D1D1E;
+	height: 35px;
+}
+
+TextField
+{
+	padding: 4px;
+}
+
+Button
+{
+	background-color: #252729;
+	border-color: #1D1D1E;
+	margin: 4px;
+	max-height: 25px;
+}
+
+Button:hover
+{
+	background-color: #2B2D2F;
+}
+
+Button:active
+{
+	background-color: #212325;
+	color: #FDD057;
+}
+
+/* BUILT IN */
+
+.unity-text-field_label
+{
+	padding: 4px;
+}
+
+TextField:focus > .unity-text-field_label
+{
+	color: #FFD700;
+}
+
+.unity-text-field__input
+{
+	background-color: #1D1D1E;
+	border-color: #27292C;
+	border-radius: 4px;
+	max-height: 25px;
+	min-width: 120px;
+	padding-left: 6px;
+}
+
+.unity-text-field__input:focus
+{
+	color: #FFD700;
+}

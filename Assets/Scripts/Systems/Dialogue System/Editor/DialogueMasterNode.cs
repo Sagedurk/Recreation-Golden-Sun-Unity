@@ -8,13 +8,24 @@ using UnityEngine;
 public class DialogueMasterNode : Node
 {
     public string DialogueName { get; set; }
-    public List<DialogueChoiceSaveData> Choices { get; set; }
+    public List<DialogueMasterNodeChoice> Choices { get; set; }
     public string Text { get; set; }
     public DialogueSystemGroup Group { get; set; }
     public int nodeID { get; set; }
 
     private DialogueMasterGraphView graphView;
 
+
+    /*
+     * Container names
+     *  mainContainer           //includes all other containers
+     *  titleContainer          //Title bar container
+     *  titleButtonContainer    //Title bar button container. Contains the top right buttons
+     *  inputContainer          //Input container used for input ports
+     *  outputContainer         //Output container, used for output ports
+     *  extensionContainer      //Empty Container used to display custom elements. 
+     *      After adding elements, call RefreshExpandedState in order to toggle this container visibility
+     */
 
     public void Initialize(DialogueMasterGraphView dialogueGraphView, Vector2 position)
     {
@@ -24,7 +35,7 @@ public class DialogueMasterNode : Node
         DialogueName = nodeID.ToString();
         
 
-        Choices = new List<DialogueChoiceSaveData>();
+        Choices = new List<DialogueMasterNodeChoice>();
         Text = "Dialogue text.";
 
         SetPosition(new Rect(position, Vector2.zero));
@@ -32,10 +43,7 @@ public class DialogueMasterNode : Node
         mainContainer.AddToClassList("dialogue-node__main-container");
         extensionContainer.AddToClassList("dialogue-node__extension-container");
 
-        DialogueChoiceSaveData choiceData = new DialogueChoiceSaveData()
-        {
-            Text = "New Choice"
-        };
+        DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice(this);
 
         Choices.Add(choiceData);
     }
@@ -55,10 +63,7 @@ public class DialogueMasterNode : Node
         /* MAIN CONTAINER */
         Button addChoiceButton = DialogueElementUtility.CreateButton("Add Choice", () =>
         {
-            DialogueChoiceSaveData choiceData = new DialogueChoiceSaveData()
-            {
-                Text = "New Choice"
-            };
+            DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice(this);
 
             Choices.Add(choiceData);
 
@@ -71,39 +76,9 @@ public class DialogueMasterNode : Node
 
         mainContainer.Insert(1, addChoiceButton);
 
-        /* TITLE CONTAINER */
-        TextField dialogueNameTextField = DialogueElementUtility.CreateTextField(DialogueName, null, callback => 
-        {
-            TextField target = (TextField)callback.target;
-
-            target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
-
-            if(Group == null)
-            {
-                graphView.RemoveUngroupedNode(this);
-
-                DialogueName = target.value;
-
-                graphView.AddUngroupedNode(this);
-                return;
-            }
-
-            DialogueSystemGroup currentGroup = Group;
-
-            graphView.RemoveGroupedNode(this, Group);
-
-            DialogueName = callback.newValue;
-
-            graphView.AddGroupedNode(this, currentGroup);
-        });
-
-        dialogueNameTextField.AddClasses(
-            "dialogue-node__textfield",
-            "dialogue-node__filename-textfield",
-            "dialogue-node__textfield__hidden"
-            );
-
-        titleContainer.Insert(0, dialogueNameTextField);
+        
+        //Remove minimize button from top right corner of the node
+        titleButtonContainer.contentContainer.RemoveFromHierarchy();
 
         /* INPUT CONTAINER */
         Port inputPort = DialogueElementUtility.CreatePort(this, "Dialogue Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
@@ -116,7 +91,10 @@ public class DialogueMasterNode : Node
 
         Foldout textFoldout = DialogueElementUtility.CreateFoldout("Dialogue Text");
 
-        TextField textTextField = DialogueElementUtility.CreateTextArea(Text);
+        TextField textTextField = DialogueElementUtility.CreateTextArea(Text, null, callback=>
+        {
+            Text = callback.newValue;
+        });
 
         textTextField.AddClasses(
             "dialogue-node__textfield", 
@@ -132,7 +110,7 @@ public class DialogueMasterNode : Node
         
         /* OUTPUT CONTAINER */
 
-        foreach (DialogueChoiceSaveData choice in Choices)
+        foreach (DialogueMasterNodeChoice choice in Choices)
         {
             Port choicePort = CreateChoicePort(choice);
             outputContainer.Add(choicePort);
@@ -149,7 +127,7 @@ public class DialogueMasterNode : Node
 
         choicePort.userData = userData;
 
-        DialogueChoiceSaveData choiceData = (DialogueChoiceSaveData) userData;
+        DialogueMasterNodeChoice choiceData = (DialogueMasterNodeChoice) userData;
 
         Button deleteChoiceButton = DialogueElementUtility.CreateButton("X", () =>
         {
@@ -168,9 +146,9 @@ public class DialogueMasterNode : Node
 
         deleteChoiceButton.AddToClassList("dialogue-node__button");
 
-        TextField choiceTextField = DialogueElementUtility.CreateTextField(choiceData.Text, null, callback => 
+        TextField choiceTextField = DialogueElementUtility.CreateTextField(choiceData.choiceText, null, callback => 
         {
-            choiceData.Text = callback.newValue;
+            choiceData.choiceText = callback.newValue;
         });
 
         choiceTextField.AddClasses(

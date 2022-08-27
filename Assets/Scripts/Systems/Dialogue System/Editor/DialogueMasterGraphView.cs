@@ -17,6 +17,7 @@ public class DialogueMasterGraphView : GraphView
     public List<int> nodeIDs = new List<int>();
     private int maxAmountOfNodes = int.MaxValue / 2;
 
+
     private int repeatedNamesAmount;
     public int amountOfRepeatedNames
     {
@@ -46,7 +47,9 @@ public class DialogueMasterGraphView : GraphView
         groupedNodes = new Dictionary<Group, Dictionary<string, DialogueSystemNodeErrorData>>();
         AddManipulators();
         AddGridBackground();
-        
+
+        CreateStarterNode();
+
         OnElementsDeleted();
         OnGroupElementsAdded();
         OnGroupElementsRemoved();
@@ -171,7 +174,15 @@ public class DialogueMasterGraphView : GraphView
         return node;
     }
 
+    private DialogueMasterStarterNode CreateStarterNode()
+    {
+        DialogueMasterStarterNode node = new DialogueMasterStarterNode();
+        node.Initialize(this);
+        node.Draw();
+        AddElement(node);
 
+        return node;
+    }
 
 
     #endregion
@@ -301,28 +312,39 @@ public class DialogueMasterGraphView : GraphView
             {
                 foreach (Edge edge in changes.edgesToCreate)
                 {
-                    DialogueMasterNode nextNode = (DialogueMasterNode) edge.input.node;
-                    DialogueChoiceSaveData choiceData = (DialogueChoiceSaveData) edge.output.userData;
+                    //Cast attempts
+                    DialogueMasterStarterNode starterNode = edge.output.node as DialogueMasterStarterNode;
+                    DialogueMasterNode  nextNode = edge.input.node as DialogueMasterNode;
+                    DialogueMasterNodeChoice nodeChoice = edge.output.userData as DialogueMasterNodeChoice;
 
-                    choiceData.NodeID = nextNode.nodeID;
+                    if (starterNode != null)    //If starter node
+                    {
+                        starterNode.SetStarterNode(nextNode);
+                        continue;
+                    }
+
+                    //If regular node, link next node to nodeChoice data
+
+                    if (nodeChoice == null)  //Fail safe, if cast was unsuccessful
+                        continue;
+
+                    nodeChoice.SetConnectedNode(nextNode);
                 }
             }
 
             if(changes.elementsToRemove != null)
             {
-                Type edgeType = typeof(Edge);
-
                 foreach (GraphElement element in changes.elementsToRemove)
                 {
-                    if (element.GetType() != edgeType)
+                    Edge edge = element as Edge;
+                    if (edge == null)   //If element is not edge, check next element
                         continue;
 
-                    Edge edge = (Edge) element;
-
-                    DialogueChoiceSaveData choiceData = (DialogueChoiceSaveData) edge.output.userData;
-
-                    //maybe redundant in the way we use node IDs??
-                    choiceData.NodeID = -1;
+                    //If element is edge
+                    //check if output port contains NodeChoice data, if it does, nullify connected node
+                    DialogueMasterNodeChoice nodeChoice = edge.output.userData as DialogueMasterNodeChoice;
+                    if (nodeChoice != null)
+                        nodeChoice.SetConnectedNode(null);
                 }
             }
 

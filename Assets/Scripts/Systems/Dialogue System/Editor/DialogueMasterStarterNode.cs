@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEditor.Experimental.GraphView;
-using UnityEngine.UIElements;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueMasterStarterNode : Node
@@ -9,12 +6,13 @@ public class DialogueMasterStarterNode : Node
     private DialogueMasterGraphView graphView;
     DialogueMasterNode connectedNode;
 
-    public void Initialize(DialogueMasterGraphView dialogueGraphView)
+    public void Initialize(DialogueMasterWindow masterWindow)
     {
-        graphView = dialogueGraphView;
-
-        SetPosition(new Rect(Vector2.zero, Vector2.zero));
+        Vector2 position = new Vector2(masterWindow.position.size.x * 0.05f, masterWindow.position.size.y * 0.35f);
+        SetPosition(new Rect(position, Vector2.zero));
         
+
+
         
 
 
@@ -26,6 +24,7 @@ public class DialogueMasterStarterNode : Node
 
     public void Draw()
     {
+        titleButtonContainer.contentContainer.RemoveFromHierarchy();
 
         Port port = CreatePort("Starter Node");
         outputContainer.Add(port);

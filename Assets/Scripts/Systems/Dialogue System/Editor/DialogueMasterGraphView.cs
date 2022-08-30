@@ -13,6 +13,8 @@ public class DialogueMasterGraphView : GraphView
     private Dictionary<string, DialogueSystemNodeErrorData> ungroupedNodes;
     private Dictionary<string, DialogueSystemGroupErrorData> groups;
     private Dictionary<Group, Dictionary<string, DialogueSystemNodeErrorData>> groupedNodes;
+    public DialogueMasterChoiceRequirements requirementInstance;
+
 
     public List<int> nodeIDs = new List<int>();
     private int maxAmountOfNodes = int.MaxValue / 2;
@@ -57,6 +59,9 @@ public class DialogueMasterGraphView : GraphView
         OnGraphViewChanged();
 
         AddStyles();
+
+        requirementInstance = new DialogueMasterChoiceRequirements();
+        requirementInstance.Instantiate();
     }
 
     #region Overridden Methods
@@ -174,16 +179,15 @@ public class DialogueMasterGraphView : GraphView
         return node;
     }
 
-    private DialogueMasterStarterNode CreateStarterNode()
+    public DialogueMasterStarterNode CreateStarterNode()
     {
         DialogueMasterStarterNode node = new DialogueMasterStarterNode();
-        node.Initialize(this);
+        node.Initialize(dialogueWindow);
         node.Draw();
         AddElement(node);
 
         return node;
     }
-
 
     #endregion
 
@@ -308,7 +312,7 @@ public class DialogueMasterGraphView : GraphView
     {
         graphViewChanged = (changes) =>
         {
-            if(changes.edgesToCreate != null)
+            if(changes.edgesToCreate != null)   //When edge(s) are created
             {
                 foreach (Edge edge in changes.edgesToCreate)
                 {
@@ -320,6 +324,9 @@ public class DialogueMasterGraphView : GraphView
                     if (starterNode != null)    //If starter node
                     {
                         starterNode.SetStarterNode(nextNode);
+                        SetEdgeOutputColor(edge, Color.green);
+                        SetEdgeInputColor(edge, Color.green);
+
                         continue;
                     }
 
@@ -329,6 +336,14 @@ public class DialogueMasterGraphView : GraphView
                         continue;
 
                     nodeChoice.SetConnectedNode(nextNode);
+
+                    DialogueMasterNode node = nodeChoice.owningPort.node as DialogueMasterNode;
+
+                    if (node.Choices.Count > 1) //If the current node has choices
+                    {
+                        SetEdgeInputColor(edge, Color.cyan);
+                        SetEdgeOutputColor(edge, Color.cyan);
+                    }
                 }
             }
 
@@ -341,6 +356,10 @@ public class DialogueMasterGraphView : GraphView
                         continue;
 
                     //If element is edge
+                    SetEdgeInputColor(edge, Color.white);
+                    SetEdgeOutputColor(edge, Color.white);
+
+
                     //check if output port contains NodeChoice data, if it does, nullify connected node
                     DialogueMasterNodeChoice nodeChoice = edge.output.userData as DialogueMasterNodeChoice;
                     if (nodeChoice != null)
@@ -527,6 +546,18 @@ public class DialogueMasterGraphView : GraphView
     #endregion
 
     #region Utilities
+
+    private void SetEdgeOutputColor(Edge edge, Color newColor)
+    {
+        edge.output.portColor = newColor;
+        edge.output.elementTypeColor = newColor;
+    } 
+    private void SetEdgeInputColor(Edge edge, Color newColor)
+    {
+        edge.input.portColor = newColor;
+        edge.input.elementTypeColor = newColor;
+        edge.input.node.RefreshPorts();
+    }
 
     public Vector2 GetLocalMousePosition(Vector2 mousePosition)
     {

@@ -5,6 +5,5 @@ using UnityEngine;
 public class DialogueInstance : MonoBehaviour
 {
     public int dialogueInt;
-    public DialogueMaster.DialogueInstance dialogueInstance;
-    
+    public DialogueMaster.DialogueInstance dialogueInstance;    
 }

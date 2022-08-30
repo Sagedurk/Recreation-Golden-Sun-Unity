@@ -14,7 +14,6 @@ public class DialogueMasterWindow : EditorWindow
     private TextField fileNameTextField;
     private Button saveButton;
 
-
     [MenuItem("Window/SageSys/Dialogue Master")]
     public static void ShowWindow()
     {
@@ -23,9 +22,12 @@ public class DialogueMasterWindow : EditorWindow
 
     private void CreateGUI()
     {
+        
         AddGraphView();
         AddToolbar();
 
+        
+        //Debug.Log(rootVisualElement.localBound);
         //AddStyles();
     }
 
@@ -33,14 +35,15 @@ public class DialogueMasterWindow : EditorWindow
 
     private void OnGUI()
     {
-        if(dialogueInstance != null)
-            GUILayout.Label("Name of instance: " + dialogueInstance.name);
+
+        //if(dialogueInstance != null)
+        //    GUILayout.Label("Name of instance: " + dialogueInstance.name);
 
 
-        if (GUILayout.Button("Clear Instance"))
-        {
-            dialogueInstance = null;
-        }            
+        //if (GUILayout.Button("Clear Instance"))
+        //{
+        //    dialogueInstance = null;
+        //}            
     }
 
     #region Elements Addition
@@ -50,7 +53,6 @@ public class DialogueMasterWindow : EditorWindow
         graphView.StretchToParentSize();
 
         rootVisualElement.Add(graphView);
-        
 
     }
 

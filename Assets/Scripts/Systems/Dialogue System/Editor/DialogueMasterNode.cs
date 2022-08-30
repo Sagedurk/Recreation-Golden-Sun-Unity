@@ -43,7 +43,7 @@ public class DialogueMasterNode : Node
         mainContainer.AddToClassList("dialogue-node__main-container");
         extensionContainer.AddToClassList("dialogue-node__extension-container");
 
-        DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice(this);
+        DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice();
 
         Choices.Add(choiceData);
     }
@@ -63,11 +63,12 @@ public class DialogueMasterNode : Node
         /* MAIN CONTAINER */
         Button addChoiceButton = DialogueElementUtility.CreateButton("Add Choice", () =>
         {
-            DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice(this);
-
+            DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice();
             Choices.Add(choiceData);
 
             Port choicePort = CreateChoicePort(choiceData);
+
+            ReAddToolbarToChoice();
 
             outputContainer.Add(choicePort);
         });
@@ -120,35 +121,50 @@ public class DialogueMasterNode : Node
         RefreshExpandedState();
     }
 
+    
     #region Elements Creation
     private Port CreateChoicePort(object userData)
     {
         Port choicePort = DialogueElementUtility.CreatePort(this);
 
+        DialogueMasterNodeChoice choiceData = (DialogueMasterNodeChoice) userData;
+        choiceData.SetRequirementInstance(graphView);
+        choiceData.SetOwningPort(choicePort);
+
         choicePort.userData = userData;
 
-        DialogueMasterNodeChoice choiceData = (DialogueMasterNodeChoice) userData;
 
         Button deleteChoiceButton = DialogueElementUtility.CreateButton("X", () =>
         {
+            //Execute action when button is pressed
             if (Choices.Count == 1)
                 return;
 
             if (choicePort.connected)
-            {
                 graphView.DeleteElements(choicePort.connections);
-            }
+            
 
             Choices.Remove(choiceData);
             graphView.RemoveElement(choicePort);
+
+            //If only 1 choice remains on the node after deleting a choice, remove the requirement toolbar
+            if(Choices.Count == 1)
+            {
+                DialogueMasterNodeChoice choice = Choices[0];
+                if (choice.owningPort.Contains(choice.requirementTypeToolbar))  //Safety check for requirement type toolbar
+                {
+                    choice.owningPort.Remove(choice.requirementTypeToolbar);
+                    choice.ResetToolbarDropdown();
+                }
+            }
 
         });
 
         deleteChoiceButton.AddToClassList("dialogue-node__button");
 
-        TextField choiceTextField = DialogueElementUtility.CreateTextField(choiceData.choiceText, null, callback => 
+        TextField choiceTextField = DialogueElementUtility.CreateTextField(choiceData.choiceName, null, callback => 
         {
-            choiceData.choiceText = callback.newValue;
+            choiceData.choiceName = callback.newValue;
         });
 
         choiceTextField.AddClasses(
@@ -157,10 +173,47 @@ public class DialogueMasterNode : Node
             "dialogue-node__textfield__hidden"
             );
 
+        if(Choices.Count > 1)
+            choicePort.Add(choiceData.requirementTypeToolbar);
+
         choicePort.Add(choiceTextField);
         choicePort.Add(deleteChoiceButton);
         return choicePort;
     }
+
+    private void ReAddToolbarToChoice()
+    {
+        if (Choices.Count != 2)     //This function only needs to execute if the node has 2 choices
+            return;
+
+        foreach (DialogueMasterNodeChoice choice in Choices)
+        {
+            //If a choice's port already has the requirement toolbar, there's no need to rearrange it
+            if (choice.owningPort.Contains(choice.requirementTypeToolbar))  
+                continue;
+            
+            List<VisualElement> elementsToReAdd = new List<VisualElement>();
+
+            foreach (VisualElement element in choice.owningPort.Children())
+            {
+                elementsToReAdd.Add(element);
+            }
+
+            choice.owningPort.Add(choice.requirementTypeToolbar);
+
+            for (int i = 2; i < elementsToReAdd.Count; i++)
+            {
+                choice.owningPort.Remove(elementsToReAdd[i]);
+                choice.owningPort.Add(elementsToReAdd[i]);
+            }
+            
+            elementsToReAdd.Clear();
+
+        }
+    }
+
+
+
     #endregion
 
 

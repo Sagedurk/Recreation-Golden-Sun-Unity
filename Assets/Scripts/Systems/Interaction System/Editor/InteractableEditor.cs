@@ -195,6 +195,7 @@ public class InteractableEditor : Editor
 
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("eventDialogue"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("nodeEventDialogue"));
         serializedObject.ApplyModifiedProperties();
     }
 

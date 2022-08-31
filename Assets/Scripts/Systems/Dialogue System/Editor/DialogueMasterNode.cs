@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class DialogueMasterNode : Node
 {
-    public string DialogueName { get; set; }
     public List<DialogueMasterNodeChoice> Choices { get; set; }
     public string Text { get; set; }
     public DialogueSystemGroup Group { get; set; }
@@ -32,7 +31,6 @@ public class DialogueMasterNode : Node
         graphView = dialogueGraphView;
 
         SetNodeID();
-        DialogueName = nodeID.ToString();
         
 
         Choices = new List<DialogueMasterNodeChoice>();

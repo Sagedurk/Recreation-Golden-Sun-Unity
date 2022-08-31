@@ -14,7 +14,7 @@ public class DialogueMasterGraphView : GraphView
     private Dictionary<string, DialogueSystemGroupErrorData> groups;
     private Dictionary<Group, Dictionary<string, DialogueSystemNodeErrorData>> groupedNodes;
     public DialogueMasterChoiceRequirements requirementInstance;
-
+    public DialogueMasterStarterNode starterNode;
 
     public List<int> nodeIDs = new List<int>();
     private int maxAmountOfNodes = int.MaxValue / 2;
@@ -50,7 +50,7 @@ public class DialogueMasterGraphView : GraphView
         AddManipulators();
         AddGridBackground();
 
-        CreateStarterNode();
+        starterNode = CreateStarterNode();
 
         OnElementsDeleted();
         OnGroupElementsAdded();

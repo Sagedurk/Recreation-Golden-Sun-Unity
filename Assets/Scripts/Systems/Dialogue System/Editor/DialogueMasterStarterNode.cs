@@ -4,7 +4,7 @@ using UnityEngine;
 public class DialogueMasterStarterNode : Node
 {
     private DialogueMasterGraphView graphView;
-    DialogueMasterNode connectedNode;
+    public DialogueMasterNode connectedNode;
 
     public void Initialize(DialogueMasterWindow masterWindow)
     {

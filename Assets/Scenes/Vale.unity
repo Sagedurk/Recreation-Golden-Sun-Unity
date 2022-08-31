@@ -2889,6 +2889,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  nodeEventDialogue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1671801652}
+        m_TargetAssemblyTypeName: DialogueMaster, Assembly-CSharp
+        m_MethodName: DebugAllNodes
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   eventChest:
     m_PersistentCalls:
       m_Calls: []
@@ -3023,7 +3038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1738471180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3926,6 +3941,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  nodeEventDialogue:
+    m_PersistentCalls:
+      m_Calls: []
   eventChest:
     m_PersistentCalls:
       m_Calls: []
@@ -4384,6 +4402,10 @@ PrefabInstance:
     - target: {fileID: 3590196663874784012, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: m_Name
       value: Chest #1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590196663874784012, guid: 4a220344199865544a2f5703fe812987, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7358747147626490824, guid: 4a220344199865544a2f5703fe812987, type: 3}
       propertyPath: interactionType

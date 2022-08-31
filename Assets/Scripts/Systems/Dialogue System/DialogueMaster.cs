@@ -22,11 +22,12 @@ public class DialogueMaster : MonoBehaviour
     int lastSubIndex;
 
     [System.Serializable]
-    public class DialogueInstance{
+    public class DialogueInstance
+    {
 
         //dialogue box
         public DialogueBox dialogueBox;
-        
+
         //portrait
         public CharacterPortrait portrait;
 
@@ -38,9 +39,34 @@ public class DialogueMaster : MonoBehaviour
 
         public List<string> listOfOptionNames = new List<string>();
         public List<choice> listOfOptions = new List<choice>();
-        public int optionListIndex = 0; 
+        public int optionListIndex = 0;
 
-        
+
+    }
+    public class NodeInstance
+    {
+        public int nodeID;
+        public List<int> connectedNodesIDs = new List<int>();
+        public string testDialogueString;
+
+
+        //dialogue box
+        public DialogueBox dialogueBox;
+
+        //portrait
+        public CharacterPortrait portrait;
+
+        //dialogue options
+        public Prompt dialoguePrompt;
+
+        public DialogueAction dialogueAction;
+        public string actionName;
+
+        public List<string> listOfOptionNames = new List<string>();
+        public List<choice> listOfOptions = new List<choice>();
+        public int optionListIndex = 0;
+
+
     }
 
     [System.Serializable]
@@ -147,6 +173,11 @@ public class DialogueMaster : MonoBehaviour
     public void DebugAllDialogue(List<DialogueInstance> instanceList)
     {
         StartCoroutine(Dialogue(instanceList));
+    } 
+    
+    public void DebugAllNodes(Dictionary<int, NodeInstance> instanceDictionary, NodeInstance starterNode)
+    {
+        StartCoroutine(NodeDialogue(instanceDictionary, starterNode));
     }
 
     private IEnumerator Dialogue(List<DialogueInstance> instanceList)
@@ -185,7 +216,7 @@ public class DialogueMaster : MonoBehaviour
                 //Wait for input
                 while (!inputBehaviour.isInteracted)
                     yield return null;
-                
+
 
 
                 //if input is given this frame
@@ -221,7 +252,7 @@ public class DialogueMaster : MonoBehaviour
                     while (promptIndex == currentInstance.optionListIndex)
                     {
                         ShowChoicePromt(currentInstance.dialoguePrompt.position);
-                        
+
                         while (!inputBehaviour.isInteracted)
                         {
 
@@ -235,9 +266,9 @@ public class DialogueMaster : MonoBehaviour
                         //currentInstance.optionListIndex = promptIndex;
 
                         ShowDialogueInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
-                    
 
-                    }   
+
+                    }
                 }
 
                 //if yes, just keep going   (essentially, do nothing)
@@ -249,7 +280,7 @@ public class DialogueMaster : MonoBehaviour
                 //Wait for input
                 while (!inputBehaviour.isInteracted)
                     yield return null;
-                
+
 
                 inputBehaviour.isInteracted = false;
             }
@@ -272,6 +303,33 @@ public class DialogueMaster : MonoBehaviour
         }
 
         EndDialogue();
+    }
+    private IEnumerator NodeDialogue(Dictionary<int, NodeInstance> instanceDictionary, NodeInstance starterNode)
+    {
+        Debug.Log("RUN NODE DIALOGUE");
+        Debug.Log(starterNode);
+        Debug.Log(instanceDictionary.Count);
+        yield return new WaitForSeconds(0.01f);
+
+        NodeInstance currentNode = starterNode;
+
+        while (currentNode != null)
+        {
+            Debug.Log(currentNode.testDialogueString);
+
+            int randomIndex = Random.Range(0, currentNode.connectedNodesIDs.Count - 1);
+
+            int nextNodeID = currentNode.connectedNodesIDs[randomIndex];
+
+
+            if (!instanceDictionary.TryGetValue(nextNodeID, out currentNode))
+            {
+                Debug.Log("State of TryGetValue: " + currentNode);
+                currentNode = null;
+            }
+
+        }
+
     }
 
     private void ShowDialogueInstance(DialogueInstance instanceToShow)

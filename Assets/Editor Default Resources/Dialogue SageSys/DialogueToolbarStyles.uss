@@ -3,7 +3,7 @@
 Toolbar
 {
 	background-color: #1D1D1E;
-	height: 35px;
+	height: 40px;
 }
 
 TextField
@@ -15,8 +15,8 @@ Button
 {
 	background-color: #252729;
 	border-color: #1D1D1E;
-	margin: 4px;
-	max-height: 25px;
+	margin: 5px;
+	max-height: 30px;
 }
 
 Button:hover
@@ -30,7 +30,14 @@ Button:active
 	color: #FDD057;
 }
 
+
 /* BUILT IN */
+
+.Window-toolbar-label
+{
+	/*font-size: 12px;		/*Default Label Font Size*/
+	padding: 12px;
+}
 
 .unity-text-field_label
 {

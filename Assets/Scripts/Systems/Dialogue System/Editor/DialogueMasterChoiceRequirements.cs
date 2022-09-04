@@ -9,7 +9,8 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DialogueMasterChoiceRequirements : MonoBehaviour
+
+public class DialogueMasterChoiceRequirements
 {
     public List<string> valueFunctionNames = new List<string>();
     public List<string> flagFunctionNames = new List<string>();
@@ -19,6 +20,7 @@ public class DialogueMasterChoiceRequirements : MonoBehaviour
 
     public void Instantiate()
     {
+        Debug.Log("Requirements Instantiated");
         System.Type flagType = flags.GetType();
         System.Type valueType = values.GetType();
 

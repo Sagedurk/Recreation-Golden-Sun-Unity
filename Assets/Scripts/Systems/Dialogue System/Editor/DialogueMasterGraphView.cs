@@ -10,7 +10,7 @@ public class DialogueMasterGraphView : GraphView
 {
     private DialogueMasterWindow dialogueWindow;
 
-    private Dictionary<string, DialogueSystemNodeErrorData> ungroupedNodes;
+    private Dictionary<int, DialogueMasterNode> ungroupedNodes = new Dictionary<int, DialogueMasterNode>();
     private Dictionary<string, DialogueSystemGroupErrorData> groups;
     private Dictionary<Group, Dictionary<string, DialogueSystemNodeErrorData>> groupedNodes;
     public DialogueMasterChoiceRequirements requirementInstance;
@@ -41,10 +41,11 @@ public class DialogueMasterGraphView : GraphView
         }
     }
 
+
     public DialogueMasterGraphView(DialogueMasterWindow window)
     {
         dialogueWindow = window;
-        ungroupedNodes = new Dictionary<string, DialogueSystemNodeErrorData>();
+        ungroupedNodes = new Dictionary<int, DialogueMasterNode>();
         groups = new Dictionary<string, DialogueSystemGroupErrorData>();
         groupedNodes = new Dictionary<Group, Dictionary<string, DialogueSystemNodeErrorData>>();
         AddManipulators();
@@ -378,30 +379,8 @@ public class DialogueMasterGraphView : GraphView
     #region Repeated Elements
     public void AddUngroupedNode(DialogueMasterNode node)
     {
-        string nodeID = node.nodeID.ToString();
-
-        if (!ungroupedNodes.ContainsKey(nodeID))
-        {
-            DialogueSystemNodeErrorData nodeErrorData = new DialogueSystemNodeErrorData();
-            nodeErrorData.Nodes.Add(node);
-            ungroupedNodes.Add(nodeID, nodeErrorData);
-
-            return;
-        }
-
-        List<DialogueMasterNode> ungroupedNodesList = ungroupedNodes[nodeID].Nodes;
-
-        ungroupedNodesList.Add(node);
-
-        Color errorColor = ungroupedNodes[nodeID].ErrorData.color;
-
-        node.SetErrorColor(errorColor);
-
-        if(ungroupedNodesList.Count == 2)
-        {
-            amountOfRepeatedNames++;
-            ungroupedNodesList[0].SetErrorColor(errorColor);
-        }
+        if (!ungroupedNodes.ContainsKey(node.nodeID))
+            ungroupedNodes.Add(node.nodeID, node);
 
     }
 
@@ -472,23 +451,7 @@ public class DialogueMasterGraphView : GraphView
 
     public void RemoveUngroupedNode(DialogueMasterNode node)
     {
-        string nodeID = node.nodeID.ToString();
-
-        List<DialogueMasterNode> ungroupedNodesList = ungroupedNodes[nodeID].Nodes;
-
-        ungroupedNodesList.Remove(node);
-
-        node.ResetColorToDefault();
-
-        if(ungroupedNodesList.Count == 1)
-        {
-            amountOfRepeatedNames--;
-            ungroupedNodesList[0].ResetColorToDefault();
-        }
-       
-        else if(ungroupedNodesList.Count == 0)
-            ungroupedNodes.Remove(nodeID);
-        
+        ungroupedNodes.Remove(node.nodeID);        
     }
 
     public void RemoveGroupedNode(DialogueMasterNode node, Group group)
@@ -565,6 +528,67 @@ public class DialogueMasterGraphView : GraphView
         Vector2 localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition);
         return localMousePosition;
     }
+
+    #endregion
+
+    #region Save & Load
+
+    public void SaveGraphViewData(string sceneName, string instanceName, string path)
+    {
+        //Check if asset already exists
+
+
+        DialogueEditorSaveData saveData = ScriptableObject.CreateInstance(typeof(DialogueEditorSaveData)) as DialogueEditorSaveData;
+
+        ConvertDataSave(ref saveData);
+
+        AssetDatabase.CreateAsset(saveData, path + sceneName + "_" + instanceName + ".asset");
+        AssetDatabase.SaveAssets();
+    }
+
+    public void LoadGraphViewData(string sceneName, string instanceName, string path)
+    {
+        //Check if asset already exists
+
+        string loadPath = path + sceneName + "_" + instanceName + ".asset";
+        DialogueEditorSaveData loadData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(loadPath);
+        Debug.Log("loadData state: " + loadData);
+
+        ConvertDataLoad(loadData);
+    }
+
+
+    private void ConvertDataSave(ref DialogueEditorSaveData saveData)
+    {
+        DialogueMasterNode[] nodes = new DialogueMasterNode[ungroupedNodes.Count];
+        ungroupedNodes.Values.CopyTo(nodes, 0);
+
+        foreach (DialogueMasterNode node in nodes)
+        {
+            saveData.ungroupedNodes.Add(node);
+        }
+
+    }
+    private void ConvertDataLoad(DialogueEditorSaveData savedData)
+    {
+        for (int i = 0; i < savedData.ungroupedNodes.Count; i++)
+        {
+            ungroupedNodes.Add(savedData.ungroupedNodes[i].nodeID, savedData.ungroupedNodes[i]);
+        }
+
+        DialogueMasterNode[] nodes = new DialogueMasterNode[ungroupedNodes.Count];
+        ungroupedNodes.Values.CopyTo(nodes, 0);
+
+        foreach (DialogueMasterNode node in nodes)
+        {
+            //node.Draw();
+            AddElement(node);
+        }
+
+
+        //saveData.SaveNodePositions();
+    }
+
 
     #endregion
 

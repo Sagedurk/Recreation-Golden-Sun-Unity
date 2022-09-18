@@ -108,6 +108,7 @@ public class DialogueMaster : MonoBehaviour
     public struct CharacterPortrait
     {
         public Sprite portraitImage;
+        public Object portraitObject;
         public Vector2 portraitBoxPosition;
         public bool isPortraitShown;
     }
@@ -160,7 +161,7 @@ public class DialogueMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //ShowChoicePromt(Vector3.zero);
     }
 
     // Update is called once per frame
@@ -175,9 +176,9 @@ public class DialogueMaster : MonoBehaviour
         StartCoroutine(Dialogue(instanceList));
     } 
     
-    public void DebugAllNodes(Dictionary<int, NodeInstance> instanceDictionary, NodeInstance starterNode)
+    public void DebugAllNodes(Dictionary<int, DialogueEditorSerializedNode> instanceDictionary, int starterNodeID)
     {
-        StartCoroutine(NodeDialogue(instanceDictionary, starterNode));
+        StartCoroutine(NodeDialogue(instanceDictionary, starterNodeID));
     }
 
     private IEnumerator Dialogue(List<DialogueInstance> instanceList)
@@ -304,32 +305,58 @@ public class DialogueMaster : MonoBehaviour
 
         EndDialogue();
     }
-    private IEnumerator NodeDialogue(Dictionary<int, NodeInstance> instanceDictionary, NodeInstance starterNode)
-    {
-        Debug.Log("RUN NODE DIALOGUE");
-        Debug.Log(starterNode);
-        Debug.Log(instanceDictionary.Count);
-        yield return new WaitForSeconds(0.01f);
 
-        NodeInstance currentNode = starterNode;
+
+    private DialogueEditorSerializedNode FindNodeByID(Dictionary<int, DialogueEditorSerializedNode> instanceDictionary, int nodeID)
+    {
+        DialogueEditorSerializedNode node = null;
+        instanceDictionary.TryGetValue(nodeID, out node);
+        return node;
+    }
+
+    private IEnumerator NodeDialogue(Dictionary<int, DialogueEditorSerializedNode> instanceDictionary, int starterNodeID)
+    {
+        ShowDialogueBackground();
+        //HideDialogue();
+        DialogueEditorSerializedNode currentNode = FindNodeByID(instanceDictionary, starterNodeID);
 
         while (currentNode != null)
         {
-            Debug.Log(currentNode.testDialogueString);
+            inputBehaviour.isInteracted = false;
+            Debug.Log(currentNode.dialogueText);
+            ShowDialogueInstance(currentNode);
 
-            int randomIndex = Random.Range(0, currentNode.connectedNodesIDs.Count - 1);
+            int nextNodeID;
 
-            int nextNodeID = currentNode.connectedNodesIDs[randomIndex];
+            if (currentNode.choices.Count == 1)
+            {
+                nextNodeID = currentNode.choices[0].connectedNodeID;
+                while (!inputBehaviour.isInteracted)
+                    yield return null;
+            }
+            else    //If more than one choice, run prompt logic
+            {
+                ShowChoicePromt(currentNode.choices);
+
+                while (!inputBehaviour.isInteracted)
+                    yield return null;
+
+
+                //if input is given this frame
+                nextNodeID = promptIndex;
+                HideChoicePromt();
+                //inputBehaviour.isInteracted = false;
+
+            }
 
 
             if (!instanceDictionary.TryGetValue(nextNodeID, out currentNode))
             {
-                Debug.Log("State of TryGetValue: " + currentNode);
                 currentNode = null;
             }
-
         }
 
+        EndDialogue();
     }
 
     private void ShowDialogueInstance(DialogueInstance instanceToShow)
@@ -349,6 +376,26 @@ public class DialogueMaster : MonoBehaviour
         {
             HidePortrait();
         }
+
+    }
+    private void ShowDialogueInstance(DialogueEditorSerializedNode nodeToShow)
+    {
+        dialogueText.text = nodeToShow.dialogueText;
+        dialogueTextShadow.text = nodeToShow.dialogueText;
+
+        
+        //dialogueBackground.rectTransform.position = nodeToShow.dialogueBox.boxPosition;
+        //dialogueBackground.rectTransform.sizeDelta = nodeToShow.dialogueBox.boxSize;
+
+
+        //if (nodeToShow.portrait.isPortraitShown && nodeToShow.portrait.portraitImage != null)
+        //{
+        //    ShowPortrait(nodeToShow);
+        //}
+        //else
+        //{
+        //    HidePortrait();
+        //}
 
     }
 
@@ -393,14 +440,50 @@ public class DialogueMaster : MonoBehaviour
     }
 
 
-    void ShowChoicePromt(Vector3 position)
+    void ShowChoicePromt(Vector3 position, int choiceAmount = 0)
     {
         choicePromptContainer.SetActive(true);
-        choicePromptContainer.transform.localPosition = position;
+
+        for (int i = 0; i < choiceAmount; i++)
+        {
+            if (i >= choicePromptContainer.transform.GetChild(0).childCount)
+                break;
+
+            choicePromptContainer.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+        }
+
+
+        //choicePromptContainer.transform.localPosition = position;
     }
-    
+    void ShowChoicePromt(List<SerializedChoice> choices)
+    {
+        choicePromptContainer.SetActive(true);
+
+        for (int i = 0; i < choices.Count; i++)
+        {
+            if (i >= choicePromptContainer.transform.GetChild(0).childCount)
+                break;
+
+            Button button = choicePromptContainer.transform.GetChild(0).GetChild(i).GetComponent<Button>();
+
+            button.name = choices[i].choiceName;
+            button.onClick.RemoveAllListeners();
+            int nodeID = choices[i].connectedNodeID;
+            button.onClick.AddListener(() => ChoosePrompt(nodeID));
+
+            button.gameObject.SetActive(true);
+        }
+
+        //choicePromptContainer.transform.localPosition = position;
+    }
+
     void HideChoicePromt()
     {
+
+        for (int i = 0; i < choicePromptContainer.transform.GetChild(0).childCount; i++)
+        {
+            choicePromptContainer.transform.GetChild(0).GetChild(i).gameObject.SetActive(false);
+        }
 
         inputBehaviour.isInteracted = false;
         choicePromptContainer.SetActive(false);
@@ -466,6 +549,7 @@ public class DialogueMaster : MonoBehaviour
         inputBehaviour.isInteracted = true;
         promptIndex = returnIndex;
     }
+    
 
 
 

@@ -20,9 +20,8 @@ public class DialogueMasterChoiceRequirements
 
     public void Instantiate()
     {
-        Debug.Log("Requirements Instantiated");
-        System.Type flagType = flags.GetType();
-        System.Type valueType = values.GetType();
+        Type flagType = flags.GetType();
+        Type valueType = values.GetType();
 
         MethodInfo[] flagInfo = flagType.GetMethods(bindingFlags);
         MethodInfo[] valueInfo = valueType.GetMethods(bindingFlags);

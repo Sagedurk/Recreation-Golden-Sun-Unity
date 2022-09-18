@@ -12,3 +12,288 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50850ac4a6fb2d4448e510a1f080ead2, type: 3}
   m_Name: Vale_NPC #2
   m_EditorClassIdentifier: 
+  nodes:
+  - nodeID: 0
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 6
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 194, y: 64}
+    dialogueText: Isaac, wake up!
+  - nodeID: 1
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 4
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: 5
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1182, y: 263}
+    dialogueText: 'Have you got
+
+      everything you need?'
+  - nodeID: 4
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 17
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1619, y: 154}
+    dialogueText: 'Good for you, Isaac.
+
+      A lost possession can be
+
+      replaced;
+      a lost life can''t.'
+  - nodeID: 5
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 17
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1619, y: 418}
+    dialogueText: 'I''m sorry, but we
+
+      don''t have time... You''ll
+
+      have
+      to leave it behind.'
+  - nodeID: 6
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 8
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 502, y: 64}
+    dialogueText: Please, dear, wake up!
+  - nodeID: 8
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 14
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 822, y: 147}
+    dialogueText: 'The Mt. Aleph Boulder
+
+      is going to fall!'
+  - nodeID: 14
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 15
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 205, y: 391}
+    dialogueText: 'Come on, Isaac.
+
+      We have to go--now!'
+  - nodeID: 15
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 16
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 525, y: 391}
+    dialogueText: 'Isaac! You forgot
+
+      something!'
+  - nodeID: 16
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 1
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 851, y: 391}
+    dialogueText: 'It''s poring outside!
+
+      Don''t go out without
+
+      your
+      tunic!'
+  - nodeID: 17
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 18
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1982, y: 282}
+    dialogueText: 'Isaac, Dora, hurry!
+
+      The Boulder could
+
+      fall at any
+      second!'
+  - nodeID: 18
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 19
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2353, y: 185}
+    dialogueText: "Kyle... Will they be able\n to stop the Boulder?"
+  - nodeID: 19
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 20
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2673, y: 185}
+    dialogueText: 'I don''t think so...
+
+      Not for long, anyway...'
+  - nodeID: 20
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 21
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 3010, y: 185}
+    dialogueText: 'You two go on ahead and
+
+      take refuge in the plaza.'
+  - nodeID: 21
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 22
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 3337, y: 293}
+    dialogueText: Aren't you coming?
+  - nodeID: 22
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 23
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2353, y: 460}
+    dialogueText: 'I need to help evacuate
+
+      the other villagers.'
+  - nodeID: 23
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 24
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2674, y: 530}
+    dialogueText: Let me help you, Kyle!
+  - nodeID: 24
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 25
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 3010, y: 530}
+    dialogueText: 'It''s too dangerous, Dora.
+
+      Please, just take good
+
+      care
+      of Isaac!'
+  - nodeID: 25
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 26
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 3337, y: 530}
+    dialogueText: 'Isaac is old enough to get
+
+      to the plaza on his own.'
+  - nodeID: 26
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 30
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: 27
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 3767, y: 394}
+    dialogueText: 'You can find your
+
+      way, can''t you,
+
+      Isaac?'
+  - nodeID: 27
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 30
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: -1
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 4249, y: 530}
+    dialogueText: 'You''re a big boy
+
+      now, Isaac.  Why don''t you go
+
+      on
+      your own?'
+  - nodeID: 30
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: -1
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 4720, y: 394}
+    dialogueText: 'You know the way--just
+
+      go south to get to
+
+      the plaza.
+      Be careful!'
+  starterNodeID: 0

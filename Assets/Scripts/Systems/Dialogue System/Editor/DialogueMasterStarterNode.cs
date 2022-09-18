@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class DialogueMasterStarterNode : Node
 {
-    private DialogueMasterGraphView graphView;
-    public DialogueMasterNode connectedNode;
+    //private DialogueMasterGraphView graphView;
+    public DialogueMasterNode connectedNode = null;
+    private Port port;
 
     public void Initialize(DialogueMasterWindow masterWindow)
     {
         Vector2 position = new Vector2(masterWindow.position.size.x * 0.05f, masterWindow.position.size.y * 0.35f);
         SetPosition(new Rect(position, Vector2.zero));
-        
-
-
         
 
 
@@ -26,11 +24,19 @@ public class DialogueMasterStarterNode : Node
     {
         titleButtonContainer.contentContainer.RemoveFromHierarchy();
 
-        Port port = CreatePort("Starter Node");
+        port = CreatePort("Starter Node");
         outputContainer.Add(port);
     }
 
+    public void ConnectToNode(DialogueMasterGraphView graphView ,DialogueMasterNode node)
+    {
+        Edge edge = port.ConnectTo(node.inputPort);
+        graphView.SetEdgeInputAndOutputColor(edge, Color.green);
 
+        graphView.AddElement(edge);
+
+        SetStarterNode(node);
+    }
 
 
     private Port CreatePort(string portName = "", Orientation orientation = Orientation.Horizontal, Direction direction = Direction.Output, Port.Capacity capacity = Port.Capacity.Single)
@@ -46,8 +52,6 @@ public class DialogueMasterStarterNode : Node
     public void SetStarterNode(DialogueMasterNode node)
     {
         connectedNode = node;
-
-        Debug.Log("Starter node ID: " + connectedNode.nodeID);
     }
 
 }

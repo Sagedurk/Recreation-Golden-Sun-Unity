@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,8 +8,8 @@ public class Interactable : MonoBehaviour
 {
     public string interactableTest;
     public List<DialogueMaster.DialogueInstance> listOfDialogueBoxes = new List<DialogueMaster.DialogueInstance>();
-    public Dictionary<int, DialogueMaster.NodeInstance> dialogueNodeDictionary;
-    public DialogueMaster.NodeInstance starterNode = null;
+    public Dictionary<int, DialogueEditorSerializedNode> dialogueNodeDictionary = new Dictionary<int, DialogueEditorSerializedNode>();
+    public int starterNodeID;
 
 
     public ChestMaster.ChestInstance chestInstance = new ChestMaster.ChestInstance();
@@ -32,7 +33,8 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         //DEBUG PURPOSES!
-        nodeEventDialogue.Invoke(dialogueNodeDictionary, starterNode);
+        //nodeEventDialogue.Invoke(dialogueNodeDictionary, starterNode);
+        LoadDialogueData();
         
     }
 
@@ -43,7 +45,7 @@ public class Interactable : MonoBehaviour
         {
             case InteractionType.DIALOGUE:
                 //eventDialogue.Invoke(listOfDialogueBoxes);
-                nodeEventDialogue.Invoke(dialogueNodeDictionary, starterNode);
+                nodeEventDialogue.Invoke(dialogueNodeDictionary, starterNodeID);
                 break;
 
             case InteractionType.CHEST:
@@ -65,7 +67,26 @@ public class Interactable : MonoBehaviour
     }
 
 
+    public void LoadDialogueData()
+    {
+        //Find better way to fucking find the damn file path
+        string path = "Assets/Scripts/Systems/Dialogue System/Editor/SaveData/";
 
+        string assetName = gameObject.scene.name + "_" + gameObject.name + ".asset";
+
+        DialogueEditorSaveData saveData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(path + assetName);
+
+        if (saveData == null)
+            return;
+
+
+        foreach (DialogueEditorSerializedNode node in saveData.nodes)
+        {
+            dialogueNodeDictionary.Add(node.nodeID, node);
+        }
+
+        starterNodeID = saveData.starterNodeID;
+    }
 
 
 
@@ -77,7 +98,7 @@ public class Interactable : MonoBehaviour
  public class DialogueEvent : UnityEvent< List<DialogueMaster.DialogueInstance> > { }
 
 [System.Serializable]
- public class DialogueNodeEvent : UnityEvent<Dictionary<int, DialogueMaster.NodeInstance>, DialogueMaster.NodeInstance> { }
+ public class DialogueNodeEvent : UnityEvent<Dictionary<int, DialogueEditorSerializedNode>, int> { }
 
 [System.Serializable]
  public class ChestEvent : UnityEvent<ChestMaster.ChestInstance> { }

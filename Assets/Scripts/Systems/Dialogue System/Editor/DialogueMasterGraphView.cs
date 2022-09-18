@@ -200,26 +200,29 @@ public class DialogueMasterGraphView : GraphView
         {
 
             Type groupType = typeof(DialogueSystemGroup);
-            Type edgeType = typeof(Edge);
 
             List<DialogueSystemGroup> groupsToDelete = new List<DialogueSystemGroup>();
             List<DialogueMasterNode> nodesToDelete = new List<DialogueMasterNode>();
             List<Edge> edgesToDelete = new List<Edge>();
             
+            //Loop through all elements to delete
             foreach(GraphElement element in selection)
             {
                 if(element is DialogueMasterNode node)
                     nodesToDelete.Add(node);
 
-                else if (element.GetType() == edgeType)
+                else if (element is Edge edge)
                 {
-                    Edge edge = (Edge)element;
                     edgesToDelete.Add(edge);
+
+                    if(edge.output.node is DialogueMasterStarterNode startNode)
+                    {
+                        startNode.SetStarterNode(null);
+                    }
                 }
 
-                else if(element.GetType() == groupType)
+                else if (element is DialogueSystemGroup group)
                 {
-                    DialogueSystemGroup group = (DialogueSystemGroup) element;
                     RemoveGroup(group);
                     groupsToDelete.Add(group);
                 }
@@ -249,7 +252,7 @@ public class DialogueMasterGraphView : GraphView
                 if (node.Group != null)
                     node.Group.RemoveElement(node);
 
-                nodeIDs.Remove(node.nodeID);
+                nodeIDs.Remove(node.NodeID);
                 node.DisconnectAllPorts();
                 RemoveUngroupedNode(node);
                 RemoveElement(node);
@@ -325,8 +328,7 @@ public class DialogueMasterGraphView : GraphView
                     if (starterNode != null)    //If starter node
                     {
                         starterNode.SetStarterNode(nextNode);
-                        SetEdgeOutputColor(edge, Color.green);
-                        SetEdgeInputColor(edge, Color.green);
+                        SetEdgeInputAndOutputColor(edge, Color.green);
 
                         continue;
                     }
@@ -340,11 +342,14 @@ public class DialogueMasterGraphView : GraphView
 
                     DialogueMasterNode node = nodeChoice.owningPort.node as DialogueMasterNode;
 
-                    if (node.Choices.Count > 1) //If the current node has choices
+                    if(nodeChoice.requirementType != DialogueMasterNodeChoice.requirementTypes.NONE)
                     {
-                        SetEdgeInputColor(edge, Color.cyan);
-                        SetEdgeOutputColor(edge, Color.cyan);
+                        SetEdgeInputAndOutputColor(edge, Color.yellow);
+                        Debug.Log(nodeChoice.requirementType);
                     }
+                        //else
+                        //    SetEdgeInputAndOutputColor(edge, Color.white);
+
                 }
             }
 
@@ -357,8 +362,7 @@ public class DialogueMasterGraphView : GraphView
                         continue;
 
                     //If element is edge
-                    SetEdgeInputColor(edge, Color.white);
-                    SetEdgeOutputColor(edge, Color.white);
+                    SetEdgeInputAndOutputColor(edge, Color.white);
 
 
                     //check if output port contains NodeChoice data, if it does, nullify connected node
@@ -379,14 +383,13 @@ public class DialogueMasterGraphView : GraphView
     #region Repeated Elements
     public void AddUngroupedNode(DialogueMasterNode node)
     {
-        if (!ungroupedNodes.ContainsKey(node.nodeID))
-            ungroupedNodes.Add(node.nodeID, node);
-
+        if (!ungroupedNodes.ContainsKey(node.NodeID))
+            ungroupedNodes.Add(node.NodeID, node);
     }
 
     public void AddGroupedNode(DialogueMasterNode node, DialogueSystemGroup group)
     {
-        string nodeID = node.nodeID.ToString();
+        string nodeID = node.NodeID.ToString();
 
         node.Group = group;
 
@@ -451,12 +454,12 @@ public class DialogueMasterGraphView : GraphView
 
     public void RemoveUngroupedNode(DialogueMasterNode node)
     {
-        ungroupedNodes.Remove(node.nodeID);        
+        ungroupedNodes.Remove(node.NodeID);        
     }
 
     public void RemoveGroupedNode(DialogueMasterNode node, Group group)
     {
-        string nodeID = node.nodeID.ToString();
+        string nodeID = node.NodeID.ToString();
 
         node.Group = null;
 
@@ -514,12 +517,17 @@ public class DialogueMasterGraphView : GraphView
     {
         edge.output.portColor = newColor;
         edge.output.elementTypeColor = newColor;
-    } 
+    }
     private void SetEdgeInputColor(Edge edge, Color newColor)
     {
         edge.input.portColor = newColor;
         edge.input.elementTypeColor = newColor;
-        edge.input.node.RefreshPorts();
+    }
+
+    public void SetEdgeInputAndOutputColor(Edge edge, Color newColor)
+    {
+        SetEdgeInputColor(edge, newColor);
+        SetEdgeOutputColor(edge, newColor);
     }
 
     public Vector2 GetLocalMousePosition(Vector2 mousePosition)
@@ -529,6 +537,12 @@ public class DialogueMasterGraphView : GraphView
         return localMousePosition;
     }
 
+    public DialogueMasterNode FindNodeByID(int nodeID)
+    {
+        ungroupedNodes.TryGetValue(nodeID, out DialogueMasterNode node);
+        return node; 
+    }
+
     #endregion
 
     #region Save & Load
@@ -536,23 +550,32 @@ public class DialogueMasterGraphView : GraphView
     public void SaveGraphViewData(string sceneName, string instanceName, string path)
     {
         //Check if asset already exists
+        string loadPath = path + sceneName + "_" + instanceName + ".asset";
+        DialogueEditorSaveData saveData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(loadPath);
 
+        if (saveData == null)
+        {
+            saveData = ScriptableObject.CreateInstance(typeof(DialogueEditorSaveData)) as DialogueEditorSaveData;
 
-        DialogueEditorSaveData saveData = ScriptableObject.CreateInstance(typeof(DialogueEditorSaveData)) as DialogueEditorSaveData;
+            ConvertDataSave(ref saveData);
+            AssetDatabase.CreateAsset(saveData, path + sceneName + "_" + instanceName + ".asset");
+        }
+        else
+        {
+            saveData.nodes.Clear();    //Clear the loaded data, this way, deleted nodes won't be reloaded
 
-        ConvertDataSave(ref saveData);
+            ConvertDataSave(ref saveData);
+            EditorUtility.SetDirty(saveData);
+        }
 
-        AssetDatabase.CreateAsset(saveData, path + sceneName + "_" + instanceName + ".asset");
         AssetDatabase.SaveAssets();
+        Debug.Log("Data has been saved!");
     }
 
     public void LoadGraphViewData(string sceneName, string instanceName, string path)
     {
-        //Check if asset already exists
-
         string loadPath = path + sceneName + "_" + instanceName + ".asset";
         DialogueEditorSaveData loadData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(loadPath);
-        Debug.Log("loadData state: " + loadData);
 
         ConvertDataLoad(loadData);
     }
@@ -563,30 +586,110 @@ public class DialogueMasterGraphView : GraphView
         DialogueMasterNode[] nodes = new DialogueMasterNode[ungroupedNodes.Count];
         ungroupedNodes.Values.CopyTo(nodes, 0);
 
-        foreach (DialogueMasterNode node in nodes)
+        foreach (DialogueMasterNode editorNode in nodes)
         {
-            saveData.ungroupedNodes.Add(node);
+            DialogueEditorSerializedNode serializableNode = editorNode.ConvertToSerializedNode();
+
+            saveData.nodes.Add(serializableNode);
         }
+
+        if (starterNode.connectedNode != null)
+            saveData.starterNodeID = starterNode.connectedNode.NodeID;
+        else
+            saveData.starterNodeID = -1;
 
     }
+
     private void ConvertDataLoad(DialogueEditorSaveData savedData)
     {
-        for (int i = 0; i < savedData.ungroupedNodes.Count; i++)
+        //Remove any leftover nodes and connections
+        foreach (DialogueMasterNode node in ungroupedNodes.Values)
         {
-            ungroupedNodes.Add(savedData.ungroupedNodes[i].nodeID, savedData.ungroupedNodes[i]);
+            if (Contains(node))
+            {
+                List<Edge> edges = new List<Edge>();
+                foreach (Edge edge in node.inputPort.connections)
+                {
+                    edges.Add(edge);
+                }
+
+                DeleteElements(edges);
+                RemoveElement(node);
+            }
+        }
+        ungroupedNodes.Clear();
+
+        //Load Nodes
+        for (int i = 0; i < savedData.nodes.Count; i++)
+        {
+            DialogueMasterNode node = new DialogueMasterNode();
+            node.Initialize(this, Vector2.zero);
+            node.ConvertToEditorNode(savedData.nodes[i]);
+
+
+            if (!ungroupedNodes.ContainsKey(node.NodeID))
+            {
+                ungroupedNodes.Add(node.NodeID, node);
+                nodeIDs.Add(node.NodeID);
+            }
         }
 
+        //Load Choices
+        foreach (DialogueEditorSerializedNode savedNode in savedData.nodes)
+        {
+            ungroupedNodes.TryGetValue(savedNode.nodeID, out DialogueMasterNode editorNode);
+            editorNode.Choices.Clear();
+
+
+            foreach (SerializedChoice savedChoice in savedNode.choices)
+            {
+
+                DialogueMasterNodeChoice editorChoice = new DialogueMasterNodeChoice();
+                editorChoice.SetRequirementInstance(this);
+                editorChoice.ConvertToEditorChoice(savedChoice);
+                editorNode.Choices.Add(editorChoice);
+            }
+        }
+
+        //Draw Loaded Data
         DialogueMasterNode[] nodes = new DialogueMasterNode[ungroupedNodes.Count];
         ungroupedNodes.Values.CopyTo(nodes, 0);
 
         foreach (DialogueMasterNode node in nodes)
         {
-            //node.Draw();
+            node.Draw();
             AddElement(node);
         }
 
 
-        //saveData.SaveNodePositions();
+        //Redo connections between ports
+        foreach (DialogueMasterNode node in nodes)
+        {
+            if (node.NodeID == savedData.starterNodeID)
+                starterNode.ConnectToNode(this, node);
+
+            foreach (DialogueMasterNodeChoice choice in node.Choices)
+            {
+                choice.UpdateRequirementType(choice.requirementType);
+
+                if (choice.connectedNode == null)
+                    continue;
+
+                Edge edge = choice.owningPort.ConnectTo(choice.connectedNode.inputPort);
+
+
+                if (choice.requirementType != DialogueMasterNodeChoice.requirementTypes.NONE)
+                    SetEdgeInputAndOutputColor(edge, Color.yellow);
+                    
+
+                AddElement(edge);
+            }
+
+        }
+
+
+
+
     }
 
 

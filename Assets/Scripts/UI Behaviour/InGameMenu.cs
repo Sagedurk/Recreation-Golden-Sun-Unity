@@ -33,9 +33,7 @@ public class InGameMenu : MonoBehaviour
         for (int i = 0; i < buttonsParent.childCount; i++)
         {
             Transform button = buttonsParent.GetChild(i);
-            Debug.Log(button.name + " enabled");
             button.localScale = Vector3.one;
- 
         }
 
         //The button animation gets reset after this

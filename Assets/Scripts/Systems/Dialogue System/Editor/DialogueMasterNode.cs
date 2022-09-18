@@ -1,19 +1,23 @@
 using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 
 public class DialogueMasterNode : Node
 {
     public List<DialogueMasterNodeChoice> Choices { get; set; }
-    public string Text { get; set; }
+    public string DialogueText { get; set; }
     public DialogueSystemGroup Group { get; set; }
-    public int nodeID { get; set; }
+    public int NodeID { get; set; }
+    
+
+    public Port inputPort = null;
 
     private DialogueMasterGraphView graphView;
-
+    private Image image = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
 
     /*
      * Container names
@@ -34,16 +38,19 @@ public class DialogueMasterNode : Node
         
 
         Choices = new List<DialogueMasterNodeChoice>();
-        Text = "Dialogue text.";
+        DialogueText = "Dialogue text.";
 
         SetPosition(new Rect(position, Vector2.zero));
 
         mainContainer.AddToClassList("dialogue-node__main-container");
         extensionContainer.AddToClassList("dialogue-node__extension-container");
 
-        DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice();
 
-        Choices.Add(choiceData);
+        if(Choices.Count < 1)
+        {
+            DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice();
+            Choices.Add(choiceData);
+        }
     }
 
     #region Overrided Methods
@@ -80,7 +87,7 @@ public class DialogueMasterNode : Node
         titleButtonContainer.contentContainer.RemoveFromHierarchy();
 
         /* INPUT CONTAINER */
-        Port inputPort = DialogueElementUtility.CreatePort(this, "Dialogue Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
+        inputPort = DialogueElementUtility.CreatePort(this, "Dialogue Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
         inputContainer.Add(inputPort);
 
         /* EXTENSION CONTAINER */
@@ -90,9 +97,9 @@ public class DialogueMasterNode : Node
 
         Foldout textFoldout = DialogueElementUtility.CreateFoldout("Dialogue Text");
 
-        TextField textTextField = DialogueElementUtility.CreateTextArea(Text, null, callback=>
+        TextField textTextField = DialogueElementUtility.CreateTextArea(DialogueText, null, callback=>
         {
-            Text = callback.newValue;
+            DialogueText = callback.newValue;
         });
 
         textTextField.AddClasses(
@@ -103,6 +110,26 @@ public class DialogueMasterNode : Node
         textFoldout.Add(textTextField);
 
         customDataContainer.Add(textFoldout);
+
+        //Portrait Logic
+        Foldout portraitFoldout = DialogueElementUtility.CreateFoldout("Portrait");
+
+        ObjectField spriteField = DialogueElementUtility.CreateObjectField<Sprite>(callback => 
+        {
+            Sprite newSprite = callback.newValue as Sprite;
+
+            image.image = newSprite.texture;
+            //image.sourceRect = newSprite.rect;
+        });
+
+
+
+        portraitFoldout.Add(spriteField);
+        portraitFoldout.Add(image);
+        customDataContainer.Add(portraitFoldout);
+        //Image portraitImage = DialogueElementUtility.CreateImage();
+       
+
         extensionContainer.Add(customDataContainer);
 
 
@@ -219,12 +246,21 @@ public class DialogueMasterNode : Node
 
     public void DisconnectAllPorts()
     {
-        DisconnectPorts(inputContainer);
-        DisconnectPorts(outputContainer);
+        DisconnectInputPorts();
+        DisconnectOutputPorts();
     }
 
     private void DisconnectInputPorts()
     {
+        //Check if node is connected to starterNode, and if, remove starterNode connection
+        foreach (Edge edge in inputPort.connections)
+        {
+            if (edge.output.node is DialogueMasterStarterNode node)
+            {
+                node.SetStarterNode(null);
+            }
+        }
+
         DisconnectPorts(inputContainer);
     }
     private void DisconnectOutputPorts()
@@ -234,20 +270,20 @@ public class DialogueMasterNode : Node
 
     private void SetNodeID()
     {
-        nodeID = graphView.nodeIDs.Count;
+        NodeID = graphView.nodeIDs.Count;
 
-        while (graphView.nodeIDs.Contains(nodeID))
+        while (graphView.nodeIDs.Contains(NodeID))
         {
-            if (nodeID == graphView.nodeIDs.Count) 
+            if (NodeID == graphView.nodeIDs.Count) 
             {
-                nodeID = 0;
+                NodeID = 0;
                 continue;
             }
 
-            nodeID++;
+            NodeID++;
         }
 
-        graphView.nodeIDs.Add(nodeID);
+        graphView.nodeIDs.Add(NodeID);
     }
 
     private void DisconnectPorts(VisualElement container)
@@ -271,4 +307,67 @@ public class DialogueMasterNode : Node
         mainContainer.style.backgroundColor = new Color(29f / 255, 29 / 255, 30 / 255);
     }
     #endregion
+
+
+    #region Node Conversion
+
+    public void ConvertToEditorNode(DialogueEditorSerializedNode node)
+    {
+        SetPosition(new Rect(node.position, Vector2.zero));
+
+        NodeID = node.nodeID;
+        DialogueText = node.dialogueText;
+    }
+
+    public DialogueEditorSerializedNode ConvertToSerializedNode()
+    {
+        DialogueEditorSerializedNode serializedNode = new DialogueEditorSerializedNode();
+
+        serializedNode.nodeID = NodeID;
+
+        foreach (DialogueMasterNodeChoice choice in Choices)
+        {
+            SerializedChoice serializedChoice = choice.ConvertToSerializedChoice();
+
+            serializedNode.choices.Add(serializedChoice);
+        }
+
+
+        serializedNode.dialogueText = DialogueText;
+        serializedNode.position = GetPosition().position;
+
+        return serializedNode;
+    }
+
+    public void UpdateNodeData(ref DialogueEditorSerializedNode oldData, DialogueEditorSerializedNode newData)
+    {
+        oldData.nodeID = newData.nodeID;
+        oldData.choices = newData.choices;
+        oldData.position = newData.position;
+        oldData.dialogueText = newData.dialogueText;
+    }
+
+    #endregion
+
 }
+
+[System.Serializable]
+public class SerializedSprite : ScriptableObject
+{
+
+    public Sprite sprite = CreateSprite();
+
+    static Sprite CreateSprite()
+    {
+        Rect rect = new Rect(Vector2.zero, Vector2.one * 10);
+        //Texture2D texture = new Texture2D(10, 10);
+
+        Sprite sprite = Sprite.Create(null, rect, Vector2.one/2);
+
+        return sprite;
+    }
+
+}
+
+
+

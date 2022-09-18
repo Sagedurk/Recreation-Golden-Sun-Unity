@@ -78,8 +78,6 @@ public class DialogueMasterWindow : EditorWindow
 
         loadButton = DialogueElementUtility.CreateButton("Load Data", () =>
         {
-            Debug.Log("LOAD ATTEMPT");
-
             if (dialogueInstance == null)
             {
                 Debug.LogError("Instance not found, can't load data!");

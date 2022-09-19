@@ -325,6 +325,7 @@ public class DialogueMaster : MonoBehaviour
             inputBehaviour.isInteracted = false;
             Debug.Log(currentNode.dialogueText);
             ShowDialogueInstance(currentNode);
+            
 
             int nextNodeID;
 
@@ -384,19 +385,10 @@ public class DialogueMaster : MonoBehaviour
         dialogueTextShadow.text = nodeToShow.dialogueText;
 
         
-        //dialogueBackground.rectTransform.position = nodeToShow.dialogueBox.boxPosition;
-        //dialogueBackground.rectTransform.sizeDelta = nodeToShow.dialogueBox.boxSize;
+        dialogueBackground.rectTransform.position = nodeToShow.dialogueBox.position;
+        dialogueBackground.rectTransform.sizeDelta = nodeToShow.dialogueBox.size;
 
-
-        //if (nodeToShow.portrait.isPortraitShown && nodeToShow.portrait.portraitImage != null)
-        //{
-        //    ShowPortrait(nodeToShow);
-        //}
-        //else
-        //{
-        //    HidePortrait();
-        //}
-
+        ShowPortrait(nodeToShow.portrait);
     }
 
     private void ShowDialogueSubInstance(SubInstance instanceToShow)
@@ -495,6 +487,19 @@ public class DialogueMaster : MonoBehaviour
         dialoguePortraitFrame.transform.position = instanceToShow.portrait.portraitBoxPosition;
 
         dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
+    }
+    void ShowPortrait(PortraitData portraitData)
+    {
+        if(portraitData.sprite == null)
+        {
+            HidePortrait();
+            return;
+        }
+
+        dialoguePortraitFrame.SetActive(true);
+        dialoguePortraitFrame.transform.position = portraitData.position;
+
+        dialoguePortrait.sprite = portraitData.sprite;
     }
 
     //Next Step, fix position and size of dialogue box & portrait

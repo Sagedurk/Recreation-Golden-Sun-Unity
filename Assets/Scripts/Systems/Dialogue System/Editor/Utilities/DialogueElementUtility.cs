@@ -27,11 +27,35 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         return textField;
     }
 
-    public static Image CreateImage(Rect rect, ScaleMode mode = ScaleMode.ScaleAndCrop, Texture imageTex = null)
+    public static TextField CreateNumField(float value, string label = null, EventCallback<ChangeEvent<string>> onValueChanged = null)
+    {
+        TextField numField = CreateTextField(value.ToString(), label, onValueChanged);
+
+        numField.maxLength = 9;     //limit to not be able to exceed int.MaxValue (2 147 483 647)
+
+        numField.labelElement.style.minWidth = 0;
+
+        return numField;
+    }
+
+    public static Foldout CreateVec2Field(string fieldName, float xValue, float yValue, EventCallback<ChangeEvent<string>> xValueChanged = null, EventCallback<ChangeEvent<string>> yValueChanged = null)
+    {
+        Foldout foldout = CreateFoldout(fieldName, true);
+
+        TextField xField = CreateNumField(xValue, "X: ", xValueChanged);
+        TextField yField = CreateNumField(yValue, "Y: ", yValueChanged);
+
+        foldout.Add(xField);
+        foldout.Add(yField);
+
+        return foldout;
+    }
+
+    public static Image CreateImage(Rect rect, ScaleMode mode = ScaleMode.ScaleToFit, Sprite imageTex = null)
     {
         Image image = new Image();
 
-        image.image = imageTex;
+        image.sprite = imageTex;
         image.sourceRect = rect;
         image.scaleMode = mode;
 
@@ -106,5 +130,97 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         return port;
 
     }
+
+
+
+
+    #region Utility Functions
+
+    public static void RemoveCharactersNaN(ChangeEvent<string> callback, out int parsedValue)
+    {
+        //Feels dirty, but it works
+
+        string intString = "";
+
+        //Go through all characters the user has input, only copy numbers
+        for (int i = 0; i < callback.newValue.Length; i++)
+        {
+            char chr = callback.newValue[i];
+
+            if (callback.previousValue == "0")
+            {
+                if (chr > '0' && chr <= '9')
+                    intString += chr;
+
+                continue;
+            }
+
+            if (chr >= '0' && chr <= '9')
+                intString += chr;
+        }
+
+        if (!int.TryParse(intString, out parsedValue))
+            intString = "0";
+
+        //Update the inputfield's string
+        TextField field = callback.target as TextField;
+        field.SetValueWithoutNotify(intString);
+    }
+    public static void RemoveCharactersNaN(ChangeEvent<string> callback, out float parsedValue)
+    {
+        //Feels dirty, but it works
+
+        string intString = "";
+
+        //Go through all characters the user has input, only copy numbers
+        for (int i = 0; i < callback.newValue.Length; i++)
+        {
+            char chr = callback.newValue[i];
+
+            if (callback.previousValue == "0")
+            {
+                if (chr > '0' && chr <= '9')
+                    intString += chr;
+
+                continue;
+            }
+
+            if (chr >= '0' && chr <= '9')
+                intString += chr;
+        }
+
+        if (!float.TryParse(intString, out parsedValue))
+            intString = "0";
+
+        //Update the inputfield's string
+        TextField field = callback.target as TextField;
+        field.SetValueWithoutNotify(intString);
+    }
+
+    #endregion
+
+
+}
+
+public class Vec2VE
+{
+    public float x;
+    public float y;
+
+    public Foldout foldout;
+
+    public void Initialize(string foldoutName)
+    {
+        foldout = DialogueElementUtility.CreateVec2Field(foldoutName, x, y,
+            xCallback => { DialogueElementUtility.RemoveCharactersNaN(xCallback, out x); },
+            yCallback => { DialogueElementUtility.RemoveCharactersNaN(yCallback, out y); });
+    }
+
+    public void SetValues(Vector2 vector)
+    {
+        x = vector.x;
+        y = vector.y;
+    }
+
 
 }

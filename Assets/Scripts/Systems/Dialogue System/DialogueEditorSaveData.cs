@@ -19,18 +19,21 @@ public class DialogueEditorSaveData : ScriptableObject
 
 
 
-[System.Serializable]
+[Serializable]
 public class DialogueEditorSerializedNode
 {
     public int nodeID;
     public List<SerializedChoice> choices = new List<SerializedChoice>();
     public Vector2 position;
     public string dialogueText;
+    public PortraitData portrait = new PortraitData();
+    public Rect dialogueBox = new Rect();
+
 }
 
 
 
-[System.Serializable]
+[Serializable]
 public class SerializedChoice
 {
     public string choiceName;
@@ -45,3 +48,11 @@ public class SerializedChoice
 
 
 }
+
+[Serializable]
+public class PortraitData
+{
+    public Sprite sprite;
+    public Vector2 position;
+}
+

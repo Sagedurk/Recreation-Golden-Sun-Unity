@@ -23,6 +23,15 @@ MonoBehaviour:
       requirementFunctionName: 
     position: {x: 194, y: 64}
     dialogueText: Isaac, wake up!
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 1
     choices:
     - choiceName: Yes
@@ -37,10 +46,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1182, y: 263}
+    position: {x: 1182, y: 261}
     dialogueText: 'Have you got
 
       everything you need?'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 4
     choices:
     - choiceName: New Choice
@@ -49,13 +67,22 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1619, y: 154}
+    position: {x: 1619, y: 148}
     dialogueText: 'Good for you, Isaac.
 
       A lost possession can be
 
       replaced;
       a lost life can''t.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 5
     choices:
     - choiceName: New Choice
@@ -64,13 +91,22 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1619, y: 418}
+    position: {x: 1619, y: 480}
     dialogueText: 'I''m sorry, but we
 
       don''t have time... You''ll
 
       have
       to leave it behind.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 6
     choices:
     - choiceName: New Choice
@@ -81,6 +117,15 @@ MonoBehaviour:
       requirementFunctionName: 
     position: {x: 502, y: 64}
     dialogueText: Please, dear, wake up!
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 8
     choices:
     - choiceName: New Choice
@@ -89,10 +134,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 822, y: 147}
+    position: {x: 851, y: 176}
     dialogueText: 'The Mt. Aleph Boulder
 
       is going to fall!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 14
     choices:
     - choiceName: New Choice
@@ -101,10 +155,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 205, y: 391}
+    position: {x: 205, y: 469}
     dialogueText: 'Come on, Isaac.
 
       We have to go--now!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 15
     choices:
     - choiceName: New Choice
@@ -113,10 +176,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 525, y: 391}
+    position: {x: 525, y: 469}
     dialogueText: 'Isaac! You forgot
 
       something!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 16
     choices:
     - choiceName: New Choice
@@ -125,13 +197,22 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 851, y: 391}
+    position: {x: 851, y: 469}
     dialogueText: 'It''s poring outside!
 
       Don''t go out without
 
       your
       tunic!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 17
     choices:
     - choiceName: New Choice
@@ -147,6 +228,15 @@ MonoBehaviour:
 
       fall at any
       second!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 18
     choices:
     - choiceName: New Choice
@@ -157,6 +247,15 @@ MonoBehaviour:
       requirementFunctionName: 
     position: {x: 2353, y: 185}
     dialogueText: "Kyle... Will they be able\n to stop the Boulder?"
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 19
     choices:
     - choiceName: New Choice
@@ -165,10 +264,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2673, y: 185}
+    position: {x: 2674, y: 185}
     dialogueText: 'I don''t think so...
 
       Not for long, anyway...'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 20
     choices:
     - choiceName: New Choice
@@ -181,6 +289,15 @@ MonoBehaviour:
     dialogueText: 'You two go on ahead and
 
       take refuge in the plaza.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 21
     choices:
     - choiceName: New Choice
@@ -189,8 +306,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3337, y: 293}
+    position: {x: 3336, y: 345}
     dialogueText: Aren't you coming?
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 22
     choices:
     - choiceName: New Choice
@@ -199,10 +325,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2353, y: 460}
+    position: {x: 2353, y: 518}
     dialogueText: 'I need to help evacuate
 
       the other villagers.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 23
     choices:
     - choiceName: New Choice
@@ -211,8 +346,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2674, y: 530}
+    position: {x: 2674, y: 574}
     dialogueText: Let me help you, Kyle!
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 24
     choices:
     - choiceName: New Choice
@@ -221,13 +365,22 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3010, y: 530}
+    position: {x: 3010, y: 574}
     dialogueText: 'It''s too dangerous, Dora.
 
       Please, just take good
 
       care
       of Isaac!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 25
     choices:
     - choiceName: New Choice
@@ -236,10 +389,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3337, y: 530}
+    position: {x: 3336, y: 626}
     dialogueText: 'Isaac is old enough to get
 
       to the plaza on his own.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 26
     choices:
     - choiceName: Yes
@@ -260,6 +422,15 @@ MonoBehaviour:
       way, can''t you,
 
       Isaac?'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 27
     choices:
     - choiceName: Yes
@@ -281,6 +452,15 @@ MonoBehaviour:
 
       on
       your own?'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - nodeID: 30
     choices:
     - choiceName: New Choice
@@ -296,4 +476,13 @@ MonoBehaviour:
 
       the plaza.
       Be careful!'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: 0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   starterNodeID: 0

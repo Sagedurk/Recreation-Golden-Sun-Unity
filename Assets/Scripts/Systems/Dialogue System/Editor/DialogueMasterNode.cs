@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class DialogueMasterNode : Node
 {
+    /* VARIABLE DECLARATION */
+    #region VARIABLE DECLARATION
     public List<DialogueMasterNodeChoice> Choices { get; set; }
     public string DialogueText { get; set; }
     public DialogueSystemGroup Group { get; set; }
@@ -19,16 +21,15 @@ public class DialogueMasterNode : Node
     private DialogueMasterGraphView graphView;
     private Image image = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
 
-    /*
-     * Container names
-     *  mainContainer           //includes all other containers
-     *  titleContainer          //Title bar container
-     *  titleButtonContainer    //Title bar button container. Contains the top right buttons
-     *  inputContainer          //Input container used for input ports
-     *  outputContainer         //Output container, used for output ports
-     *  extensionContainer      //Empty Container used to display custom elements. 
-     *      After adding elements, call RefreshExpandedState in order to toggle this container visibility
-     */
+    Vec2VE portraitPosition = new Vec2VE();
+    Vec2VE dialogueBoxPosition = new Vec2VE();
+    Vec2VE dialogueBoxSize = new Vec2VE();
+
+    /* END VARIABLE DECLARATION */
+    #endregion
+
+
+
 
     public void Initialize(DialogueMasterGraphView dialogueGraphView, Vector2 position)
     {
@@ -66,6 +67,7 @@ public class DialogueMasterNode : Node
     public void Draw()
     {
         /* MAIN CONTAINER */
+        #region MAIN CONTAINER
         Button addChoiceButton = DialogueElementUtility.CreateButton("Add Choice", () =>
         {
             DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice();
@@ -81,73 +83,99 @@ public class DialogueMasterNode : Node
         addChoiceButton.AddToClassList("dialogue-node__button");
 
         mainContainer.Insert(1, addChoiceButton);
+        #endregion
 
+        /* TITLE BUTTON CONTAINER */
+        #region TITLE BUTTON CONTAINER
         
         //Remove minimize button from top right corner of the node
         titleButtonContainer.contentContainer.RemoveFromHierarchy();
+        
+        #endregion
 
         /* INPUT CONTAINER */
+        #region INPUT CONTAINER
         inputPort = DialogueElementUtility.CreatePort(this, "Dialogue Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
         inputContainer.Add(inputPort);
+        #endregion
 
         /* EXTENSION CONTAINER */
+        #region EXTENSION CONTAINER
+
         VisualElement customDataContainer = new VisualElement();
 
         customDataContainer.AddToClassList("dialogue-node__custom-data-container");
 
+        /* DIALOGUE TEXT */
+        #region DIALOGUE TEXT
         Foldout textFoldout = DialogueElementUtility.CreateFoldout("Dialogue Text");
 
-        TextField textTextField = DialogueElementUtility.CreateTextArea(DialogueText, null, callback=>
+        TextField dialogueText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback =>
         {
             DialogueText = callback.newValue;
         });
 
-        textTextField.AddClasses(
-            "dialogue-node__textfield", 
-            "dialogue-node__quote-textfield"
-            );
+        dialogueText.AddClasses("dialogue-node__textfield", "dialogue-node__quote-textfield");
 
-        textFoldout.Add(textTextField);
+        textFoldout.Add(dialogueText); 
+        
 
         customDataContainer.Add(textFoldout);
+        #endregion
 
-        //Portrait Logic
-        Foldout portraitFoldout = DialogueElementUtility.CreateFoldout("Portrait");
+        /* DIALOGUE BOX */
+        #region DIALOGUE BOX
+        Foldout boxFoldout = DialogueElementUtility.CreateFoldout("Dialogue Box", true);
+        dialogueBoxPosition.Initialize("Position");
+        dialogueBoxSize.Initialize("Size");
+        boxFoldout.Add(dialogueBoxPosition.foldout);
+        boxFoldout.Add(dialogueBoxSize.foldout);
+
+        customDataContainer.Add(boxFoldout);
+        #endregion
+
+        /* PORTRAIT */
+        #region PORTRAIT
+        Foldout portraitFoldout = DialogueElementUtility.CreateFoldout("Portrait", true);
 
         ObjectField spriteField = DialogueElementUtility.CreateObjectField<Sprite>(callback => 
         {
             Sprite newSprite = callback.newValue as Sprite;
 
-            image.image = newSprite.texture;
+            image.sprite = newSprite;
             //image.sourceRect = newSprite.rect;
         });
 
+        portraitPosition.Initialize("Position");
 
 
+        portraitFoldout.Add(portraitPosition.foldout);
         portraitFoldout.Add(spriteField);
         portraitFoldout.Add(image);
         customDataContainer.Add(portraitFoldout);
-        //Image portraitImage = DialogueElementUtility.CreateImage();
-       
+        #endregion
 
         extensionContainer.Add(customDataContainer);
+        #endregion
 
 
-        
         /* OUTPUT CONTAINER */
-
+        #region OUTPUT CONTAINER
         foreach (DialogueMasterNodeChoice choice in Choices)
         {
             Port choicePort = CreateChoicePort(choice);
             outputContainer.Add(choicePort);
         }
+        #endregion
 
 
+        //Needed for extension container
         RefreshExpandedState();
     }
 
-    
-    #region Elements Creation
+
+    /* ELEMENT CREATION */
+    #region ELEMENT CREATION
     private Port CreateChoicePort(object userData)
     {
         Port choicePort = DialogueElementUtility.CreatePort(this);
@@ -241,8 +269,8 @@ public class DialogueMasterNode : Node
 
     #endregion
 
-
-    #region Utility Methods
+    /* UTILITY FUNCTIONS */
+    #region UTILITY FUNCTIONS 
 
     public void DisconnectAllPorts()
     {
@@ -308,8 +336,8 @@ public class DialogueMasterNode : Node
     }
     #endregion
 
-
-    #region Node Conversion
+    /*CONVERSION FOR SAVING */
+    #region CONVERSION FOR SAVING
 
     public void ConvertToEditorNode(DialogueEditorSerializedNode node)
     {
@@ -317,6 +345,11 @@ public class DialogueMasterNode : Node
 
         NodeID = node.nodeID;
         DialogueText = node.dialogueText;
+        image.sprite = node.portrait.sprite;
+
+        portraitPosition.SetValues(node.portrait.position);
+        dialogueBoxPosition.SetValues(node.dialogueBox.position);
+        dialogueBoxSize.SetValues(node.dialogueBox.size);
     }
 
     public DialogueEditorSerializedNode ConvertToSerializedNode()
@@ -335,6 +368,10 @@ public class DialogueMasterNode : Node
 
         serializedNode.dialogueText = DialogueText;
         serializedNode.position = GetPosition().position;
+        serializedNode.portrait.sprite = image.sprite;
+        serializedNode.portrait.position = new Vector2(portraitPosition.x, portraitPosition.y);
+        serializedNode.dialogueBox.position = new Vector2(dialogueBoxPosition.x, dialogueBoxPosition.y);
+        serializedNode.dialogueBox.size = new Vector2(dialogueBoxSize.x, dialogueBoxSize.y);
 
         return serializedNode;
     }
@@ -344,28 +381,11 @@ public class DialogueMasterNode : Node
         oldData.nodeID = newData.nodeID;
         oldData.choices = newData.choices;
         oldData.position = newData.position;
+        oldData.portrait = newData.portrait;
         oldData.dialogueText = newData.dialogueText;
     }
 
     #endregion
-
-}
-
-[System.Serializable]
-public class SerializedSprite : ScriptableObject
-{
-
-    public Sprite sprite = CreateSprite();
-
-    static Sprite CreateSprite()
-    {
-        Rect rect = new Rect(Vector2.zero, Vector2.one * 10);
-        //Texture2D texture = new Texture2D(10, 10);
-
-        Sprite sprite = Sprite.Create(null, rect, Vector2.one/2);
-
-        return sprite;
-    }
 
 }
 

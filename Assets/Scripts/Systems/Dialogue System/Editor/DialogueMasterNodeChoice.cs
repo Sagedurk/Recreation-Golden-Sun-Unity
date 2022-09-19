@@ -297,15 +297,10 @@ public class DialogueMasterNodeChoice
         if (owningPort.Contains(valueField))
             return;
         
-        valueField = DialogueElementUtility.CreateTextField(requirementValueCheck.ToString(), "Value:  ", callback =>
+        valueField = DialogueElementUtility.CreateNumField(requirementValueCheck, "Value:  ", callback =>
         {
-            //Feels dirty, but it works
-            RemoveCharactersNaN(callback);
+            DialogueElementUtility.RemoveCharactersNaN(callback, out requirementValueCheck);
         });
-
-        valueField.maxLength = 9;     //limit to not be able to exceed int.MaxValue (2 147 483 647)
-
-        valueField.labelElement.style.minWidth = 0;
         owningPort.Add(valueField);
     }
 
@@ -337,35 +332,7 @@ public class DialogueMasterNodeChoice
             owningPort.Remove(checkBox);
     }
 
-    private void RemoveCharactersNaN(ChangeEvent<string> callback)
-    {
-        string intString = "";
-
-        //Go through all characters the user has input, only copy numbers
-        for (int i = 0; i < callback.newValue.Length; i++)
-        {
-            char chr = callback.newValue[i];
-
-            if (callback.previousValue == "0")
-            {
-                if (chr > '0' && chr <= '9')
-                    intString += chr;
-
-                continue;
-            }
-
-            if (chr >= '0' && chr <= '9')
-                intString += chr;
-        }
-
-        if (!int.TryParse(intString, out requirementValueCheck))
-            intString = "0";
-
-        //Update the inputfield's string
-        TextField field = callback.target as TextField;
-        field.SetValueWithoutNotify(intString);
-
-    }
+    
 
     #endregion
 

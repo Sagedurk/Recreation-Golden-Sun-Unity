@@ -20,10 +20,25 @@ public class DialogueMasterNode : Node
 
     private DialogueMasterGraphView graphView;
     private Image image = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
+    private TextField dialoguePreview;
 
     Vec2VE portraitPosition = new Vec2VE();
     Vec2VE dialogueBoxPosition = new Vec2VE();
     Vec2VE dialogueBoxSize = new Vec2VE();
+
+
+    //Port to DialogueMaster!
+    int fontSize = 75;
+    Vector4 previewMargins = new Vector4(28, 25, 28, 28);       //Left, Bottom, Right, Top
+    Color textColor = Color.white;
+    Sprite backgroundImage;
+
+        //Shadow
+        bool isShadowed = true;
+        Color shadowColor = Color.black;
+        Vector2 shadowDirection = Vector2.down + Vector2.right;
+        float shadowMagnitude = 3.025f;
+
 
     /* END VARIABLE DECLARATION */
     #endregion
@@ -52,6 +67,24 @@ public class DialogueMasterNode : Node
             DialogueMasterNodeChoice choiceData = new DialogueMasterNodeChoice();
             Choices.Add(choiceData);
         }
+
+        /*Preview*/
+        dialoguePreview = DialogueElementUtility.CreateTextArea(DialogueText);
+        dialoguePreview.focusable = false;
+        dialoguePreview.style.unityFont = (Font)AssetDatabase.LoadAssetAtPath("Assets/Fonts/Golden Sun Italics.ttf",typeof(Font));
+
+
+        //dialoguePreview.style.overflow = Overflow.Hidden;
+
+        DialogueElementUtility.SetTextStyle(ref dialoguePreview, fontSize, previewMargins, Color.clear, textColor);
+
+        if(isShadowed)
+            DialogueElementUtility.CreateDropShadow(ref dialoguePreview, shadowColor, shadowDirection, fontSize * shadowMagnitude * 0.02f);
+
+
+        //previewText.style.overflow = Overflow.Hidden;
+        
+        /*Preview*/
     }
 
     #region Overrided Methods
@@ -113,6 +146,13 @@ public class DialogueMasterNode : Node
         TextField dialogueText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback =>
         {
             DialogueText = callback.newValue;
+            dialoguePreview.value = callback.newValue;
+            if (isShadowed)
+            {
+                TextField previewShadow = (TextField)dialoguePreview.contentContainer[0];
+                previewShadow.value = callback.newValue;
+            }
+
         });
 
         dialogueText.AddClasses("dialogue-node__textfield", "dialogue-node__quote-textfield");
@@ -127,7 +167,19 @@ public class DialogueMasterNode : Node
         #region DIALOGUE BOX
         Foldout boxFoldout = DialogueElementUtility.CreateFoldout("Dialogue Box", true);
         dialogueBoxPosition.Initialize("Position");
-        dialogueBoxSize.Initialize("Size");
+        
+        dialogueBoxSize.Initialize("Size", 
+            xCallback =>
+            {
+                DialogueElementUtility.RemoveCharactersNaN(xCallback, out dialogueBoxSize.vector.x);
+                DialogueElementUtility.SetStyleSize(ref dialoguePreview, dialogueBoxSize.vector.x, dialoguePreview.style.height.value.value);
+            },
+            yCallback =>
+            {
+                DialogueElementUtility.RemoveCharactersNaN(yCallback, out dialogueBoxSize.vector.y);
+                DialogueElementUtility.SetStyleSize(ref dialoguePreview, dialoguePreview.style.width.value.value, dialogueBoxSize.vector.y);
+            });
+
         boxFoldout.Add(dialogueBoxPosition.foldout);
         boxFoldout.Add(dialogueBoxSize.foldout);
 
@@ -142,8 +194,18 @@ public class DialogueMasterNode : Node
         {
             Sprite newSprite = callback.newValue as Sprite;
 
+            dialoguePreview.style.backgroundImage = new StyleBackground(newSprite);
+
+            DialogueElementUtility.SetStyleSlice(ref dialoguePreview, newSprite.border);
+
             image.sprite = newSprite;
-            //image.sourceRect = newSprite.rect;
+
+            if (image.sprite == null)
+                DialogueElementUtility.SetStyleSize(ref image, 0, 0);
+            else 
+            { 
+                DialogueElementUtility.SetStyleSize(ref image, 128, 128);
+            }
         });
 
         portraitPosition.Initialize("Position");
@@ -152,9 +214,20 @@ public class DialogueMasterNode : Node
         portraitFoldout.Add(portraitPosition.foldout);
         portraitFoldout.Add(spriteField);
         portraitFoldout.Add(image);
+
         customDataContainer.Add(portraitFoldout);
         #endregion
 
+        /* PREVIEW */
+        #region PREVIEW
+
+        Foldout previewFoldout = DialogueElementUtility.CreateFoldout("Preview", true);
+
+      
+        previewFoldout.Add(dialoguePreview);
+        customDataContainer.Add(previewFoldout);
+
+        #endregion
         extensionContainer.Add(customDataContainer);
         #endregion
 
@@ -369,9 +442,9 @@ public class DialogueMasterNode : Node
         serializedNode.dialogueText = DialogueText;
         serializedNode.position = GetPosition().position;
         serializedNode.portrait.sprite = image.sprite;
-        serializedNode.portrait.position = new Vector2(portraitPosition.x, portraitPosition.y);
-        serializedNode.dialogueBox.position = new Vector2(dialogueBoxPosition.x, dialogueBoxPosition.y);
-        serializedNode.dialogueBox.size = new Vector2(dialogueBoxSize.x, dialogueBoxSize.y);
+        serializedNode.portrait.position = portraitPosition.vector;
+        serializedNode.dialogueBox.position = dialogueBoxPosition.vector;
+        serializedNode.dialogueBox.size = dialogueBoxSize.vector;
 
         return serializedNode;
     }

@@ -230,27 +230,27 @@ public class DialogueMasterNodeChoice
     private void AddFlagRequirementToolbarToPort()
     {
         RemoveValueField();
-        List<VisualElement> elementsToReAdd = GetChildElements(owningPort);
+        List<VisualElement> elementsToReAdd = DialogueElementUtility.GetChildElements(owningPort);
 
         //Add any new elements, rightmost is added first
         AddCheckBox();
 
         owningPort.Add(requirementToolbar);
 
-        ReAddElements(ref owningPort, elementsToReAdd, 2);
+        DialogueElementUtility.ReAddElements(ref owningPort, elementsToReAdd, 2);
     }
     private void AddValueRequirementToolbarToPort()
     {
         RemoveCheckBox();
-        List<VisualElement> elementsToReAdd = GetChildElements(owningPort);
+        List<VisualElement> elementsToReAdd = DialogueElementUtility.GetChildElements(owningPort);
 
         //Add any new elements, rightmost is added first
         AddValueField();
 
         owningPort.Add(requirementToolbar);
 
-        
-        ReAddElements(ref owningPort, elementsToReAdd, 2);
+
+        DialogueElementUtility.ReAddElements(ref owningPort, elementsToReAdd, 2);
     }
 
     private void RemoveRequirementToolbarToPort()
@@ -271,27 +271,7 @@ public class DialogueMasterNodeChoice
             owningPort.Remove(element);
     }
 
-    private List<VisualElement> GetChildElements(VisualElement visualElement)
-    {
-        List<VisualElement> elementsToReAdd = new List<VisualElement>();
-
-        foreach (VisualElement element in visualElement.Children())
-        {
-            elementsToReAdd.Add(element);
-        }
-
-        return elementsToReAdd;
-    }
-
-    private void ReAddElements<T>(ref T containerElement, List<VisualElement> elements, int startIndex) where T : VisualElement
-    {
-        for (int i = startIndex; i < elements.Count; i++)
-        {
-            containerElement.Remove(elements[i]);
-            containerElement.Add(elements[i]);
-        }
-    }
-
+    
     private void AddValueField()
     {
         if (owningPort.Contains(valueField))

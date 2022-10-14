@@ -3,7 +3,6 @@
 Toolbar
 {
 	background-color: #1D1D1E;
-	height: 40px;
 }
 
 TextField

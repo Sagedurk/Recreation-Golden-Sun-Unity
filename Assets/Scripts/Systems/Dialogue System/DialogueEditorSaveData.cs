@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [Serializable]
 public class DialogueEditorSaveData : ScriptableObject
 {
     [HideInInspector]
-    //[SerializeReference]
     public List<DialogueEditorSerializedNode> nodes = new List<DialogueEditorSerializedNode>();
 
-    //[HideInInspector]
+    [HideInInspector]
     public int starterNodeID = -1;
 
 
@@ -56,3 +56,21 @@ public class PortraitData
     public Vector2 position;
 }
 
+
+
+[Serializable]
+public class DialogueMasterElements
+{
+    public Sprite dialogueBackground = null;
+    public Vector4 fontMargins = Vector4.zero;
+
+    public Font font = null;
+    public float fontSize = 0;
+    public Color fontColor = Color.white;
+
+    public bool isShadowed = false;
+    public float fontShadowMag = 0;
+    public Color fontShadowColor = Color.white;
+    public Vector2 fontShadowDir = Vector2.zero;
+
+}

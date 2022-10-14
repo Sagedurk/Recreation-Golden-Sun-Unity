@@ -212,50 +212,49 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
     public static void RemoveCharactersNaN(ChangeEvent<string> callback, out int parsedValue)
     {
-        parsedValue = 0;
-        ////Feels dirty, but it works
+        //Feels dirty, but it works
 
-        //string numString = "";
+        string numString = "";
 
-        ////Go through all characters the user has input, only copy numbers
-        //for (int i = 0; i < callback.newValue.Length; i++)
-        //{
-        //    char chr = callback.newValue[i];
+        //Go through all characters the user has input, only copy numbers
+        for (int i = 0; i < callback.newValue.Length; i++)
+        {
+            char chr = callback.newValue[i];
 
-        //    if (callback.previousValue == "0")
-        //    {
-        //        if (chr > '0' && chr <= '9')
-        //            numString += chr;
-        //        else if (chr == '-')
-        //            numString += chr + callback.previousValue;
+            if (callback.previousValue == "0")
+            {
+                if (chr > '0' && chr <= '9')
+                    numString += chr;
+                else if (chr == '-')
+                    numString += chr + callback.previousValue;
 
-        //        continue;
-        //    }
-
-
-        //    if (chr >= '0' && chr <= '9')
-        //        numString += chr;
-        //    else if (chr == '-')
-        //        numString.Insert(0, chr.ToString());
-        //}
+                continue;
+            }
 
 
-        ////Attempt to parse the new value, if not possible, parse the previous value
-        //if (!int.TryParse(numString, NumberStyles.AllowTrailingSign | NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture, out parsedValue))
-        //{
-        //    if (callback.newValue != "")
-        //    {
-        //        numString = callback.previousValue;
-        //        int.TryParse(numString, NumberStyles.AllowTrailingSign | NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture, out parsedValue);
+            if (chr >= '0' && chr <= '9')
+                numString += chr;
+            else if (chr == '-')
+                numString.Insert(0, chr.ToString());
+        }
 
-        //    }
-        //}
 
-        //numString = parsedValue.ToString();
+        //Attempt to parse the new value, if not possible, parse the previous value
+        if (!int.TryParse(numString, NumberStyles.AllowTrailingSign | NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture, out parsedValue))
+        {
+            if (callback.newValue != "")
+            {
+                numString = callback.previousValue;
+                int.TryParse(numString, NumberStyles.AllowTrailingSign | NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture, out parsedValue);
 
-        ////Update the inputfield's string
-        //TextField field = callback.target as TextField;
-        //field.SetValueWithoutNotify(numString);
+            }
+        }
+
+        numString = parsedValue.ToString();
+
+        //Update the inputfield's string
+        TextField field = callback.target as TextField;
+        field.SetValueWithoutNotify(numString);
     }
 
     private static bool ContainsEither(this string checkedString, string[] subStrings)

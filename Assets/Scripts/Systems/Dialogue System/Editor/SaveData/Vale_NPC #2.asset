@@ -57,8 +57,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 675
+      height: 175
   - nodeID: 4
     choices:
     - choiceName: New Choice
@@ -67,7 +67,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1619, y: 148}
+    position: {x: 1619, y: 149}
     dialogueText: 'Good for you, Isaac.
 
       A lost possession can be
@@ -81,8 +81,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 800
+      height: 225
   - nodeID: 5
     choices:
     - choiceName: New Choice
@@ -105,8 +105,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 725
+      height: 225
   - nodeID: 6
     choices:
     - choiceName: New Choice
@@ -124,8 +124,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 705
+      height: 115
   - nodeID: 8
     choices:
     - choiceName: New Choice
@@ -145,8 +145,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 700
+      height: 200
   - nodeID: 14
     choices:
     - choiceName: New Choice
@@ -166,8 +166,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 675
+      height: 175
   - nodeID: 15
     choices:
     - choiceName: New Choice
@@ -187,8 +187,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 575
+      height: 175
   - nodeID: 16
     choices:
     - choiceName: New Choice
@@ -211,8 +211,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 620
+      height: 225
   - nodeID: 17
     choices:
     - choiceName: New Choice
@@ -235,8 +235,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 625
+      height: 225
   - nodeID: 18
     choices:
     - choiceName: New Choice

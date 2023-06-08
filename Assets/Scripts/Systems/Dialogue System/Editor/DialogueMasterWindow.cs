@@ -37,10 +37,8 @@ public class DialogueMasterWindow : EditorWindow
         window.CreateGUI();
 
         if (dialogueInstance != null)
-        {
-            string sceneName = dialogueInstance.gameObject.scene.name;
-            window.LoadAssetData(sceneName);
-        }
+            window.LoadAssetData(dialogueInstance.gameObject.scene.name);
+            
         else
         {
             //TODO: FIX SYSTEM TO RELOAD LAST ASSET!

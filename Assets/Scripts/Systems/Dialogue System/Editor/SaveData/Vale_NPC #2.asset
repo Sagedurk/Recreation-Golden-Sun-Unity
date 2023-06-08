@@ -31,7 +31,7 @@ MonoBehaviour:
       x: 0
       y: 0
       width: 500
-      height: 115
+      height: 108
   - nodeID: 1
     choices:
     - choiceName: Yes
@@ -67,7 +67,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1619, y: 149}
+    position: {x: 1619, y: 151}
     dialogueText: 'Good for you, Isaac.
 
       A lost possession can be

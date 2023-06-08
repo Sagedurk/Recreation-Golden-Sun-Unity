@@ -301,7 +301,6 @@ public static class DialogueElementUtility      //Rename class, make it into a U
             else if (chr == '-' && allowNegatives && !numString.Contains(chr.ToString()))
                 numString = chr + numString;
         }
-        Debug.Log(numString);
 
         bool isTryingParse = true;
         foreach (string subString in stringEndExceptions)
@@ -311,8 +310,6 @@ public static class DialogueElementUtility      //Rename class, make it into a U
                 isTryingParse = false;
             }
         }
-
-        Debug.Log(isTryingParse);
 
         if (isTryingParse)
         {

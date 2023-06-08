@@ -153,6 +153,28 @@ public class DialogueMasterNode : Node
                 previewShadow.value = callback.newValue;
             }
 
+            var textArea = callback.target as TextField;
+
+
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                dialogueBoxSize.SetValues(dialoguePreview.contentRect.size);
+
+                Foldout previewFoldout = dialoguePreview.parent as Foldout;
+
+                if (!previewFoldout.value)
+                {
+                    previewFoldout.value = true;
+                    UnityEditor.EditorApplication.delayCall += () =>
+                    {
+                        dialogueBoxSize.SetValues(dialoguePreview.contentRect.size);
+
+                        previewFoldout.value = false;
+                    };
+                }
+
+            };
+
         });
 
         dialogueText.AddClasses("dialogue-node__textfield", "dialogue-node__quote-textfield");

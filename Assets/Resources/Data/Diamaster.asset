@@ -20,5 +20,5 @@ MonoBehaviour:
     fontColor: {r: 0, g: 0.9811321, b: 0.12092664, a: 1}
     isShadowed: 1
     fontShadowMag: 605
-    fontShadowColor: {r: 0, g: 0.7177429, b: 1, a: 1}
+    fontShadowColor: {r: 0.6462264, g: 0.900111, b: 1, a: 1}
     fontShadowDir: {x: 1, y: 1}

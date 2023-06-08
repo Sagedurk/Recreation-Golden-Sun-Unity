@@ -17,7 +17,7 @@ MonoBehaviour:
     fontMargins: {x: 25555, y: 26, z: 27, w: 28}
     font: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
     fontSize: 75
-    fontColor: {r: 1, g: 0, b: 0, a: 1}
+    fontColor: {r: 0, g: 0.9811321, b: 0.12092664, a: 1}
     isShadowed: 1
     fontShadowMag: 605
     fontShadowColor: {r: 0, g: 0.7177429, b: 1, a: 1}

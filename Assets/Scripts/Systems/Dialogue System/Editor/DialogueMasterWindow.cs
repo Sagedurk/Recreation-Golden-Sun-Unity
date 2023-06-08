@@ -6,6 +6,7 @@ using System.Collections;
 using System;
 using System.IO;
 using UnityEditor.UIElements;
+using static DialogueMaster;
 
 public class DialogueMasterWindow : EditorWindow
 {
@@ -31,8 +32,19 @@ public class DialogueMasterWindow : EditorWindow
     {
         DialogueMasterWindow window = GetWindow<DialogueMasterWindow>("Dialogue Master");
 
+
         window.rootVisualElement.Clear();
         window.CreateGUI();
+
+        if (dialogueInstance != null)
+        {
+            string sceneName = dialogueInstance.gameObject.scene.name;
+            window.LoadAssetData(sceneName);
+        }
+        else
+        {
+            //TODO: FIX SYSTEM TO RELOAD LAST ASSET!
+        }
     }
 
     private void CreateGUI()
@@ -203,7 +215,8 @@ public class DialogueMasterWindow : EditorWindow
             instanceName = sceneName + "_" + dialogueInstance.name;
         }
 
-        Label instanceLabel = new Label("File Name: " + instanceName);
+
+        Label instanceLabel = new Label("Asset Name: " + instanceName);
 
 
         saveButton = DialogueElementUtility.CreateButton("Save Data", () =>
@@ -227,8 +240,7 @@ public class DialogueMasterWindow : EditorWindow
                 return;
             }
 
-            string path = GetAssetFilePath(this) + "/SaveData/";
-            graphView.LoadGraphViewData(sceneName, dialogueInstance.name, path);
+            LoadAssetData(sceneName);
 
         });
 
@@ -249,6 +261,12 @@ public class DialogueMasterWindow : EditorWindow
         rootVisualElement.Add(toolbar);
 
         toolbar.style.height = toolbarSize;
+    }
+
+    void LoadAssetData(string sceneName)
+    {
+        string path = GetAssetFilePath(this) + "/SaveData/";
+        graphView.LoadGraphViewData(sceneName, dialogueInstance.name, path);
     }
 
  

@@ -78,28 +78,30 @@ public class DialogueMasterNode : Node
         /*Preview*/
         #region Preview
 
-        dialoguePreview.focusable = false;
+        //dialoguePreview.focusable = false;
         dialoguePreview.style.width = 1920;
         dialoguePreview.style.height = 1080;
+        dialoguePreview.style.backgroundColor = new StyleColor(Color.green);
+        //dialoguePreview.style.flexDirection = FlexDirection.Column;
+        dialoguePreview.style.alignItems = Align.FlexStart;
 
-        dialoguePreviewText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback =>
+        dialoguePreviewText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback => 
         {
-            TextField previewText = callback.currentTarget as TextField;
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                VisualElement textElement = dialoguePreviewText;
+                DialogueElementUtility.SetPositionInRelationToParent(ref textElement, DialogueElementUtility.Alignment.TOP_LEFT);
+            };
 
-            Vector2 textSize = previewText.MeasureTextSize(callback.newValue, 0, MeasureMode.Undefined, previewText.contentRect.height, MeasureMode.Exactly);
-
-            Vector2 textBoundaries = GetTextBoundaries(callback.newValue, previewText.style.unityFont.value, DialogueMasterElements.Instance.fontSize);
-
-            Debug.Log(textBoundaries);
-            Debug.Log(previewText.contentRect.size);
         });
+        
 
         dialoguePreviewText.focusable = false;
-        dialoguePreviewText.style.unityFont = (Font)AssetDatabase.LoadAssetAtPath("Assets/Fonts/Golden Sun Italics.ttf",typeof(Font));
+        dialoguePreviewText.style.unityFont = DialogueMasterElements.Instance.font;
+        dialoguePreviewText.style.fontSize = DialogueMasterElements.Instance.fontSize;
         dialoguePreviewText.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.dialogueBackground);
-        //"Assets/Fonts/" + DialogueMasterElements.Font "
 
-        //dialoguePreview.style.overflow = Overflow.Hidden;
+        
 
         DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, fontSize, previewMargins, Color.clear, textColor);
 
@@ -195,7 +197,6 @@ public class DialogueMasterNode : Node
                     {
                         dialogueBoxSize.SetValues(dialoguePreviewText.contentRect.size);
                         previewFoldout.value = false;
-
                     };
                 }
                 else
@@ -276,7 +277,6 @@ public class DialogueMasterNode : Node
         Foldout previewFoldout = DialogueElementUtility.CreateFoldout("Preview", true);
 
         dialoguePreview.Add(dialoguePreviewText);
-      
         previewFoldout.Add(dialoguePreview);
         customDataContainer.Add(previewFoldout);
 

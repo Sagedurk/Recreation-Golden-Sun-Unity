@@ -11,7 +11,18 @@ using UnityEngine.UIElements;
 
 public static class DialogueElementUtility      //Rename class, make it into a Utility for UIElements/VisualElements
 {
-
+    public enum Alignment
+    {
+        TOP_LEFT,
+        TOP_CENTER,
+        TOP_RIGHT,
+        MID_LEFT,
+        MID_CENTER,
+        MID_RIGHT,
+        BOTTOM_LEFT,
+        BOTTOM_CENTER,
+        BOTTOM_RIGHT
+    }
 
    public static TextField CreateTextField(string value = null, string label = null, EventCallback<ChangeEvent<string>> onValueChanged = null)
     {
@@ -107,6 +118,9 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         text.style.borderBottomColor = backgroundColor;
         text.style.borderRightColor = backgroundColor;
         text.style.borderTopColor = backgroundColor;
+
+        //text.style.flexDirection = FlexDirection.ColumnReverse;
+        //text.style.alignItems = Align.Auto;
 
     }
 
@@ -483,7 +497,41 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
     }
 
-
+    public static void SetPositionInRelationToParent(ref VisualElement element, Alignment alignmentPreset)
+    {
+        switch (alignmentPreset)
+        {
+            case Alignment.TOP_LEFT:
+                element.transform.position = new Vector3(0, 0);
+                break;
+            case Alignment.TOP_CENTER:
+                element.transform.position = new Vector3(element.parent.contentRect.width / 2 - element.contentRect.width / 2, 0);
+                break;
+            case Alignment.TOP_RIGHT:
+                element.transform.position = new Vector3(element.parent.contentRect.width - element.contentRect.width, 0);
+                break;
+            case Alignment.MID_LEFT:
+                element.transform.position = new Vector3(0, element.parent.contentRect.height / 2 - element.contentRect.height / 2);
+                break;
+            case Alignment.MID_CENTER:
+                element.transform.position = new Vector3(element.parent.contentRect.width / 2 - element.contentRect.width / 2, element.parent.contentRect.height / 2 - element.contentRect.height / 2);
+                break;
+            case Alignment.MID_RIGHT:
+                element.transform.position = new Vector3(element.parent.contentRect.width - element.contentRect.width, element.parent.contentRect.height / 2 - element.contentRect.height / 2);
+                break;
+            case Alignment.BOTTOM_LEFT:
+                element.transform.position = new Vector3(0, element.parent.contentRect.height - element.contentRect.height);
+                break;
+            case Alignment.BOTTOM_CENTER:
+                element.transform.position = new Vector3(element.parent.contentRect.width/2 - element.contentRect.width / 2, element.parent.contentRect.height - element.contentRect.height);
+                break;
+            case Alignment.BOTTOM_RIGHT:
+                element.transform.position = new Vector3(element.parent.contentRect.width - element.contentRect.width, element.parent.contentRect.height - element.contentRect.height);
+                break;
+            default:
+                break;
+        }
+    }
 
     #endregion
 
@@ -571,6 +619,8 @@ public class MarginsVE
         margins = newMargins;
     }
 
+
+    
 }
 
 public class Vec2VE
@@ -607,6 +657,8 @@ public class Vec2VE
     {
         vector = newVector;
     }
+
+    
 
 
 }

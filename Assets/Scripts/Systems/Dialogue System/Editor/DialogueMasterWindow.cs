@@ -25,7 +25,6 @@ public class DialogueMasterWindow : EditorWindow
     private bool isSideMenuOpen = false;
     private VisualElement sideMenu;
 
-    private DialogueMasterElements dialogueMasterElements = new DialogueMasterElements();
 
 
     public static void ShowWindow()
@@ -88,89 +87,89 @@ public class DialogueMasterWindow : EditorWindow
         /*ELEMENTS*/
         #region ELEMENTS
 
-        DialogueMasterSaveData.Load(ref dialogueMasterElements);
+        DialogueMasterSaveData.Load();
 
 
         //Background Image
         ObjectField dialogueBackgroundSprite = DialogueElementUtility.CreateObjectField(callback =>
         {
-            dialogueMasterElements.dialogueBackground = (Sprite)callback.newValue;
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterElements.Instance.dialogueBackground = (Sprite)callback.newValue;
+            DialogueMasterSaveData.Save();
 
-        }, dialogueMasterElements.dialogueBackground); 
+        }, DialogueMasterElements.Instance.dialogueBackground); 
 
         
         //Font Type
         ObjectField font = DialogueElementUtility.CreateObjectField(callback =>
         {
-            dialogueMasterElements.font = (Font)callback.newValue;
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterElements.Instance.font = (Font)callback.newValue;
+            DialogueMasterSaveData.Save();
 
-        }, dialogueMasterElements.font);
+        }, DialogueMasterElements.Instance.font);
 
 
         //Font Color
         Label fontColorLabel = new Label("Font Color: ");
-        ColorField fontColor = DialogueElementUtility.CreateColorField(dialogueMasterElements.fontColor, callback => 
+        ColorField fontColor = DialogueElementUtility.CreateColorField(DialogueMasterElements.Instance.fontColor, callback => 
         {
-            dialogueMasterElements.fontColor = callback.newValue;
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterElements.Instance.fontColor = callback.newValue;
+            DialogueMasterSaveData.Save();
         });
 
 
         //Font Shadow Color
         Label fontShadowColorLabel = new Label("Font Shadow Color: ");
-        ColorField fontShadowColor = DialogueElementUtility.CreateColorField(dialogueMasterElements.fontShadowColor, callback =>
+        ColorField fontShadowColor = DialogueElementUtility.CreateColorField(DialogueMasterElements.Instance.fontShadowColor, callback =>
         {
-            dialogueMasterElements.fontShadowColor = callback.newValue;
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterElements.Instance.fontShadowColor = callback.newValue;
+            DialogueMasterSaveData.Save();
         });
 
         //Font Shadow Direction
         Vec2VE fontShadowDirection = new Vec2VE();
-        fontShadowDirection.vector = dialogueMasterElements.fontShadowDir;
+        fontShadowDirection.vector = DialogueMasterElements.Instance.fontShadowDir;
         fontShadowDirection.InitializeNormalized("Font Shadow Direction", true, Callback => 
         {
-            dialogueMasterElements.fontShadowDir = fontShadowDirection.vector;
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterElements.Instance.fontShadowDir = fontShadowDirection.vector;
+            DialogueMasterSaveData.Save();
         });
 
 
         //Font Shadow Magnitude
-        TextField shadowMagnitudeTextField = DialogueElementUtility.CreateNumField(dialogueMasterElements.fontShadowMag, "Shadow Magnitude: ", callback =>
+        TextField shadowMagnitudeTextField = DialogueElementUtility.CreateNumField(DialogueMasterElements.Instance.fontShadowMag, "Shadow Magnitude: ", callback =>
         {
-            DialogueElementUtility.RemoveCharactersNaN(callback, out dialogueMasterElements.fontShadowMag);
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueElementUtility.RemoveCharactersNaN(callback, out DialogueMasterElements.Instance.fontShadowMag);
+            DialogueMasterSaveData.Save();
         });
 
         //Font Shadow Toggle
-        Toggle fontShadowToggle = DialogueElementUtility.CreateToggle(dialogueMasterElements.isShadowed ,"Drop Shadow", callback => 
+        Toggle fontShadowToggle = DialogueElementUtility.CreateToggle(DialogueMasterElements.Instance.isShadowed ,"Drop Shadow", callback => 
         {
             fontShadowColor.style.display = (DisplayStyle)Convert.ToInt32(!callback.newValue);
             fontShadowColorLabel.style.display = (DisplayStyle)Convert.ToInt32(!callback.newValue);
             fontShadowDirection.foldout.style.display = (DisplayStyle)Convert.ToInt32(!callback.newValue);
             shadowMagnitudeTextField.style.display = (DisplayStyle)Convert.ToInt32(!callback.newValue);
 
-            dialogueMasterElements.isShadowed = callback.newValue;
+            DialogueMasterElements.Instance.isShadowed = callback.newValue;
 
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterSaveData.Save();
         });
 
         
         //Font Size
-        TextField fontSizeTextField = DialogueElementUtility.CreateNumField(dialogueMasterElements.fontSize, "Font Size: ", callback => 
+        TextField fontSizeTextField = DialogueElementUtility.CreateNumField(DialogueMasterElements.Instance.fontSize, "Font Size: ", callback => 
         {
-            DialogueElementUtility.RemoveCharactersNaN(callback, out dialogueMasterElements.fontSize);
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueElementUtility.RemoveCharactersNaN(callback, out DialogueMasterElements.Instance.fontSize);
+            DialogueMasterSaveData.Save();
         });
 
         //Font Margins
         MarginsVE fontMargins = new MarginsVE();
-        fontMargins.SetValues(dialogueMasterElements.fontMargins);
+        fontMargins.SetValues(DialogueMasterElements.Instance.fontMargins);
         fontMargins.Initialize("Font Margins", xCallback => 
         {
-            dialogueMasterElements.fontMargins = fontMargins.margins;
-            DialogueMasterSaveData.Save(dialogueMasterElements);
+            DialogueMasterElements.Instance.fontMargins = fontMargins.margins;
+            DialogueMasterSaveData.Save();
         });
 
 
@@ -193,7 +192,7 @@ public class DialogueMasterWindow : EditorWindow
 
 
 
-        DialogueMasterSaveData.Save(dialogueMasterElements);
+        DialogueMasterSaveData.Save();
         #endregion
 
         //Side menu is by default hidden

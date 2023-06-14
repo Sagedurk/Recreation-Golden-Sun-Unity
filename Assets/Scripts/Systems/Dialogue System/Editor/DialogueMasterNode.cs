@@ -18,13 +18,20 @@ public class DialogueMasterNode : Node
 
     public Port inputPort = null;
 
+    public string dialogueTextInitializer = "Dialogue Text.";
+
+
     private DialogueMasterGraphView graphView;
     private Image image = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
-    private TextField dialoguePreview;
+    private VisualElement dialoguePreview = new VisualElement();
+    private TextField dialoguePreviewText;
 
     Vec2VE portraitPosition = new Vec2VE();
     Vec2VE dialogueBoxPosition = new Vec2VE();
     Vec2VE dialogueBoxSize = new Vec2VE();
+
+
+
 
 
     //Port to DialogueMaster!
@@ -54,7 +61,7 @@ public class DialogueMasterNode : Node
         
 
         Choices = new List<DialogueMasterNodeChoice>();
-        DialogueText = "Dialogue text.";
+        DialogueText = dialogueTextInitializer;
 
         SetPosition(new Rect(position, Vector2.zero));
 
@@ -69,22 +76,41 @@ public class DialogueMasterNode : Node
         }
 
         /*Preview*/
-        dialoguePreview = DialogueElementUtility.CreateTextArea(DialogueText);
-        dialoguePreview.focusable = false;
-        dialoguePreview.style.unityFont = (Font)AssetDatabase.LoadAssetAtPath("Assets/Fonts/Golden Sun Italics.ttf",typeof(Font));
+        #region Preview
 
+        dialoguePreview.focusable = false;
+        dialoguePreview.style.width = 1920;
+        dialoguePreview.style.height = 1080;
+
+        dialoguePreviewText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback =>
+        {
+            TextField previewText = callback.currentTarget as TextField;
+
+            Vector2 textSize = previewText.MeasureTextSize(callback.newValue, 0, MeasureMode.Undefined, previewText.contentRect.height, MeasureMode.Exactly);
+
+            Vector2 textBoundaries = GetTextBoundaries(callback.newValue, previewText.style.unityFont.value, DialogueMasterElements.Instance.fontSize);
+
+            Debug.Log(textBoundaries);
+            Debug.Log(previewText.contentRect.size);
+        });
+
+        dialoguePreviewText.focusable = false;
+        dialoguePreviewText.style.unityFont = (Font)AssetDatabase.LoadAssetAtPath("Assets/Fonts/Golden Sun Italics.ttf",typeof(Font));
+        dialoguePreviewText.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.dialogueBackground);
+        //"Assets/Fonts/" + DialogueMasterElements.Font "
 
         //dialoguePreview.style.overflow = Overflow.Hidden;
 
-        DialogueElementUtility.SetTextStyle(ref dialoguePreview, fontSize, previewMargins, Color.clear, textColor);
+        DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, fontSize, previewMargins, Color.clear, textColor);
 
         if(isShadowed)
-            DialogueElementUtility.CreateDropShadow(ref dialoguePreview, shadowColor, shadowDirection, fontSize * shadowMagnitude * 0.02f);
+            DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, fontSize * shadowMagnitude * 0.02f);
+
 
 
         //previewText.style.overflow = Overflow.Hidden;
-        
-        /*Preview*/
+
+        #endregion
     }
 
     #region Overrided Methods
@@ -146,10 +172,10 @@ public class DialogueMasterNode : Node
         TextField dialogueText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback =>
         {
             DialogueText = callback.newValue;
-            dialoguePreview.value = callback.newValue;
+            dialoguePreviewText.value = callback.newValue;
             if (isShadowed)
             {
-                TextField previewShadow = (TextField)dialoguePreview.contentContainer[0];
+                TextField previewShadow = (TextField)dialoguePreviewText.contentContainer[0];
                 previewShadow.value = callback.newValue;
             }
 
@@ -158,19 +184,23 @@ public class DialogueMasterNode : Node
 
             UnityEditor.EditorApplication.delayCall += () =>
             {
-                dialogueBoxSize.SetValues(dialoguePreview.contentRect.size);
 
                 Foldout previewFoldout = dialoguePreview.parent as Foldout;
 
                 if (!previewFoldout.value)
                 {
                     previewFoldout.value = true;
+
                     UnityEditor.EditorApplication.delayCall += () =>
                     {
-                        dialogueBoxSize.SetValues(dialoguePreview.contentRect.size);
-
+                        dialogueBoxSize.SetValues(dialoguePreviewText.contentRect.size);
                         previewFoldout.value = false;
+
                     };
+                }
+                else
+                {
+                    dialogueBoxSize.SetValues(dialoguePreviewText.contentRect.size);
                 }
 
             };
@@ -194,12 +224,12 @@ public class DialogueMasterNode : Node
             xCallback =>
             {
                 DialogueElementUtility.RemoveCharactersNaN(xCallback, out dialogueBoxSize.vector.x);
-                DialogueElementUtility.SetStyleSize(ref dialoguePreview, dialogueBoxSize.vector.x, dialoguePreview.style.height.value.value);
+                DialogueElementUtility.SetStyleSize(ref dialoguePreviewText, dialogueBoxSize.vector.x, dialoguePreviewText.style.height.value.value);
             },
             yCallback =>
             {
                 DialogueElementUtility.RemoveCharactersNaN(yCallback, out dialogueBoxSize.vector.y);
-                DialogueElementUtility.SetStyleSize(ref dialoguePreview, dialoguePreview.style.width.value.value, dialogueBoxSize.vector.y);
+                DialogueElementUtility.SetStyleSize(ref dialoguePreviewText, dialoguePreviewText.style.width.value.value, dialogueBoxSize.vector.y);
             });
 
         boxFoldout.Add(dialogueBoxPosition.foldout);
@@ -216,9 +246,9 @@ public class DialogueMasterNode : Node
         {
             Sprite newSprite = callback.newValue as Sprite;
 
-            dialoguePreview.style.backgroundImage = new StyleBackground(newSprite);
+            dialoguePreviewText.style.backgroundImage = new StyleBackground(newSprite);
 
-            DialogueElementUtility.SetStyleSlice(ref dialoguePreview, newSprite.border);
+            DialogueElementUtility.SetStyleSlice(ref dialoguePreviewText, newSprite.border);
 
             image.sprite = newSprite;
 
@@ -245,6 +275,7 @@ public class DialogueMasterNode : Node
 
         Foldout previewFoldout = DialogueElementUtility.CreateFoldout("Preview", true);
 
+        dialoguePreview.Add(dialoguePreviewText);
       
         previewFoldout.Add(dialoguePreview);
         customDataContainer.Add(previewFoldout);
@@ -482,7 +513,40 @@ public class DialogueMasterNode : Node
 
     #endregion
 
+    public Vector2 GetTextBoundaries(string text, Font font, int fontSize)
+    {
+
+
+        TextGenerationSettings settings = new TextGenerationSettings();
+        settings.color = Color.white;
+        settings.textAnchor = TextAnchor.MiddleCenter;
+        settings.verticalOverflow = VerticalWrapMode.Overflow;
+        settings.horizontalOverflow = HorizontalWrapMode.Overflow;
+
+        settings.updateBounds = true;
+        settings.fontStyle = FontStyle.Normal;
+
+        settings.font = font;
+        settings.fontSize = fontSize;
+        settings.richText = true;
+
+        //settings.textAnchor = TextAnchor.UpperLeft;
+        //settings.generationExtents = new Vector2(1920, 1080);
+        settings.pivot = Vector2.zero;
+
+        TextGenerator generator = new TextGenerator();
+        generator.Invalidate();
+        generator.Populate(text, settings);
+
+        //return generator.rectExtents.size;
+
+
+        float measuredWidth = generator.GetPreferredWidth(text, settings);
+        float measuredHeight = generator.GetPreferredHeight(text, settings);
+
+        return new Vector2(measuredWidth, measuredHeight);
+    }
+
+ 
 }
-
-
 

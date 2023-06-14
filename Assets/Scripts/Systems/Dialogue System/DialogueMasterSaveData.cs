@@ -5,18 +5,18 @@ using UnityEngine;
 [Serializable]
 public class DialogueMasterSaveData : ScriptableObject
 {
-    [HideInInspector]
+    //[HideInInspector]
     public DialogueMasterElements dialogueMasterElements;
 
     static string folderName = "Data";
     static string assetName = "Diamaster";
     static string resourceFolderName = "Resources";
 
-    public static void Save(DialogueMasterElements masterElements)
+    public static void Save()
     {
         DialogueMasterSaveData saveData = CreateInstance<DialogueMasterSaveData>();
 
-        saveData.dialogueMasterElements = masterElements;
+        saveData.dialogueMasterElements = DialogueMasterElements.Instance;
 
 
         if (!AssetDatabase.IsValidFolder("Assets/" + resourceFolderName))
@@ -29,7 +29,7 @@ public class DialogueMasterSaveData : ScriptableObject
         AssetDatabase.SaveAssets();
     }
 
-    public static void Load(ref DialogueMasterElements masterElements)
+    public static void Load()
     {
         DialogueMasterSaveData loadedData = Resources.Load<DialogueMasterSaveData>(folderName + "/" + assetName);
 
@@ -40,7 +40,7 @@ public class DialogueMasterSaveData : ScriptableObject
         if (loadedData == null)
             return;
 
-        masterElements = loadedData.dialogueMasterElements;
+        DialogueMasterElements.Instance = loadedData.dialogueMasterElements;
     }
 
 }

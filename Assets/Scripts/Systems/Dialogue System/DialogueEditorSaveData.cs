@@ -65,12 +65,25 @@ public class DialogueMasterElements
     public Vector4 fontMargins = Vector4.zero;
 
     public Font font = null;
-    public float fontSize = 0;
+    public int fontSize = 0;
     public Color fontColor = Color.white;
 
     public bool isShadowed = false;
     public float fontShadowMag = 0;
     public Color fontShadowColor = Color.white;
     public Vector2 fontShadowDir = Vector2.zero;
+
+
+    public static DialogueMasterElements Instance;
+
+    public static DialogueMasterElements TryGetInstance()
+    {
+        if (Instance != null)
+            return Instance;
+
+        DialogueMasterSaveData.Load();
+        return Instance;
+    }
+
 
 }

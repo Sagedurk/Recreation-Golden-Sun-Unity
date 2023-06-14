@@ -623,6 +623,8 @@ public class DialogueMasterGraphView : GraphView
         for (int i = 0; i < savedData.nodes.Count; i++)
         {
             DialogueMasterNode node = new DialogueMasterNode();
+
+            node.dialogueTextInitializer = savedData.nodes[i].dialogueText;
             node.Initialize(this, Vector2.zero);
             node.ConvertToEditorNode(savedData.nodes[i]);
 
@@ -694,5 +696,6 @@ public class DialogueMasterGraphView : GraphView
 
 
     #endregion
+
 
 }

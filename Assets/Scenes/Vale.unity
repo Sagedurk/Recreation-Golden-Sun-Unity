@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8645836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -159,8 +159,8 @@ RectTransform:
   m_Father: {fileID: 1195431454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.606, y: 0}
-  m_AnchorMax: {x: -0.30303, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.30303, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
@@ -587,17 +587,17 @@ RectTransform:
   m_GameObject: {fileID: 423442904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1609820791}
   - {fileID: 682633803}
   m_Father: {fileID: 4700080040183966144}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.606, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -779.55835, y: 0}
-  m_SizeDelta: {x: -499.83167, y: -888.2892}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0.088755}
+  m_AnchoredPosition: {x: 384, y: 0}
+  m_SizeDelta: {x: 158.4, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &423442906
 MonoBehaviour:
@@ -620,14 +620,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ec54b1d7d5d1dc74bbc137aa6b772f36, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 0
+  m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 0.01
 --- !u!222 &423442907
 CanvasRenderer:
@@ -671,8 +671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.7018433, y: -5.498047}
-  m_SizeDelta: {x: -54.715202, y: -110.7625}
+  m_AnchoredPosition: {x: 3.7019043, y: -2.7490244}
+  m_SizeDelta: {x: -54.715202, y: -55.381252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682633804
 MonoBehaviour:
@@ -696,7 +696,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
-    m_FontSize: 60
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Status
+  m_Text: Yes
 --- !u!222 &682633805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -841,17 +841,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_PointAction: {fileID: -620478651262989622, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_MoveAction: {fileID: -4480632225538895128, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_SubmitAction: {fileID: -3766885934441380613, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_CancelAction: {fileID: 1109532083287354845, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_LeftClickAction: {fileID: 3278161105670138241, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_MiddleClickAction: {fileID: -3813517579975937229, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_RightClickAction: {fileID: 5946612386343458900, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_ScrollWheelAction: {fileID: 2780774566566314982, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
 --- !u!114 &783142315
@@ -2045,36 +2045,12 @@ MonoBehaviour:
     m_ActionName: Overworld/Interact[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 7be17c16-2aeb-497e-bd95-7c042195c10f
-    m_ActionName: General Menu/Cursor Left[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/left]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0bd6b5e6-1902-429d-881e-92e11f16feaa
-    m_ActionName: General Menu/Cursor Right[/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 576d3c35-f342-45e2-a76a-5ef92e0d3880
     m_ActionName: General Menu/Cancel[/XInputControllerWindows/buttonEast,/XInputControllerWindows/start]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: bc78032e-194e-4edf-bc85-35f99847d53d
     m_ActionName: General Menu/Accept[/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1a8fe4c8-4273-45fa-b3e2-b8ce75c43348
-    m_ActionName: Start Menu/Cursor Up[/XInputControllerWindows/leftStick/up]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e4f7b68d-43d9-45ab-ae39-4aae15060c0a
-    m_ActionName: Start Menu/Cursor Down[/XInputControllerWindows/leftStick/down]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c42f253a-55bc-458d-a974-1f370c958743
-    m_ActionName: Start Menu/Cancel[/XInputControllerWindows/buttonEast,/XInputControllerWindows/start]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e4cef3de-b73b-457b-9c1a-3821fe3a44ab
-    m_ActionName: Start Menu/Accept[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1131439253}
@@ -2181,24 +2157,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 187cd666-4271-4869-99f3-44221739838b
-    m_ActionName: Town/New action
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1131439253}
-        m_TargetAssemblyTypeName: InputBehaviour, Assembly-CSharp
-        m_MethodName: Dialogue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_ActionId: 606af99e-5ffa-4999-9e68-13f64d4c4138
     m_ActionName: Dialogue/Next Dialogue[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a83566a6-5451-405f-ac5f-1cc06e82a0f3
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/dpad,/XInputControllerWindows/dpad,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Xbox
   m_DefaultActionMap: Town
@@ -2895,8 +2859,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.1901245, y: -12.799805}
-  m_SizeDelta: {x: -62.03982, y: -110.7625}
+  m_AnchoredPosition: {x: 3.7018967, y: -6.3999023}
+  m_SizeDelta: {x: -62.03982, y: -55.38124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1609820792
 MonoBehaviour:
@@ -2920,7 +2884,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b76fe1d3f6ba4194f8d2bffdbc3a9023, type: 3}
-    m_FontSize: 60
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2931,7 +2895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Status
+  m_Text: Yes
 --- !u!222 &1609820793
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4598,7 +4562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1976314019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4613,8 +4577,8 @@ RectTransform:
   m_Father: {fileID: 1195431454}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.30303, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.30303, y: 0}
+  m_AnchorMax: {x: 0.606, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}

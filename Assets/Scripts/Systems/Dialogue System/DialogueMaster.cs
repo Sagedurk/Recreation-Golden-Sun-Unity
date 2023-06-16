@@ -323,7 +323,6 @@ public class DialogueMaster : MonoBehaviour
         while (currentNode != null)
         {
             inputBehaviour.isInteracted = false;
-            Debug.Log(currentNode.dialogueText);
             ShowDialogueInstance(currentNode);
             
 

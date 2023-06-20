@@ -21,7 +21,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 185, y: 64}
+    position: {x: 242, y: 61}
     dialogueText: Isaac, wake up!
     portrait:
       sprite: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1182, y: 261}
+    position: {x: 1241, y: 258}
     dialogueText: 'Have you got
 
       everything you need?'
@@ -67,7 +67,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1619, y: 151}
+    position: {x: 1678, y: 148}
     dialogueText: 'Good for you, Isaac.
 
       A lost possession can be
@@ -91,7 +91,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1619, y: 480}
+    position: {x: 1678, y: 477}
     dialogueText: 'I''m sorry, but we
 
       don''t have time... You''ll
@@ -115,7 +115,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 502, y: 64}
+    position: {x: 561, y: 61}
     dialogueText: Please, dear, wake up!
     portrait:
       sprite: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 851, y: 159}
+    position: {x: 910, y: 156}
     dialogueText: 'The Mt. Aleph Boulder
 
       is going to fall!'
@@ -155,7 +155,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 205, y: 469}
+    position: {x: 264, y: 466}
     dialogueText: 'Come on, Isaac.
 
       We have to go--now!'
@@ -176,7 +176,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 525, y: 469}
+    position: {x: 584, y: 466}
     dialogueText: 'Isaac! You forgot
 
       something!'
@@ -197,7 +197,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 851, y: 469}
+    position: {x: 910, y: 466}
     dialogueText: 'It''s poring outside!
 
       Don''t go out without
@@ -221,7 +221,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1982, y: 282}
+    position: {x: 2041, y: 279}
     dialogueText: 'Isaac, Dora, hurry!
 
       The Boulder could
@@ -245,7 +245,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2353, y: 185}
+    position: {x: 2412, y: 182}
     dialogueText: "Kyle... Will they be able\n to stop the Boulder?"
     portrait:
       sprite: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2674, y: 185}
+    position: {x: 2733, y: 182}
     dialogueText: 'I don''t think so...
 
       Not for long, anyway...'
@@ -285,7 +285,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3010, y: 185}
+    position: {x: 3069, y: 182}
     dialogueText: 'You two go on ahead and
 
       take refuge in the plaza.'
@@ -306,7 +306,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3336, y: 345}
+    position: {x: 3395, y: 342}
     dialogueText: Aren't you coming?
     portrait:
       sprite: {fileID: 0}
@@ -325,7 +325,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2353, y: 518}
+    position: {x: 2412, y: 515}
     dialogueText: 'I need to help evacuate
 
       the other villagers.'
@@ -346,7 +346,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2674, y: 574}
+    position: {x: 2733, y: 571}
     dialogueText: Let me help you, Kyle!
     portrait:
       sprite: {fileID: 0}
@@ -365,7 +365,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3010, y: 574}
+    position: {x: 3069, y: 571}
     dialogueText: 'It''s too dangerous, Dora.
 
       Please, just take good
@@ -389,7 +389,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3336, y: 626}
+    position: {x: 3395, y: 623}
     dialogueText: 'Isaac is old enough to get
 
       to the plaza on his own.'
@@ -416,7 +416,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3767, y: 394}
+    position: {x: 3826, y: 391}
     dialogueText: 'You can find your
 
       way, can''t you,
@@ -445,7 +445,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 4249, y: 530}
+    position: {x: 4308, y: 527}
     dialogueText: 'You''re a big boy
 
       now, Isaac.  Why don''t you go
@@ -469,7 +469,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 4720, y: 394}
+    position: {x: 4779, y: 391}
     dialogueText: 'You know the way--just
 
       go south to get to

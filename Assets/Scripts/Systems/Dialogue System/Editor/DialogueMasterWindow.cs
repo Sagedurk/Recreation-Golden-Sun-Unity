@@ -17,6 +17,8 @@ public class DialogueMasterWindow : EditorWindow
     private Button loadButton;
     private DialogueMasterGraphView graphView;
 
+    private string latestInstanceName;
+
     private Toolbar toolbar;
     StyleLength toolbarSize = 40;
     
@@ -24,7 +26,6 @@ public class DialogueMasterWindow : EditorWindow
     private Button sideMenuButton;
     private bool isSideMenuOpen = false;
     private VisualElement sideMenu;
-
 
 
     public static void ShowWindow()
@@ -36,20 +37,23 @@ public class DialogueMasterWindow : EditorWindow
         window.CreateGUI();
 
         if (dialogueInstance != null)
-            window.LoadAssetData(dialogueInstance.gameObject.scene.name);
-            
-        else
-        {
-            //TODO: FIX SYSTEM TO RELOAD LAST ASSET!
-        }
+            window.LoadAssetData(dialogueInstance.gameObject.scene.name + "_" + dialogueInstance.name);
+
     }
 
     private void CreateGUI()
     {
         
-        AddGraphView();
-        AddSideMenu();
-        AddToolbar();
+            DialogueMasterSaveData.Load();
+
+            AddGraphView();
+            AddSideMenu();
+            AddToolbar();
+
+            latestInstanceName = DialogueEditorCurrentInstanceSO.TryGetInstanceName();
+
+            if (latestInstanceName != "")
+                LoadAssetData(latestInstanceName);
 
         //AddStyles();
     }
@@ -87,7 +91,7 @@ public class DialogueMasterWindow : EditorWindow
         /*ELEMENTS*/
         #region ELEMENTS
 
-        DialogueMasterSaveData.Load();
+        
 
 
         //Background Image
@@ -211,6 +215,9 @@ public class DialogueMasterWindow : EditorWindow
             sceneName = dialogueInstance.gameObject.scene.name;
             instanceName = sceneName + "_" + dialogueInstance.name;
         }
+        else
+            instanceName = latestInstanceName;
+        
 
 
         Label instanceLabel = new Label("Asset Name: " + instanceName);
@@ -218,26 +225,26 @@ public class DialogueMasterWindow : EditorWindow
 
         saveButton = DialogueElementUtility.CreateButton("Save Data", () =>
         {
-            if (dialogueInstance == null)
+            if (dialogueInstance == null && latestInstanceName == "")
             {
                 Debug.LogError("Instance not found, can't save data!");
                 return;
             }
 
             string path = GetAssetFilePath(this) + "/SaveData/";
-            graphView.SaveGraphViewData(sceneName, dialogueInstance.name, path);
+            graphView.SaveGraphViewData(instanceName, path);
         });
 
 
         loadButton = DialogueElementUtility.CreateButton("Load Data", () =>
         {
-            if (dialogueInstance == null)
+            if (dialogueInstance == null && latestInstanceName == "")
             {
                 Debug.LogError("Instance not found, can't load data!");
                 return;
             }
 
-            LoadAssetData(sceneName);
+            LoadAssetData(instanceName);
 
         });
 
@@ -260,10 +267,12 @@ public class DialogueMasterWindow : EditorWindow
         toolbar.style.height = toolbarSize;
     }
 
-    void LoadAssetData(string sceneName)
+    void LoadAssetData(string instanceName)
     {
         string path = GetAssetFilePath(this) + "/SaveData/";
-        graphView.LoadGraphViewData(sceneName, dialogueInstance.name, path);
+        graphView.LoadGraphViewData(instanceName, path);
+
+        DialogueEditorCurrentInstanceSO.Save(instanceName);
     }
 
  

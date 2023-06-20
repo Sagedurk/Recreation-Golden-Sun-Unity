@@ -32,8 +32,6 @@ public class DialogueMasterSaveData : ScriptableObject
     public static void Load()
     {
         DialogueMasterSaveData loadedData = Resources.Load<DialogueMasterSaveData>(folderName + "/" + assetName);
-
-        Debug.Log(folderName + "/" + assetName);
         Debug.Log(loadedData);
 
 

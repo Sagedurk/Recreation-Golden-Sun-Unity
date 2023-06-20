@@ -547,10 +547,10 @@ public class DialogueMasterGraphView : GraphView
 
     #region Save & Load
 
-    public void SaveGraphViewData(string sceneName, string instanceName, string path)
+    public void SaveGraphViewData(string instanceName, string path)
     {
         //Check if asset already exists
-        string loadPath = path + sceneName + "_" + instanceName + ".asset";
+        string loadPath = path + instanceName + ".asset";
         DialogueEditorSaveData saveData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(loadPath);
 
         if (saveData == null)
@@ -558,7 +558,7 @@ public class DialogueMasterGraphView : GraphView
             saveData = ScriptableObject.CreateInstance(typeof(DialogueEditorSaveData)) as DialogueEditorSaveData;
 
             ConvertDataSave(ref saveData);
-            AssetDatabase.CreateAsset(saveData, path + sceneName + "_" + instanceName + ".asset");
+            AssetDatabase.CreateAsset(saveData, path + instanceName + ".asset");
         }
         else
         {
@@ -572,14 +572,13 @@ public class DialogueMasterGraphView : GraphView
         Debug.Log("Data has been saved!");
     }
 
-    public void LoadGraphViewData(string sceneName, string instanceName, string path)
+    public void LoadGraphViewData(string instanceName, string path)
     {
-        string loadPath = path + sceneName + "_" + instanceName + ".asset";
+        string loadPath = path + instanceName + ".asset";
         DialogueEditorSaveData loadData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(loadPath);
 
         ConvertDataLoad(loadData);
     }
-
 
     private void ConvertDataSave(ref DialogueEditorSaveData saveData)
     {

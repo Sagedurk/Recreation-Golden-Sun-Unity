@@ -24,15 +24,16 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         BOTTOM_RIGHT
     }
 
-   public static TextField CreateTextField(string value = null, string label = null, EventCallback<ChangeEvent<string>> onValueChanged = null)
+    public static TextField CreateTextField(string value = null, string label = null, EventCallback<ChangeEvent<string>> onValueChanged = null)
     {
         TextField textField = new TextField()
         {
             value = value,
             label = label
+
         };
 
-        if(onValueChanged != null)
+        if (onValueChanged != null)
         {
             textField.RegisterValueChangedCallback(onValueChanged);
         }
@@ -188,13 +189,18 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
         return textArea;
     }
-    public static Foldout CreateFoldout(string title, bool collapsed = false)
+    public static Foldout CreateFoldout(string title, bool collapsed = false, EventCallback<ChangeEvent<bool>> onValueChanged = null)
     {
         Foldout foldout = new Foldout()
         {
             text = title,
             value = !collapsed
         };
+
+        if (onValueChanged != null)
+        {
+            foldout.RegisterValueChangedCallback(onValueChanged);
+        }
 
         return foldout;
     }

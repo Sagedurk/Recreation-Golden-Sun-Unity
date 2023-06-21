@@ -81,33 +81,52 @@ public class DialogueMasterNode : Node
         //dialoguePreview.focusable = false;
         dialoguePreview.style.width = 1920;
         dialoguePreview.style.height = 1080;
-        dialoguePreview.style.backgroundColor = new StyleColor(Color.green);
-        //dialoguePreview.style.flexDirection = FlexDirection.Column;
+        //dialoguePreview.style.backgroundColor = new StyleColor(Color.green);
         dialoguePreview.style.alignItems = Align.FlexStart;
+        dialoguePreview.style.alignContent = Align.FlexStart;
+        
 
         dialoguePreviewText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback => 
         {
             UnityEditor.EditorApplication.delayCall += () =>
             {
                 VisualElement textElement = dialoguePreviewText;
-                DialogueElementUtility.SetPositionInRelationToParent(ref textElement, DialogueElementUtility.Alignment.TOP_LEFT);
+                DialogueElementUtility.SetPositionInRelationToParent(ref textElement, DialogueElementUtility.Alignment.MID_CENTER);
             };
 
         });
         
 
         dialoguePreviewText.focusable = false;
-        dialoguePreviewText.style.unityFont = DialogueMasterElements.Instance.font;
+
+        dialoguePreviewText.styleSheets.Clear();
+        dialoguePreviewText.style.unityFontDefinition = FontDefinition.FromFont(DialogueMasterElements.Instance.font);
         dialoguePreviewText.style.fontSize = DialogueMasterElements.Instance.fontSize;
         dialoguePreviewText.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.dialogueBackground);
+        dialoguePreviewText.style.alignSelf = Align.FlexStart;
+        //dialoguePreviewText.style.alignItems = Align.FlexStart;
+        //dialoguePreviewText.style.flexGrow = 0;
 
-        
-
-        DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, fontSize, previewMargins, Color.clear, textColor);
+        DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, DialogueMasterElements.Instance.fontSize, previewMargins, Color.clear, textColor);
 
         if(isShadowed)
-            DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, fontSize * shadowMagnitude * 0.02f);
+            DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, DialogueMasterElements.Instance.fontSize * shadowMagnitude * 0.02f);
 
+        for (int i = 0; i < dialoguePreviewText.childCount; i++)
+        {
+            //dialoguePreviewText.contentContainer[i].style.fontSize = DialogueMasterElements.Instance.fontSize;
+            dialoguePreviewText.contentContainer[i].style.flexGrow = 0;
+
+            for (int j = 0; j < dialoguePreviewText.contentContainer[i].childCount; j++)
+            {
+                //dialoguePreviewText.contentContainer[i].contentContainer[j].style.fontSize = DialogueMasterElements.Instance.fontSize;
+
+                for (int k = 0; k < dialoguePreviewText.contentContainer[i].childCount; k++)
+                {
+                    dialoguePreviewText.contentContainer[i].contentContainer[j].contentContainer[k].style.fontSize = DialogueMasterElements.Instance.fontSize;
+                }
+            }
+        }
 
 
         //previewText.style.overflow = Overflow.Hidden;
@@ -148,10 +167,10 @@ public class DialogueMasterNode : Node
 
         /* TITLE BUTTON CONTAINER */
         #region TITLE BUTTON CONTAINER
-        
+
         //Remove minimize button from top right corner of the node
         titleButtonContainer.contentContainer.RemoveFromHierarchy();
-        
+
         #endregion
 
         /* INPUT CONTAINER */
@@ -175,6 +194,7 @@ public class DialogueMasterNode : Node
         {
             DialogueText = callback.newValue;
             dialoguePreviewText.value = callback.newValue;
+            
             if (isShadowed)
             {
                 TextField previewShadow = (TextField)dialoguePreviewText.contentContainer[0];
@@ -210,8 +230,8 @@ public class DialogueMasterNode : Node
 
         dialogueText.AddClasses("dialogue-node__textfield", "dialogue-node__quote-textfield");
 
-        textFoldout.Add(dialogueText); 
-        
+        textFoldout.Add(dialogueText);
+
 
         customDataContainer.Add(textFoldout);
         #endregion
@@ -220,8 +240,8 @@ public class DialogueMasterNode : Node
         #region DIALOGUE BOX
         Foldout boxFoldout = DialogueElementUtility.CreateFoldout("Dialogue Box", true);
         dialogueBoxPosition.Initialize("Position");
-        
-        dialogueBoxSize.Initialize("Size", 
+
+        dialogueBoxSize.Initialize("Size",
             xCallback =>
             {
                 DialogueElementUtility.RemoveCharactersNaN(xCallback, out dialogueBoxSize.vector.x);
@@ -243,7 +263,7 @@ public class DialogueMasterNode : Node
         #region PORTRAIT
         Foldout portraitFoldout = DialogueElementUtility.CreateFoldout("Portrait", true);
 
-        ObjectField spriteField = DialogueElementUtility.CreateObjectField<Sprite>(callback => 
+        ObjectField spriteField = DialogueElementUtility.CreateObjectField<Sprite>(callback =>
         {
             Sprite newSprite = callback.newValue as Sprite;
 
@@ -255,8 +275,8 @@ public class DialogueMasterNode : Node
 
             if (image.sprite == null)
                 DialogueElementUtility.SetStyleSize(ref image, 0, 0);
-            else 
-            { 
+            else
+            {
                 DialogueElementUtility.SetStyleSize(ref image, 128, 128);
             }
         });
@@ -274,7 +294,11 @@ public class DialogueMasterNode : Node
         /* PREVIEW */
         #region PREVIEW
 
-        Foldout previewFoldout = DialogueElementUtility.CreateFoldout("Preview", true);
+        Foldout previewFoldout = DialogueElementUtility.CreateFoldout("Preview", true, callback => 
+        {
+            dialoguePreviewText.MarkDirtyRepaint();
+
+        });
 
         dialoguePreview.Add(dialoguePreviewText);
         previewFoldout.Add(dialoguePreview);

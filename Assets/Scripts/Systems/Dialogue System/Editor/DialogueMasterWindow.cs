@@ -38,12 +38,10 @@ public class DialogueMasterWindow : EditorWindow
 
         if (dialogueInstance != null)
             window.LoadAssetData(dialogueInstance.gameObject.scene.name + "_" + dialogueInstance.name);
-
     }
 
     private void CreateGUI()
     {
-        
             DialogueMasterSaveData.Load();
 
             AddGraphView();
@@ -54,8 +52,6 @@ public class DialogueMasterWindow : EditorWindow
 
             if (latestInstanceName != "")
                 LoadAssetData(latestInstanceName);
-
-        //AddStyles();
     }
 
 

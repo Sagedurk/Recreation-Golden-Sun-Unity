@@ -118,10 +118,6 @@
 
 /* ELEMENTS */
 
-TextField
-{
-	margin-left: 0px;
-}
 
 .dialogue-node__custom-data-container > Foldout
 {

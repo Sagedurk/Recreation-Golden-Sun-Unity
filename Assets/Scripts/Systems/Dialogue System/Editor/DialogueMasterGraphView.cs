@@ -577,7 +577,8 @@ public class DialogueMasterGraphView : GraphView
         string loadPath = path + instanceName + ".asset";
         DialogueEditorSaveData loadData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(loadPath);
 
-        ConvertDataLoad(loadData);
+        if(loadData != null)
+            ConvertDataLoad(loadData);
     }
 
     private void ConvertDataSave(ref DialogueEditorSaveData saveData)

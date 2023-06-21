@@ -31,6 +31,9 @@ public class DialogueMasterSaveData : ScriptableObject
 
     public static void Load()
     {
+        if (DialogueMasterElements.Instance != null)
+            return;
+
         DialogueMasterSaveData loadedData = Resources.Load<DialogueMasterSaveData>(folderName + "/" + assetName);
         Debug.Log(loadedData);
 

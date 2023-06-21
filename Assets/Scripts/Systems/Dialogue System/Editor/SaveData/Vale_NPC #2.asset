@@ -198,7 +198,7 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 910, y: 466}
-    dialogueText: 'It''s poring outside!
+    dialogueText: 'It''s pouring outside!
 
       Don''t go out without
 
@@ -211,8 +211,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 616
-      height: 212
+      width: 1917
+      height: 96
   - nodeID: 17
     choices:
     - choiceName: New Choice

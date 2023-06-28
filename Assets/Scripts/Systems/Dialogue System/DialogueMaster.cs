@@ -18,144 +18,7 @@ public class DialogueMaster : MonoBehaviour
 
     public DialogueActions dialogueActions;
 
-    int promptIndex;
-    int lastSubIndex;
-
-    [System.Serializable]
-    public class DialogueInstance
-    {
-
-        //dialogue box
-        public DialogueBox dialogueBox;
-
-        //portrait
-        public CharacterPortrait portrait;
-
-        //dialogue options
-        public Prompt dialoguePrompt;
-
-        public DialogueAction dialogueAction;
-        public string actionName;
-
-        public List<string> listOfOptionNames = new List<string>();
-        public List<choice> listOfOptions = new List<choice>();
-        public int optionListIndex = 0;
-
-
-    }
-    public class NodeInstance
-    {
-        public int nodeID;
-        public List<int> connectedNodesIDs = new List<int>();
-        public string testDialogueString;
-
-
-        //dialogue box
-        public DialogueBox dialogueBox;
-
-        //portrait
-        public CharacterPortrait portrait;
-
-        //dialogue options
-        public Prompt dialoguePrompt;
-
-        public DialogueAction dialogueAction;
-        public string actionName;
-
-        public List<string> listOfOptionNames = new List<string>();
-        public List<choice> listOfOptions = new List<choice>();
-        public int optionListIndex = 0;
-
-
-    }
-
-    [System.Serializable]
-    public class choice
-    {
-        public List<DialogueInstance> dialogueChoiceSubInstances = new List<DialogueInstance>();
-        public bool isLoopingLastSubInstance = false;
-        
-    }
-    [System.Serializable]
-    public class Prompt
-    {
-        public Vector3 position = new Vector3(0, 0, 0);
-        public DialogueChoices dialogueChoice;
-    }
-
-    [System.Serializable]
-    public struct SubInstance
-    {
-        //dialogue box
-        public DialogueBox dialogueBox;
-
-        //portrait
-        public CharacterPortrait portrait;
-    }
-
-
-
-    [System.Serializable]
-    public struct DialogueBox
-    {
-        public Vector2 boxPosition;
-        public Vector2 boxSize;
-        public DialogueText dialogueText;
-    }
-
-
-    [System.Serializable]
-    public struct CharacterPortrait
-    {
-        public Sprite portraitImage;
-        public Object portraitObject;
-        public Vector2 portraitBoxPosition;
-        public bool isPortraitShown;
-    }
-
-    [System.Serializable]
-    public class DialogueText
-    {
-        //text
-        [TextArea(3, 5)]
-        public string dialogueString;
-
-        [Header("Character")]
-        public Font dialogueFont ;
-        public FontStyle dialogueFontStyle = FontStyle.Normal;
-        public int dialogueFontSize = 200;
-        public float dialogueLineSpacing = 1;
-        public bool dialogueRichText = true;
-
-        [Header("Paragraph")]
-        public TextAnchor dialogueAlignment = TextAnchor.MiddleLeft;
-        public bool dialogueAlignByGeometry = false;
-        public HorizontalWrapMode dialogueHorizontalOverflow = HorizontalWrapMode.Wrap;
-        public VerticalWrapMode dialogueVerticalOverflow = VerticalWrapMode.Truncate;
-        public bool dialogueBestFit = false;
-
-        [Header("")]
-        public Color dialogueColor = Color.white;
-        public Material dialogueMaterial = null;
-        public bool dialogueRaycastTarget = true;
-        public Vector4 dialogueRaycastPadding = Vector4.zero;
-        public bool dialogueMaskable = true;
-
-    }
-
-
-    public enum DialogueChoices
-    {
-        INACTIVE,
-        ACTIVE,
-    }
-
-    public enum DialogueAction
-    {
-        NONE,
-        BEFORE_DIALOGUE,
-        AFTER_DIALOGUE
-    }
+    private int promptIndex;
 
 
     // Start is called before the first frame update
@@ -171,139 +34,9 @@ public class DialogueMaster : MonoBehaviour
     }
 
 
-    public void DebugAllDialogue(List<DialogueInstance> instanceList)
-    {
-        StartCoroutine(Dialogue(instanceList));
-    } 
-    
     public void DebugAllNodes(Dictionary<int, DialogueEditorSerializedNode> instanceDictionary, int starterNodeID)
     {
         StartCoroutine(NodeDialogue(instanceDictionary, starterNodeID));
-    }
-
-    private IEnumerator Dialogue(List<DialogueInstance> instanceList)
-    {
-        ShowDialogueBackground();
-        for (int i = 0; i < instanceList.Count; i++)
-        {
-            DialogueInstance currentInstance = instanceList[i];
-
-            //If action should happen before the dialogue instance
-            if (currentInstance.dialogueAction == DialogueAction.BEFORE_DIALOGUE)
-            {
-                HideDialogue();
-                if (!dialogueActions.isRunning)
-                {
-                    dialogueActions.StartCoroutine(currentInstance.actionName);
-                }
-
-                while (dialogueActions.isRunning)
-
-                    yield return null;
-
-                ShowDialogueBackground(false);
-            }
-
-
-
-            //Show next dialogue
-            ShowDialogueInstance(currentInstance);
-
-            //If yes/no prompt
-            if (currentInstance.dialoguePrompt.dialogueChoice == DialogueChoices.ACTIVE)
-            {
-                ShowChoicePromt(currentInstance.dialoguePrompt.position);
-
-                //Wait for input
-                while (!inputBehaviour.isInteracted)
-                    yield return null;
-
-
-
-                //if input is given this frame
-
-                HideChoicePromt();
-                inputBehaviour.isInteracted = false;
-
-
-                lastSubIndex = -1;
-                currentInstance.optionListIndex = promptIndex;
-
-
-                //Loop through the sub instances
-                for (int k = 0; k < currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances.Count; k++)
-                {
-                    ShowDialogueInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[k]);
-                    lastSubIndex++;
-
-                    //Wait for input
-                    while (!inputBehaviour.isInteracted)
-                        yield return null;
-
-
-                    inputBehaviour.isInteracted = false;
-                }
-
-                //check if the last subInstance is looping.
-                if (currentInstance.listOfOptions[currentInstance.optionListIndex].isLoopingLastSubInstance)
-                {
-                    //Loop indefinitely if the prompt chosen equals the prompt that caused the looping
-                    //Needs to process button input
-
-                    while (promptIndex == currentInstance.optionListIndex)
-                    {
-                        ShowChoicePromt(currentInstance.dialoguePrompt.position);
-
-                        while (!inputBehaviour.isInteracted)
-                        {
-
-                            yield return null;
-                        }
-
-                        HideChoicePromt();
-
-
-                        inputBehaviour.isInteracted = false;
-                        //currentInstance.optionListIndex = promptIndex;
-
-                        ShowDialogueInstance(currentInstance.listOfOptions[currentInstance.optionListIndex].dialogueChoiceSubInstances[lastSubIndex]);
-
-
-                    }
-                }
-
-                //if yes, just keep going   (essentially, do nothing)
-                //if no/isLoopingThisBranch, check if there's any sub-branches, otherwise loop until yes is pressed
-
-            }
-            else
-            {
-                //Wait for input
-                while (!inputBehaviour.isInteracted)
-                    yield return null;
-
-
-                inputBehaviour.isInteracted = false;
-            }
-
-
-            //If action should happen after the dialogue instance
-            if (currentInstance.dialogueAction == DialogueAction.AFTER_DIALOGUE)
-            {
-                HideDialogue();
-                if (!dialogueActions.isRunning)
-                    dialogueActions.StartCoroutine(currentInstance.actionName);
-
-                while (dialogueActions.isRunning)
-                    yield return null;
-
-                ShowDialogueBackground(false);
-            }
-
-
-        }
-
-        EndDialogue();
     }
 
 
@@ -324,7 +57,6 @@ public class DialogueMaster : MonoBehaviour
         {
             inputBehaviour.isInteracted = false;
             ShowDialogueInstance(currentNode);
-            
 
             int nextNodeID;
 
@@ -359,60 +91,20 @@ public class DialogueMaster : MonoBehaviour
         EndDialogue();
     }
 
-    private void ShowDialogueInstance(DialogueInstance instanceToShow)
-    {
-        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueText);
-        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueTextShadow, false);
-
-        dialogueBackground.rectTransform.position = instanceToShow.dialogueBox.boxPosition;
-        dialogueBackground.rectTransform.sizeDelta = instanceToShow.dialogueBox.boxSize;
-
-
-        if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
-        {
-            ShowPortrait(instanceToShow);
-        }
-        else
-        {
-            HidePortrait();
-        }
-
-    }
     private void ShowDialogueInstance(DialogueEditorSerializedNode nodeToShow)
     {
         dialogueText.text = nodeToShow.dialogueText;
         dialogueTextShadow.text = nodeToShow.dialogueText;
 
         
-        dialogueBackground.rectTransform.position = nodeToShow.dialogueBox.position;
         dialogueBackground.rectTransform.sizeDelta = nodeToShow.dialogueBox.size;
+        dialogueBackground.rectTransform.anchoredPosition = nodeToShow.dialogueBox.position;
+
 
         ShowPortrait(nodeToShow.portrait);
     }
 
-    private void ShowDialogueSubInstance(SubInstance instanceToShow)
-    {
-        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueText);
-        ConvertDialogueTextToTextUI(instanceToShow.dialogueBox.dialogueText, dialogueTextShadow, false);
-        if (instanceToShow.portrait.isPortraitShown && instanceToShow.portrait.portraitImage != null)
-        {
-            ShowPortrait(instanceToShow);
-            dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
-        }
-        else
-        {
-            HidePortrait();
-        }
 
-    }
-
-    private void HideDialogue()
-    {
-        dialogueText.text = "";
-        dialogueTextShadow.text = "";
-        dialogueBackground.gameObject.SetActive(false);
-        HidePortrait();
-    }
     private void EndDialogue()
     {
         Debug.Log("Dialogue Ended!");
@@ -431,22 +123,7 @@ public class DialogueMaster : MonoBehaviour
     }
 
 
-    void ShowChoicePromt(Vector3 position, int choiceAmount = 0)
-    {
-        choicePromptContainer.SetActive(true);
-
-        for (int i = 0; i < choiceAmount; i++)
-        {
-            if (i >= choicePromptContainer.transform.GetChild(0).childCount)
-                break;
-
-            choicePromptContainer.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
-        }
-
-
-        //choicePromptContainer.transform.localPosition = position;
-    }
-    void ShowChoicePromt(List<SerializedChoice> choices)
+    private void ShowChoicePromt(List<SerializedChoice> choices)
     {
         choicePromptContainer.SetActive(true);
 
@@ -468,7 +145,7 @@ public class DialogueMaster : MonoBehaviour
         //choicePromptContainer.transform.localPosition = position;
     }
 
-    void HideChoicePromt()
+    private void HideChoicePromt()
     {
 
         for (int i = 0; i < choicePromptContainer.transform.GetChild(0).childCount; i++)
@@ -480,14 +157,7 @@ public class DialogueMaster : MonoBehaviour
         choicePromptContainer.SetActive(false);
     }
 
-    void ShowPortrait(DialogueInstance instanceToShow)
-    {
-        dialoguePortraitFrame.SetActive(true);
-        dialoguePortraitFrame.transform.position = instanceToShow.portrait.portraitBoxPosition;
-
-        dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
-    }
-    void ShowPortrait(PortraitData portraitData)
+    private void ShowPortrait(PortraitData portraitData)
     {
         if(portraitData.sprite == null)
         {
@@ -503,49 +173,10 @@ public class DialogueMaster : MonoBehaviour
 
     //Next Step, fix position and size of dialogue box & portrait
 
-    void ShowPortrait(SubInstance instanceToShow)
-    {
-        dialoguePortraitFrame.SetActive(true);
-        dialoguePortraitFrame.transform.position = instanceToShow.portrait.portraitBoxPosition;
-
-        dialoguePortrait.sprite = instanceToShow.portrait.portraitImage;
-    }
     
-    void HidePortrait()
+    private void HidePortrait()
     {
         dialoguePortraitFrame.SetActive(false);
-    }
-
-
-
-    void ConvertDialogueTextToTextUI(DialogueText dialogueTextToConvert, Text textComponent, bool changeFontColor = true)
-    {
-        
-        textComponent.text = dialogueTextToConvert.dialogueString;
-
-        //character
-        if(dialogueTextToConvert.dialogueFont != null)
-            textComponent.font = dialogueTextToConvert.dialogueFont;
-        textComponent.fontStyle = dialogueTextToConvert.dialogueFontStyle;
-        if(dialogueTextToConvert.dialogueFontSize > 0)
-            textComponent.fontSize = dialogueTextToConvert.dialogueFontSize;
-        textComponent.lineSpacing = dialogueTextToConvert.dialogueLineSpacing;
-        textComponent.supportRichText = dialogueTextToConvert.dialogueRichText;
-
-        //paragraph
-        textComponent.alignment = dialogueTextToConvert.dialogueAlignment;
-        textComponent.alignByGeometry = dialogueTextToConvert.dialogueAlignByGeometry;
-        textComponent.horizontalOverflow = dialogueTextToConvert.dialogueHorizontalOverflow;
-        textComponent.verticalOverflow = dialogueTextToConvert.dialogueVerticalOverflow;
-        textComponent.resizeTextForBestFit = dialogueTextToConvert.dialogueBestFit;
-
-        //Standalone
-        if(changeFontColor)
-            textComponent.color = dialogueTextToConvert.dialogueColor;
-        textComponent.material = dialogueTextToConvert.dialogueMaterial;
-        textComponent.raycastTarget = dialogueTextToConvert.dialogueRaycastTarget;
-        textComponent.raycastPadding = dialogueTextToConvert.dialogueRaycastPadding;
-        textComponent.maskable = dialogueTextToConvert.dialogueMaskable;
     }
 
     public void ChoosePrompt(int returnIndex)
@@ -554,8 +185,6 @@ public class DialogueMaster : MonoBehaviour
         promptIndex = returnIndex;
     }
     
-
-
 
 
 }

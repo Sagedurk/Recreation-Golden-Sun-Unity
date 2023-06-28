@@ -7,14 +7,13 @@ using UnityEngine.UI;
 public class Interactable : MonoBehaviour
 {
     public string interactableTest;
-    public List<DialogueMaster.DialogueInstance> listOfDialogueBoxes = new List<DialogueMaster.DialogueInstance>();
     public Dictionary<int, DialogueEditorSerializedNode> dialogueNodeDictionary = new Dictionary<int, DialogueEditorSerializedNode>();
     public int starterNodeID;
 
 
     public ChestMaster.ChestInstance chestInstance = new ChestMaster.ChestInstance();
     public DialogueEvent eventDialogue;
-    public DialogueNodeEvent nodeEventDialogue;
+    public DialogueEvent nodeEventDialogue;
     public ChestEvent eventChest;
     public ShopEvent eventShop;
     public DjinnEvent eventDjinn;
@@ -94,11 +93,10 @@ public class Interactable : MonoBehaviour
 
 
 }
-[System.Serializable]
- public class DialogueEvent : UnityEvent< List<DialogueMaster.DialogueInstance> > { }
+
 
 [System.Serializable]
- public class DialogueNodeEvent : UnityEvent<Dictionary<int, DialogueEditorSerializedNode>, int> { }
+ public class DialogueEvent : UnityEvent<Dictionary<int, DialogueEditorSerializedNode>, int> { }
 
 [System.Serializable]
  public class ChestEvent : UnityEvent<ChestMaster.ChestInstance> { }

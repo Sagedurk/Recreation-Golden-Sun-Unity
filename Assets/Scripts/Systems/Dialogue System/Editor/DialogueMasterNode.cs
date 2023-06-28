@@ -25,13 +25,15 @@ public class DialogueMasterNode : Node
     private Image image = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
     private VisualElement dialoguePreview = new VisualElement();
     private TextField dialoguePreviewText;
+    private DropdownField positionDropdown;
+
 
     Vec2VE portraitPosition = new Vec2VE();
     Vec2VE dialogueBoxPosition = new Vec2VE();
     Vec2VE dialogueBoxSize = new Vec2VE();
 
 
-
+   
 
 
     //Port to DialogueMaster!
@@ -91,42 +93,28 @@ public class DialogueMasterNode : Node
             UnityEditor.EditorApplication.delayCall += () =>
             {
                 VisualElement textElement = dialoguePreviewText;
-                DialogueElementUtility.SetPositionInRelationToParent(ref textElement, DialogueElementUtility.Alignment.MID_CENTER);
+                DialogueElementUtility.SetPositionInRelationToParent(ref textElement, (DialogueElementUtility.Alignment)positionDropdown.index);
+                dialogueBoxPosition.vector = textElement.transform.position;
             };
 
         });
-        
+
 
         dialoguePreviewText.focusable = false;
-
-        dialoguePreviewText.styleSheets.Clear();
         dialoguePreviewText.style.unityFontDefinition = FontDefinition.FromFont(DialogueMasterElements.Instance.font);
         dialoguePreviewText.style.fontSize = DialogueMasterElements.Instance.fontSize;
         dialoguePreviewText.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.dialogueBackground);
         dialoguePreviewText.style.alignSelf = Align.FlexStart;
-        //dialoguePreviewText.style.alignItems = Align.FlexStart;
-        //dialoguePreviewText.style.flexGrow = 0;
 
         DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, DialogueMasterElements.Instance.fontSize, previewMargins, Color.clear, textColor);
 
         if(isShadowed)
             DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, DialogueMasterElements.Instance.fontSize * shadowMagnitude * 0.02f);
 
-        for (int i = 0; i < dialoguePreviewText.childCount; i++)
-        {
-            //dialoguePreviewText.contentContainer[i].style.fontSize = DialogueMasterElements.Instance.fontSize;
-            dialoguePreviewText.contentContainer[i].style.flexGrow = 0;
 
-            for (int j = 0; j < dialoguePreviewText.contentContainer[i].childCount; j++)
-            {
-                //dialoguePreviewText.contentContainer[i].contentContainer[j].style.fontSize = DialogueMasterElements.Instance.fontSize;
 
-                for (int k = 0; k < dialoguePreviewText.contentContainer[i].childCount; k++)
-                {
-                    dialoguePreviewText.contentContainer[i].contentContainer[j].contentContainer[k].style.fontSize = DialogueMasterElements.Instance.fontSize;
-                }
-            }
-        }
+
+        
 
 
         //previewText.style.overflow = Overflow.Hidden;
@@ -238,23 +226,26 @@ public class DialogueMasterNode : Node
 
         /* DIALOGUE BOX */
         #region DIALOGUE BOX
-        Foldout boxFoldout = DialogueElementUtility.CreateFoldout("Dialogue Box", true);
-        dialogueBoxPosition.Initialize("Position");
+        Foldout boxFoldout = DialogueElementUtility.CreateFoldout("Position", true);
 
-        dialogueBoxSize.Initialize("Size",
-            xCallback =>
-            {
-                DialogueElementUtility.RemoveCharactersNaN(xCallback, out dialogueBoxSize.vector.x);
-                DialogueElementUtility.SetStyleSize(ref dialoguePreviewText, dialogueBoxSize.vector.x, dialoguePreviewText.style.height.value.value);
-            },
-            yCallback =>
-            {
-                DialogueElementUtility.RemoveCharactersNaN(yCallback, out dialogueBoxSize.vector.y);
-                DialogueElementUtility.SetStyleSize(ref dialoguePreviewText, dialoguePreviewText.style.width.value.value, dialogueBoxSize.vector.y);
-            });
 
-        boxFoldout.Add(dialogueBoxPosition.foldout);
-        boxFoldout.Add(dialogueBoxSize.foldout);
+        string[] enumNames = System.Enum.GetNames(typeof(DialogueElementUtility.Alignment));
+        List<string> dropdownOptions = new List<string>();
+        foreach (string name in enumNames)
+        {
+            dropdownOptions.Add(name);
+        }
+
+        positionDropdown = DialogueElementUtility.CreateDropdown(dropdownOptions, 0, callback => 
+        {
+            DropdownField dropdown = callback.target as DropdownField;
+
+            VisualElement previewText = dialoguePreviewText;
+            DialogueElementUtility.SetPositionInRelationToParent(ref previewText, (DialogueElementUtility.Alignment) dropdown.index);
+            dialogueBoxPosition.vector = previewText.transform.position;
+        });
+
+        boxFoldout.Add(positionDropdown);
 
         customDataContainer.Add(boxFoldout);
         #endregion
@@ -266,11 +257,6 @@ public class DialogueMasterNode : Node
         ObjectField spriteField = DialogueElementUtility.CreateObjectField<Sprite>(callback =>
         {
             Sprite newSprite = callback.newValue as Sprite;
-
-            dialoguePreviewText.style.backgroundImage = new StyleBackground(newSprite);
-
-            DialogueElementUtility.SetStyleSlice(ref dialoguePreviewText, newSprite.border);
-
             image.sprite = newSprite;
 
             if (image.sprite == null)
@@ -520,7 +506,8 @@ public class DialogueMasterNode : Node
         serializedNode.position = GetPosition().position;
         serializedNode.portrait.sprite = image.sprite;
         serializedNode.portrait.position = portraitPosition.vector;
-        serializedNode.dialogueBox.position = dialogueBoxPosition.vector;
+        serializedNode.dialogueBox.position = dialogueBoxPosition.vector * (Vector2.right + Vector2.down);
+
         serializedNode.dialogueBox.size = dialogueBoxSize.vector;
 
         return serializedNode;

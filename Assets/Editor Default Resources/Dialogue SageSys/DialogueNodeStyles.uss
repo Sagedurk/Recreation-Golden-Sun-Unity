@@ -26,7 +26,6 @@
 	background-color: #1D1D1E;
 	border-color: #27292C;
 	border-radius: 4px;
-	max-width: 240px;
 	min-width: 160px;
 	padding: 8px;
 }
@@ -80,7 +79,6 @@
 	border-left-color: #27292C;
 	border-left-width: 4px;
 	padding: 16px;
-	max-width: 600px;
 }
 
 .dialogue-node__quote-textfield > .unity-text-field__input:hover

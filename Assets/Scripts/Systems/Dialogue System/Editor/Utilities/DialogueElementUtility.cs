@@ -86,12 +86,12 @@ public static class DialogueElementUtility      //Rename class, make it into a U
     public static TextField CreateDropShadow(ref TextField textElement, Color shadowColor, Vector2 direction, float magnitude)
     {
         TextField shadow = CreateTextField(textElement.value);
-        SetTextStyle(ref shadow, GetFontSize(textElement), GetStyleMargin(textElement.contentContainer[0]), Color.clear, shadowColor);
+        SetTextStyle(ref shadow, DialogueMasterElements.Instance.fontSize, GetStyleMargin(textElement.contentContainer[0]), Color.clear, shadowColor);
 
         textElement.Add(shadow);
         shadow.StretchToParentWidth();
 
-        shadow.style.unityFont = textElement.style.unityFont;
+        //shadow.style.unityFont = textElement.style.unityFont;
         shadow.style.backgroundColor = Color.clear;
         shadow.focusable = false;
 
@@ -109,7 +109,17 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         VisualElement text = textElement.contentContainer[0];
 
         SetStyleMargin(ref text, margins);              //Set margins
+
+
         text.style.fontSize = fontSize;                 //Set font size
+        text.style.flexGrow = 0;
+        text.contentContainer[0].style.fontSize = fontSize;                 //Set font size
+
+        for (int j = 0; j < text.contentContainer[0].childCount; j++)
+        {
+            text.contentContainer[0].contentContainer[j].style.fontSize = fontSize;                 //Set font size
+        }
+
         text.style.backgroundColor = backgroundColor;       //Remove background
         text.style.color = textColor;
         text.pickingMode = pickingMode;          //Remove pickability
@@ -205,6 +215,22 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         return foldout;
     }
 
+    public static DropdownField CreateDropdown(List<string> options, int defaultIndex  = 0, EventCallback<ChangeEvent<string>> onValueChanged = null)
+    {
+        DropdownField dropdown = new DropdownField()
+        {
+            choices = options,
+            index = defaultIndex
+        };
+
+        if (onValueChanged != null)
+        {
+            dropdown.RegisterValueChangedCallback(onValueChanged);
+        }
+
+        return dropdown;
+    }
+
     public static Button CreateButton(string text, Action onClick = null)
     {
         Button button = new Button(onClick)
@@ -229,6 +255,7 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
 
     #region Utility Functions
+
 
     public static void RemoveCharactersNaN(ChangeEvent<string> callback, out int parsedValue)
     {

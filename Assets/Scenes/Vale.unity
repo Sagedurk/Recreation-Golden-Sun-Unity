@@ -104,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -155,18 +155,19 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195431454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.30303, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &8645837
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -179,10 +180,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &8645838
 Canvas:
   m_ObjectHideFlags: 0
@@ -200,7 +203,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -370,6 +375,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1823900858}
   m_RootOrder: 0
@@ -411,6 +417,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195431454}
   m_RootOrder: 2
@@ -422,7 +429,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &278354223
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -435,10 +442,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &278354224
 Canvas:
   m_ObjectHideFlags: 0
@@ -456,7 +465,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -587,17 +598,18 @@ RectTransform:
   m_GameObject: {fileID: 423442904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1609820791}
   - {fileID: 682633803}
   m_Father: {fileID: 4700080040183966144}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0.088755}
-  m_AnchoredPosition: {x: 384, y: 0}
-  m_SizeDelta: {x: 158.4, y: 0}
+  m_AnchorMin: {x: 0.1, y: 0}
+  m_AnchorMax: {x: 0.1827, y: 0.089}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &423442906
 MonoBehaviour:
@@ -665,6 +677,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423442905}
   m_RootOrder: 1
@@ -805,6 +818,7 @@ Transform:
   m_LocalRotation: {x: 0.6830127, y: -0.18301266, z: 0.18301266, w: 0.6830127}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -839,8 +853,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
   m_PointAction: {fileID: -620478651262989622, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
   m_MoveAction: {fileID: -4480632225538895128, guid: 6137c2f2898c7494aa275a6961bb1762, type: 3}
@@ -854,6 +870,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &783142315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +896,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -888,6 +906,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 927857536}
     m_Modifications:
     - target: {fileID: 163631666578779381, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
@@ -1303,6 +1322,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3200013987448838837, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321457}
+    - targetCorrespondingSourceObject: {fileID: 3200013987448838837, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321458}
+    - targetCorrespondingSourceObject: {fileID: 3200013986088866044, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321456}
+    - targetCorrespondingSourceObject: {fileID: 3200013986088866044, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321455}
+    - targetCorrespondingSourceObject: {fileID: 3200013986656745828, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321454}
+    - targetCorrespondingSourceObject: {fileID: 3200013986656745828, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321453}
+    - targetCorrespondingSourceObject: {fileID: 3200013986171113895, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321452}
+    - targetCorrespondingSourceObject: {fileID: 3200013986171113895, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856321451}
   m_SourcePrefab: {fileID: 100100000, guid: a99cfff82b619e340aa8a81e89a49434, type: 3}
 --- !u!1 &856321447 stripped
 GameObject:
@@ -1326,7 +1372,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &856321451
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1339,10 +1385,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &856321452
 Canvas:
   m_ObjectHideFlags: 0
@@ -1360,13 +1408,15 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!95 &856321453
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1379,10 +1429,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &856321454
 Canvas:
   m_ObjectHideFlags: 0
@@ -1400,13 +1452,15 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!95 &856321455
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1419,10 +1473,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &856321456
 Canvas:
   m_ObjectHideFlags: 0
@@ -1440,7 +1496,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1461,13 +1519,15 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!95 &856321458
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1480,10 +1540,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &891132403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1574,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1851520861}
   m_Father: {fileID: 1534559686}
@@ -1636,7 +1699,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1650,6 +1715,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1534559686}
   - {fileID: 2064513525}
@@ -1688,6 +1754,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1608024538}
   m_RootOrder: 0
@@ -1746,6 +1813,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.14999998, z: 1}
   m_LocalScale: {x: 2, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1131439258}
   m_RootOrder: 1
@@ -1758,9 +1826,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035636881}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1035636884
@@ -1853,6 +1929,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1608024538}
   m_RootOrder: 3
@@ -2163,6 +2240,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a83566a6-5451-405f-ac5f-1cc06e82a0f3
     m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/dpad,/XInputControllerWindows/dpad,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fc1b8ef7-1001-4efb-b6cb-642f2ea4e3ef
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7eabc31d-0b56-49a2-b9d5-ca6e2b2f9933
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c9c0f48-7413-40f7-b20b-b49d316c020a
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7d52a28f-fad5-4620-82f3-025451d0b412
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84d15b7a-e530-4d73-8528-2d41c4af5627
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Xbox
   m_DefaultActionMap: Town
@@ -2176,8 +2273,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131439252}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -2242,6 +2348,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1442704316}
   - {fileID: 1035636882}
@@ -2274,6 +2381,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8645836}
   - {fileID: 1976314019}
@@ -2283,10 +2391,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.33, y: 0.17751}
+  m_AnchorMax: {x: 0.1, y: 0.089}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1315217627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,6 +2422,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1608024538}
   m_RootOrder: 1
@@ -2369,6 +2478,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1608024538}
   m_RootOrder: 2
@@ -2425,6 +2535,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1823900858}
   m_RootOrder: 1
@@ -2506,6 +2617,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0.25}
   m_LocalScale: {x: 1, y: 0.25, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1131439258}
   m_RootOrder: 0
@@ -2518,9 +2630,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442704315}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1442704318
@@ -2600,9 +2720,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491673580}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -2666,6 +2794,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2710,9 +2839,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2749,6 +2886,7 @@ Transform:
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 21.1, z: -13.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2779,6 +2917,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1823900858}
   - {fileID: 891132404}
@@ -2817,6 +2956,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 971580304}
   - {fileID: 1315217628}
@@ -2853,13 +2993,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423442905}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.7018967, y: -6.3999023}
+  m_AnchoredPosition: {x: 3.7019043, y: -6.3999023}
   m_SizeDelta: {x: -62.03982, y: -55.38124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1609820792
@@ -2938,73 +3079,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTest: Chest has already been opened
-  listOfDialogueBoxes:
-  - dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
-      dialogueText:
-        dialogueString: 
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 9d8bd4e0bff9359499f5034724f140d4, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 0, y: 0}
-      boxSize: {x: 0, y: 0}
-      dialogueText:
-        dialogueString: 
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 0
-        dialogueLineSpacing: 0
-        dialogueRichText: 0
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 0, g: 0, b: 0, a: 0}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 0
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 0
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 6978bae67946fda41aa76a8c1bec1d31, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
   starterNodeID: 0
   chestInstance:
     chestState: 0
@@ -3059,8 +3133,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610469379}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -3125,6 +3208,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.32, y: 1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -3136,10 +3220,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610469379}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -3190,901 +3285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTest: Interacting with Inter #1
-  listOfDialogueBoxes:
-  - dialogueBox:
-      boxPosition: {x: 452, y: 463}
-      boxSize: {x: 508, y: 106}
-      dialogueText:
-        dialogueString: Isaac, wake up!
-        dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 0
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: c68823e73ee950742894df67da9e24dc, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
-    dialoguePrompt:
-      position: {x: 384, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: RunAction
-    listOfOptionNames:
-    - Yes
-    - No
-    listOfOptions:
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: 1st sub-dialogue
-            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-            dialogueFontStyle: 0
-            dialogueFontSize: 200
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: e9149596859e4344f9349e2adc150630, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: The other sub-dialogue
-            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-            dialogueFontStyle: 0
-            dialogueFontSize: 200
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      isLoopingLastSubInstance: 0
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: This should loop back to the master when this sub is
-              done.
-            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-            dialogueFontStyle: 0
-            dialogueFontSize: 200
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: Second instance of no.
-            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-            dialogueFontStyle: 0
-            dialogueFontSize: 200
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 0, y: 0}
-          dialogueText:
-            dialogueString: Loop happens after this one
-            dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-            dialogueFontStyle: 0
-            dialogueFontSize: 200
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 0, y: 0}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      isLoopingLastSubInstance: 1
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 251, y: 463}
-      boxSize: {x: 709, y: 106}
-      dialogueText:
-        dialogueString: Please, dear, wake up!
-        dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 0}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 0, y: 0}
-      isPortraitShown: 0
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames:
-    - Yes
-    - No
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 415, y: 144}
-      boxSize: {x: 694, y: 157}
-      dialogueText:
-        dialogueString: The Mt. Aleph Boulder is going to fall!
-        dialogueFont: {fileID: 12800000, guid: 2020fa3e99da6504c8db28507b7e4af2, type: 3}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 682, y: 460}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 415, y: 144}
-      boxSize: {x: 673, y: 157}
-      dialogueText:
-        dialogueString: 'Come on, Isaac.
-
-          We have to go__now!'
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 682, y: 460}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 568, y: 144}
-      boxSize: {x: 550, y: 157}
-      dialogueText:
-        dialogueString: Isaac! You forgot something!
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 682, y: 460}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 568, y: 42}
-      boxSize: {x: 645, y: 209}
-      dialogueText:
-        dialogueString: 'It''s pouring outside!
-
-          Don''t go out without
-          your tunic!'
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 682, y: 460}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 0, y: 300}
-      boxSize: {x: 700, y: 157}
-      dialogueText:
-        dialogueString: Have you got everything you need?
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 240, y: 614}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 960, y: 0, z: 0}
-      dialogueChoice: 1
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames:
-    - Yes
-    - No
-    listOfOptions:
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 196}
-          boxSize: {x: 790, y: 209}
-          dialogueText:
-            dialogueString: "Good     for     you,     Isaac.\nA lost possession
-              can be \nreplaced; a lost life can't."
-            dialogueFont: {fileID: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 75
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 240, y: 614}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      isLoopingLastSubInstance: 0
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 196}
-          boxSize: {x: 715, y: 209}
-          dialogueText:
-            dialogueString: "I'm    sorry,     but     we \ndon't have time... You'll
-              have to leave it behind."
-            dialogueFont: {fileID: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 75
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 300, y: 614}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      isLoopingLastSubInstance: 0
-    optionListIndex: 1
-  - dialogueBox:
-      boxPosition: {x: 0, y: 75}
-      boxSize: {x: 615, y: 209}
-      dialogueText:
-        dialogueString: 'Isaac, Dora, hurry!
-
-          The  Boulder  could fall
-          at any second!'
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 185, y: 493}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 75, y: 0}
-      boxSize: {x: 712, y: 157}
-      dialogueText:
-        dialogueString: Kyle... Will they be able to  stop  the  Boulder?
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 380, y: 314}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 75, y: 766}
-      boxSize: {x: 678, y: 157}
-      dialogueText:
-        dialogueString: 'I    don''t    think    so...
-
-          Not for long, anyway...'
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 300, y: 446}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 50, y: 766}
-      boxSize: {x: 760, y: 157}
-      dialogueText:
-        dialogueString: You two go on ahead and take refuge in the plaza.
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 360, y: 446}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 125, y: 75}
-      boxSize: {x: 615, y: 105}
-      dialogueText:
-        dialogueString: Aren't you coming?
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 315, y: 285}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 75, y: 766}
-      boxSize: {x: 712, y: 157}
-      dialogueText:
-        dialogueString: I need to help evacuate the   other   villagers.
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 365, y: 446}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 75, y: 150}
-      boxSize: {x: 675, y: 105}
-      dialogueText:
-        dialogueString: Let me help you, Kyle!
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 325, y: 360}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 75, y: 662}
-      boxSize: {x: 770, y: 209}
-      dialogueText:
-        dialogueString: It's too dangerous, Dora. Please,  just  take  good care 
-          of  Isaac!
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 375, y: 342}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 0, y: 75}
-      boxSize: {x: 765, y: 157}
-      dialogueText:
-        dialogueString: Isaac is old enough to get to the plaza on his own.
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 385, y: 389}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
-  - dialogueBox:
-      boxPosition: {x: 125, y: 0}
-      boxSize: {x: 565, y: 209}
-      dialogueText:
-        dialogueString: You can find your way, can't you, Isaac?
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 290, y: 418}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 776, y: 888, z: 0}
-      dialogueChoice: 1
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames:
-    - Yes
-    - No
-    listOfOptions:
-    - dialogueChoiceSubInstances: []
-      isLoopingLastSubInstance: 0
-    - dialogueChoiceSubInstances:
-      - dialogueBox:
-          boxPosition: {x: 0, y: 0}
-          boxSize: {x: 840, y: 209}
-          dialogueText:
-            dialogueString: "You're  a  big  boy \nnow, Isaac. Why don't you go on
-              your own?"
-            dialogueFont: {fileID: 0}
-            dialogueFontStyle: 0
-            dialogueFontSize: 75
-            dialogueLineSpacing: 1
-            dialogueRichText: 1
-            dialogueAlignment: 3
-            dialogueAlignByGeometry: 0
-            dialogueHorizontalOverflow: 0
-            dialogueVerticalOverflow: 0
-            dialogueBestFit: 0
-            dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-            dialogueMaterial: {fileID: 0}
-            dialogueRaycastTarget: 1
-            dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-            dialogueMaskable: 1
-        portrait:
-          portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-          portraitObject: {fileID: 0}
-          portraitBoxPosition: {x: 395, y: 418}
-          isPortraitShown: 1
-        dialoguePrompt:
-          position: {x: 0, y: 0, z: 0}
-          dialogueChoice: 0
-        dialogueAction: 0
-        actionName: 
-        listOfOptionNames: []
-        listOfOptions: []
-        optionListIndex: 0
-      isLoopingLastSubInstance: 1
-    optionListIndex: 1
-  - dialogueBox:
-      boxPosition: {x: 40, y: 0}
-      boxSize: {x: 772, y: 209}
-      dialogueText:
-        dialogueString: "You know the way__just \ngo     south    to    get    to
-          \nthe   plaza.   Be   careful!"
-        dialogueFont: {fileID: 0}
-        dialogueFontStyle: 0
-        dialogueFontSize: 75
-        dialogueLineSpacing: 1
-        dialogueRichText: 1
-        dialogueAlignment: 3
-        dialogueAlignByGeometry: 0
-        dialogueHorizontalOverflow: 0
-        dialogueVerticalOverflow: 0
-        dialogueBestFit: 0
-        dialogueColor: {r: 1, g: 1, b: 1, a: 1}
-        dialogueMaterial: {fileID: 0}
-        dialogueRaycastTarget: 1
-        dialogueRaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-        dialogueMaskable: 1
-    portrait:
-      portraitImage: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      portraitObject: {fileID: 0}
-      portraitBoxPosition: {x: 355, y: 418}
-      isPortraitShown: 1
-    dialoguePrompt:
-      position: {x: 0, y: 0, z: 0}
-      dialogueChoice: 0
-    dialogueAction: 0
-    actionName: 
-    listOfOptionNames: []
-    listOfOptions: []
-    optionListIndex: 0
   starterNodeID: 0
   chestInstance:
     chestState: 0
@@ -4127,8 +3327,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738471179}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -4193,6 +3402,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -4204,10 +3414,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738471179}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -4240,18 +3461,19 @@ RectTransform:
   m_GameObject: {fileID: 1823900857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 101027436}
   - {fileID: 1408993231}
   m_Father: {fileID: 1534559686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 772, y: 209}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1823900859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4318,6 +3540,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 891132404}
   m_RootOrder: 0
@@ -4397,6 +3620,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195431454}
   m_RootOrder: 3
@@ -4408,7 +3632,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1960717647
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4421,10 +3645,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &1960717648
 Canvas:
   m_ObjectHideFlags: 0
@@ -4442,7 +3668,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4573,18 +3801,19 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195431454}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.30303, y: 0}
-  m_AnchorMax: {x: 0.606, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1976314020
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4597,10 +3826,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &1976314021
 Canvas:
   m_ObjectHideFlags: 0
@@ -4618,7 +3849,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4727,6 +3960,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3590196663874784012, guid: 4a220344199865544a2f5703fe812987, type: 3}
@@ -4858,12 +4092,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a220344199865544a2f5703fe812987, type: 3}
 --- !u!1001 &2239021054294661037
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3493763946571949194, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
@@ -4919,12 +4157,16 @@ PrefabInstance:
       value: Chest Master
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03e9ff02424ff747942b24eee8aa1f2, type: 3}
 --- !u!1001 &3897456527495582822
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
@@ -5008,6 +4250,9 @@ PrefabInstance:
       value: Dialogue Master
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
 --- !u!114 &4700080038289371192
 MonoBehaviour:
@@ -5127,6 +4372,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4700080038321974748}
   m_RootOrder: 0
@@ -5138,7 +4384,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &4700080038289371196
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5151,10 +4397,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!223 &4700080038289371197
 Canvas:
   m_ObjectHideFlags: 0
@@ -5172,7 +4420,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5207,6 +4457,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700080038289371195}
   - {fileID: 4700080040150628976}
@@ -5253,6 +4504,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700080039263181769}
   - {fileID: 4700080039652016539}
@@ -5340,6 +4592,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4700080038998891676}
   m_RootOrder: 0
@@ -5461,6 +4714,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4700080038998891676}
   m_RootOrder: 1
@@ -5480,6 +4734,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4700080038321974748}
   m_RootOrder: 1
@@ -5582,7 +4837,7 @@ MonoBehaviour:
   menuHandler: {fileID: 4700080040183966145}
 --- !u!95 &4700080040150628981
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5595,10 +4850,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4700080040150628982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5654,7 +4911,9 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5668,6 +4927,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1195431454}
   - {fileID: 423442905}

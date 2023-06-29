@@ -32,8 +32,8 @@ public class DialogueMasterNode : Node
     Vec2VE dialogueBoxPosition = new Vec2VE();
     Vec2VE dialogueBoxSize = new Vec2VE();
 
+ 
 
-   
 
 
     //Port to DialogueMaster!
@@ -86,7 +86,8 @@ public class DialogueMasterNode : Node
         //dialoguePreview.style.backgroundColor = new StyleColor(Color.green);
         dialoguePreview.style.alignItems = Align.FlexStart;
         dialoguePreview.style.alignContent = Align.FlexStart;
-        
+        DialogueElementUtility.SetBorderColor(ref dialoguePreview, Color.white);
+        DialogueElementUtility.SetBorderWidth(ref dialoguePreview, 1);
 
         dialoguePreviewText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback => 
         {
@@ -100,11 +101,18 @@ public class DialogueMasterNode : Node
         });
 
 
+        //dialoguePreviewText.delegatesFocus = false;
         dialoguePreviewText.focusable = false;
+        dialoguePreviewText.pickingMode = PickingMode.Position;
         dialoguePreviewText.style.unityFontDefinition = FontDefinition.FromFont(DialogueMasterElements.Instance.font);
         dialoguePreviewText.style.fontSize = DialogueMasterElements.Instance.fontSize;
         dialoguePreviewText.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.dialogueBackground);
-        dialoguePreviewText.style.alignSelf = Align.FlexStart;
+        //dialoguePreviewText.style.alignSelf = Align.FlexStart;
+
+        VisualElement previewText = dialoguePreviewText;
+        DialogueElementUtility.SetBorderColor(ref previewText, Color.red);
+        DialogueElementUtility.SetBorderWidth(ref previewText, 1);
+
 
         DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, DialogueMasterElements.Instance.fontSize, previewMargins, Color.clear, textColor);
 
@@ -112,7 +120,7 @@ public class DialogueMasterNode : Node
             DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, DialogueMasterElements.Instance.fontSize * shadowMagnitude * 0.02f);
 
 
-
+        DragAndDropManipulator manipulator = new DragAndDropManipulator(dialoguePreviewText);
 
         
 
@@ -287,6 +295,7 @@ public class DialogueMasterNode : Node
         });
 
         dialoguePreview.Add(dialoguePreviewText);
+        
         previewFoldout.Add(dialoguePreview);
         customDataContainer.Add(previewFoldout);
 
@@ -506,7 +515,7 @@ public class DialogueMasterNode : Node
         serializedNode.position = GetPosition().position;
         serializedNode.portrait.sprite = image.sprite;
         serializedNode.portrait.position = portraitPosition.vector;
-        serializedNode.dialogueBox.position = dialogueBoxPosition.vector * (Vector2.right + Vector2.down);
+        serializedNode.dialogueBox.position = dialoguePreviewText.transform.position * (Vector2.right + Vector2.down);
 
         serializedNode.dialogueBox.size = dialogueBoxSize.vector;
 

@@ -125,14 +125,27 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         text.pickingMode = pickingMode;          //Remove pickability
 
         //'Remove' focus/picking border
-        text.style.borderLeftColor = backgroundColor;
-        text.style.borderBottomColor = backgroundColor;
-        text.style.borderRightColor = backgroundColor;
-        text.style.borderTopColor = backgroundColor;
+        SetBorderColor(ref text, backgroundColor);
 
+        text.focusable = false;
         //text.style.flexDirection = FlexDirection.ColumnReverse;
         //text.style.alignItems = Align.Auto;
 
+    }
+
+    public static void SetBorderColor(ref VisualElement element, Color color)
+    {
+        element.style.borderLeftColor = color;
+        element.style.borderBottomColor = color;
+        element.style.borderRightColor = color;
+        element.style.borderTopColor = color;
+    }
+    public static void SetBorderWidth(ref VisualElement element, float width)
+    {
+        element.style.borderLeftWidth = width;
+        element.style.borderBottomWidth = width;
+        element.style.borderRightWidth = width;
+        element.style.borderTopWidth = width;
     }
 
     public static ColorField CreateColorField(Color color, EventCallback<ChangeEvent<Color>> onValueChanged = null)

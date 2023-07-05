@@ -58,8 +58,8 @@ public class DragAndDropManipulator : PointerManipulator
             Vector3 pointerDelta = evt.position - pointerStartPosition;
 
             target.transform.position = new Vector2(
-                Mathf.Clamp(targetStartPosition.x + pointerDelta.x, 0, target.panel.visualTree.worldBound.width),
-                Mathf.Clamp(targetStartPosition.y + pointerDelta.y, 0, target.panel.visualTree.worldBound.height));
+                Mathf.Clamp(targetStartPosition.x + pointerDelta.x, 0, target.parent.resolvedStyle.width - target.resolvedStyle.width),
+                Mathf.Clamp(targetStartPosition.y + pointerDelta.y, 0, target.parent.resolvedStyle.height - target.resolvedStyle.height));
         }
     }
 
@@ -78,9 +78,6 @@ public class DragAndDropManipulator : PointerManipulator
     {
         if (enabled)
         {
-       
-
-
             enabled = false;
         }
     }

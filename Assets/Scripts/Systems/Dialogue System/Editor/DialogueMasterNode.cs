@@ -29,7 +29,6 @@ public class DialogueMasterNode : Node
 
 
     Vec2VE portraitPosition = new Vec2VE();
-    Vec2VE dialogueBoxPosition = new Vec2VE();
     Vec2VE dialogueBoxSize = new Vec2VE();
 
  
@@ -95,7 +94,6 @@ public class DialogueMasterNode : Node
             {
                 VisualElement textElement = dialoguePreviewText;
                 DialogueElementUtility.SetPositionInRelationToParent(ref textElement, (DialogueElementUtility.Alignment)positionDropdown.index);
-                dialogueBoxPosition.vector = textElement.transform.position;
             };
 
         });
@@ -250,7 +248,6 @@ public class DialogueMasterNode : Node
 
             VisualElement previewText = dialoguePreviewText;
             DialogueElementUtility.SetPositionInRelationToParent(ref previewText, (DialogueElementUtility.Alignment) dropdown.index);
-            dialogueBoxPosition.vector = previewText.transform.position;
         });
 
         boxFoldout.Add(positionDropdown);
@@ -493,7 +490,7 @@ public class DialogueMasterNode : Node
         image.sprite = node.portrait.sprite;
 
         portraitPosition.SetValues(node.portrait.position);
-        dialogueBoxPosition.SetValues(node.dialogueBox.position);
+        dialoguePreviewText.transform.position = node.dialogueBox.position * (Vector2.right + Vector2.down);
         dialogueBoxSize.SetValues(node.dialogueBox.size);
     }
 

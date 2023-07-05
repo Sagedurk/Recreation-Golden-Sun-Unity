@@ -28,8 +28,8 @@ MonoBehaviour:
       position: {x: 0, y: 0}
     dialogueBox:
       serializedVersion: 2
-      x: 31
-      y: -31
+      x: 22
+      y: -934
       width: 500
       height: 108
   - nodeID: 1
@@ -122,8 +122,8 @@ MonoBehaviour:
       position: {x: 0, y: 0}
     dialogueBox:
       serializedVersion: 2
-      x: 162
-      y: -58
+      x: 605.5
+      y: -485
       width: 708
       height: 108
   - nodeID: 8
@@ -143,8 +143,8 @@ MonoBehaviour:
       position: {x: 0, y: 0}
     dialogueBox:
       serializedVersion: 2
-      x: 55
-      y: -502
+      x: 0
+      y: -918
       width: 699
       height: 160
   - nodeID: 14
@@ -164,8 +164,8 @@ MonoBehaviour:
       position: {x: 0, y: 0}
     dialogueBox:
       serializedVersion: 2
-      x: 1129
-      y: -161
+      x: 0
+      y: -0
       width: 645
       height: 160
   - nodeID: 15

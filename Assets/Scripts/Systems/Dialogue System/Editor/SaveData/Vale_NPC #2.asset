@@ -21,17 +21,18 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 242, y: 61}
+    position: {x: 225, y: 61}
     dialogueText: Isaac, wake up!
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: c53f234544342264ea172ca2c220377d, type: 3}
+      position: {x: 556, y: -32}
     dialogueBox:
       serializedVersion: 2
-      x: 22
-      y: -934
+      x: 551
+      y: -192
       width: 500
       height: 108
+    choicePromptIndex: 1
   - nodeID: 1
     choices:
     - choiceName: Yes
@@ -59,6 +60,7 @@ MonoBehaviour:
       y: -0
       width: 674
       height: 160
+    choicePromptIndex: 1
   - nodeID: 4
     choices:
     - choiceName: New Choice
@@ -83,6 +85,7 @@ MonoBehaviour:
       y: -0
       width: 793
       height: 212
+    choicePromptIndex: 1
   - nodeID: 5
     choices:
     - choiceName: New Choice
@@ -107,6 +110,7 @@ MonoBehaviour:
       y: -0
       width: 718
       height: 212
+    choicePromptIndex: 1
   - nodeID: 6
     choices:
     - choiceName: New Choice
@@ -126,6 +130,7 @@ MonoBehaviour:
       y: -485
       width: 708
       height: 108
+    choicePromptIndex: 1
   - nodeID: 8
     choices:
     - choiceName: New Choice
@@ -147,6 +152,7 @@ MonoBehaviour:
       y: -918
       width: 699
       height: 160
+    choicePromptIndex: 1
   - nodeID: 14
     choices:
     - choiceName: New Choice
@@ -168,6 +174,7 @@ MonoBehaviour:
       y: -0
       width: 645
       height: 160
+    choicePromptIndex: 1
   - nodeID: 15
     choices:
     - choiceName: New Choice
@@ -189,6 +196,7 @@ MonoBehaviour:
       y: -0
       width: 555
       height: 160
+    choicePromptIndex: 1
   - nodeID: 16
     choices:
     - choiceName: New Choice
@@ -213,6 +221,7 @@ MonoBehaviour:
       y: -0
       width: 641
       height: 211
+    choicePromptIndex: 1
   - nodeID: 17
     choices:
     - choiceName: New Choice
@@ -237,6 +246,7 @@ MonoBehaviour:
       y: -0
       width: 613
       height: 212
+    choicePromptIndex: 1
   - nodeID: 18
     choices:
     - choiceName: New Choice
@@ -256,6 +266,7 @@ MonoBehaviour:
       y: -0
       width: 717
       height: 160
+    choicePromptIndex: 1
   - nodeID: 19
     choices:
     - choiceName: New Choice
@@ -277,6 +288,7 @@ MonoBehaviour:
       y: -0
       width: 683
       height: 160
+    choicePromptIndex: 1
   - nodeID: 20
     choices:
     - choiceName: New Choice
@@ -298,6 +310,7 @@ MonoBehaviour:
       y: -0
       width: 765
       height: 160
+    choicePromptIndex: 1
   - nodeID: 21
     choices:
     - choiceName: New Choice
@@ -317,6 +330,7 @@ MonoBehaviour:
       y: -0
       width: 599
       height: 108
+    choicePromptIndex: 1
   - nodeID: 22
     choices:
     - choiceName: New Choice
@@ -338,6 +352,7 @@ MonoBehaviour:
       y: -0
       width: 717
       height: 160
+    choicePromptIndex: 1
   - nodeID: 23
     choices:
     - choiceName: New Choice
@@ -357,6 +372,7 @@ MonoBehaviour:
       y: -0
       width: 674
       height: 108
+    choicePromptIndex: 1
   - nodeID: 24
     choices:
     - choiceName: New Choice
@@ -381,6 +397,7 @@ MonoBehaviour:
       y: -0
       width: 758
       height: 212
+    choicePromptIndex: 1
   - nodeID: 25
     choices:
     - choiceName: New Choice
@@ -402,6 +419,7 @@ MonoBehaviour:
       y: -0
       width: 768
       height: 160
+    choicePromptIndex: 1
   - nodeID: 26
     choices:
     - choiceName: Yes
@@ -431,6 +449,7 @@ MonoBehaviour:
       y: -0
       width: 557
       height: 212
+    choicePromptIndex: 0
   - nodeID: 27
     choices:
     - choiceName: Yes
@@ -461,6 +480,7 @@ MonoBehaviour:
       y: -0
       width: 856
       height: 212
+    choicePromptIndex: 0
   - nodeID: 30
     choices:
     - choiceName: New Choice
@@ -485,4 +505,5 @@ MonoBehaviour:
       y: -0
       width: 759
       height: 212
+    choicePromptIndex: 1
   starterNodeID: 0

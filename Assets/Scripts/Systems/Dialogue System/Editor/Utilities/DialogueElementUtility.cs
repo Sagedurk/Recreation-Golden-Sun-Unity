@@ -85,23 +85,19 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
     public static TextField CreateDropShadow(ref TextField textElement, Color shadowColor, Vector2 direction, float magnitude)
     {
-        TextField shadow = CreateTextField(textElement.value);
-        SetTextStyle(ref shadow, DialogueMasterElements.Instance.fontSize, GetStyleMargin(textElement.contentContainer[0]), Color.clear, shadowColor);
-
-        textElement.Add(shadow);
-        shadow.StretchToParentWidth();
-
-        //shadow.style.unityFont = textElement.style.unityFont;
-        shadow.style.backgroundColor = Color.clear;
-        shadow.focusable = false;
+        TextField temporaryField = CreateTextArea(textElement.value);
+        SetTextStyle(ref temporaryField, DialogueMasterElements.Instance.fontSize, GetStyleMargin(textElement.contentContainer[0]), Color.clear, shadowColor);
 
 
-        shadow.transform.position += new Vector3(direction.x, -direction.y) * magnitude;
-
+        textElement.Add(temporaryField);
+        temporaryField.StretchToParentWidth();
+        temporaryField.transform.position += new Vector3(direction.x, -direction.y) * magnitude;
+        temporaryField.focusable = false;
 
         InvertChildOrder(ref textElement);
 
-        return shadow;
+
+        return temporaryField;
     }
 
     public static void SetTextStyle(ref TextField textElement, StyleLength fontSize, Vector4 margins, Color backgroundColor, Color textColor, PickingMode pickingMode = PickingMode.Ignore)
@@ -110,15 +106,20 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
         SetStyleMargin(ref text, margins);              //Set margins
 
-
-        text.style.fontSize = fontSize;                 //Set font size
         text.style.flexGrow = 0;
-        text.contentContainer[0].style.fontSize = fontSize;                 //Set font size
 
+        #region Set Font Size
+        //TextField - Set Font Size
+        if(!textElement.multiline)
+            text.contentContainer[0].style.fontSize = fontSize;
+
+        //TextArea - Set Font Size
         for (int j = 0; j < text.contentContainer[0].childCount; j++)
         {
-            text.contentContainer[0].contentContainer[j].style.fontSize = fontSize;                 //Set font size
+            text.contentContainer[0].contentContainer[j].style.fontSize = fontSize;
         }
+
+        #endregion
 
         text.style.backgroundColor = backgroundColor;       //Remove background
         text.style.color = textColor;
@@ -130,7 +131,6 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         text.focusable = false;
         //text.style.flexDirection = FlexDirection.ColumnReverse;
         //text.style.alignItems = Align.Auto;
-
     }
 
     public static void SetBorderColor(ref VisualElement element, Color color)
@@ -142,6 +142,7 @@ public static class DialogueElementUtility      //Rename class, make it into a U
     }
     public static void SetBorderWidth(ref VisualElement element, float width)
     {
+
         element.style.borderLeftWidth = width;
         element.style.borderBottomWidth = width;
         element.style.borderRightWidth = width;
@@ -578,6 +579,7 @@ public static class DialogueElementUtility      //Rename class, make it into a U
                 break;
         }
     }
+
 
     #endregion
 

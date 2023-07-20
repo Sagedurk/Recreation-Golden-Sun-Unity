@@ -96,9 +96,9 @@ public class DialogueMasterWindow : EditorWindow
             DialogueMasterElements.Instance.dialogueBackground = (Sprite)callback.newValue;
             DialogueMasterSaveData.Save();
 
-        }, DialogueMasterElements.Instance.dialogueBackground); 
+        }, DialogueMasterElements.Instance.dialogueBackground);
 
-        
+
         //Font Type
         ObjectField font = DialogueElementUtility.CreateObjectField(callback =>
         {
@@ -107,6 +107,12 @@ public class DialogueMasterWindow : EditorWindow
 
         }, DialogueMasterElements.Instance.font);
 
+        ObjectField portraitFrame = DialogueElementUtility.CreateObjectField(callback =>
+        {
+            DialogueMasterElements.Instance.portraitFrame = (Sprite)callback.newValue;
+            DialogueMasterSaveData.Save();
+
+        }, DialogueMasterElements.Instance.portraitFrame);
 
         //Font Color
         Label fontColorLabel = new Label("Font Color: ");
@@ -177,6 +183,7 @@ public class DialogueMasterWindow : EditorWindow
 
         //Top - Bottom order
         sideMenuMargin.Add(dialogueBackgroundSprite);
+        sideMenuMargin.Add(portraitFrame);
         sideMenuMargin.Add(font);
         sideMenuMargin.Add(fontMargins.foldout);
         sideMenuMargin.Add(fontSizeTextField);

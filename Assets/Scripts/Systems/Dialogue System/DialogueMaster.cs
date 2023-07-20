@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class DialogueMaster : MonoBehaviour
 {
 
-    public GameObject choicePromptContainer;
+    public List<GameObject> choicePromptContainers = new List<GameObject>();
     public InputBehaviour inputBehaviour;
     public Image dialogueBackground;
-    public GameObject dialoguePortraitFrame;
+    public Image dialoguePortraitFrame;
 
     public Image dialoguePortrait;
     public Text dialogueText;
@@ -68,7 +68,7 @@ public class DialogueMaster : MonoBehaviour
             }
             else    //If more than one choice, run prompt logic
             {
-                ShowChoicePromt(currentNode.choices);
+                ShowChoicePromt(currentNode.choices, currentNode.choicePromptIndex);
 
                 while (!inputBehaviour.isInteracted)
                     yield return null;
@@ -76,7 +76,7 @@ public class DialogueMaster : MonoBehaviour
 
                 //if input is given this frame
                 nextNodeID = promptIndex;
-                HideChoicePromt();
+                HideChoicePromt(currentNode.choicePromptIndex);
                 //inputBehaviour.isInteracted = false;
 
             }
@@ -123,16 +123,16 @@ public class DialogueMaster : MonoBehaviour
     }
 
 
-    private void ShowChoicePromt(List<SerializedChoice> choices)
+    private void ShowChoicePromt(List<SerializedChoice> choices, int index)
     {
-        choicePromptContainer.SetActive(true);
+        choicePromptContainers[index].SetActive(true);
 
         for (int i = 0; i < choices.Count; i++)
         {
-            if (i >= choicePromptContainer.transform.GetChild(0).childCount)
+            if (i >= choicePromptContainers[index].transform.GetChild(0).childCount)
                 break;
 
-            Button button = choicePromptContainer.transform.GetChild(0).GetChild(i).GetComponent<Button>();
+            Button button = choicePromptContainers[index].transform.GetChild(0).GetChild(i).GetComponent<Button>();
 
             button.name = choices[i].choiceName;
             button.onClick.RemoveAllListeners();
@@ -145,16 +145,16 @@ public class DialogueMaster : MonoBehaviour
         //choicePromptContainer.transform.localPosition = position;
     }
 
-    private void HideChoicePromt()
+    private void HideChoicePromt(int index)
     {
 
-        for (int i = 0; i < choicePromptContainer.transform.GetChild(0).childCount; i++)
+        for (int i = 0; i < choicePromptContainers[index].transform.GetChild(0).childCount; i++)
         {
-            choicePromptContainer.transform.GetChild(0).GetChild(i).gameObject.SetActive(false);
+            choicePromptContainers[index].transform.GetChild(0).GetChild(i).gameObject.SetActive(false);
         }
 
         inputBehaviour.isInteracted = false;
-        choicePromptContainer.SetActive(false);
+        choicePromptContainers[index].SetActive(false);
     }
 
     private void ShowPortrait(PortraitData portraitData)
@@ -165,8 +165,8 @@ public class DialogueMaster : MonoBehaviour
             return;
         }
 
-        dialoguePortraitFrame.SetActive(true);
-        dialoguePortraitFrame.transform.position = portraitData.position;
+        dialoguePortraitFrame.gameObject.SetActive(true);
+        dialoguePortraitFrame.rectTransform.anchoredPosition = portraitData.position;
 
         dialoguePortrait.sprite = portraitData.sprite;
     }
@@ -176,7 +176,7 @@ public class DialogueMaster : MonoBehaviour
     
     private void HidePortrait()
     {
-        dialoguePortraitFrame.SetActive(false);
+        dialoguePortraitFrame.gameObject.SetActive(false);
     }
 
     public void ChoosePrompt(int returnIndex)

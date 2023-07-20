@@ -5,6 +5,7 @@ using UnityEditor.UIElements;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public class DialogueMasterNode : Node
 {
@@ -20,18 +21,26 @@ public class DialogueMasterNode : Node
 
     public string dialogueTextInitializer = "Dialogue Text.";
 
+    public int choicePromptIndex = 0;
+
 
     private DialogueMasterGraphView graphView;
     private Image image = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
     private VisualElement dialoguePreview = new VisualElement();
     private TextField dialoguePreviewText;
+    private VisualElement dialoguePortraitFramePreview = new VisualElement();
+    private Image dialoguePortraitPreview = DialogueElementUtility.CreateImage(new Rect(Vector2.zero, Vector2.one * 32));
     private DropdownField positionDropdown;
+    private DropdownField choicePromptDropdown;
 
 
-    Vec2VE portraitPosition = new Vec2VE();
     Vec2VE dialogueBoxSize = new Vec2VE();
 
- 
+    private enum ChoicePrompts
+    {
+        TOP,
+        BOTTOM
+    }
 
 
 
@@ -76,6 +85,22 @@ public class DialogueMasterNode : Node
             Choices.Add(choiceData);
         }
 
+        string[] choicePromptArray = Enum.GetNames(typeof(ChoicePrompts));
+
+        List<string> choicePromptList = new List<string>();
+        foreach (string enumName in choicePromptArray)
+        {
+            choicePromptList.Add(enumName);
+        }
+        
+        choicePromptDropdown = DialogueElementUtility.CreateDropdown(choicePromptList, 0, callback =>
+        {
+            DropdownField dropdown = callback.target as DropdownField;
+
+            choicePromptIndex = dropdown.index;
+            Debug.Log(choicePromptIndex);
+        });
+
         /*Preview*/
         #region Preview
 
@@ -88,12 +113,15 @@ public class DialogueMasterNode : Node
         DialogueElementUtility.SetBorderColor(ref dialoguePreview, Color.white);
         DialogueElementUtility.SetBorderWidth(ref dialoguePreview, 1);
 
+        #region Box
         dialoguePreviewText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback => 
         {
+            Vector2 oldSize = Vector2.right * dialoguePreviewText.resolvedStyle.width + Vector2.up * dialoguePreviewText.resolvedStyle.height;
             UnityEditor.EditorApplication.delayCall += () =>
             {
                 VisualElement textElement = dialoguePreviewText;
                 DialogueElementUtility.SetPositionInRelationToParent(ref textElement, (DialogueElementUtility.Alignment)positionDropdown.index);
+                
             };
 
         });
@@ -105,27 +133,46 @@ public class DialogueMasterNode : Node
         dialoguePreviewText.style.unityFontDefinition = FontDefinition.FromFont(DialogueMasterElements.Instance.font);
         dialoguePreviewText.style.fontSize = DialogueMasterElements.Instance.fontSize;
         dialoguePreviewText.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.dialogueBackground);
+        dialoguePreviewText.style.position = Position.Absolute;
         //dialoguePreviewText.style.alignSelf = Align.FlexStart;
 
         VisualElement previewText = dialoguePreviewText;
-        DialogueElementUtility.SetBorderColor(ref previewText, Color.red);
-        DialogueElementUtility.SetBorderWidth(ref previewText, 1);
+        //DialogueElementUtility.SetBorderColor(ref previewText, Color.red);
+        //DialogueElementUtility.SetBorderWidth(ref previewText, 1);
 
 
         DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, DialogueMasterElements.Instance.fontSize, previewMargins, Color.clear, textColor);
 
-        if(isShadowed)
+        if(DialogueMasterElements.Instance.isShadowed)
             DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, DialogueMasterElements.Instance.fontSize * shadowMagnitude * 0.02f);
 
+        dialoguePreview.Add(dialoguePreviewText);
 
-        DragAndDropManipulator manipulator = new DragAndDropManipulator(dialoguePreviewText);
+        DragAndDropManipulator boxManipulator = new DragAndDropManipulator(dialoguePreviewText, dialoguePreview);
 
-        
-
-
-        //previewText.style.overflow = Overflow.Hidden;
 
         #endregion
+
+        dialoguePortraitFramePreview.style.backgroundImage = new StyleBackground(DialogueMasterElements.Instance.portraitFrame);
+        dialoguePortraitFramePreview.style.width = DialogueMasterElements.Instance.portraitFrame.rect.width;
+        dialoguePortraitFramePreview.style.height = DialogueMasterElements.Instance.portraitFrame.rect.height;
+        dialoguePortraitFramePreview.style.position = Position.Absolute;
+        DragAndDropManipulator portraitManipulator = 
+            new DragAndDropManipulator(dialoguePortraitFramePreview, dialoguePreview, dialoguePreviewText, DragAndDropManipulator.DragAndDropType.OUTSIDE);
+
+
+        dialoguePortraitFramePreview.Add(dialoguePortraitPreview);
+        dialoguePortraitPreview.transform.position += (Vector3.up + Vector3.right) * 16;
+        DialogueElementUtility.SetStyleSize(ref dialoguePortraitPreview, 128, 128);
+
+        dialoguePortraitFramePreview.visible = false;
+
+
+        boxManipulator.AddManipulatorToGroup(portraitManipulator);
+
+        #endregion
+
+        
     }
 
     #region Overrided Methods
@@ -235,7 +282,7 @@ public class DialogueMasterNode : Node
         Foldout boxFoldout = DialogueElementUtility.CreateFoldout("Position", true);
 
 
-        string[] enumNames = System.Enum.GetNames(typeof(DialogueElementUtility.Alignment));
+        string[] enumNames = Enum.GetNames(typeof(DialogueElementUtility.Alignment));
         List<string> dropdownOptions = new List<string>();
         foreach (string name in enumNames)
         {
@@ -263,19 +310,24 @@ public class DialogueMasterNode : Node
         {
             Sprite newSprite = callback.newValue as Sprite;
             image.sprite = newSprite;
+            dialoguePortraitPreview.sprite = newSprite;
 
             if (image.sprite == null)
+            {
                 DialogueElementUtility.SetStyleSize(ref image, 0, 0);
+                dialoguePortraitFramePreview.visible = false;
+                dialoguePortraitPreview.visible = false;
+            }
             else
             {
                 DialogueElementUtility.SetStyleSize(ref image, 128, 128);
+                dialoguePortraitFramePreview.visible = true;
+                dialoguePortraitPreview.visible = true;
+                
             }
         });
 
-        portraitPosition.Initialize("Position");
 
-
-        portraitFoldout.Add(portraitPosition.foldout);
         portraitFoldout.Add(spriteField);
         portraitFoldout.Add(image);
 
@@ -291,8 +343,9 @@ public class DialogueMasterNode : Node
 
         });
 
-        dialoguePreview.Add(dialoguePreviewText);
         
+        dialoguePreview.Add(dialoguePortraitFramePreview);
+
         previewFoldout.Add(dialoguePreview);
         customDataContainer.Add(previewFoldout);
 
@@ -351,6 +404,9 @@ public class DialogueMasterNode : Node
                     choice.owningPort.Remove(choice.requirementTypeToolbar);
                     choice.ResetToolbarDropdown();
                 }
+
+                if(extensionContainer.Contains(choicePromptDropdown))
+                    extensionContainer.Remove(choicePromptDropdown);
             }
 
         });
@@ -369,7 +425,12 @@ public class DialogueMasterNode : Node
             );
 
         if(Choices.Count > 1)
+        {
             choicePort.Add(choiceData.requirementTypeToolbar);
+
+
+            extensionContainer.Add(choicePromptDropdown);
+        }
 
         choicePort.Add(choiceTextField);
         choicePort.Add(deleteChoiceButton);
@@ -488,10 +549,15 @@ public class DialogueMasterNode : Node
         NodeID = node.nodeID;
         DialogueText = node.dialogueText;
         image.sprite = node.portrait.sprite;
+        dialoguePortraitPreview.sprite = node.portrait.sprite;
 
-        portraitPosition.SetValues(node.portrait.position);
+        if(dialoguePortraitPreview.sprite != null)
+            dialoguePortraitFramePreview.visible = true;
+
+        dialoguePortraitFramePreview.transform.position = node.portrait.position * (Vector2.right + Vector2.down);
         dialoguePreviewText.transform.position = node.dialogueBox.position * (Vector2.right + Vector2.down);
         dialogueBoxSize.SetValues(node.dialogueBox.size);
+        choicePromptIndex = node.choicePromptIndex;
     }
 
     public DialogueEditorSerializedNode ConvertToSerializedNode()
@@ -510,11 +576,13 @@ public class DialogueMasterNode : Node
 
         serializedNode.dialogueText = DialogueText;
         serializedNode.position = GetPosition().position;
-        serializedNode.portrait.sprite = image.sprite;
-        serializedNode.portrait.position = portraitPosition.vector;
+        serializedNode.portrait.sprite = dialoguePortraitPreview.sprite;
+        serializedNode.portrait.position = dialoguePortraitFramePreview.transform.position * (Vector2.right + Vector2.down);
         serializedNode.dialogueBox.position = dialoguePreviewText.transform.position * (Vector2.right + Vector2.down);
 
         serializedNode.dialogueBox.size = dialogueBoxSize.vector;
+
+        serializedNode.choicePromptIndex = choicePromptIndex;
 
         return serializedNode;
     }

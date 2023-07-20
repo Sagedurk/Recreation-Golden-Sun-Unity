@@ -28,6 +28,7 @@ public class DialogueEditorSerializedNode
     public string dialogueText;
     public PortraitData portrait = new PortraitData();
     public Rect dialogueBox = new Rect();
+    public int choicePromptIndex = 0;
 
 }
 
@@ -46,7 +47,6 @@ public class SerializedChoice
     public string requirementFunctionName;
 
 
-
 }
 
 [Serializable]
@@ -62,6 +62,7 @@ public class PortraitData
 public class DialogueMasterElements
 {
     public Sprite dialogueBackground = null;
+    public Sprite portraitFrame = null;
     public Vector4 fontMargins = Vector4.zero;
 
     public Font font = null;

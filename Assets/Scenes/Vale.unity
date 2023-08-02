@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &101027434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3808,7 +3808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1408993231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4180,7 +4180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1511303931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5411,7 +5411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1960313502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6350,7 +6350,7 @@ PrefabInstance:
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: dialogueText
       value: 
-      objectReference: {fileID: 1408993232}
+      objectReference: {fileID: 1511303932}
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: inputBehaviour
       value: 
@@ -6366,7 +6366,7 @@ PrefabInstance:
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: dialogueTextShadow
       value: 
-      objectReference: {fileID: 101027434}
+      objectReference: {fileID: 1960313503}
     - target: {fileID: 3897456525924597586, guid: ac016bdcc9838964eb98e729091fa1f5, type: 3}
       propertyPath: choicePromptContainer
       value: 

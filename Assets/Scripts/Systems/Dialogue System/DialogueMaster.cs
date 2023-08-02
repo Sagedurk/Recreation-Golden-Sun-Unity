@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class DialogueMaster : MonoBehaviour
 {
@@ -13,13 +14,14 @@ public class DialogueMaster : MonoBehaviour
     public Image dialoguePortraitFrame;
 
     public Image dialoguePortrait;
-    public Text dialogueText;
-    public Text dialogueTextShadow;
+    public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI dialogueTextShadow;
 
     public DialogueActions dialogueActions;
 
     private int promptIndex;
 
+    private bool isShakeLocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,8 @@ public class DialogueMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!isShakeLocked)
+            StartCoroutine(ShakeText());
     }
 
 
@@ -57,6 +60,8 @@ public class DialogueMaster : MonoBehaviour
         {
             inputBehaviour.isInteracted = false;
             ShowDialogueInstance(currentNode);
+
+            yield return RenderText();
 
             int nextNodeID;
 
@@ -183,6 +188,121 @@ public class DialogueMaster : MonoBehaviour
     {
         inputBehaviour.isInteracted = true;
         promptIndex = returnIndex;
+    }
+    
+    private IEnumerator RenderText()
+    {
+        bool isDependentOnCharacterLength = true;
+        float renderSpeedInSeconds = 2f;
+        float renderSpeed = 0.2f;
+
+        dialogueText.ForceMeshUpdate();
+        dialogueTextShadow.ForceMeshUpdate();
+        TMP_TextInfo textInfo = dialogueText.textInfo;
+
+        dialogueText.maxVisibleCharacters = 0;
+        int whiteSpaceCounter = 0;
+
+        for (int i = 0; i < textInfo.characterCount; i++)
+        {
+            if (textInfo.characterInfo[i].character.IsWhitespace())
+                whiteSpaceCounter++;
+        }
+
+        for (int i = 0; i < textInfo.characterCount; i++)
+        {
+            if (textInfo.characterInfo[i].character.IsWhitespace())
+                continue;
+
+            dialogueText.maxVisibleCharacters = i + 1;
+            dialogueTextShadow.maxVisibleCharacters = i + 1;
+
+            while (inputBehaviour.isInteracted)
+            {
+                dialogueText.maxVisibleCharacters = textInfo.characterCount;
+                dialogueTextShadow.maxVisibleCharacters = textInfo.characterCount;
+
+                inputBehaviour.isInteracted = false;
+                yield break;
+            }
+
+            if(isDependentOnCharacterLength)
+                yield return new WaitForSeconds(1f / (textInfo.characterCount - whiteSpaceCounter) * renderSpeedInSeconds);
+            else    
+                yield return new WaitForSeconds(renderSpeed);
+        }
+
+    }
+
+    private IEnumerator ShakeText()
+    {
+        isShakeLocked = true;
+
+        
+        float shakeStrength = 4f;
+        float shakeSpeed = 20f;
+        string linkID = "shake";
+
+        while (dialogueText.textInfo == null || dialogueTextShadow.textInfo == null)
+        {
+            yield return null;
+        }
+
+        dialogueText.ForceMeshUpdate();
+        dialogueTextShadow.ForceMeshUpdate();
+
+
+        for (int i = 0; i < dialogueText.textInfo.linkCount; i++)
+        {
+            TMP_LinkInfo link = dialogueText.textInfo.linkInfo[i];
+
+            if (link.GetLinkID() != linkID)
+                continue;
+
+            Debug.Log("Shake Text");
+
+            float xValue;
+            float yValue;
+
+            
+
+            for (int j = link.linkTextfirstCharacterIndex; j < link.linkTextfirstCharacterIndex + link.linkTextLength; j++)
+            {
+                xValue = Random.Range(-shakeStrength, shakeStrength);
+                yValue = Random.Range(-shakeStrength, shakeStrength);
+
+                Vector2 displacementCoords = Vector2.right * xValue + Vector2.up * yValue;
+
+                ShakeTextInfo(dialogueText.textInfo, j, displacementCoords);
+                ShakeTextInfo(dialogueTextShadow.textInfo, j, displacementCoords);
+            }
+
+        }
+
+        dialogueText.UpdateVertexData(TMP_VertexDataUpdateFlags.Vertices);
+        dialogueTextShadow.UpdateVertexData(TMP_VertexDataUpdateFlags.Vertices);
+
+        yield return new WaitForSeconds(1 / shakeSpeed);
+
+        isShakeLocked = false;
+    }
+
+    private void ShakeTextInfo(TMP_TextInfo textInfo, int characterIndex, Vector2 displacementCoordinates)
+    {
+        TMP_CharacterInfo charInfo = textInfo.characterInfo[characterIndex];
+
+        if (!charInfo.isVisible)
+            return;
+
+        Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+
+        for (int j = 0; j < 4; j++)
+        {
+            Vector3 origin = vertices[charInfo.vertexIndex + j];
+
+            vertices[charInfo.vertexIndex + j] = origin + new Vector3(displacementCoordinates.x, displacementCoordinates.y, 0);
+
+        }
     }
     
 

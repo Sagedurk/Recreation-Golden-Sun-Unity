@@ -234,12 +234,14 @@ public class DialogueMasterNode : Node
         TextField dialogueText = DialogueElementUtility.CreateTextArea(DialogueText, null, callback =>
         {
             DialogueText = callback.newValue;
-            dialoguePreviewText.value = callback.newValue;
-            
+
+           
+            dialoguePreviewText.value = RemoveTextBetweenCharacters(callback.newValue, '<', '>');
+
             if (isShadowed)
             {
                 TextField previewShadow = (TextField)dialoguePreviewText.contentContainer[0];
-                previewShadow.value = callback.newValue;
+                previewShadow.value = dialoguePreviewText.value;
             }
 
             var textArea = callback.target as TextField;
@@ -547,7 +549,13 @@ public class DialogueMasterNode : Node
         SetPosition(new Rect(node.position, Vector2.zero));
 
         NodeID = node.nodeID;
+
+
         DialogueText = node.dialogueText;
+
+        DialogueText = DialogueText.Replace("<link=\"shake\">", "<shake>");
+        DialogueText = DialogueText.Replace("</link>", "</shake>");
+
         image.sprite = node.portrait.sprite;
         dialoguePortraitPreview.sprite = node.portrait.sprite;
 
@@ -575,6 +583,11 @@ public class DialogueMasterNode : Node
 
 
         serializedNode.dialogueText = DialogueText;
+
+
+        serializedNode.dialogueText = serializedNode.dialogueText.Replace("<shake>", "<link=\"shake\">");
+        serializedNode.dialogueText = serializedNode.dialogueText.Replace("</shake>", "</link>");
+
         serializedNode.position = GetPosition().position;
         serializedNode.portrait.sprite = dialoguePortraitPreview.sprite;
         serializedNode.portrait.position = dialoguePortraitFramePreview.transform.position * (Vector2.right + Vector2.down);
@@ -632,6 +645,22 @@ public class DialogueMasterNode : Node
         return new Vector2(measuredWidth, measuredHeight);
     }
 
- 
+
+    string RemoveTextBetweenCharacters(string input, char startChar, char endChar)
+    {
+        int startIndex = input.IndexOf(startChar);
+        int endIndex = input.IndexOf(endChar, startIndex + 1);
+
+        while (startIndex != -1 && endIndex != -1)
+        {
+            input = input.Remove(startIndex, endIndex - startIndex + 1);
+            startIndex = input.IndexOf(startChar, startIndex);
+            endIndex = input.IndexOf(endChar, startIndex + 1);
+        }
+
+        return input;
+    }
+
+
 }
 

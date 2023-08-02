@@ -21,15 +21,15 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 225, y: 61}
-    dialogueText: Isaac, wake up!
+    position: {x: 192, y: 112}
+    dialogueText: Isaac, <link="shake">wake</link> up!
     portrait:
-      sprite: {fileID: 21300000, guid: c53f234544342264ea172ca2c220377d, type: 3}
-      position: {x: 556, y: -32}
+      sprite: {fileID: 0}
+      position: {x: 350, y: -108}
     dialogueBox:
       serializedVersion: 2
-      x: 551
-      y: -192
+      x: 0
+      y: -0
       width: 500
       height: 108
     choicePromptIndex: 1
@@ -47,17 +47,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1260, y: 279}
+    position: {x: 1244, y: 279}
     dialogueText: 'Have you got
 
       everything you need?'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      position: {x: 109, y: -232}
     dialogueBox:
       serializedVersion: 2
       x: 0
-      y: -0
+      y: -392
       width: 674
       height: 160
     choicePromptIndex: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1678, y: 148}
+    position: {x: 1678, y: 160}
     dialogueText: 'Good for you, Isaac.
 
       A lost possession can be
@@ -77,12 +77,12 @@ MonoBehaviour:
       replaced;
       a lost life can''t.'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      position: {x: 106, y: -251}
     dialogueBox:
       serializedVersion: 2
       x: 0
-      y: -0
+      y: -411
       width: 793
       height: 212
     choicePromptIndex: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1678, y: 477}
+    position: {x: 1678, y: 502}
     dialogueText: 'I''m sorry, but we
 
       don''t have time... You''ll
@@ -119,16 +119,16 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 566, y: 61}
+    position: {x: 543, y: 112}
     dialogueText: Please, dear, wake up!
     portrait:
       sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      position: {x: 437.5, y: -176}
     dialogueBox:
       serializedVersion: 2
-      x: 605.5
-      y: -485
-      width: 708
+      x: 0
+      y: -0
+      width: 707
       height: 108
     choicePromptIndex: 1
   - nodeID: 8
@@ -139,18 +139,18 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 910, y: 148}
+    position: {x: 886, y: 112}
     dialogueText: 'The Mt. Aleph Boulder
 
-      is going to fall!'
+      <link="shake">is going to fall</link>!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      position: {x: 1077, y: -380}
     dialogueBox:
       serializedVersion: 2
       x: 0
-      y: -918
-      width: 699
+      y: -0
+      width: 979
       height: 160
     choicePromptIndex: 1
   - nodeID: 14
@@ -161,17 +161,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 282, y: 477}
+    position: {x: 220, y: 475}
     dialogueText: 'Come on, Isaac.
 
       We have to go--now!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      position: {x: 1179, y: -342}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1069
+      y: -502
       width: 645
       height: 160
     choicePromptIndex: 1
@@ -183,17 +183,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 584, y: 466}
+    position: {x: 552, y: 475}
     dialogueText: 'Isaac! You forgot
 
       something!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      position: {x: 1235, y: -333}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1174
+      y: -493
       width: 555
       height: 160
     choicePromptIndex: 1
@@ -205,7 +205,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 910, y: 466}
+    position: {x: 886, y: 478}
     dialogueText: 'It''s pouring outside!
 
       Don''t go out without
@@ -213,12 +213,12 @@ MonoBehaviour:
       your
       tunic!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
+      position: {x: 1183, y: -407}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1056
+      y: -567
       width: 641
       height: 211
     choicePromptIndex: 1
@@ -238,12 +238,12 @@ MonoBehaviour:
       fall at any
       second!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
+      position: {x: 83, y: -462}
     dialogueBox:
       serializedVersion: 2
       x: 0
-      y: -0
+      y: -622
       width: 613
       height: 212
     choicePromptIndex: 1

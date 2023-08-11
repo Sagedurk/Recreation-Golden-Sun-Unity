@@ -13,283 +13,74 @@ MonoBehaviour:
   m_Name: Vale_NPC #2
   m_EditorClassIdentifier: 
   nodes:
-  - nodeID: 0
+  - nodeID: 23
     choices:
     - choiceName: New Choice
-      connectedNodeID: 6
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 192, y: 112}
-    dialogueText: Isaac, <link="shake">wake</link> up!
-    portrait:
-      sprite: {fileID: 0}
-      position: {x: 350, y: -108}
-    dialogueBox:
-      serializedVersion: 2
-      x: 0
-      y: -0
-      width: 500
-      height: 108
-    choicePromptIndex: 1
-  - nodeID: 1
-    choices:
-    - choiceName: Yes
-      connectedNodeID: 4
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    - choiceName: No
       connectedNodeID: 5
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1244, y: 279}
-    dialogueText: 'Have you got
+    position: {x: 579, y: 192}
+    dialogueText: 'I thought we''d be
 
-      everything you need?'
+      safe until they''d gotten
+
+      all
+      the Elemental Stars.'
     portrait:
-      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      position: {x: 109, y: -232}
-    dialogueBox:
-      serializedVersion: 2
-      x: 0
-      y: -392
-      width: 674
-      height: 160
-    choicePromptIndex: 1
-  - nodeID: 4
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 17
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 1678, y: 160}
-    dialogueText: 'Good for you, Isaac.
-
-      A lost possession can be
-
-      replaced;
-      a lost life can''t.'
-    portrait:
-      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      position: {x: 106, y: -251}
-    dialogueBox:
-      serializedVersion: 2
-      x: 0
-      y: -411
-      width: 793
-      height: 212
-    choicePromptIndex: 1
-  - nodeID: 5
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 17
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 1678, y: 502}
-    dialogueText: 'I''m sorry, but we
-
-      don''t have time... You''ll
-
-      have
-      to leave it behind.'
-    portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 73, y: -211}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 718
-      height: 212
-    choicePromptIndex: 1
-  - nodeID: 6
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 8
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 543, y: 112}
-    dialogueText: Please, dear, wake up!
-    portrait:
-      sprite: {fileID: 0}
-      position: {x: 437.5, y: -176}
-    dialogueBox:
-      serializedVersion: 2
-      x: 0
-      y: -0
-      width: 707
-      height: 108
-    choicePromptIndex: 1
-  - nodeID: 8
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 14
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 886, y: 112}
-    dialogueText: 'The Mt. Aleph Boulder
-
-      <link="shake">is going to fall</link>!'
-    portrait:
-      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      position: {x: 1077, y: -380}
-    dialogueBox:
-      serializedVersion: 2
-      x: 0
-      y: -0
-      width: 979
-      height: 160
-    choicePromptIndex: 1
-  - nodeID: 14
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 15
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 220, y: 475}
-    dialogueText: 'Come on, Isaac.
-
-      We have to go--now!'
-    portrait:
-      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      position: {x: 1179, y: -342}
-    dialogueBox:
-      serializedVersion: 2
-      x: 1069
-      y: -502
-      width: 645
-      height: 160
-    choicePromptIndex: 1
-  - nodeID: 15
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 16
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 552, y: 475}
-    dialogueText: 'Isaac! You forgot
-
-      something!'
-    portrait:
-      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      position: {x: 1235, y: -333}
-    dialogueBox:
-      serializedVersion: 2
-      x: 1174
-      y: -493
-      width: 555
-      height: 160
-    choicePromptIndex: 1
-  - nodeID: 16
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 1
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 886, y: 478}
-    dialogueText: 'It''s pouring outside!
-
-      Don''t go out without
-
-      your
-      tunic!'
-    portrait:
-      sprite: {fileID: 21300000, guid: 275850f35c631f146b25f586c0f6f156, type: 3}
-      position: {x: 1183, y: -407}
-    dialogueBox:
-      serializedVersion: 2
-      x: 1056
-      y: -567
-      width: 641
+      width: 735
       height: 211
-    choicePromptIndex: 1
-  - nodeID: 17
+    choicePromptIndex: 0
+  - nodeID: 43
     choices:
     - choiceName: New Choice
-      connectedNodeID: 18
+      connectedNodeID: 44
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2050, y: 279}
-    dialogueText: 'Isaac, Dora, hurry!
-
-      The Boulder could
-
-      fall at any
-      second!'
+    position: {x: 233, y: 1998}
+    dialogueText: Th-That means...
     portrait:
-      sprite: {fileID: 21300000, guid: 595163d75cce3844f9ff39766d911195, type: 3}
-      position: {x: 83, y: -462}
-    dialogueBox:
-      serializedVersion: 2
-      x: 0
-      y: -622
-      width: 613
-      height: 212
-    choicePromptIndex: 1
-  - nodeID: 18
-    choices:
-    - choiceName: New Choice
-      connectedNodeID: 19
-      requirementID: 0
-      requirementValueCheck: 0
-      requirementInvertedFlagCheck: 0
-      requirementFunctionName: 
-    position: {x: 2412, y: 182}
-    dialogueText: "Kyle... Will they be able\n to stop the Boulder?"
-    portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
+      position: {x: 0, y: -108}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 717
-      height: 160
-    choicePromptIndex: 1
-  - nodeID: 19
+      width: 538
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 21
     choices:
     - choiceName: New Choice
-      connectedNodeID: 20
+      connectedNodeID: 43
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2733, y: 182}
-    dialogueText: 'I don''t think so...
+    position: {x: 1253, y: 1653}
+    dialogueText: 'You will have to remove
 
-      Not for long, anyway...'
+      your mask.'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -160}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 683
+      width: 730
       height: 160
-    choicePromptIndex: 1
-  - nodeID: 20
+    choicePromptIndex: 0
+  - nodeID: 41
     choices:
     - choiceName: New Choice
       connectedNodeID: 21
@@ -297,41 +88,71 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3069, y: 182}
-    dialogueText: 'You two go on ahead and
+    position: {x: 916, y: 1653}
+    dialogueText: 'Guarantee...
 
-      take refuge in the plaza.'
+      Ah. I have one.'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -160}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 765
+      width: 468
       height: 160
-    choicePromptIndex: 1
-  - nodeID: 21
+    choicePromptIndex: 0
+  - nodeID: 19
     choices:
     - choiceName: New Choice
-      connectedNodeID: 22
+      connectedNodeID: 41
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3395, y: 336}
-    dialogueText: Aren't you coming?
+    position: {x: 579, y: 1653}
+    dialogueText: 'What guarantee do we
+
+      have once we''ve given
+
+      you
+      the Elemental Stars?'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 0, y: -211}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 599
-      height: 108
-    choicePromptIndex: 1
-  - nodeID: 22
+      width: 777
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 39
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 19
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 1653}
+    dialogueText: 'Why would you deny us?
+
+      Don''t you want your
+
+      friends
+      to be safe?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 735
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 1
     choices:
     - choiceName: New Choice
       connectedNodeID: 23
@@ -339,41 +160,348 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2412, y: 515}
-    dialogueText: 'I need to help evacuate
-
-      the other villagers.'
+    position: {x: 233, y: 192}
+    dialogueText: "It looks like they've \nspotted us."
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 717
+      width: 622
       height: 160
-    choicePromptIndex: 1
-  - nodeID: 23
+    choicePromptIndex: 0
+  - nodeID: 17
     choices:
     - choiceName: New Choice
-      connectedNodeID: 24
+      connectedNodeID: 39
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2733, y: 571}
-    dialogueText: Let me help you, Kyle!
+    position: {x: 1603, y: 1402}
+    dialogueText: 'Very good, Isaac!
+
+      You must not give them
+
+      the  Elemental 
+      Stars!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 2, y: -211}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 674
+      width: 707
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 37
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 39
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1603, y: 1081}
+    dialogueText: 'No, Isaac! You
+
+      must not give them
+
+      the Elemental
+      Stars!'
+    portrait:
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 660
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 15
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 37
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: 17
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 1207}
+    dialogueText: Do you accept our terms?
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 782
       height: 108
     choicePromptIndex: 1
-  - nodeID: 24
+  - nodeID: 35
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 15
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 1207}
+    dialogueText: 'Then give us the
+
+      Elemental Stars!'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 552
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 14
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 35
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 1207}
+    dialogueText: 'You heard us...
+
+      If you wish to save
+
+      your friends,'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 590
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 33
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 14
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1252, y: 874}
+    dialogueText: Isn't that enough?
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 571
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 13
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 33
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 874}
+    dialogueText: 'They''ll be safe, as long
+
+      as they hand over
+
+      the
+      Elemental Stars.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 697
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 31
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 13
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 874}
+    dialogueText: 'That all depends on how
+
+      well they cooperate.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 735
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 11
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 31
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 874}
+    dialogueText: 'That was our
+
+      agreement, was it not?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 707
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 29
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 11
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1252, y: 527}
+    dialogueText: 'Relax...
+
+      You will not be hurt.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 627
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 9
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 29
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 527}
+    dialogueText: 'I''m sure they''ll do
+
+      us in once they no
+
+      longer
+      need us!'
+    portrait:
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 566
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 27
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 9
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 527}
+    dialogueText: 'What will you do with
+
+      us once you''ve got
+
+      the Elemental
+      Stars?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 669
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 7
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 27
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 527}
+    dialogueText: 'As I recall, aren''t
+
+      you the one who stole
+
+      our information?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 650
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 25
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 7
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1252, y: 192}
+    dialogueText: 'Master Kraden... Are you
+
+      calling us thieves?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 796
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 5
     choices:
     - choiceName: New Choice
       connectedNodeID: 25
@@ -381,107 +509,1255 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3069, y: 571}
-    dialogueText: 'It''s too dangerous, Dora.
+    position: {x: 916, y: 192}
+    dialogueText: 'You! You mean to steal
 
-      Please, just take good
-
-      care
-      of Isaac!'
+      the Elemental Stars!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 693
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 44
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 45
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 1998}
+    dialogueText: 'Ah, of course. A fine
+
+      idea... He will be
+
+      our guarantee.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 641
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 45
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 46
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 1998}
+    dialogueText: 'Under the circumstances,
+
+      we have little choice.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 805
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 46
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 47
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 1998}
+    dialogueText: Felix! Remove your mask!
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 796
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 47
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 48
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -2169, y: 2330}
+    dialogueText: 'What? What did he say,
+
+      Isaac?'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 725
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 48
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 49
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: 50
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -1840, y: 2417}
+    dialogueText: 'He called that guy Felix...
+
+      That''s what he said,
+
+      isn''t
+      it?'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 786
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 49
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 51
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -1433, y: 2309}
+    dialogueText: 'You heard it too?
+
+      Felix? It can''t be...'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 590
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 50
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 51
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -1433, y: 2626}
+    dialogueText: 'But that''s what I
+
+      heard. Felix?
+
+      It can''t be...'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 538
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 51
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 52
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: 55
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -1085, y: 2473}
+    dialogueText: 'That day... The Boulder...
+
+      We saw him die,
+
+      didn''t
+      we?'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 763
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 52
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 53
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -621, y: 2309}
+    dialogueText: 'You remember it, too,
+
+      Isaac?'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 660
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 53
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 54
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -255, y: 2309}
+    dialogueText: 'Then...what kind of
+
+      guarantee are they
+
+      giving us?'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 4
+      y: -0
+      width: 618
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 54
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 68
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 2360}
+    dialogueText: 'What''s wrong, Felix...
+
+      Don''t you want them
+
+      to
+      feel safe?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 674
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 55
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 54
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -393, y: 2729}
+    dialogueText: 'We searched for weeks,
+
+      but we still couldn''t
+
+      find
+      him.'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
       width: 758
-      height: 212
-    choicePromptIndex: 1
-  - nodeID: 25
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 68
     choices:
     - choiceName: New Choice
-      connectedNodeID: 26
+      connectedNodeID: 69
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3395, y: 623}
-    dialogueText: 'Isaac is old enough to get
+    position: {x: 579, y: 2360}
+    dialogueText: 'Felix... wasn''t that the
 
-      to the plaza on his own.'
+      name  of  your  brother?'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 1, y: -158}
+    dialogueBox:
+      serializedVersion: 2
+      x: 1
+      y: -0
+      width: 740
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 69
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 70
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 2360}
+    dialogueText: 'But that accident...
+
+      My   brother,   he...'
+    portrait:
+      sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 604
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 70
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 71
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 2360}
+    dialogueText: I'll do it.
+    portrait:
+      sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 294
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 71
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 72
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 2730}
+    dialogueText: I'll...take off my mask.
+    portrait:
+      sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 674
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 72
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 73
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 2730}
+    dialogueText: <link="shake">I-It's not possible...</link>
+    portrait:
+      sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 608
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 73
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 74
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 2730}
+    dialogueText: Is he...
+    portrait:
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 243
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 74
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 75
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 2730}
+    dialogueText: 'I know I''ve caused you
+
+      much grief, Jenna.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 693
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 75
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 76
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 3052}
+    dialogueText: 'It was a miracle that
+
+      I survived that day...'
+    portrait:
+      sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 665
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 76
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 77
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 3052}
+    dialogueText: 'We are the ones
+
+      who saved him.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 519
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 77
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 78
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 3052}
+    dialogueText: 'We say him floating
+
+      unconscious in the
+
+      river as
+      we passed.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 632
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 78
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 79
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 3052}
+    dialogueText: 'I''ve been with them ever
+
+      since... I''ve experienced
+
+      a
+      lot.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 763
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 79
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 80
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 3403}
+    dialogueText: But why?
+    portrait:
+      sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 322
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 80
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 81
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 3403}
+    dialogueText: 'Why did you leave
+
+      me all alone...'
+    portrait:
+      sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 571
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 81
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 82
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 3403}
+    dialogueText: Jenna...
+    portrait:
+      sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 280
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 82
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 83
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 3403}
+    dialogueText: 'My own brother...
+
+      I thought you were dead!'
+    portrait:
+      sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
+      position: {x: 0, y: -160}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
       width: 768
       height: 160
-    choicePromptIndex: 1
-  - nodeID: 26
+    choicePromptIndex: 0
+  - nodeID: 83
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 84
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 3742}
+    dialogueText: 'Save this teary reunion
+
+      for later.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 740
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 84
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 85
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 3742}
+    dialogueText: 'That''s right.
+
+      The Elemental Stars
+
+      come first.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 650
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 85
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 86
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 3742}
+    dialogueText: Is this acceptable?
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 604
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 86
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 87
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 3742}
+    dialogueText: 'Felix would never
+
+      allow us to harm you...
+
+      or his
+      sister.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 669
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 87
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 88
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: -640, y: 4193}
+    dialogueText: 'Felix will be our
+
+      guarantee. Now, give us
+
+      the   
+      Elemental    Stars!'
+    portrait:
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 744
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 88
     choices:
     - choiceName: Yes
-      connectedNodeID: 30
+      connectedNodeID: 89
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     - choiceName: No
-      connectedNodeID: 27
+      connectedNodeID: 90
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 3826, y: 391}
-    dialogueText: 'You can find your
+    position: {x: -294, y: 4193}
+    dialogueText: 'We don''t have any choice.
 
-      way, can''t you,
+      Should we give them
 
-      Isaac?'
+      the
+      Elemental Stars?'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -0}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 557
-      height: 212
+      width: 777
+      height: 211
     choicePromptIndex: 0
-  - nodeID: 27
+  - nodeID: 90
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 93
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 4448}
+    dialogueText: 'If   you   don''t   hand
+
+      them over, they won''t
+
+      let
+      Jenna go!'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 669
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 89
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 91
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 4095}
+    dialogueText: 'I guess I should take
+
+      the Elemental Stars
+
+      to them.'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 646
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 91
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 92
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 4095}
+    dialogueText: 'Isaac handed over
+
+      the Elemental Stars.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 650
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 92
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 94
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 4237}
+    dialogueText: 'Will you permit me to
+
+      relieve you of those
+
+      Elemental
+      Stars?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 650
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 93
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 92
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 4448}
+    dialogueText: 'Garet took the
+
+      Elemental Stars.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 543
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 94
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 95
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 4237}
+    dialogueText: 'Oh,   Alex...
+
+      You''re late!'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 402
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 95
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 96
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 4841}
+    dialogueText: 'Alex   is   another   of
+
+      our companions. Hand
+
+      the  
+      stones   to   him.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 669
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 96
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 97
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 4841}
+    dialogueText: 'Oh, great. After we did
+
+      all that work...'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 735
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 97
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 98
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 4841}
+    dialogueText: 'Garet gave him
+
+      the Elemental Stars.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 650
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 98
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 99
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 4841}
+    dialogueText: 'I''m    afraid    I    must
+
+      apologize in advance...'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 688
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 99
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 100
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 5207}
+    dialogueText: 'For  you  will  be  bringing
+
+      us the remaining Elemental
+
+      Star,
+      as well.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 829
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 100
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 101
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 5207}
+    dialogueText: Wait a second!
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 482
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 101
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 102
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 5207}
+    dialogueText: 'You want us to grab the
+
+      other one for you, too?'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 730
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 102
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 103
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1253, y: 5207}
+    dialogueText: 'Oh, did you not
+
+      understand me?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 524
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 103
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 104
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 233, y: 5547}
+    dialogueText: 'You said you''d set Jenna
+
+      free  once  we  gave  you
+
+      the   
+      Elemental    Stars.'
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 758
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 104
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 105
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 579, y: 5547}
+    dialogueText: You promised...
+    portrait:
+      sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
+      position: {x: 0, y: -108}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 486
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 105
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 106
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 916, y: 5547}
+    dialogueText: 'No, my friend...
+
+      We want you to bring us
+
+      ALL the
+      Elemental Stars!'
+    portrait:
+      sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 796
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 106
     choices:
     - choiceName: Yes
-      connectedNodeID: 30
+      connectedNodeID: 107
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     - choiceName: No
-      connectedNodeID: -1
+      connectedNodeID: 108
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 4308, y: 527}
-    dialogueText: 'You''re a big boy
+    position: {x: 1253, y: 5547}
+    dialogueText: 'Stop grumbling and bring
 
-      now, Isaac.  Why don''t you go
-
-      on
-      your own?'
+      us the last Star!'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
+      position: {x: 0, y: -160}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 856
-      height: 212
+      width: 772
+      height: 160
     choicePromptIndex: 0
-  - nodeID: 30
+  - nodeID: 107
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 109
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2204, y: 5547}
+    dialogueText: 'Thank you for your
+
+      cooperation.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -160}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 604
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 108
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 110
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: 107
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1721, y: 5689}
+    dialogueText: 'You don''t want anything
+
+      to happen to your
+
+      friends,
+      do you?'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 735
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 109
     choices:
     - choiceName: New Choice
       connectedNodeID: -1
@@ -489,21 +1765,43 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 4779, y: 391}
-    dialogueText: 'You know the way--just
+    position: {x: 2598, y: 5547}
+    dialogueText: 'We''ll be waiting for
 
-      go south to get to
-
-      the plaza.
-      Be careful!'
+      the rest.'
     portrait:
-      sprite: {fileID: 0}
-      position: {x: 0, y: 0}
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -160}
     dialogueBox:
       serializedVersion: 2
       x: 0
       y: -0
-      width: 759
-      height: 212
-    choicePromptIndex: 1
-  starterNodeID: 0
+      width: 618
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 110
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 108
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2244, y: 6004}
+    dialogueText: 'I doubt that''s how you
+
+      really feel. I''ll ask you
+
+      once
+      again.'
+    portrait:
+      sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
+      position: {x: 0, y: -211}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 693
+      height: 211
+    choicePromptIndex: 0
+  starterNodeID: 1

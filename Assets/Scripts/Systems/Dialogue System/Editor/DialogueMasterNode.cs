@@ -34,6 +34,23 @@ public class DialogueMasterNode : Node
     private DropdownField choicePromptDropdown;
 
 
+    #region Rich Text Tags
+
+    private string shakeTag = "<shake>";
+    private string stretchStartTag = "<stretch>";
+    private string stretchCloseTag = "</stretch>";
+
+    private string spacingStartTag = "<space=";
+    private string spacingCloseTag = "</space>";
+
+    private string closeTag = "<close>";
+
+    private string linkStartTag = "<link=\"";
+    private string linkCloseTag = "</link>";
+
+    #endregion
+
+
     Vec2VE dialogueBoxSize = new Vec2VE();
 
     private enum ChoicePrompts
@@ -61,7 +78,7 @@ public class DialogueMasterNode : Node
     #endregion
 
 
-
+    
 
     public void Initialize(DialogueMasterGraphView dialogueGraphView, Vector2 position)
     {
@@ -126,6 +143,8 @@ public class DialogueMasterNode : Node
 
         });
 
+        dialoguePreviewText.value = RemoveTextBetweenCharacters(dialoguePreviewText.value, '<', '>');
+
 
         //dialoguePreviewText.delegatesFocus = false;
         dialoguePreviewText.focusable = false;
@@ -170,9 +189,10 @@ public class DialogueMasterNode : Node
 
         boxManipulator.AddManipulatorToGroup(portraitManipulator);
 
-        #endregion
 
-        
+        //TryStretchToBoxWidth("This is a test <stretch>to see if the string removal</stretch> works just like intended, <stretch>or if it is botched</stretch>");
+
+        #endregion
     }
 
     #region Overrided Methods
@@ -553,8 +573,16 @@ public class DialogueMasterNode : Node
 
         DialogueText = node.dialogueText;
 
-        DialogueText = DialogueText.Replace("<link=\"shake\">", "<shake>");
-        DialogueText = DialogueText.Replace("</link>", "</shake>");
+        //DialogueText = RemoveTextBetweenCharacters(DialogueText, '=', 'x');
+
+        DialogueText = ReplaceSpacingTag(DialogueText);
+
+        DialogueText = ReplaceFromLinkTag(DialogueText, shakeTag);
+        DialogueText = ReplaceFromLinkTag(DialogueText, stretchStartTag, false);
+        DialogueText = ReplaceFromLinkTag(DialogueText, stretchCloseTag, false);
+
+        dialoguePreviewText.value = DialogueText;
+        dialoguePreviewText.value = RemoveTextBetweenCharacters(dialoguePreviewText.value, '<', '>');
 
         image.sprite = node.portrait.sprite;
         dialoguePortraitPreview.sprite = node.portrait.sprite;
@@ -582,11 +610,16 @@ public class DialogueMasterNode : Node
         }
 
 
+
+        TryStretchToBoxWidth(DialogueText);
+       
+
         serializedNode.dialogueText = DialogueText;
 
 
-        serializedNode.dialogueText = serializedNode.dialogueText.Replace("<shake>", "<link=\"shake\">");
-        serializedNode.dialogueText = serializedNode.dialogueText.Replace("</shake>", "</link>");
+        serializedNode.dialogueText = ReplaceToLinkTag(serializedNode.dialogueText, shakeTag);
+        serializedNode.dialogueText = ReplaceToLinkTag(serializedNode.dialogueText, stretchStartTag, false);
+        serializedNode.dialogueText = ReplaceToLinkTag(serializedNode.dialogueText, stretchCloseTag, false);
 
         serializedNode.position = GetPosition().position;
         serializedNode.portrait.sprite = dialoguePortraitPreview.sprite;
@@ -661,6 +694,193 @@ public class DialogueMasterNode : Node
         return input;
     }
 
+    string TryRemoveTagBrackets(string input)
+    {
+        string output = (string)input.Clone();
 
+        output.Trim();
+
+        if (!output.StartsWith("<"))
+            return ""; 
+
+        if (!output.EndsWith(">"))
+            return "";
+
+        output = output.Remove(input.Length - 1, 1);
+        output = output.Remove(0, 1);
+
+        return output;
+    }
+
+    string ReplaceToLinkTag(string input, string customTag, bool replaceClosingTag = true)
+    {
+        string output = input;
+
+        output = output.Replace(customTag, linkStartTag + TryRemoveTagBrackets(customTag) + "\">");
+        if (replaceClosingTag)
+            output = output.Replace(closeTag, linkCloseTag);
+
+        return output;
+    }
+    string ReplaceFromLinkTag(string input, string customTag, bool replaceClosingTag = true)
+    {
+        string output = input;
+
+        output = output.Replace(linkStartTag + TryRemoveTagBrackets(customTag) + "\">", customTag);
+        
+        if(replaceClosingTag)
+            output = output.Replace(linkCloseTag, closeTag);
+
+        return output;
+    }
+
+    string RemoveCustomTag(string input, string customTag)
+    {
+        string output = input;
+
+        output = output.Replace(customTag, "");
+
+        return output;
+    }
+
+    string RemoveCustomTags(string input)
+    {
+        string output = input;
+
+        output = RemoveCustomTag(output, shakeTag);
+        output = RemoveCustomTag(output, closeTag);
+
+        return output;
+    }
+
+    void CalculateSpacing(string subString)
+    {
+        if (!dialoguePreviewText.text.Contains(subString) && !DialogueText.Contains(subString))
+            return;
+
+
+        string subStringNoSpaces = subString.RemoveWhitespaces();
+        subStringNoSpaces = RemoveCustomTags(subStringNoSpaces);
+        Debug.Log(subStringNoSpaces);
+        Debug.Log(dialoguePreviewText.text);
+
+        Vector2 subStringSize = dialoguePreviewText.MeasureTextSize(subStringNoSpaces, 0, MeasureMode.Undefined, 0, MeasureMode.Undefined);    
+        Vector2 stringSize = dialoguePreviewText.MeasureTextSize(dialoguePreviewText.text, 0, MeasureMode.Undefined, 0, MeasureMode.Undefined);
+
+        float widthDifference = stringSize.x - subStringSize.x;
+        int amountofSpaces = CountWords(subString) - 1;
+
+        Debug.Log("words:" + amountofSpaces);
+
+        float spacingAmount = widthDifference / amountofSpaces;
+
+        string spacingString = "<space=" + spacingAmount + "px>";
+
+        DialogueText = DialogueText.ReplaceInSubString(subString, " ", spacingString);
+    }
+
+    void TryStretchToBoxWidth(string input)
+    {
+        List<string> subStrings = GetSubStringsBetweenPoints(input, stretchStartTag, stretchCloseTag);
+        foreach (string subString in subStrings)
+        {
+            CalculateSpacing(subString);
+        }
+    }
+
+    string ReplaceSpacingTag(string input)
+    {
+        string output = input;
+        List<string> subStrings = GetSubStringsBetweenPoints(input, spacingStartTag, ">");
+
+
+        foreach (string subString in subStrings)
+        {
+            string spacingTag = spacingStartTag + subString + ">";
+
+            output = output.Replace(spacingTag, " ");
+        }
+
+        return output;
+    }
+
+    List<string> GetSubStringsBetweenPoints(string input, string startPoint, string endPoint)
+    {
+        int startIndex;
+        int endIndex;
+        List<string> output = new List<string>();
+        string modifiedInput = input;
+
+        while ((startIndex = modifiedInput.IndexOf(startPoint)) != -1 && modifiedInput.IndexOf(endPoint) != -1)
+        {
+            startIndex = modifiedInput.IndexOf(startPoint) + startPoint.Length;
+            endIndex = modifiedInput.IndexOf(endPoint, startIndex);
+
+            output.Add(modifiedInput.Substring(startIndex, endIndex - startIndex));
+            modifiedInput = modifiedInput.Remove(startIndex - startPoint.Length, endIndex - startIndex + startPoint.Length + endPoint.Length);
+
+        }
+
+        return output;
+    }
+
+    int CountWords(string input)
+    {
+        string[] words = input.Split(' ');
+        return words.Length;
+    }
+
+   
+
+}
+
+public static class Extension
+{
+    public static string ReplaceInSubString(this string input, string subString, string oldValue, string newValue)
+    {
+        string output = "";
+        int startIndex = 0;
+        int endIndex = 0;
+
+
+        List<string> subStrings = new List<string>();
+
+        //while ((startIndex = input.IndexOf(subString, endIndex)) != -1)
+        //{
+        //    string newSubString = input.Substring(endIndex, startIndex - endIndex);
+        //    subStrings.Add(newSubString);
+        //    endIndex = startIndex + subString.Length;
+
+        //}
+
+        endIndex = input.IndexOf(subString);
+        subStrings.Add(input.Substring(startIndex, endIndex));
+
+        startIndex += endIndex;
+        endIndex = subString.Length;
+        subStrings.Add(input.Substring(startIndex, endIndex));
+
+        startIndex += endIndex;
+        endIndex = input.Length - startIndex;
+        subStrings.Add(input.Substring(startIndex, endIndex));
+
+
+        for (int i = 0; i < subStrings.Count; i++)
+        {
+            if (subStrings[i] != subString)
+                continue;
+
+
+            subStrings[i] = subStrings[i].Replace(oldValue, newValue);
+        }
+
+        foreach (string sub in subStrings)
+        {
+            output += sub;
+        }
+
+        Debug.Log(output);
+        return output;
+    }
 }
 

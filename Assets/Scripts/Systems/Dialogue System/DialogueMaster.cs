@@ -259,7 +259,6 @@ public class DialogueMaster : MonoBehaviour
             if (link.GetLinkID() != linkID)
                 continue;
 
-            Debug.Log("Shake Text");
 
             float xValue;
             float yValue;

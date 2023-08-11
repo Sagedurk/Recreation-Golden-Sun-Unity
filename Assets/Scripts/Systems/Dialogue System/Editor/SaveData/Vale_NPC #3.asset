@@ -1,0 +1,511 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50850ac4a6fb2d4448e510a1f080ead2, type: 3}
+  m_Name: Vale_NPC #3
+  m_EditorClassIdentifier: 
+  nodes:
+  - nodeID: 1
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 93
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 235, y: 379}
+    dialogueText: 'This is a meta commentary of
+
+      my dialogue system.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 880
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 11
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 12
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1370, y: 610}
+    dialogueText: "The box has 9 presets for\npositioning in a 3x3 grid.\nIt can
+      also be dragged to \na custom position."
+    portrait:
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 133, y: -452}
+    dialogueBox:
+      serializedVersion: 2
+      x: 133
+      y: -612
+      width: 800
+      height: 263
+    choicePromptIndex: 0
+  - nodeID: 5
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 11
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1007, y: 610}
+    dialogueText: 'This dialogue system is node based,
+
+      it has a custom editor
+      window.
+
+      Adding branching dialogue is easy.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 1063
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 9
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 14
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1748, y: 260}
+    dialogueText: 'I still have a lot of features
+
+      to implement, which I''ll
+
+      continously
+      work toward.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -1}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 847
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 3
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 9
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1370, y: 260}
+    dialogueText: "I have analyzed and reverse \nengineered Golden Sun's\ndialogue
+      system."
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 885
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 7
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 3
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1007, y: 260}
+    dialogueText: 'Just like the project in general,
+
+      the dialogue system is
+      based
+
+      on Golden Sun.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 988
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 12
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 13
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1748, y: 610}
+    dialogueText: 'Portraits are bound to the
+
+      outside boundaries of the box.'
+    portrait:
+      sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
+      position: {x: 342.5, y: -619}
+    dialogueBox:
+      serializedVersion: 2
+      x: 502.5
+      y: -459
+      width: 913
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 13
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 15
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2110, y: 610}
+    dialogueText: "The shadow is not part of the\nfont itself. I have a toggle for
+      \nincluding shadow or not, and\nthe direction and magnitude\nare also customizable."
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 725, y: -278.5}
+    dialogueBox:
+      serializedVersion: 2
+      x: 1019
+      y: -764
+      width: 899
+      height: 314
+    choicePromptIndex: 0
+  - nodeID: 14
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 5
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2110, y: 260}
+    dialogueText: 'The goal of this system is to base it off
+
+      of other games
+      as well, I want to make
+
+      a proper dialogue system.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 1152
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 15
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 16
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1007, y: 963}
+    dialogueText: 'Just how the shadow is controllable,
+
+      so are the text margins.
+      All four
+
+      sides are individually controlled'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 340, y: -198}
+    dialogueBox:
+      serializedVersion: 2
+      x: 827
+      y: -0
+      width: 1091
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 16
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 17
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1369, y: 963}
+    dialogueText: "The system also have two custom rich \ntext tags right now. <link=\"shake\">Text
+      shake</link> \n<link=\"stretch\"><link=\"shake\">and<space=170.3333px>line<space=170.3333px>space<space=170.3333px>filling.</link><link=\"/stretch\">"
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -1}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 1129
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 17
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 18
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1748, y: 963}
+    dialogueText: 'There are a handful of features
+
+      that I want to add in the
+      future.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 469.5
+      y: -918
+      width: 979
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 18
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 19
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2110, y: 963}
+    dialogueText: "Name boxes, like in Hades.\nA name database and custom tags \nfor
+      it, to easily change names \nwithout changing dialogue."
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 453.5
+      y: -0
+      width: 1011
+      height: 263
+    choicePromptIndex: 0
+  - nodeID: 19
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 20
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1007, y: 1344}
+    dialogueText: 'A continue marker, like in Golden Sun.
+
+      Support for multiple
+      portraits and
+
+      dialogues at the same time.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 392.5
+      y: -0
+      width: 1133
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 20
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 21
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1370, y: 1344}
+    dialogueText: 'Miscellaneous overrides
+
+      for each dialogue node, and
+
+      better
+      global options'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 544.5
+      y: -0
+      width: 829
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 21
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 91
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1748, y: 1344}
+    dialogueText: 'A custom UI builder for allowing
+
+      custom presentation of
+      choices.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 469.5
+      y: -0
+      width: 979
+      height: 160
+    choicePromptIndex: 0
+  - nodeID: 22
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 92
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1007, y: 1716}
+    dialogueText: "Support for audioclips.\nSubtitles are essentially just dialogue.
+      \nThe plan is to be able to support as many\ndialogue system types as possible."
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -4}
+    dialogueBox:
+      serializedVersion: 2
+      x: 362
+      y: -0
+      width: 1194
+      height: 263
+    choicePromptIndex: 0
+  - nodeID: 91
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 22
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 2110, y: 1344}
+    dialogueText: 'Choice prerequisites,
+
+      like stat locked choices
+
+      in
+      Cyberpunk 2077.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 591.5
+      y: -0
+      width: 735
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 92
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 40
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1369, y: 1716}
+    dialogueText: 'A lot of these future plans are
+
+      either linked to supporting
+      other
+
+      types of dialogue systems, or linked
+
+      to making the tool
+      itself better.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 420.5
+      y: -0
+      width: 1077
+      height: 263
+    choicePromptIndex: 0
+  - nodeID: 93
+    choices:
+    - choiceName: Yes
+      connectedNodeID: 7
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    - choiceName: No
+      connectedNodeID: -1
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 573, y: 379}
+    dialogueText: Do you want to continue?
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 754
+      height: 108
+    choicePromptIndex: 1
+  - nodeID: 40
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: -1
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1748, y: 1716}
+    dialogueText: 'The planned feature set is likely
+
+      to change and expand
+      as I move
+
+      forward with the system.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 57, y: -204}
+    dialogueBox:
+      serializedVersion: 2
+      x: 57
+      y: -204
+      width: 993
+      height: 211
+    choicePromptIndex: 0
+  starterNodeID: 1

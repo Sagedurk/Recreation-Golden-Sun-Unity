@@ -229,20 +229,20 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 1007, y: 963}
-    dialogueText: 'Just how the shadow is controllable,
+    dialogueText: 'The text margins in relation
 
-      so are the text margins.
-      All four
+      to the box are also customizable.
 
-      sides are individually controlled'
+      Each
+      side is individually set.'
     portrait:
       sprite: {fileID: 0}
       position: {x: 340, y: -198}
     dialogueBox:
       serializedVersion: 2
-      x: 827
+      x: 0
       y: -0
-      width: 1091
+      width: 983
       height: 211
     choicePromptIndex: 0
   - nodeID: 16
@@ -253,9 +253,9 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1369, y: 963}
+    position: {x: 1370, y: 963}
     dialogueText: "The system also have two custom rich \ntext tags right now. <link=\"shake\">Text
-      shake</link> \n<link=\"stretch\"><link=\"shake\">and<space=170.3333px>line<space=170.3333px>space<space=170.3333px>filling.</link><link=\"/stretch\">"
+      shake</link> \n<link=\"stretch\">and<space=267.5px>line<space=267.5px>stretching.<link=\"/stretch\">"
     portrait:
       sprite: {fileID: 0}
       position: {x: 0, y: -1}
@@ -292,39 +292,39 @@ MonoBehaviour:
   - nodeID: 18
     choices:
     - choiceName: New Choice
-      connectedNodeID: 19
+      connectedNodeID: 43
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 2110, y: 963}
-    dialogueText: "Name boxes, like in Hades.\nA name database and custom tags \nfor
-      it, to easily change names \nwithout changing dialogue."
+    dialogueText: 'Name boxes, like in Hades.
+
+      The inclusion of titles is
+
+      something
+      that didn''t occur to me.'
     portrait:
       sprite: {fileID: 0}
-      position: {x: 0, y: -0}
+      position: {x: 359, y: -0}
     dialogueBox:
       serializedVersion: 2
-      x: 453.5
+      x: 451
       y: -0
-      width: 1011
-      height: 263
+      width: 1016
+      height: 211
     choicePromptIndex: 0
   - nodeID: 19
     choices:
     - choiceName: New Choice
-      connectedNodeID: 20
+      connectedNodeID: 44
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1007, y: 1344}
-    dialogueText: 'A continue marker, like in Golden Sun.
-
-      Support for multiple
-      portraits and
-
-      dialogues at the same time.'
+    position: {x: 1370, y: 1344}
+    dialogueText: "A continue marker, like in Golden Sun. \nIt has a peculiar behaviour,
+      which \ndidn't occur to me until I analyzed it."
     portrait:
       sprite: {fileID: 0}
       position: {x: 0, y: -0}
@@ -343,7 +343,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1370, y: 1344}
+    position: {x: 2110, y: 1344}
     dialogueText: 'Miscellaneous overrides
 
       for each dialogue node, and
@@ -368,19 +368,18 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1748, y: 1344}
-    dialogueText: 'A custom UI builder for allowing
+    position: {x: 1007, y: 1716}
+    dialogueText: 'A custom UI builder to allow
 
-      custom presentation of
-      choices.'
+      custom presentation of choices.'
     portrait:
       sprite: {fileID: 0}
       position: {x: 0, y: -0}
     dialogueBox:
       serializedVersion: 2
-      x: 469.5
+      x: 481.5
       y: -0
-      width: 979
+      width: 955
       height: 160
     choicePromptIndex: 0
   - nodeID: 22
@@ -391,7 +390,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1007, y: 1716}
+    position: {x: 1748, y: 1716}
     dialogueText: "Support for audioclips.\nSubtitles are essentially just dialogue.
       \nThe plan is to be able to support as many\ndialogue system types as possible."
     portrait:
@@ -412,7 +411,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2110, y: 1344}
+    position: {x: 1370, y: 1716}
     dialogueText: 'Choice prerequisites,
 
       like stat locked choices
@@ -437,7 +436,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1369, y: 1716}
+    position: {x: 2110, y: 1716}
     dialogueText: 'A lot of these future plans are
 
       either linked to supporting
@@ -491,7 +490,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1748, y: 1716}
+    position: {x: 1007, y: 2080}
     dialogueText: 'The planned feature set is likely
 
       to change and expand
@@ -507,5 +506,49 @@ MonoBehaviour:
       y: -204
       width: 993
       height: 211
+    choicePromptIndex: 0
+  - nodeID: 43
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 19
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1007, y: 1344}
+    dialogueText: "A name database and custom tags \nfor it, to easily change names
+      \nwithout changing dialogue."
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 453.5
+      y: -0
+      width: 1011
+      height: 211
+    choicePromptIndex: 0
+  - nodeID: 44
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: 20
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 1748, y: 1344}
+    dialogueText: 'Support for multiple portraits
+
+      and dialogues at the same
+      time.'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 491
+      y: -0
+      width: 936
+      height: 160
     choicePromptIndex: 0
   starterNodeID: 1

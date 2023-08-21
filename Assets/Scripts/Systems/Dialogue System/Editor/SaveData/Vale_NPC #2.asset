@@ -22,19 +22,19 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 579, y: 192}
-    dialogueText: 'I thought we''d be
+    dialogueText: '<link="stretch">I<space=78.33334px>thought<space=78.33334px>we''d<space=78.33334px>be<link="/stretch">
 
-      safe until they''d gotten
+      safe
+      until they''d gotten
 
-      all
-      the Elemental Stars.'
+      all the Elemental Stars.'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 73, y: -211}
+      position: {x: 232, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 59
+      y: -869
       width: 735
       height: 211
     choicePromptIndex: 0
@@ -50,11 +50,11 @@ MonoBehaviour:
     dialogueText: Th-That means...
     portrait:
       sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 636, y: -207}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 566
+      y: -99
       width: 538
       height: 108
     choicePromptIndex: 0
@@ -72,11 +72,11 @@ MonoBehaviour:
       your mask.'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 256, y: -760}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 95
+      y: -920
       width: 730
       height: 160
     choicePromptIndex: 0
@@ -94,11 +94,11 @@ MonoBehaviour:
       Ah. I have one.'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 351, y: -760}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 351
+      y: -920
       width: 468
       height: 160
     choicePromptIndex: 0
@@ -111,19 +111,19 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 579, y: 1653}
-    dialogueText: 'What guarantee do we
+    dialogueText: '<link="stretch">What<space=40.66667px>guarantee<space=40.66667px>do<space=40.66667px>we<link="/stretch">
 
-      have once we''ve given
+      <link="stretch">have<space=43.66667px>once<space=43.66667px>we''ve<space=43.66667px>given<link="/stretch">
 
       you
       the Elemental Stars?'
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 832.5, y: -265}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 647.5
+      y: -54
       width: 777
       height: 211
     choicePromptIndex: 0
@@ -138,17 +138,16 @@ MonoBehaviour:
     position: {x: 233, y: 1653}
     dialogueText: 'Why would you deny us?
 
-      Don''t you want your
+      <link="stretch">Don''t<space=53.33333px>you<space=53.33333px>want<space=53.33333px>your<link="/stretch">
 
-      friends
-      to be safe?'
+      <link="stretch">friends<space=56.33333px>to<space=56.33333px>be<space=56.33333px>safe?<link="/stretch">'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1555, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1117
+      y: -869
       width: 735
       height: 211
     choicePromptIndex: 0
@@ -164,11 +163,11 @@ MonoBehaviour:
     dialogueText: "It looks like they've \nspotted us."
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1523, y: -637}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1116
+      y: -797
       width: 622
       height: 160
     choicePromptIndex: 0
@@ -189,10 +188,10 @@ MonoBehaviour:
       Stars!'
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 2, y: -211}
+      position: {x: 1760, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1211
       y: -0
       width: 707
       height: 211
@@ -214,10 +213,10 @@ MonoBehaviour:
       Stars!'
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1760, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1258
       y: -0
       width: 660
       height: 211
@@ -240,10 +239,10 @@ MonoBehaviour:
     dialogueText: Do you accept our terms?
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 1760, y: -108}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1136
       y: -0
       width: 782
       height: 108
@@ -256,17 +255,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 579, y: 1207}
+    position: {x: 563, y: 1207}
     dialogueText: 'Then give us the
 
       Elemental Stars!'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1760, y: -206}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1299
+      y: -46
       width: 552
       height: 160
     choicePromptIndex: 0
@@ -286,10 +285,10 @@ MonoBehaviour:
       your friends,'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1760, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1330
       y: -0
       width: 590
       height: 211
@@ -306,11 +305,11 @@ MonoBehaviour:
     dialogueText: Isn't that enough?
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 288, y: -812}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 199
+      y: -972
       width: 571
       height: 108
     choicePromptIndex: 0
@@ -325,17 +324,16 @@ MonoBehaviour:
     position: {x: 916, y: 874}
     dialogueText: 'They''ll be safe, as long
 
-      as they hand over
+      <link="stretch">as<space=56px>they<space=56px>hand<space=56px>over<link="/stretch">
 
-      the
-      Elemental Stars.'
+      <link="stretch">the<space=37.5px>Elemental<space=37.5px>Stars.<link="/stretch">'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 324, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 154
+      y: -869
       width: 697
       height: 211
     choicePromptIndex: 0
@@ -350,14 +348,14 @@ MonoBehaviour:
     position: {x: 579, y: 874}
     dialogueText: 'That all depends on how
 
-      well they cooperate.'
+      <link="stretch">well<space=63.5px>they<space=63.5px>cooperate.<link="/stretch">'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1636, y: -758}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1183
+      y: -918
       width: 735
       height: 160
     choicePromptIndex: 0
@@ -375,11 +373,11 @@ MonoBehaviour:
       agreement, was it not?'
     portrait:
       sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 768.5, y: -257}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 601.5
+      y: -97
       width: 707
       height: 160
     choicePromptIndex: 0
@@ -397,10 +395,10 @@ MonoBehaviour:
       You will not be hurt.'
     portrait:
       sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 344, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 220
       y: -0
       width: 627
       height: 160
@@ -418,14 +416,13 @@ MonoBehaviour:
 
       us in once they no
 
-      longer
-      need us!'
+      <link="stretch">longer<space=47px>need<space=47px>us!<link="/stretch">'
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1072, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 718
       y: -0
       width: 566
       height: 211
@@ -447,10 +444,10 @@ MonoBehaviour:
       Stars?'
     portrait:
       sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 739.5, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 624.5
       y: -0
       width: 669
       height: 211
@@ -464,18 +461,19 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 233, y: 527}
-    dialogueText: 'As I recall, aren''t
+    dialogueText: '<link="stretch">As<space=39px>I<space=39px>recall,<space=39px>aren''t<link="/stretch">
 
-      you the one who stole
+      you
+      the one who stole
 
       our information?'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 177, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 53
+      y: -869
       width: 650
       height: 211
     choicePromptIndex: 0
@@ -493,11 +491,11 @@ MonoBehaviour:
       calling us thieves?'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1517, y: -605}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1018
+      y: -765
       width: 796
       height: 160
     choicePromptIndex: 0
@@ -515,11 +513,11 @@ MonoBehaviour:
       the Elemental Stars!'
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1227, y: -237}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 828
+      y: -77
       width: 693
       height: 160
     choicePromptIndex: 0
@@ -534,16 +532,17 @@ MonoBehaviour:
     position: {x: 579, y: 1998}
     dialogueText: 'Ah, of course. A fine
 
-      idea... He will be
+      <link="stretch">idea...<space=54.66667px>He<space=54.66667px>will<space=54.66667px>be<link="/stretch">
 
-      our guarantee.'
+      our
+      guarantee.'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1488, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1091
+      y: -869
       width: 641
       height: 211
     choicePromptIndex: 0
@@ -561,11 +560,11 @@ MonoBehaviour:
       we have little choice.'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1556, y: -760}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1057
+      y: -920
       width: 805
       height: 160
     choicePromptIndex: 0
@@ -581,11 +580,11 @@ MonoBehaviour:
     dialogueText: Felix! Remove your mask!
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 1553, y: -761}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1053
+      y: -921
       width: 796
       height: 108
     choicePromptIndex: 0
@@ -603,11 +602,11 @@ MonoBehaviour:
       Isaac?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 0, y: -758}
     dialogueBox:
       serializedVersion: 2
       x: 0
-      y: -0
+      y: -918
       width: 725
       height: 160
     choicePromptIndex: 0
@@ -628,17 +627,17 @@ MonoBehaviour:
     position: {x: -1840, y: 2417}
     dialogueText: 'He called that guy Felix...
 
-      That''s what he said,
+      <link="stretch">That''s<space=65.33334px>what<space=65.33334px>he<space=65.33334px>said,<link="/stretch">
 
       isn''t
       it?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1535, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1057
+      y: -869
       width: 786
       height: 211
     choicePromptIndex: 0
@@ -656,11 +655,11 @@ MonoBehaviour:
       Felix? It can''t be...'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1488, y: -691}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1104
+      y: -851
       width: 590
       height: 160
     choicePromptIndex: 0
@@ -680,11 +679,11 @@ MonoBehaviour:
       It can''t be...'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1372, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1042
+      y: -869
       width: 538
       height: 211
     choicePromptIndex: 0
@@ -711,11 +710,11 @@ MonoBehaviour:
       we?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1477, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1019
+      y: -869
       width: 763
       height: 211
     choicePromptIndex: 0
@@ -727,17 +726,17 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: -621, y: 2309}
+    position: {x: -605, y: 2309}
     dialogueText: 'You remember it, too,
 
       Isaac?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1594, y: -707}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1181
+      y: -867
       width: 660
       height: 160
     choicePromptIndex: 0
@@ -749,7 +748,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: -255, y: 2309}
+    position: {x: -262, y: 2309}
     dialogueText: 'Then...what kind of
 
       guarantee are they
@@ -757,11 +756,11 @@ MonoBehaviour:
       giving us?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1596, y: -710}
     dialogueBox:
       serializedVersion: 2
-      x: 4
-      y: -0
+      x: 1180
+      y: -869
       width: 618
       height: 211
     choicePromptIndex: 0
@@ -782,10 +781,10 @@ MonoBehaviour:
       feel safe?'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1760, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1246
       y: -0
       width: 674
       height: 211
@@ -801,17 +800,17 @@ MonoBehaviour:
     position: {x: -393, y: 2729}
     dialogueText: 'We searched for weeks,
 
-      but we still couldn''t
+      <link="stretch">but<space=59.33333px>we<space=59.33333px>still<space=59.33333px>couldn''t<link="/stretch">
 
       find
       him.'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1487, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1038
+      y: -869
       width: 758
       height: 211
     choicePromptIndex: 0
@@ -829,11 +828,11 @@ MonoBehaviour:
       name  of  your  brother?'
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 1, y: -158}
+      position: {x: 1340, y: -628}
     dialogueBox:
       serializedVersion: 2
-      x: 1
-      y: -0
+      x: 887
+      y: -788
       width: 740
       height: 160
     choicePromptIndex: 0
@@ -851,11 +850,11 @@ MonoBehaviour:
       My   brother,   he...'
     portrait:
       sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 747, y: -634}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 660
+      y: -794
       width: 604
       height: 160
     choicePromptIndex: 0
@@ -871,11 +870,11 @@ MonoBehaviour:
     dialogueText: I'll do it.
     portrait:
       sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 703, y: -186}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 750
+      y: -78
       width: 294
       height: 108
     choicePromptIndex: 0
@@ -891,11 +890,11 @@ MonoBehaviour:
     dialogueText: I'll...take off my mask.
     portrait:
       sprite: {fileID: 21300000, guid: 2087e8f1b7d4eee46990739488bbb45c, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 749, y: -184}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 618
+      y: -76
       width: 674
       height: 108
     choicePromptIndex: 0
@@ -911,11 +910,11 @@ MonoBehaviour:
     dialogueText: <link="shake">I-It's not possible...</link>
     portrait:
       sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 761, y: -637}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 668
+      y: -797
       width: 608
       height: 108
     choicePromptIndex: 0
@@ -927,15 +926,15 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 916, y: 2730}
+    position: {x: 916, y: 2729}
     dialogueText: Is he...
     portrait:
       sprite: {fileID: 21300000, guid: dd0f050e015fe69468893c7fa5b5f3ed, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 1126, y: -492}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 950.5
+      y: -652
       width: 243
       height: 108
     choicePromptIndex: 0
@@ -953,10 +952,10 @@ MonoBehaviour:
       much grief, Jenna.'
     portrait:
       sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 665.5, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 512.5
       y: -0
       width: 693
       height: 160
@@ -975,10 +974,10 @@ MonoBehaviour:
       I survived that day...'
     portrait:
       sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 731.5, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 597.5
       y: -0
       width: 665
       height: 160
@@ -997,11 +996,11 @@ MonoBehaviour:
       who saved him.'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1473, y: -760}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1145
+      y: -920
       width: 519
       height: 160
     choicePromptIndex: 0
@@ -1014,7 +1013,7 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 916, y: 3052}
-    dialogueText: 'We say him floating
+    dialogueText: 'We saw him floating
 
       unconscious in the
 
@@ -1022,11 +1021,11 @@ MonoBehaviour:
       we passed.'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 357, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 230
+      y: -869
       width: 632
       height: 211
     choicePromptIndex: 0
@@ -1047,10 +1046,10 @@ MonoBehaviour:
       lot.'
     portrait:
       sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 665.5, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 530.5
       y: -0
       width: 763
       height: 211
@@ -1067,11 +1066,11 @@ MonoBehaviour:
     dialogueText: But why?
     portrait:
       sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 697, y: -561}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 754
+      y: -721
       width: 322
       height: 108
     choicePromptIndex: 0
@@ -1089,11 +1088,11 @@ MonoBehaviour:
       me all alone...'
     portrait:
       sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 731.5, y: -519}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 640.5
+      y: -679
       width: 571
       height: 160
     choicePromptIndex: 0
@@ -1109,11 +1108,11 @@ MonoBehaviour:
     dialogueText: Jenna...
     portrait:
       sprite: {fileID: 21300000, guid: 29fd4f6d7b8d9c747ae134cb0520c16b, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 685, y: -209}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 725
+      y: -101
       width: 280
       height: 108
     choicePromptIndex: 0
@@ -1131,11 +1130,11 @@ MonoBehaviour:
       I thought you were dead!'
     portrait:
       sprite: {fileID: 21300000, guid: 4cffc0224161299488e0967e4b9ca015, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 687, y: -591}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 521
+      y: -751
       width: 768
       height: 160
     choicePromptIndex: 0
@@ -1153,11 +1152,11 @@ MonoBehaviour:
       for later.'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1481, y: -760}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1027
+      y: -920
       width: 740
       height: 160
     choicePromptIndex: 0
@@ -1177,11 +1176,11 @@ MonoBehaviour:
       come first.'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 333, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 237
+      y: -869
       width: 650
       height: 211
     choicePromptIndex: 0
@@ -1193,15 +1192,15 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 916, y: 3742}
+    position: {x: 929, y: 3742}
     dialogueText: Is this acceptable?
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 1537, y: -707}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1171
+      y: -867
       width: 604
       height: 108
     choicePromptIndex: 0
@@ -1214,19 +1213,19 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 1253, y: 3742}
-    dialogueText: 'Felix would never
+    dialogueText: '<link="stretch">Felix<space=58.5px>would<space=58.5px>never<link="/stretch">
 
-      allow us to harm you...
+      allow
+      us to harm you...
 
-      or his
-      sister.'
+      or his sister.'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1546, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1174
+      y: -869
       width: 669
       height: 211
     choicePromptIndex: 0
@@ -1239,7 +1238,7 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: -640, y: 4193}
-    dialogueText: 'Felix will be our
+    dialogueText: 'Felix  will  be  our
 
       guarantee. Now, give us
 
@@ -1247,11 +1246,11 @@ MonoBehaviour:
       Elemental    Stars!'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 309, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 120
+      y: -869
       width: 744
       height: 211
     choicePromptIndex: 0
@@ -1272,17 +1271,17 @@ MonoBehaviour:
     position: {x: -294, y: 4193}
     dialogueText: 'We don''t have any choice.
 
-      Should we give them
+      <link="stretch">Should<space=62.33333px>we<space=62.33333px>give<space=62.33333px>them<link="/stretch">
 
       the
       Elemental Stars?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -0}
+      position: {x: 683.5, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 482.5
+      y: -869
       width: 777
       height: 211
     choicePromptIndex: 0
@@ -1303,11 +1302,11 @@ MonoBehaviour:
       Jenna go!'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 553.5, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 449.5
+      y: -869
       width: 669
       height: 211
     choicePromptIndex: 0
@@ -1327,11 +1326,11 @@ MonoBehaviour:
       to them.'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 598, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 479
+      y: -869
       width: 646
       height: 211
     choicePromptIndex: 0
@@ -1349,11 +1348,11 @@ MonoBehaviour:
       the Elemental Stars.'
     portrait:
       sprite: {fileID: 0}
-      position: {x: 0, y: -0}
+      position: {x: 472, y: -150}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 632
+      y: -310
       width: 650
       height: 160
     choicePromptIndex: 0
@@ -1374,10 +1373,10 @@ MonoBehaviour:
       Stars?'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1285, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 866
       y: -0
       width: 650
       height: 211
@@ -1396,11 +1395,11 @@ MonoBehaviour:
       Elemental Stars.'
     portrait:
       sprite: {fileID: 0}
-      position: {x: 0, y: -0}
+      position: {x: 521.5, y: -172}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 681.5
+      y: -332
       width: 543
       height: 160
     choicePromptIndex: 0
@@ -1418,10 +1417,10 @@ MonoBehaviour:
       You''re late!'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1760, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1518
       y: -0
       width: 402
       height: 160
@@ -1435,18 +1434,18 @@ MonoBehaviour:
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 233, y: 4841}
-    dialogueText: 'Alex   is   another   of
+    dialogueText: '<link="stretch">Alex<space=45.33333px>is<space=45.33333px>another<space=45.33333px>of<link="/stretch">
 
-      our companions. Hand
+      our
+      companions. Hand
 
-      the  
-      stones   to   him.'
+      <link="stretch">the<space=17.66667px><space=17.66667px><space=17.66667px>stones<space=17.66667px><space=17.66667px><space=17.66667px>to<space=17.66667px><space=17.66667px><space=17.66667px>him.<link="/stretch">'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1760, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1249
       y: -0
       width: 669
       height: 211
@@ -1465,11 +1464,11 @@ MonoBehaviour:
       all that work...'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 747.5, y: -623}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 589.5
+      y: -783
       width: 735
       height: 160
     choicePromptIndex: 0
@@ -1490,8 +1489,8 @@ MonoBehaviour:
       position: {x: 0, y: -0}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 634
+      y: -918
       width: 650
       height: 160
     choicePromptIndex: 0
@@ -1509,11 +1508,11 @@ MonoBehaviour:
       apologize in advance...'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1389, y: -237}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 970
+      y: -77
       width: 688
       height: 160
     choicePromptIndex: 0
@@ -1534,10 +1533,10 @@ MonoBehaviour:
       as well.'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1482, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 997
       y: -0
       width: 829
       height: 211
@@ -1554,11 +1553,11 @@ MonoBehaviour:
     dialogueText: Wait a second!
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 727, y: -477}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 727
+      y: -637
       width: 482
       height: 108
     choicePromptIndex: 0
@@ -1576,11 +1575,11 @@ MonoBehaviour:
       other one for you, too?'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 776, y: -617}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 607
+      y: -777
       width: 730
       height: 160
     choicePromptIndex: 0
@@ -1598,10 +1597,10 @@ MonoBehaviour:
       understand me?'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1332, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 966
       y: -0
       width: 524
       height: 160
@@ -1623,11 +1622,11 @@ MonoBehaviour:
       Elemental    Stars.'
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 757, y: -707}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 580
+      y: -867
       width: 758
       height: 211
     choicePromptIndex: 0
@@ -1643,11 +1642,11 @@ MonoBehaviour:
     dialogueText: You promised...
     portrait:
       sprite: {fileID: 21300000, guid: b349b438a041d3e45bafe80a88477080, type: 3}
-      position: {x: 0, y: -108}
+      position: {x: 761, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 679
+      y: -869
       width: 486
       height: 108
     choicePromptIndex: 0
@@ -1668,11 +1667,11 @@ MonoBehaviour:
       Elemental Stars!'
     portrait:
       sprite: {fileID: 21300000, guid: 98f6bfb8bf8af3549bbf9dcc232275d1, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1489, y: -709}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 1054
+      y: -869
       width: 796
       height: 211
     choicePromptIndex: 0
@@ -1696,11 +1695,11 @@ MonoBehaviour:
       us the last Star!'
     portrait:
       sprite: {fileID: 21300000, guid: 0acb9ec1afa08a94695d74f83f63cf8a, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 246, y: -760}
     dialogueBox:
       serializedVersion: 2
-      x: 0
-      y: -0
+      x: 84
+      y: -920
       width: 772
       height: 160
     choicePromptIndex: 0
@@ -1718,10 +1717,10 @@ MonoBehaviour:
       cooperation.'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1460, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1092
       y: -0
       width: 604
       height: 160
@@ -1740,19 +1739,19 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 1721, y: 5689}
+    position: {x: 1728, y: 5682}
     dialogueText: 'You don''t want anything
 
-      to happen to your
+      <link="stretch">to<space=76.66666px>happen<space=76.66666px>to<space=76.66666px>your<link="/stretch">
 
       friends,
       do you?'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1414, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 985
       y: -0
       width: 735
       height: 211
@@ -1771,10 +1770,10 @@ MonoBehaviour:
       the rest.'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -160}
+      position: {x: 1466, y: -160}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1079
       y: -0
       width: 618
       height: 160
@@ -1787,7 +1786,7 @@ MonoBehaviour:
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
-    position: {x: 2244, y: 6004}
+    position: {x: 2296, y: 6055}
     dialogueText: 'I doubt that''s how you
 
       really feel. I''ll ask you
@@ -1796,10 +1795,10 @@ MonoBehaviour:
       again.'
     portrait:
       sprite: {fileID: 21300000, guid: 1aeeb59d4131b8f46867c33f7f5c9d53, type: 3}
-      position: {x: 0, y: -211}
+      position: {x: 1460, y: -211}
     dialogueBox:
       serializedVersion: 2
-      x: 0
+      x: 1035
       y: -0
       width: 693
       height: 211

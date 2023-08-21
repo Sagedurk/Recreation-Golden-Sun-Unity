@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96c9a688cf3f3a4bae9ea3e66791a0c, type: 3}
   m_Name: DialogueEditorInstance
   m_EditorClassIdentifier: 
-  instanceName: Vale_NPC #3
+  instanceName: Vale_NPC #2

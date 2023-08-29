@@ -26,7 +26,21 @@ public class DialogueMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DialogueMasterElements instance = DialogueMasterElements.TryGetInstance();
         //ShowChoicePromt(Vector3.zero);
+        dialogueText.fontSize = instance.fontSize;
+        dialogueTextShadow.fontSize = dialogueText.fontSize;
+
+        Vector4 margins = instance.fontMargins;
+        dialogueText.margin = new Vector4(margins.x, margins.w, margins.z, margins.y);
+        dialogueTextShadow.margin = dialogueText.margin;
+                
+        dialogueTextShadow.rectTransform.anchoredPosition += instance.fontShadowDir * instance.fontSize * instance.fontShadowMag * 0.002f;
+
+        dialogueText.color = instance.fontColor;
+        dialogueTextShadow.color = instance.fontShadowColor;
+        //Left = posX, Top = posY
+        //Right = Width, Bottom = Height
     }
 
     // Update is called once per frame
@@ -100,7 +114,7 @@ public class DialogueMaster : MonoBehaviour
     {
         dialogueText.text = nodeToShow.dialogueText;
         dialogueTextShadow.text = nodeToShow.dialogueText;
-
+        
         
         dialogueBackground.rectTransform.sizeDelta = nodeToShow.dialogueBox.size;
         dialogueBackground.rectTransform.anchoredPosition = nodeToShow.dialogueBox.position;
@@ -192,9 +206,9 @@ public class DialogueMaster : MonoBehaviour
     
     private IEnumerator RenderText()
     {
-        bool isDependentOnCharacterLength = true;
+        bool isDependentOnCharacterLength = false;
         float renderSpeedInSeconds = 2f;
-        float renderSpeed = 0.2f;
+        float charactersPerSecond = 93.5f;
 
         dialogueText.ForceMeshUpdate();
         dialogueTextShadow.ForceMeshUpdate();
@@ -229,7 +243,7 @@ public class DialogueMaster : MonoBehaviour
             if(isDependentOnCharacterLength)
                 yield return new WaitForSeconds(1f / (textInfo.characterCount - whiteSpaceCounter) * renderSpeedInSeconds);
             else    
-                yield return new WaitForSeconds(renderSpeed);
+                yield return new WaitForSeconds(1 / charactersPerSecond);
         }
 
     }

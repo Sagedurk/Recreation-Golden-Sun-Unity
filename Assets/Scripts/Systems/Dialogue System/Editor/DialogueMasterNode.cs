@@ -63,7 +63,8 @@ public class DialogueMasterNode : Node
 
     //Port to DialogueMaster!
     int fontSize = 75;
-    Vector4 previewMargins = new Vector4(28, 25, 28, 28);       //Left, Bottom, Right, Top
+    //Vector4 previewMargins = new Vector4(28, 25, 28, 28);       //Left 28, Bottom 25, Right 28, Top 28
+    //Vector4 previewMargins = new Vector4(25, 26, 27, 28);       //Left 25, Bottom 26, Right 27, Top 28
     Color textColor = Color.white;
     Sprite backgroundImage;
 
@@ -160,11 +161,12 @@ public class DialogueMasterNode : Node
         //DialogueElementUtility.SetBorderWidth(ref previewText, 1);
 
 
-        DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, DialogueMasterElements.Instance.fontSize, previewMargins, Color.clear, textColor);
+        DialogueElementUtility.SetTextStyle(ref dialoguePreviewText, DialogueMasterElements.Instance.fontSize, DialogueMasterElements.Instance.fontMargins, Color.clear, DialogueMasterElements.Instance.fontColor);
 
         if(DialogueMasterElements.Instance.isShadowed)
-            DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, shadowColor, shadowDirection, DialogueMasterElements.Instance.fontSize * shadowMagnitude * 0.02f);
+            DialogueElementUtility.CreateDropShadow(ref dialoguePreviewText, DialogueMasterElements.Instance.fontShadowColor, DialogueMasterElements.Instance.fontShadowDir, DialogueMasterElements.Instance.fontSize * DialogueMasterElements.Instance.fontShadowMag * 0.002f);
 
+        Debug.Log(DialogueMasterElements.Instance.fontShadowMag);
         dialoguePreview.Add(dialoguePreviewText);
 
         DragAndDropManipulator boxManipulator = new DragAndDropManipulator(dialoguePreviewText, dialoguePreview);

@@ -69,11 +69,14 @@ public class Interactable : MonoBehaviour
     public void LoadDialogueData()
     {
         //Find better way to fucking find the damn file path
-        string path = "Assets/Scripts/Systems/Dialogue System/Editor/SaveData/";
+        string path = "Systems/Dialogue System/Data/";
+        //string path = "Assets/Scripts/Systems/Dialogue System/Editor/SaveData/";
 
-        string assetName = gameObject.scene.name + "_" + gameObject.name + ".asset";
+        string assetName = gameObject.scene.name + "_" + gameObject.name;// + ".asset";
 
-        DialogueEditorSaveData saveData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(path + assetName);
+
+        DialogueEditorSaveData saveData = Resources.Load<DialogueEditorSaveData>(path + assetName);
+        //DialogueEditorSaveData saveData = AssetDatabase.LoadAssetAtPath<DialogueEditorSaveData>(path + assetName);
 
         if (saveData == null)
             return;

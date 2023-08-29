@@ -12,8 +12,10 @@ public class DialogueMasterSaveData : ScriptableObject
     static string assetName = "Diamaster";
     static string resourceFolderName = "Resources";
 
+    
     public static void Save()
     {
+#if UNITY_EDITOR
         DialogueMasterSaveData saveData = CreateInstance<DialogueMasterSaveData>();
 
         saveData.dialogueMasterElements = DialogueMasterElements.Instance;
@@ -27,6 +29,7 @@ public class DialogueMasterSaveData : ScriptableObject
 
         AssetDatabase.CreateAsset(saveData, "Assets/" + resourceFolderName + "/" + folderName + "/" + assetName + ".asset");
         AssetDatabase.SaveAssets();
+#endif
     }
 
     public static void Load()

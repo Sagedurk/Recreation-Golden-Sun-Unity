@@ -88,10 +88,13 @@ public static class DialogueElementUtility      //Rename class, make it into a U
         TextField temporaryField = CreateTextArea(textElement.value);
         SetTextStyle(ref temporaryField, DialogueMasterElements.Instance.fontSize, GetStyleMargin(textElement.contentContainer[0]), Color.clear, shadowColor);
 
+        Vector3 shadowOffset = new Vector3(direction.x, -direction.y) * magnitude;
+        Debug.Log("Shadow Offset: " + shadowOffset);
 
         textElement.Add(temporaryField);
         temporaryField.StretchToParentWidth();
-        temporaryField.transform.position += new Vector3(direction.x, -direction.y) * magnitude;
+        temporaryField.transform.position -= Vector3.right * 3 + Vector3.up * 1;
+        temporaryField.transform.position += shadowOffset;
         temporaryField.focusable = false;
 
         InvertChildOrder(ref textElement);
@@ -121,7 +124,7 @@ public static class DialogueElementUtility      //Rename class, make it into a U
 
         #endregion
 
-        text.style.backgroundColor = backgroundColor;       //Remove background
+        text.style.backgroundColor = Color.clear;       //Remove background
         text.style.color = textColor;
         text.pickingMode = pickingMode;          //Remove pickability
 

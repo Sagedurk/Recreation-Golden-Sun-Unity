@@ -137,6 +137,7 @@ public class DialogueMasterWindow : EditorWindow
         fontShadowDirection.InitializeNormalized("Font Shadow Direction", true, Callback => 
         {
             DialogueMasterElements.Instance.fontShadowDir = fontShadowDirection.vector;
+            Debug.Log("Shadow Direction: " + DialogueMasterElements.Instance.fontShadowDir);
             DialogueMasterSaveData.Save();
         });
 

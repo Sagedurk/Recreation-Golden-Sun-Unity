@@ -16,22 +16,43 @@ MonoBehaviour:
   - nodeID: 46
     choices:
     - choiceName: New Choice
-      connectedNodeID: -1
+      connectedNodeID: 47
       requirementID: 0
       requirementValueCheck: 0
       requirementInvertedFlagCheck: 0
       requirementFunctionName: 
     position: {x: 273, y: 401}
-    dialogueText: "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit, \nsed
-      do eiusmod tempor incididunt \nut labore et dolore magna aliqua."
+    dialogueText: This is a FONT SIZE test
     portrait:
       sprite: {fileID: 0}
       position: {x: 0, y: -0}
     dialogueBox:
       serializedVersion: 2
-      x: 455.5
-      y: -407.5
-      width: 1007
-      height: 263
+      x: 0
+      y: -0
+      width: 786
+      height: 108
+    choicePromptIndex: 0
+  - nodeID: 47
+    choices:
+    - choiceName: New Choice
+      connectedNodeID: -1
+      requirementID: 0
+      requirementValueCheck: 0
+      requirementInvertedFlagCheck: 0
+      requirementFunctionName: 
+    position: {x: 616, y: 401}
+    dialogueText: 'It is indeed a test for
+
+      FONT SIZING! WOOO'
+    portrait:
+      sprite: {fileID: 0}
+      position: {x: 0, y: -0}
+    dialogueBox:
+      serializedVersion: 2
+      x: 0
+      y: -0
+      width: 683
+      height: 160
     choicePromptIndex: 0
   starterNodeID: 46

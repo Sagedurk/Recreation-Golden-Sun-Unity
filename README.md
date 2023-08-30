@@ -1,7 +1,7 @@
 # Recreation Golden Sun
-Recreating mechanics from Golden Sun for educational purposes, to improve my problem solving skills
+Recreating mechanics from Golden Sun for educational purposes, to improve my skills as a game programmer.
 </br>
-Developed primarily for PC with controller support, in **Unity 2020.2.7f1**
+Developed primarily for PC with controller support, in **Unity 2022.3.2f1**
 
 All code can be found in Assets/Scripts
 </br>
@@ -10,9 +10,10 @@ The most important scripts can be found in Assets/Scripts/Systems
 which is where you'll find *DialogueMaster*, *Interactable*, *InteractableEditor*, and *ChestMaster*
 
 ### Challenges
-* Replicating the UI animation in the in-game menu
-* Understanding how to write a custom editor
-* Not relying on any external sources other than documentation
+* Replicating UI as faithfully as possible
+* Purposefully relying on as few external sources as possible
+* Creating a tool and getting it to work as intended
+* Working with different UI systems at the same time
 
 ### Future plans
 * Creating a flag system and integrating it into the dialogue system
@@ -22,41 +23,59 @@ which is where you'll find *DialogueMaster*, *Interactable*, *InteractableEditor
 * Including more
 
 ## INSTALLATION INSTRUCTIONS
-Download Unity **2020.2.7f1** and open the project's root folder in Unity.
+### Showcase of the dialogue system can be found under Releases.
+The folder structure is divided into **Build**, **Controls**, **Dialogue Comparison**, and **Visual Samples**. </br>
+The **Build** folder contains a build of the project, showcasing the dialogue, accessed by running **Dialogue Showcase.exe** </br>
+The **Controls** folder contains a table over the input available in the build </br>
+The **Dialogue Comparison** folder contains a video comparing dialogue from Golden Sun with the replica in the build </br>
+The **Visual Samples** folder contains samples of how the system could be presented visually
+
+
+### If going through the whole project is desirable, follow the instructions below. </br>
+
+Download Unity Hub, and through it, Unity **2022.3.2f1** 
 </br>
-Before running it inside the Unity editor, go to Assets/Scenes and open the *Vale* scene.
+If a given version can't be found through Unity Hub, use the [Download Archive](https://unity.com/releases/editor/archive)
+</br>
+Open the project through Unity Hub
+</br>
+The scene *Vale* is currently used as a development scene, make sure *Vale* is the opened scene before playtesting
+</br>
+Scenes can be found under **Assets/Scenes**
 
 
 ## DIALOGUE SYSTEM
-While I do use Golden Sun's dialogue system as a base, I aim to expand upon it, making it applicable for other projects
+While I do use Golden Sun's dialogue system as a base, I aim to expand on it and make a system that is as adaptable as possible. </br>
 Assigning the editor-exposed variables in the *Dialogue Master* script allows the link between the dialogue system and in-game UI to work
 
+### Dialogue Node
+The system has undergone a major change due to an issue arising with the user experience of it. </br>
+Thus, the system is now node based, which allows for a much easier handling of branching dialogue. </br>
+A planned feature is to give each node the possibility to override global options, giving as much control to the user as possible.
 
-### Dialogue Instance
-The dialogue system is comprised of a list of dialogue Instances, with the instances being shown in order
-</br>
-An instance holds a *dialogue box*, *portrait*, and  *dialogue prompt*
+Each node consists of the text to be displayed, portrait, choices, box positioning, and a preview.
 
-### Dialogue Box
-The box has a position and size value, as well as the *dialogue text*
-</br>
-To give as much option as possible, I decided to do a 1:1 copy of Unity's text component
+### Global Options
+There are a handful of options that have been made global across the system. </br>
+These options include box background, portrait frame, font size, font color, margins, and shadow settings.
 
 ### Dialogue Portrait
-The portrait is an image to show when a major character is speaking
-</br>
-The portrait also has a position value, and a boolean to decide if the portrait should be shown
+The portrait no longer has a position value, but is bound to the outside boundaries of the box. </br>
+It also won't be shown if a sprite hasn't been assigned.
 
-### Dialogue Prompt
-The prompt will prompt a choice from the player, if active. The prompt includes sub-instances, allowing for dialogue branching
-</br>
-The choice names are dynamically created, but the system doesn't yet allow for the names to be displayed in-game
+### Dialogue Choices
+Each node always has at least 1 choice. A choice can be routed to any other dialogue node. </br>
+If a node has multiple choices, the player will be prompted to make a choice during runtime to choose branch. </br>
+Multiple choices can be routed to the same node, so dialogue can branch out and later merge again.
 
+<!--
 <img src="/Screenshots/Dialogue%20Editor.png" width="33%" height="33%" />
-
+-->
 
 </br>
 </br>
+
+## Miscellaneous
 
 ### CREDITS
 This project contains copyrighted material the use of which has not always been specifically authorized by the copyrighted owner

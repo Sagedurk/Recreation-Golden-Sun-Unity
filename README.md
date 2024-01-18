@@ -2,6 +2,11 @@
 Recreating mechanics from Golden Sun for educational purposes, to improve my skills as a game programmer.
 </br>
 Developed primarily for PC with controller support, in **Unity 2022.3.2f1**
+</br>
+### *This project may not receive further updates, due to the state of Unity as of writing </br> I aim to remake the dialogue system in another engine in the future*
+
+</br>
+</br>
 
 All code can be found in Assets/Scripts
 </br>
